@@ -53,6 +53,12 @@ Router::scope('/', function ($routes) {
      * ...and connect the rest of 'Pages' controller's URLs.
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+    $routes->connect('/cusine/*', ['controller' => 'Pages', 'action' => 'cusine']);
+    $routes->connect('/restaurants/dashboard', ['controller' => 'Restaurants', 'action' => 'dashboard']);
+    $routes->connect('/restaurants/menuManager', ['controller' => 'Restaurants', 'action' => 'menu_manager']);
+    $routes->connect('/restaurants/orders/*', ['controller' => 'Restaurants', 'action' => 'orders']);
+    $routes->connect('/restaurants/report/*', ['controller' => 'Restaurants', 'action' => 'report']);
+    $routes->connect('/restaurants/*', ['controller' => 'Restaurants', 'action' => 'index']);
 
     /**
      * Connect catchall routes for all controllers.

@@ -42,4 +42,9 @@ class PagesController extends AppController
        
         
     }
+    
+    public function cusine($slug)
+    {
+        $this->set('cusine', $slug);
+    }
 }

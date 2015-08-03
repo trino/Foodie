@@ -141,6 +141,7 @@ License: You must have a valid license purchased only from themeforest (the abov
                         <li><a href="shop-wishlist.html">My Wishlist</a></li>
                         <li><a href="shop-checkout.html">Checkout</a></li>
                         <li><a href="page-login.html">Log In</a></li>
+                        <li><a href="<?php echo $this->request->webroot;?>restaurants/dashboard">Dashboard</a></li>
                     </ul>
                 </div>
                 <!-- END TOP BAR MENU -->
@@ -280,68 +281,68 @@ License: You must have a valid license purchased only from themeforest (the abov
                   <div class="header-navigation-content">
                     <div class="row">
                       <div class="col-md-4 header-navigation-col">
-                        <h4>American</h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cusine/american">American</a></h4>
                         <ul>
-                          <li><a href="#">Restaurant 1</a></li>
-                          <li><a href="#">Restaurant 1</a></li>
-                          <li><a href="#">Restaurant 1</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 1</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 1</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 1</a></li>
                           
                         </ul>
-                        <h4>Asian</h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cusine/asian">Asian</a></h4>
                         <ul>
-                          <li><a href="#">Restaurant 2</a></li>
-                          <li><a href="#">Restaurant 2</a></li>
-                          <li><a href="#">Restaurant 2</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 2</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 2</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 2</a></li>
                           
                         </ul>
-                        <h4>Chinese</h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cusine/chinese">Chinese</a></h4>
                         <ul>
-                          <li><a href="#">Restaurant 3</a></li>
-                          <li><a href="#">Restaurant 3</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 3</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 3</a></li>
                           
                         </ul>
                       </div>
                       <div class="col-md-4 header-navigation-col">
                         
-                        <h4>German</h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cusine/german">German</a></h4>
                         <ul>
-                          <li><a href="#">Restaurant 4</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 4</a></li>
                           
                         </ul>
-                        <h4>Halal</h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cusine/halal">Halal</a></h4>
                         <ul>
-                          <li><a href="#">Restaurant 5</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>/restaurants/restaurant-1">Restaurant 5</a></li>
                           
                         </ul>
-                        <h4>Indian</h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cusine/indain">Indian</a></h4>
                         <ul>
-                          <li><a href="#">Restaurant 6</a></li>
-                          <li><a href="#">Restaurant 6</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 6</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 6</a></li>
                           
                         </ul>
-                        <h4>Italian</h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cusine/italian">Italian</a></h4>
                         <ul>
-                          <li><a href="#">Restaurant 7</a></li>
-                          <li><a href="#">Restaurant 7</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 7</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 7</a></li>
                         </ul>
                       </div>
                       <div class="col-md-4 header-navigation-col">
                         
 
                         
-                        <h4>Korean</h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cusine/korean">Korean</a></h4>
                         <ul>
-                          <li><a href="#">Restaurant 8</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 8</a></li>
                         </ul>
-                        <h4>Latin</h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cusine/latin">Latin</a></h4>
                         <ul>
-                          <li><a href="#">Restaurant 9</a></li>
-                          <li><a href="#">Restaurant 9</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 9</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 9</a></li>
                         </ul>
-                        <h4>North American</h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cusine/north-american">North American</a></h4>
                         <ul>
-                          <li><a href="#">Restaurant 10</a></li>
-                          <li><a href="#">Restaurant 10</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 10</a></li>
+                          <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 10</a></li>
                         </ul>
                       </div>
                       <div class="col-md-12 nav-brands">

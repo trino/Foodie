@@ -2181,3 +2181,507 @@ Stack Trace:
 #1 {main}
 
 
+2015-08-03 05:03:08 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Foodie could not be found.
+Exception Attributes: array (
+  'class' => 'Foodie',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Foodie/foodie/
+Stack Trace:
+#0 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-03 05:24:53 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Foodie could not be found.
+Exception Attributes: array (
+  'class' => 'Foodie',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Foodie/foodie/
+Stack Trace:
+#0 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-03 05:34:55 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Foodie could not be found.
+Exception Attributes: array (
+  'class' => 'Foodie',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Foodie/foodie/pages
+Stack Trace:
+#0 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-03 05:35:43 Error: Fatal Error (4): syntax error, unexpected '*' in [F:\wamp\www\Foodie\src\Controller\FoodieController.php, line 2]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 192
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 91
+[main] - [internal], line ??
+
+
+
+2015-08-03 05:35:43 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '*'
+Request URL: /Foodie/foodie/
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(91): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'F:\\wamp\\www\\Foo...', 2)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-08-03 05:36:47 Error: [Cake\Controller\Exception\MissingActionException] Action FoodieController::index() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'FoodieController',
+  'action' => 'index',
+  'prefix' => '',
+  'plugin' => NULL,
+)
+Request URL: /Foodie/foodie/
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\FoodieController))
+#2 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-08-03 05:37:03 Error: [Cake\Controller\Exception\MissingActionException] Action FoodieController::pages() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'FoodieController',
+  'action' => 'pages',
+  'prefix' => '',
+  'plugin' => NULL,
+)
+Request URL: /Foodie/foodie/pages/display
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\FoodieController))
+#2 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-08-03 05:38:09 Error: [Cake\View\Exception\MissingTemplateException] Template file "Foodie\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Foodie\\favicon.ico.ctp',
+)
+Request URL: /Foodie/foodie/display/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\FoodieController.php(32): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\FoodieController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\FoodieController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-03 05:38:12 Error: [Cake\View\Exception\MissingTemplateException] Template file "Foodie\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Foodie\\favicon.ico.ctp',
+)
+Request URL: /Foodie/foodie/display/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\FoodieController.php(32): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\FoodieController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\FoodieController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-03 05:49:08 Error: [Cake\View\Exception\MissingTemplateException] Template file "Foodie\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Foodie\\favicon.ico.ctp',
+)
+Request URL: /Foodie/foodie/display/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\FoodieController.php(32): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\FoodieController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\FoodieController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-03 06:57:49 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Shop-product-list.html could not be found.
+Exception Attributes: array (
+  'class' => 'Shop-product-list.html',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Foodie/shop-product-list.html
+Stack Trace:
+#0 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-03 06:58:33 Error: Fatal Error (4): syntax error, unexpected '}', expecting ';' or '{' in [F:\wamp\www\Foodie\src\Controller\PagesController.php, line 47]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 192
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 91
+[main] - [internal], line ??
+
+
+
+2015-08-03 06:58:33 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '}', expecting ';' or '{'
+Request URL: /Foodie/
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(91): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'F:\\wamp\\www\\Foo...', 47)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-08-03 08:14:24 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Cusine could not be found.
+Exception Attributes: array (
+  'class' => 'Cusine',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Foodie/cusine/american
+Stack Trace:
+#0 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-03 08:36:08 Error: [Cake\Controller\Exception\MissingActionException] Action RestaurantsController::restaurant-1() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'RestaurantsController',
+  'action' => 'restaurant-1',
+  'prefix' => '',
+  'plugin' => NULL,
+)
+Request URL: /Foodie/restaurants/restaurant-1
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\RestaurantsController))
+#2 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-08-03 08:43:52 Error: Fatal Error (1): Call to undefined function unfirst() in [F:\wamp\www\Foodie\src\Template\Restaurants\index.ctp, line 15]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 192
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 91
+[main] - [internal], line ??
+
+
+
+2015-08-03 08:43:52 Error: [Cake\Error\FatalErrorException] Call to undefined function unfirst()
+Request URL: /Foodie/restaurants/restaurant-1
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(91): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to undefin...', 'F:\\wamp\\www\\Foo...', 15)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-08-03 08:47:28 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Page-login.html could not be found.
+Exception Attributes: array (
+  'class' => 'Page-login.html',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Foodie/page-login.html
+Stack Trace:
+#0 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-03 09:10:33 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-03 09:10:38 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-03 09:11:00 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Shop-shopping-cart.html could not be found.
+Exception Attributes: array (
+  'class' => 'Shop-shopping-cart.html',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Foodie/shop-shopping-cart.html
+Stack Trace:
+#0 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-03 09:37:55 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Shop-index.html could not be found.
+Exception Attributes: array (
+  'class' => 'Shop-index.html',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Foodie/shop-index.html
+Stack Trace:
+#0 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-03 11:33:25 Error: [Cake\View\Exception\MissingElementException] Element\restaurant_menu.ctp
+Request URL: /Foodie/restaurants/dashboard
+Stack Trace:
+#0 F:\wamp\www\Foodie\src\Template\Restaurants\dashboard.ctp(13): Cake\View\View->element('restaurant_menu')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(834): include('F:\\wamp\\www\\Foo...')
+#2 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(794): Cake\View\View->_evaluate('F:\\wamp\\www\\Foo...', Array)
+#3 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(465): Cake\View\View->_render('F:\\wamp\\www\\Foo...')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render(NULL, NULL)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(120): Cake\Controller\Controller->render()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\RestaurantsController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-03 11:34:28 Error: [Cake\View\Exception\MissingHelperException] Helper class webrootHelper could not be found.
+Exception Attributes: array (
+  'class' => 'webrootHelper',
+  'plugin' => NULL,
+)
+Request URL: /Foodie/restaurants/dashboard
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Core\ObjectRegistry.php(91): Cake\View\HelperRegistry->_throwMissingClassError('webroot', NULL)
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\HelperRegistry.php(67): Cake\Core\ObjectRegistry->load('webroot')
+#2 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(751): Cake\View\HelperRegistry->__isset('webroot')
+#3 F:\wamp\www\Foodie\src\Template\Element\restaurant_menus.ctp(10): Cake\View\View->__get('webroot')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(834): include('F:\\wamp\\www\\Foo...')
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(794): Cake\View\View->_evaluate('F:\\wamp\\www\\Foo...', Array)
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(1161): Cake\View\View->_render('F:\\wamp\\www\\Foo...', Array)
+#7 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(376): Cake\View\View->_renderElement('F:\\wamp\\www\\Foo...', Array, Array)
+#8 F:\wamp\www\Foodie\src\Template\Restaurants\dashboard.ctp(13): Cake\View\View->element('restaurant_menu...')
+#9 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(834): include('F:\\wamp\\www\\Foo...')
+#10 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(794): Cake\View\View->_evaluate('F:\\wamp\\www\\Foo...', Array)
+#11 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(465): Cake\View\View->_render('F:\\wamp\\www\\Foo...')
+#12 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render(NULL, NULL)
+#13 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(120): Cake\Controller\Controller->render()
+#14 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\RestaurantsController))
+#15 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 {main}
+
+
+2015-08-03 12:01:48 Warning: Warning (2): Invalid argument supplied for foreach() in [F:\wamp\www\Foodie\src\Template\Restaurants\menu_manager.ctp, line 114]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\menu_manager.ctp, line 114
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-03 12:01:48 Warning: Warning (2): include(subpages/combo_menu.php) [<a href='http://php.net/function.include'>function.include</a>]: failed to open stream: No such file or directory in [F:\wamp\www\Foodie\src\Template\Restaurants\menu_manager.ctp, line 210]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\menu_manager.ctp, line 210
+include - APP/Template\Restaurants\menu_manager.ctp, line 210
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-03 12:01:48 Warning: Warning (2): include() [<a href='http://php.net/function.include'>function.include</a>]: Failed opening 'subpages/combo_menu.php' for inclusion (include_path='.;C:\php\pear') in [F:\wamp\www\Foodie\src\Template\Restaurants\menu_manager.ctp, line 210]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\menu_manager.ctp, line 210
+include - APP/Template\Restaurants\menu_manager.ctp, line 210
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-03 12:01:49 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Images could not be found.
+Exception Attributes: array (
+  'class' => 'Images',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Foodie/images/category/%3Cpre%20class=
+Stack Trace:
+#0 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-03 12:01:50 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Foodie/img/move.png
+Stack Trace:
+#0 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-03 12:10:08 Warning: Warning (2): include(subpages/combo_menu.php) [<a href='http://php.net/function.include'>function.include</a>]: failed to open stream: No such file or directory in [F:\wamp\www\Foodie\src\Template\Restaurants\menu_manager.ctp, line 251]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\menu_manager.ctp, line 251
+include - APP/Template\Restaurants\menu_manager.ctp, line 251
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-03 12:10:08 Warning: Warning (2): include() [<a href='http://php.net/function.include'>function.include</a>]: Failed opening 'subpages/combo_menu.php' for inclusion (include_path='.;C:\php\pear') in [F:\wamp\www\Foodie\src\Template\Restaurants\menu_manager.ctp, line 251]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\menu_manager.ctp, line 251
+include - APP/Template\Restaurants\menu_manager.ctp, line 251
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-03 12:10:09 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Foodie/img/move.png
+Stack Trace:
+#0 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-03 12:10:43 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Foodie/img/move.png
+Stack Trace:
+#0 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-03 12:11:58 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Foodie/img/move.png
+Stack Trace:
+#0 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-03 12:12:56 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Foodie/img/move.png
+Stack Trace:
+#0 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-03 12:18:43 Error: [Cake\Controller\Exception\MissingActionException] Action RestaurantsController::order() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'RestaurantsController',
+  'action' => 'order',
+  'prefix' => '',
+  'plugin' => NULL,
+)
+Request URL: /Foodie/restaurants/order/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\RestaurantsController))
+#2 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-08-03 12:18:51 Error: [Cake\Controller\Exception\MissingActionException] Action RestaurantsController::order() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'RestaurantsController',
+  'action' => 'order',
+  'prefix' => '',
+  'plugin' => NULL,
+)
+Request URL: /Foodie/restaurants/order/history
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\RestaurantsController))
+#2 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
