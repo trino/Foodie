@@ -591,8 +591,35 @@ License: You must have a valid license purchased only from themeforest (the abov
    
    
    <?= $this->Flash->render() ?>
+   <div class="main">
+        
+        
+
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="margin-bottom-40">
+          <!-- BEGIN SIDEBAR -->
+          <?php //include('common/sidebar.php');
+           echo $this->element('sidebar');
+          ?>
+          <!-- END SIDEBAR -->
+          <!-- BEGIN CONTENT -->
+         
+            
+          <?= $this->fetch('content') ?>
+       
+          <!-- END CONTENT -->
+          
+         
+          
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+
+        
+
+    </div>
+
+    
    
-    <?= $this->fetch('content') ?>
    
    
    

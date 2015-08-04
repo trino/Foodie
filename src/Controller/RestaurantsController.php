@@ -33,20 +33,21 @@ class RestaurantsController extends AppController
     }
     public function dashboard()
     {
-        
+        $this->layout='admin';
     }
     
     public function menu_manager()
     {
-        
+        $this->layout='admin';
     }
     public function report()
     {
-        
+        $this->layout='admin';
     }
     
     public function orders($type='history')
     {
+        $this->layout='admin';
         $this->set('type',$type);
     }
 }

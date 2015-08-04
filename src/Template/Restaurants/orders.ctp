@@ -1,15 +1,13 @@
-<div class="container ">
-    <!-- Big banner -->
-    <div class="row " style="padding-top: 20px;">
+ <div class="row " style="padding-top: 20px;">
         <div class="col-xs-12">
             <div class="">
                 <!--div class="banners--big">
-Welcome, <?php echo $this->Session->read('name');?>
+Welcome, test
 </div-->
             </div>
         </div>
     </div>
-  <div class="row">
+  <div class="col-md-12">
     <?php echo $this->element('restaurant_menus');?>
     <div class="col-xs-12  col-sm-9">
       <div class="grid">
@@ -120,5 +118,4 @@ Welcome, <?php echo $this->Session->read('name');?>
         </div><?php */?>
       </div>
     </div>
-  </div>
-</div>
+  

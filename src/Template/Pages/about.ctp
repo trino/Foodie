@@ -1,16 +1,19 @@
-<div class="main">
-      <div class="container">
-        <ul class="breadcrumb">
+
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        
+          <!-- BEGIN CONTENT -->
+          <div class="col-md-10 col-sm-12">
+         
+            <div class="content-page">
+             
+            
+            <h1 class="">About Us</h1>
+             <!--ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
             <li><a href="#">Pages</a></li>
             <li class="active">About Us</li>
-        </ul>
-        <!-- BEGIN SIDEBAR & CONTENT -->
-        <div class="row margin-bottom-40">
-          <!-- BEGIN CONTENT -->
-          <div class="col-md-12 col-sm-12">
-            <h1>About Us</h1>
-            <div class="content-page">
+        </ul-->
+            <hr />
               <div class="row margin-bottom-30">
                 <!-- BEGIN INFO BLOCK -->               
                 <div class="col-md-7">
@@ -210,7 +213,5 @@
             </div>
           </div>
           <!-- END CONTENT -->
-        </div>
-        <!-- END SIDEBAR & CONTENT -->
-      </div>
-    </div>
+       
+     

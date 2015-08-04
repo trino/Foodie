@@ -2,18 +2,18 @@
   <link href="<?php echo $this->request->webroot;?>assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
   <link href="<?php echo $this->request->webroot;?>assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin styles END -->
-<div class="main">
-      <div class="container">
-        <ul class="breadcrumb">
+
+        <!--ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
             <li><a href="#">Pages</a></li>
             <li class="active">Contacts</li>
-        </ul>
-        <div class="row margin-bottom-40">
+        </ul-->
+       
           <!-- BEGIN CONTENT -->
-          <div class="col-md-12">
-            <h1>Contacts</h1>
+          <div class="col-md-10">
+            
             <div class="content-page">
+            <h1>Contacts</h1>
               <div class="row">
                 <div class="col-md-12">
                   <div id="map" class="gmaps margin-bottom-40" style="height:400px;"></div>
@@ -75,9 +75,8 @@
             </div>
           </div>
           <!-- END CONTENT -->
-        </div>
-      </div>
-    </div>
+        
+     
     
     <!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
     <script src="<?php echo $this->request->webroot;?>assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script><!-- pop up -->

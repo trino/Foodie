@@ -1,15 +1,13 @@
-<div class="container ">
-<!-- Big banner -->
-<div class="row " style="padding-top: 20px;">
-<div class="col-xs-12">
-<div class="">
-<!--div class="banners--big">
-Welcome, <?php echo $this->Session->read('name');?>
+ <div class="row " style="padding-top: 20px;">
+        <div class="col-xs-12">
+            <div class="">
+                <!--div class="banners--big">
+Welcome, test
 </div-->
-</div>
-</div>
-</div>
-<div class="row">
+            </div>
+        </div>
+    </div>
+  <div class="col-md-12">
 <?php echo $this->element('restaurant_menus');?>
 <div class="col-xs-12  col-sm-9">
 <div class="grid">
@@ -244,26 +242,17 @@ Start by adding a Category
  </li>
 
 </ul>
-
-
-
-
-
-
 </div>
 </div>
 
 </div>
-
-
 <div class="clearfix  hidden-xs"></div>
 </div>
 <hr class="shop__divider">
 
 </div>
 </div>
-</div>
-</div>
+
 
 <script>
 function clear_all(cat_id)

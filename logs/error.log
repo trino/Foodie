@@ -2698,3 +2698,393 @@ Stack Trace:
 #1 {main}
 
 
+2015-08-04 11:11:18 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:12:14 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:12:15 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:17:55 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:17:56 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:18:05 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:19:34 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:19:35 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:22:09 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:22:10 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:23:35 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:23:35 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:24:07 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:24:07 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:24:20 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:24:21 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:24:45 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:24:47 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:26:07 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:26:08 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:26:52 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:26:53 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pages\favicon.ico.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pages\\favicon.ico.ctp',
+)
+Request URL: /Foodie/pages/favicon.ico
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\View.php(462): Cake\View\View->_getViewFileName('favicon.ico')
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(582): Cake\View\View->render('favicon.ico', NULL)
+#2 F:\wamp\www\Foodie\src\Controller\PagesController.php(41): Cake\Controller\Controller->render('favicon.ico')
+#3 [internal function]: App\Controller\PagesController->display('favicon.ico')
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(411): call_user_func_array(Array, Array)
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PagesController))
+#7 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-08-04 11:31:56 Error: Fatal Error (1): Call to undefined method App\Controller\RestaurantsController::layout() in [F:\wamp\www\Foodie\src\Controller\RestaurantsController.php, line 36]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 192
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 91
+[main] - [internal], line ??
+
+
+
+2015-08-04 11:31:56 Error: [Cake\Error\FatalErrorException] Call to undefined method App\Controller\RestaurantsController::layout()
+Request URL: /Foodie/restaurants/dashboard
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(91): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to undefin...', 'F:\\wamp\\www\\Foo...', 36)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+

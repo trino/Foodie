@@ -2065,3 +2065,373 @@ Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
 
 
 
+2015-08-04 11:29:06 Notice: Notice (8): Undefined variable: res in [F:\wamp\www\Foodie\src\Template\Restaurants\dashboard.ctp, line 69]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\dashboard.ctp, line 69
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:31:16 Notice: Notice (8): Undefined variable: res in [F:\wamp\www\Foodie\src\Template\Restaurants\dashboard.ctp, line 69]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\dashboard.ctp, line 69
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:32:29 Notice: Notice (8): Undefined variable: res in [F:\wamp\www\Foodie\src\Template\Restaurants\dashboard.ctp, line 69]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\dashboard.ctp, line 69
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:32:48 Notice: Notice (8): Undefined variable: res in [F:\wamp\www\Foodie\src\Template\Restaurants\dashboard.ctp, line 69]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\dashboard.ctp, line 69
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:33:26 Notice: Notice (8): Undefined variable: res in [F:\wamp\www\Foodie\src\Template\Restaurants\dashboard.ctp, line 69]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\dashboard.ctp, line 69
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:34:06 Notice: Notice (8): Undefined variable: res in [F:\wamp\www\Foodie\src\Template\Restaurants\dashboard.ctp, line 61]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\dashboard.ctp, line 61
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:34:41 Notice: Notice (8): Undefined variable: res in [F:\wamp\www\Foodie\src\Template\Restaurants\dashboard.ctp, line 69]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\dashboard.ctp, line 69
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:35:43 Notice: Notice (8): Undefined variable: res in [F:\wamp\www\Foodie\src\Template\Restaurants\dashboard.ctp, line 69]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\dashboard.ctp, line 69
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:35:53 Notice: Notice (8): Undefined variable: res in [F:\wamp\www\Foodie\src\Template\Restaurants\dashboard.ctp, line 69]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\dashboard.ctp, line 69
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:36:54 Notice: Notice (8): Undefined variable: res in [F:\wamp\www\Foodie\src\Template\Restaurants\dashboard.ctp, line 69]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\dashboard.ctp, line 69
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:37:18 Notice: Notice (8): Undefined variable: res in [F:\wamp\www\Foodie\src\Template\Restaurants\dashboard.ctp, line 69]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\dashboard.ctp, line 69
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:37:50 Notice: Notice (8): Undefined variable: res in [F:\wamp\www\Foodie\src\Template\Restaurants\dashboard.ctp, line 69]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\dashboard.ctp, line 69
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:38:08 Notice: Notice (8): Undefined variable: res in [F:\wamp\www\Foodie\src\Template\Restaurants\dashboard.ctp, line 69]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\dashboard.ctp, line 69
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:38:14 Notice: Deprecated (16384): SessionHelper has been deprecated. Use request->session() instead. in [F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\Helper\SessionHelper.php, line 39]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+Cake\View\Helper\SessionHelper::__construct() - CORE\src\View\Helper\SessionHelper.php, line 39
+Cake\View\HelperRegistry::_create() - CORE\src\View\HelperRegistry.php, line 143
+Cake\Core\ObjectRegistry::load() - CORE\src\Core\ObjectRegistry.php, line 93
+Cake\View\HelperRegistry::__isset() - CORE\src\View\HelperRegistry.php, line 67
+Cake\View\View::__get() - CORE\src\View\View.php, line 751
+include - APP/Template\Restaurants\menu_manager.ctp, line 7
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:38:14 Notice: Notice (8): Undefined variable: cats in [F:\wamp\www\Foodie\src\Template\Restaurants\menu_manager.ctp, line 91]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\menu_manager.ctp, line 91
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:38:14 Notice: Notice (8): Undefined variable: cats in [F:\wamp\www\Foodie\src\Template\Restaurants\menu_manager.ctp, line 137]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\menu_manager.ctp, line 137
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:38:14 Notice: Notice (8): Undefined variable: cats in [F:\wamp\www\Foodie\src\Template\Restaurants\menu_manager.ctp, line 183]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\menu_manager.ctp, line 183
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:38:14 Notice: Notice (8): Undefined variable: cats in [F:\wamp\www\Foodie\src\Template\Restaurants\menu_manager.ctp, line 229]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\menu_manager.ctp, line 229
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:39:12 Notice: Notice (8): Undefined variable: cats in [F:\wamp\www\Foodie\src\Template\Restaurants\menu_manager.ctp, line 89]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\menu_manager.ctp, line 89
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:39:12 Notice: Notice (8): Undefined variable: cats in [F:\wamp\www\Foodie\src\Template\Restaurants\menu_manager.ctp, line 135]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\menu_manager.ctp, line 135
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:39:12 Notice: Notice (8): Undefined variable: cats in [F:\wamp\www\Foodie\src\Template\Restaurants\menu_manager.ctp, line 181]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\menu_manager.ctp, line 181
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:39:12 Notice: Notice (8): Undefined variable: cats in [F:\wamp\www\Foodie\src\Template\Restaurants\menu_manager.ctp, line 227]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Restaurants\menu_manager.ctp, line 227
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:39:44 Notice: Deprecated (16384): SessionHelper has been deprecated. Use request->session() instead. in [F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\Helper\SessionHelper.php, line 39]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+Cake\View\Helper\SessionHelper::__construct() - CORE\src\View\Helper\SessionHelper.php, line 39
+Cake\View\HelperRegistry::_create() - CORE\src\View\HelperRegistry.php, line 143
+Cake\Core\ObjectRegistry::load() - CORE\src\Core\ObjectRegistry.php, line 93
+Cake\View\HelperRegistry::__isset() - CORE\src\View\HelperRegistry.php, line 67
+Cake\View\View::__get() - CORE\src\View\View.php, line 751
+include - APP/Template\Restaurants\orders.ctp, line 7
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:39:45 Notice: Deprecated (16384): SessionHelper has been deprecated. Use request->session() instead. in [F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\Helper\SessionHelper.php, line 39]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+Cake\View\Helper\SessionHelper::__construct() - CORE\src\View\Helper\SessionHelper.php, line 39
+Cake\View\HelperRegistry::_create() - CORE\src\View\HelperRegistry.php, line 143
+Cake\Core\ObjectRegistry::load() - CORE\src\Core\ObjectRegistry.php, line 93
+Cake\View\HelperRegistry::__isset() - CORE\src\View\HelperRegistry.php, line 67
+Cake\View\View::__get() - CORE\src\View\View.php, line 751
+include - APP/Template\Restaurants\orders.ctp, line 7
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-08-04 11:40:12 Notice: Deprecated (16384): SessionHelper has been deprecated. Use request->session() instead. in [F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\View\Helper\SessionHelper.php, line 39]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+Cake\View\Helper\SessionHelper::__construct() - CORE\src\View\Helper\SessionHelper.php, line 39
+Cake\View\HelperRegistry::_create() - CORE\src\View\HelperRegistry.php, line 143
+Cake\Core\ObjectRegistry::load() - CORE\src\Core\ObjectRegistry.php, line 93
+Cake\View\HelperRegistry::__isset() - CORE\src\View\HelperRegistry.php, line 67
+Cake\View\View::__get() - CORE\src\View\View.php, line 751
+include - APP/Template\Restaurants\report.ctp, line 7
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::render() - CORE\src\View\View.php, line 465
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
