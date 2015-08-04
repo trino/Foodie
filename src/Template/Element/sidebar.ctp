@@ -1,4 +1,4 @@
-<div class="sidebar col-md-3 col-sm-4">
+<div class="sidebar col-md-2 col-sm-4">
 
             <ul class="list-group margin-bottom-25 sidebar-menu">
               <li class="list-group-item clearfix"><a href="<?php echo $this->request->webroot;?>cusine/american"><i class="fa fa-angle-right"></i> American</a></li>

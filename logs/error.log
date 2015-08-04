@@ -2685,3 +2685,16 @@ Stack Trace:
 #3 {main}
 
 
+2015-08-04 10:03:21 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Shop-index.html could not be found.
+Exception Attributes: array (
+  'class' => 'Shop-index.html',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Foodie/shop-index.html
+Stack Trace:
+#0 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
