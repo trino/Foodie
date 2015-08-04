@@ -210,21 +210,45 @@ License: You must have a valid license purchased only from themeforest (the abov
                     <fieldset>
                       <legend>Your personal details</legend>
                       <div class="form-group">
-                        <label class="col-lg-4 control-label" for="firstname">First Name <span class="require">*</span></label>
+                        <label class="col-lg-4 control-label" for="firstname">Restaurant Name <span class="require">*</span></label>
                         <div class="col-lg-8">
                           <input type="text" id="firstname" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-4 control-label" for="lastname">Last Name <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" id="lastname" class="form-control">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-4 control-label" for="email">Email <span class="require">*</span></label>
                         <div class="col-lg-8">
                           <input type="text" id="email" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-4 control-label" for="lastname">Street Address <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" id="lastname" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-4 control-label" for="lastname">City<span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" id="lastname" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-4 control-label" for="lastname">State/Province <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" id="lastname" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-4 control-label" for="lastname">Postal Code<span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" id="lastname" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-4 control-label" for="lastname">Phone<span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" id="lastname" class="form-control">
                         </div>
                       </div>
                     </fieldset>
