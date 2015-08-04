@@ -71,6 +71,7 @@ License: You must have a valid license purchased only from themeforest (the abov
     <script src="<?php echo $this->request->webroot;?>assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
     <script src="<?php echo $this->request->webroot;?>assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>      
     <script src="<?php echo $this->request->webroot;?>assets/frontend/layout/scripts/back-to-top.js" type="text/javascript"></script>
+     <script src="<?php echo $this->request->webroot;?>assets/frontend/layout/scripts/sample.js" type="text/javascript"></script>
     <script src="<?php echo $this->request->webroot;?>assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- END CORE PLUGINS -->
 </head>
@@ -140,11 +141,150 @@ License: You must have a valid license purchased only from themeforest (the abov
                         <li><a href="shop-account.html">My Account</a></li>
                         <li><a href="shop-wishlist.html">My Wishlist</a></li>
                         <li><a href="shop-checkout.html">Checkout</a></li>
-                        <li><a href="page-login.html">Log In</a></li>
+                        <li><a href="#login-pop-up" class="fancybox-fast-view">Log In</a></li>
                         <li><a href="<?php echo $this->request->webroot;?>restaurants/dashboard">Dashboard</a></li>
                     </ul>
                 </div>
                 <!-- END TOP BAR MENU -->
+            </div>
+            <div id="login-pop-up" style="display:none;">
+               <div class="login-pop-up">
+               
+               <div class="col-md-12 col-sm-12 col-xs-12">
+               <div class="login-form">
+               <h1>Login</h1>
+               <form role="form" class="form-horizontal form-without-legend">
+                            <div class="form-group">
+                              <label class="col-lg-4 control-label" for="email">Email <span class="require">*</span></label>
+                              <div class="col-lg-8">
+                                <input type="text" id="email" class="form-control">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-lg-4 control-label" for="password">Password <span class="require">*</span></label>
+                              <div class="col-lg-8">
+                                <input type="text" id="password" class="form-control">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-8 col-md-offset-4 padding-left-0">
+                                <a href="#forget-passsword" class="fancybox-fast-view">Forget Password?</a>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                                <button class="btn btn-primary" type="submit">Login</button>
+                              </div>
+                              </div>
+                              <div class="col-md-6">
+                              <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                                <a href="#registration-form" class="btn btn-primary fancybox-fast-view" type="button">Sign Up</a>
+                              </div>
+                            </div>
+                            <div class="clearfix"></div>
+                          </form>
+               </div>
+              
+               </div>
+        
+              </div>
+      </div>
+      <div id="forget-passsword" style="display: none;">
+          <h1>Forgot Your Password?</h1>
+          <form role="form" class="form-horizontal form-without-legend">                    
+            <div class="form-group col-md-12">
+              <label class="col-lg-4 control-label" for="email">Email</label>
+              <div class="col-lg-8">
+                <input type="text" id="email" class="form-control">
+              </div>
+            </div>
+           
+              <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-5">
+                <button class="btn btn-primary" type="submit">Send</button>
+              </div>
+          
+          </form>
+     </div>
+        <div id="registration-form"class="col-md-12" style="display: none;">
+            <form role="form" class="form-horizontal">
+                    <fieldset>
+                      <legend>Your personal details</legend>
+                      <div class="form-group">
+                        <label class="col-lg-4 control-label" for="firstname">Restaurant Name <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" id="firstname" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-4 control-label" for="email">Email <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" id="email" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-4 control-label" for="lastname">Street Address <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" id="lastname" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-4 control-label" for="lastname">City<span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" id="lastname" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-4 control-label" for="lastname">State/Province <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" id="lastname" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-4 control-label" for="lastname">Postal Code<span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" id="lastname" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-4 control-label" for="lastname">Phone<span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" id="lastname" class="form-control">
+                        </div>
+                      </div>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Your password</legend>
+                      <div class="form-group">
+                        <label class="col-lg-4 control-label" for="password">Password <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" id="password" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-lg-4 control-label" for="confirm-password">Confirm password <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" id="confirm-password" class="form-control">
+                        </div>
+                      </div>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Newsletter</legend>
+                      <div class="checkbox form-group">
+                        <label>
+                          <div class="col-lg-4 col-sm-4">Singup for Newsletter</div>
+                          <div class="col-lg-8 col-sm-8">
+                            <div class="checker"><span><input type="checkbox"></span></div>
+                          </div>
+                        </label>
+                      </div>
+                    </fieldset>
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">                        
+                        <button class="btn btn-primary" type="submit">Create an account</button>
+                        <button class="btn btn-default" type="button">Cancel</button>
+                      </div>
+                    </div>
+                  </form>
             </div>
         </div>        
     </div>
@@ -156,7 +296,7 @@ License: You must have a valid license purchased only from themeforest (the abov
         <a class="site-logo" href="shop-index.html"><img src="<?php echo $this->request->webroot;?>assets/frontend/layout/img/logos/logo-shop-red.png" alt="Metronic Shop UI"></a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
-
+        
         <!-- BEGIN CART -->
         <div class="top-cart-block">
           <div class="top-cart-info">
@@ -475,7 +615,35 @@ License: You must have a valid license purchased only from themeforest (the abov
    
    
    <?= $this->Flash->render() ?>
-    <?= $this->fetch('content') ?>
+   <div class="main">
+        
+        
+
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="margin-bottom-40">
+          <!-- BEGIN SIDEBAR -->
+          <?php //include('common/sidebar.php');
+           echo $this->element('sidebar');
+          ?>
+          <!-- END SIDEBAR -->
+          <!-- BEGIN CONTENT -->
+         
+            
+          <?= $this->fetch('content') ?>
+       
+          <!-- END CONTENT -->
+          
+         
+          
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+
+        
+
+    </div>
+
+    
+   
    
    
    
@@ -681,6 +849,85 @@ Nostrud duis molestie at dolore.</p>
               </div>
             </div>
     </div>
+    
+        <!-- BEGIN CART -->
+        <div class="bottom-cart">
+          <div class="top-cart-info">
+            <a href="javascript:void(0);" class="top-cart-info-count">3 items</a>
+            <a href="javascript:void(0);" class="top-cart-info-value">$1260</a>
+          </div>
+          <i class="fa fa-shopping-cart clickable" onclick="showHide('sub2')"></i>
+                        
+          <div class="top-cart-content-wrapper">
+            <div class="top-cart-content" id="sub2">
+              <ul class="scroller" style="height: 250px;">
+                <li>
+                  <a href="shop-item.html"><img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <span class="cart-content-count">x 1</span>
+                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <em>$1230</em>
+                  <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+                </li>
+                <li>
+                  <a href="shop-item.html"><img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <span class="cart-content-count">x 1</span>
+                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <em>$1230</em>
+                  <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+                </li>
+                <li>
+                  <a href="shop-item.html"><img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <span class="cart-content-count">x 1</span>
+                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <em>$1230</em>
+                  <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+                </li>
+                <li>
+                  <a href="shop-item.html"><img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <span class="cart-content-count">x 1</span>
+                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <em>$1230</em>
+                  <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+                </li>
+                <li>
+                  <a href="shop-item.html"><img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <span class="cart-content-count">x 1</span>
+                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <em>$1230</em>
+                  <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+                </li>
+                <li>
+                  <a href="shop-item.html"><img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <span class="cart-content-count">x 1</span>
+                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <em>$1230</em>
+                  <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+                </li>
+                <li>
+                  <a href="shop-item.html"><img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <span class="cart-content-count">x 1</span>
+                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <em>$1230</em>
+                  <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+                </li>
+                <li>
+                  <a href="shop-item.html"><img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <span class="cart-content-count">x 1</span>
+                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <em>$1230</em>
+                  <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+                </li>
+              </ul>
+              <div class="text-right">
+                <a href="shop-shopping-cart.html" class="btn btn-default">View Cart</a>
+                <a href="shop-checkout.html" class="btn btn-primary">Checkout</a>
+              </div>
+            </div>
+          </div>            
+        </div>
+        <!--END CART -->
+    
+    
     <!-- END fast view of a product -->
 
     <!-- Load javascripts at bottom, this will reduce page load time -->

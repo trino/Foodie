@@ -1,26 +1,9 @@
-<div class="main">
-      <div class="container">
-        
-        
-
-        <!-- BEGIN SIDEBAR & CONTENT -->
-        <div class="row margin-bottom-40 ">
-          <!-- BEGIN SIDEBAR -->
-          <?php //include('common/sidebar.php');
-           echo $this->element('sidebar');
-          ?>
-          <!-- END SIDEBAR -->
-          <!-- BEGIN CONTENT -->
-          <div class="col-md-9 col-sm-8">
-            <h2 ><a href="#"><?php echo ucfirst(str_replace('-',' ',$restaurant));?></a> Menus</h2>
-            <?php echo $this->element('menus');?>
-            
-            
-          </div>
-          <!-- END CONTENT -->
+<div class="col-md-8 col-sm-4">    
+    <h2 class="col-md-12"><a href="#"><?php echo ucfirst(str_replace('-',' ',$restaurant));?></a> Menus</h2>
+    <?php echo $this->element('menus');?>
+</div>
+ <!-- BEGIN CART -->
+        <div class="top-cart-block col-md-2 col-sm-4">
+            <?php echo $this->element('receipt');?>           
         </div>
-        <!-- END SIDEBAR & CONTENT -->
-
-        
-      </div>
-    </div>
+        <!--END CART -->

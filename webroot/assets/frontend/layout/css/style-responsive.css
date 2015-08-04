@@ -1,3 +1,11 @@
+/* BEGIN max width 1400px */
+@media (max-width: 1400px) {
+  .ecommerce .main .top-cart-content strong {
+    font-weight: normal;
+    width: 50px;
+}  
+}
+
 /* BEGIN max width 1200px */
 @media (max-width: 1200px) {
 	.content-form-page .control-label {
@@ -14,6 +22,22 @@
 	.quote-v1 span {
 		font-size: 20px;
 	}
+    
+   .ecommerce .main  .top-cart-info {
+    padding: 8px 10px 6px 13px;
+}
+
+.fb-page.fb_iframe_widget iframe {
+    width: 100% !important;
+}
+
+      .ecommerce .main .top-cart-content .btn-default {
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: 0;
+    vertical-align: top;
+}  
+    
 }
 /* END max width 1200px */
 
@@ -75,6 +99,12 @@
 	.header .header-navigation li.menu-search i {
 		top: -4px;
 	}
+    
+    .ecommerce .main .top-cart-content .btn-default {
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: 0;
+}
 }
 /* END min width 1025px max width 1205 */
 
@@ -84,10 +114,10 @@
 		padding-top: 107px !important; /* height of the header */
 	}
 
-	.header .mobi-toggler {
+	.header .mobi-toggler, .fixed-header .mobi-toggler {
 		display: block;
 	}
-	.header .header-navigation {
+	.header .header-navigation, .fixed-header .header-navigation {
 		float: none !important;		
 		display: none;
 		clear: both;
@@ -96,7 +126,7 @@
 		margin: 0 -20px 25px;
 		font-size: 16px;
 	}
-	.header .header-navigation li {
+	.header .header-navigation li, .fixed-header .header-navigation li  {
 		float: none;
 		padding: 0;
 		clear: both;
@@ -111,14 +141,40 @@
 		color: #666 !important;
 		background: none !important;
 	}
+    
+    	.fixed-header .header-navigation li > a,
+	.fixed-header .dropdown.open .dropdown-toggle,
+	.fixed-header .header-navigation li.open > a {
+		border-bottom: 1px solid #efefef !important;
+		padding: 8px 10px 9px !important;
+		margin: 0 -10px;
+		position: relative;
+		color: #666 !important;
+		background: none !important;
+	}
 	.ecommerce .header .header-navigation li > a,
 	.ecommerce .header .dropdown.open .dropdown-toggle,
 	.ecommerce .header .header-navigation li.open > a {
 		padding: 12px 10px 9px;
 	}
+    
+    	.ecommerce .fixeda-header .header-navigation li > a,
+	.ecommerce .fixed-header .dropdown.open .dropdown-toggle,
+	.ecommerce .fixed-header .header-navigation li.open > a {
+		padding: 12px 10px 9px;
+	}
 	.header .header-navigation li > a:hover,
 	.header .header-navigation li.active > a,
 	.header .header-navigation li.open > a:hover {
+		border-bottom: 1px solid #efefef !important;
+		background: none !important;
+		color: #dd4632 !important;
+		text-decoration: none;
+	}
+    
+    .fixed-header .header-navigation li > a:hover,
+	.fixed-header .header-navigation li.active > a,
+	.fixed-header .header-navigation li.open > a:hover {
 		border-bottom: 1px solid #efefef !important;
 		background: none !important;
 		color: #dd4632 !important;
@@ -615,6 +671,58 @@
 	.ecommerce .pre-footer-subscribe-box h2, .corporate .pre-footer-subscribe-box h2 {
 		padding-top: 7px;
 	}
+    
+    .ecommerce .main .top-cart-block .fa-shopping-cart {
+        
+        position: static;
+    }
+    
+    .ecommerce .main .top-cart-content-wrapper{
+        position: static;
+    }
+    
+    .ecommerce .main .top-cart-content strong {
+    font-weight: normal;
+    width: auto;
+}
+
+.ecommerce .main .top-cart-content em {
+    margin-right: 8px !important;
+}
+.bottom-cart {
+    background: #fff none repeat scroll 0 0;
+    bottom: 0;
+    display: block;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    left: 0;
+}
+
+.top-cart-block {
+    display: none;
+} 
+
+.fixed-header .header-navigation li > a, .fixed-header .dropdown.open .dropdown-toggle, .fixed-header .header-navigation li.open > a {
+    font-size: 16px;
+}
+
+.bottoma-cart {
+    display: block;
+} 
+.top-cart-content {
+    width: 96% !important;
+}
+
+.top-cart-content strong {
+    font-weight: normal;
+    width: auto !important;
+}
+
+.top-cart-content em {
+    width: auto !important;
+}
+
 }
 /* END max width 767px */
 
@@ -746,6 +854,11 @@
 	.top-cart-block img,
 	.top-cart-block .cart-content-count {
 		display: none;	
+	}
+    
+    	.ecommerce .main .top-cart-block img,
+	.ecommerce .main .top-cart-block .cart-content-count {
+		display: block;	
 	}
 }
 /* END max width 405px */

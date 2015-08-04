@@ -261,6 +261,9 @@ var Layout = function () {
             
             $(".header").toggleClass("menuOpened");
             $(".header").find(".header-navigation").toggle(300);
+            
+            $(".fixed-header").toggleClass("menuOpened");
+            $(".fixed-header").find(".header-navigation").toggle(300);
         });
     }
 

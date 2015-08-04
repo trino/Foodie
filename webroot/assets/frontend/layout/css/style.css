@@ -463,7 +463,7 @@ body.page-header-fixed {
   padding-bottom: 22px;
 }
 
-.header .mobi-toggler {
+.header .mobi-toggler, .fixed-header .mobi-toggler {
   float: right;
   color: #D8D8D8;
   border: 1px solid #D8D8D8;
@@ -478,7 +478,7 @@ body.page-header-fixed {
 .header .mobi-toggler i {
   display: none;
 }
-.header .mobi-toggler:hover {
+.header .mobi-toggler:hover, .fixed-header .mobi-toggler:hover {
   background: #e34f00 url(../img/icons/toggler.png) no-repeat 6px -28px;
   border-color: #e34f00;
   color: #fff;
@@ -1016,7 +1016,9 @@ Brands
 .brands .owl-buttons .owl-next:hover {
     background: #fff url(../img/fa-angle-brands.png) no-repeat -249px -217px;
 }
-
+.bottom-cart {
+    display: none;
+}
 /***
 steps block and steps block elements
 ***/
@@ -1038,6 +1040,7 @@ steps block and steps block elements
 }
 .steps-block-red {
 	background: #e84d1c;
+    clear: both;
 }
 .steps-block-col {
 	overflow: hidden;
