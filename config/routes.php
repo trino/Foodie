@@ -55,7 +55,7 @@ Router::scope('/', function ($routes) {
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
     $routes->connect('/cusine/*', ['controller' => 'Pages', 'action' => 'cusine']);
     $routes->connect('/restaurants/dashboard', ['controller' => 'Restaurants', 'action' => 'dashboard']);
-    $routes->connect('/restaurants/menuManager', ['controller' => 'Restaurants', 'action' => 'menu_manager']);
+    $routes->connect('/restaurants/menu_manager', ['controller' => 'Restaurants', 'action' => 'menu_manager']);
     $routes->connect('/restaurants/orders/*', ['controller' => 'Restaurants', 'action' => 'orders']);
     $routes->connect('/restaurants/report/*', ['controller' => 'Restaurants', 'action' => 'report']);
     $routes->connect('/restaurants/*', ['controller' => 'Restaurants', 'action' => 'index']);

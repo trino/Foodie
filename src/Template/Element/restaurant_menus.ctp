@@ -9,7 +9,7 @@
           
             <li class="list-group-item clearfix"><a href="<?php echo $this->request->webroot;?>restaurants/dashboard">Restaurant Info</a></li>
           
-            <li class="list-group-item clearfix"><a href="<?php echo $this->request->webroot;?>restaurants/menuManager">Menu Manager</a></li>
+            <li class="list-group-item clearfix"><a href="<?php echo $this->request->webroot;?>restaurants/menu_manager">Menu Manager</a></li>
             
             <li class="list-group-item clearfix"><a href="<?php echo $this->request->webroot;?>restaurants/orders/pending">Pending Orders<span class="notification">(10)</span></a></li>
           

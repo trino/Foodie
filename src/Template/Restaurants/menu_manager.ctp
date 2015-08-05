@@ -19,37 +19,6 @@ Welcome, test
 
 
 
-<div class="banners--big  banners--big-left clearfix">
-<div class="row">
-<div class="col-xs-12  col-md-6">
-
-Start by adding a Category
-
-</div>
-<div class="col-xs-12  col-md-6">
-<div class="banners--big__form">
-<form action="" method="post" class="addcat">
-<div class="form-group  form-group--form">
-
-      <input required class="form-control  form-control--form"  type="text" placeholder="Category Title" name="cattitle" />
-
-<input type="submit" value="Add" class="btn btn-darker" />
-
-</div>
-</form>
-</div>
-</div>
-</div>
-</div>
-
-
-
-<div class="col-xs-12 col-sm-12">
-<form action="" method="post" class="addcat">
-</form>
-</div>
-
-
 
 
 <div class="clearfix"></div>
