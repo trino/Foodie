@@ -3,11 +3,7 @@
   <link href="<?php echo $this->request->webroot;?>assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin styles END -->
 
-        <!--ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Pages</a></li>
-            <li class="active">Contacts</li>
-        </ul-->
+        
        
           <!-- BEGIN CONTENT -->
           <div class="col-md-10">
