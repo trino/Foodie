@@ -1,18 +1,4 @@
 <!DOCTYPE html>
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
-Version: 3.4
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest (the above link) in order to legally use the theme for your project.
--->
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
 <html lang="en">
 <!--<![endif]-->
 
@@ -61,6 +47,7 @@ License: You must have a valid license purchased only from themeforest (the abov
   <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/style-responsive.css" rel="stylesheet">
   <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color">
   <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/custom.css" rel="stylesheet">
+  <link href="<?php echo $this->request->webroot;?>assets/global/css/custom_css.css" rel="stylesheet">
   <!-- Theme styles END -->
   
   <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->

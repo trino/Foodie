@@ -43,12 +43,14 @@
 
   <!-- Theme styles START -->
   <link href="<?php echo $this->request->webroot;?>assets/global/css/components.css" rel="stylesheet">
+  
   <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/style.css" rel="stylesheet">
   <link href="<?php echo $this->request->webroot;?>assets/frontend/pages/css/style-shop.css" rel="stylesheet" type="text/css">
   <link href="<?php echo $this->request->webroot;?>assets/frontend/pages/css/style-layer-slider.css" rel="stylesheet">
   <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/style-responsive.css" rel="stylesheet">
   <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color">
   <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/custom.css" rel="stylesheet">
+  <link href="<?php echo $this->request->webroot;?>assets/global/css/custom_css.css" rel="stylesheet">
   <!-- Theme styles END -->
   
   <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
