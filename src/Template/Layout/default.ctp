@@ -112,39 +112,7 @@ License: You must have a valid license purchased only from themeforest (the abov
         <div class="container">
             <div class="row">
                 <!-- BEGIN TOP BAR LEFT PART -->
-                <div class="col-md-6 col-sm-6 additional-shop-info">
-                    <ul class="list-unstyled list-inline">
-                        <li><i class="fa fa-phone"></i><span>+1 456 6717</span></li>
-                        <!-- BEGIN CURRENCIES -->
-                        <li class="shop-currencies">
-                            <a href="javascript:void(0);">€</a>
-                            <a href="javascript:void(0);">£</a>
-                            <a href="javascript:void(0);" class="current">$</a>
-                        </li>
-                        <!-- END CURRENCIES -->
-                        <!-- BEGIN LANGS -->
-                        <li class="langs-block">
-                            <a href="javascript:void(0);" class="current">English </a>
-                            <div class="langs-block-others-wrapper"><div class="langs-block-others">
-                              <a href="javascript:void(0);">French</a>
-                              <a href="javascript:void(0);">Germany</a>
-                              <a href="javascript:void(0);">Turkish</a>
-                            </div></div>
-                        </li>
-                        <!-- END LANGS -->
-                    </ul>
-                </div>
-                <!-- END TOP BAR LEFT PART -->
-                <!-- BEGIN TOP BAR MENU -->
-                <div class="col-md-6 col-sm-6 additional-nav">
-                    <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="shop-account.html">My Account</a></li>
-                        <li><a href="shop-wishlist.html">My Wishlist</a></li>
-                        <li><a href="shop-checkout.html">Checkout</a></li>
-                        <li><a href="#login-pop-up" class="fancybox-fast-view">Log In</a></li>
-                        <li><a href="<?php echo $this->request->webroot;?>restaurants/dashboard">Dashboard</a></li>
-                    </ul>
-                </div>
+                    <?php echo $this->element('mini_nav');?>
                 <!-- END TOP BAR MENU -->
             </div>
             <div id="login-pop-up" style="display:none;">
@@ -205,87 +173,9 @@ License: You must have a valid license purchased only from themeforest (the abov
           
           </form>
      </div>
-        <div id="registration-form"class="col-md-12" style="display: none;">
-            <form role="form" class="form-horizontal">
-                    <fieldset>
-                      <legend>Your personal details</legend>
-                      <div class="form-group">
-                        <label class="col-lg-4 control-label" for="firstname">Restaurant Name <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" id="firstname" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-4 control-label" for="email">Email <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" id="email" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-4 control-label" for="lastname">Street Address <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" id="lastname" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-4 control-label" for="lastname">City<span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" id="lastname" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-4 control-label" for="lastname">State/Province <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" id="lastname" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-4 control-label" for="lastname">Postal Code<span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" id="lastname" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-4 control-label" for="lastname">Phone<span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" id="lastname" class="form-control">
-                        </div>
-                      </div>
-                    </fieldset>
-                    <fieldset>
-                      <legend>Your password</legend>
-                      <div class="form-group">
-                        <label class="col-lg-4 control-label" for="password">Password <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" id="password" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-4 control-label" for="confirm-password">Confirm password <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" id="confirm-password" class="form-control">
-                        </div>
-                      </div>
-                    </fieldset>
-                    <fieldset>
-                      <legend>Newsletter</legend>
-                      <div class="checkbox form-group">
-                        <label>
-                          <div class="col-lg-4 col-sm-4">Singup for Newsletter</div>
-                          <div class="col-lg-8 col-sm-8">
-                            <div class="checker"><span><input type="checkbox"></span></div>
-                          </div>
-                        </label>
-                      </div>
-                    </fieldset>
-                    <div class="row">
-                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">                        
-                        <button class="btn btn-primary" type="submit">Create an account</button>
-                        <button class="btn btn-default" type="button">Cancel</button>
-                      </div>
-                    </div>
-                  </form>
-            </div>
+      <div id="registration-form"class="col-md-12" style="display: none;">
+            <?php echo $this->element('user_info');?>
+      </div>
         </div>        
     </div>
     <!-- END TOP BAR -->
