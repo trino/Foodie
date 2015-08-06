@@ -244,13 +244,13 @@
         <!-- BEGIN NAVIGATION -->
         <div class="header-navigation">
           <ul>
-            
+
            <?php /* <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
-                Woman 
-                
+                Woman
+
               </a>
-                
+
               <!-- BEGIN DROPDOWN MENU -->
               <ul class="dropdown-menu">
                 <li class="dropdown-submenu">
@@ -260,7 +260,7 @@
                     <li><a href="shop-product-list.html">Second Level Link</a></li>
                     <li class="dropdown-submenu">
                       <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
-                        Second Level Link 
+                        Second Level Link
                         <i class="fa fa-angle-right"></i>
                       </a>
                       <ul class="dropdown-menu">
@@ -276,77 +276,77 @@
               </ul>
               <!-- END DROPDOWN MENU -->
             </li><?php */?>
-            
+
             <li><a href="<?php echo $this->request->webroot;?>">Home</a></li>
             <li class="dropdown dropdown-megamenu">
               <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
                 Restaurants
-                
+
               </a>
               <ul class="dropdown-menu">
                 <li>
                   <div class="header-navigation-content">
                     <div class="row">
                       <div class="col-md-4 header-navigation-col">
-                        <h4><a href="<?php echo $this->request->webroot;?>cusine/american">American</a></h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/american">American</a></h4>
                         <ul>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 1</a></li>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 1</a></li>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 1</a></li>
-                          
+
                         </ul>
-                        <h4><a href="<?php echo $this->request->webroot;?>cusine/asian">Asian</a></h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/asian">Asian</a></h4>
                         <ul>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 2</a></li>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 2</a></li>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 2</a></li>
-                          
+
                         </ul>
-                        <h4><a href="<?php echo $this->request->webroot;?>cusine/chinese">Chinese</a></h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/chinese">Chinese</a></h4>
                         <ul>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 3</a></li>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 3</a></li>
-                          
+
                         </ul>
                       </div>
                       <div class="col-md-4 header-navigation-col">
-                        
-                        <h4><a href="<?php echo $this->request->webroot;?>cusine/german">German</a></h4>
+
+                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/german">German</a></h4>
                         <ul>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 4</a></li>
-                          
+
                         </ul>
-                        <h4><a href="<?php echo $this->request->webroot;?>cusine/halal">Halal</a></h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/halal">Halal</a></h4>
                         <ul>
                           <li><a href="<?php echo $this->request->webroot;?>/restaurants/restaurant-1">Restaurant 5</a></li>
-                          
+
                         </ul>
-                        <h4><a href="<?php echo $this->request->webroot;?>cusine/indain">Indian</a></h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/indain">Indian</a></h4>
                         <ul>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 6</a></li>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 6</a></li>
-                          
+
                         </ul>
-                        <h4><a href="<?php echo $this->request->webroot;?>cusine/italian">Italian</a></h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/italian">Italian</a></h4>
                         <ul>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 7</a></li>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 7</a></li>
                         </ul>
                       </div>
                       <div class="col-md-4 header-navigation-col">
-                        
 
-                        
-                        <h4><a href="<?php echo $this->request->webroot;?>cusine/korean">Korean</a></h4>
+
+
+                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/korean">Korean</a></h4>
                         <ul>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 8</a></li>
                         </ul>
-                        <h4><a href="<?php echo $this->request->webroot;?>cusine/latin">Latin</a></h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/latin">Latin</a></h4>
                         <ul>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 9</a></li>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 9</a></li>
                         </ul>
-                        <h4><a href="<?php echo $this->request->webroot;?>cusine/north-american">North American</a></h4>
+                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/north-american">North American</a></h4>
                         <ul>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 10</a></li>
                           <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 10</a></li>
@@ -371,7 +371,7 @@
             <?php /*<li class="dropdown dropdown100 nav-catalogue">
               <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
                 New
-                
+
               </a>
               <ul class="dropdown-menu">
                 <li>
@@ -424,10 +424,10 @@
             </li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
-                Pages 
-                
+                Pages
+
               </a>
-                
+
               <ul class="dropdown-menu">
                 <li class="active"><a href="shop-index.html">Home Default</a></li>
                 <li><a href="shop-index-header-fix.html">Home Header Fixed</a></li>
@@ -466,7 +466,7 @@
                     </span>
                   </div>
                 </form>
-              </div> 
+              </div>
             </li>
             <!-- END TOP SEARCH -->
           </ul>

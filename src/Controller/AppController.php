@@ -38,5 +38,7 @@ class AppController extends Controller
     {
         parent::initialize();
         $this->loadComponent('Flash');
+        $this->loadComponent('Manager');
+        $this->Manager->init($this);
     }
 }
