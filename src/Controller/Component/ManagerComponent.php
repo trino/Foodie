@@ -8,14 +8,36 @@
     class ManagerComponent extends Component {
         ////////////////////////////////////Profile type API//////////////////////////////////
         function init($Controller){
+            $this->Controller = $Controller;
             $Controller->set('genres', $this->enum_genres());
-            if (isset($_POST["email"]) && isset($_POST["password"])){
-                $profile = $this->find_profile($_POST["email"],$_POST["password"]);
-                if($profile){
-                    $this->login($Controller, $profile);
-                    $Controller->Flash->success($profile->Name . " has been logged in");
-                } else {
-                    $Controller->Flash->error("The email address/password combination failed");
+            if (isset($_POST["action"])){
+                switch ($_POST["action"]) {
+                    case "login":
+                        $profile = $this->find_profile($_POST["email"], $_POST["password"]);
+                        if ($profile) {
+                            $this->login($Controller, $profile);
+                            $Controller->Flash->success($profile->Name . " has been logged in");
+                        } else {
+                            $Controller->Flash->error("The email address/password combination failed");
+                        }
+                        break;
+                    case "subscribe":
+                        $Controller->loadComponent("Mailer");
+                        $this->add_subscriber($_POST["email"]);
+                        $Controller->Flash->success($_POST["email"] . " please check your email to confirm your subscription");
+                        break;
+                }
+            }
+            if (isset($_GET["action"])){
+                switch ($_GET["action"]){
+                    case "subscribe":
+                        $Email = $this->finish_subscription($_GET["key"]);
+                        if ($Email){
+                            $Controller->Flash->success($Email . " has been subscribed");
+                        } else {
+                            $Controller->Flash->error("Key not found");
+                        }
+                        break;
                 }
             }
         }
@@ -99,7 +121,7 @@
             }
             $data = $this->edit_database("profiles", "ID", "", $data);
             $data["Password"] = $Password;
-            if ($Subscribed) { $this->add_subscriber($EmailAddress, true);}
+            $this->set_subscribed($EmailAddress,$Subscribed);
             return $data;
         }
 
@@ -108,8 +130,7 @@
             if($Password){
                 $data["Password"] = md5($Password . $this->salt());
             }
-            $this->remove_subscriber($EmailAddress);
-            if ($Subscribed) { $this->add_subscriber($EmailAddress, true);}
+            $this->set_subscribed($EmailAddress,$Subscribed);
             $this->update_database("profiles", "ID", $ID, $data);
         }
 
@@ -136,14 +157,53 @@
 
 
         ////////////////////////////////////Newsletter API//////////////////////////////////
-        function add_subscriber($EmailAddress){
-
+        function add_subscriber($EmailAddress, $authorized = false){
+            $EmailAddress = strtolower(trim($EmailAddress));
+            $Entry = $this->get_entry("newsletter", $EmailAddress, "Email");
+            if ($Entry){
+                if (!$Entry->GUID){
+                    return true;
+                }
+                $GUID = $Entry->GUID;
+                $this->update_database("newsletter", "ID", $Entry->ID, array("GUID" => $GUID));
+            } else {
+                $GUID = com_create_guid();
+                $this->new_entry("newsletter", "ID", array("GUID" => $GUID, "Email" => $EmailAddress));
+            }
+            $path = '<A HREF="' . "localhost/Foodie/" . "cuisine?action=subscribe&key=" . $GUID . '">Click here to finish registration</A>';
+            return $this->Controller->Mailer->sendEmail($EmailAddress,"Subscribe", $path);
         }
-        function remove_subscriber($EmailAddress){
 
+        function remove_subscriber($EmailAddress){
+            $EmailAddress = strtolower(trim($EmailAddress));
+            $this->delete_all("newsletter", array("Email" => $EmailAddress));
+        }
+        function is_subscribed($EmailAddress){
+            $EmailAddress = strtolower(trim($EmailAddress));
+            return $this->get_entry("newsletter", $EmailAddress, "Email");
+        }
+        function finish_subscription($Key){
+            $Entry = $this->get_entry("newsletter", $Key, "GUID");
+            if($Entry){
+                $this->update_database("newsletter", "ID", $Entry->ID, array("GUID" => ""));
+                return $Entry->Email;
+            }
+        }
+
+        function set_subscribed($EmailAddress, $Status){
+            $EmailAddress = strtolower(trim($EmailAddress));
+            $is_subscribed = $this->is_subscribed($EmailAddress);
+            if($is_subscribed != $Status){
+                if($Status){
+                    $this->add_subscriber($EmailAddress, True);
+                } else {
+                    $this->remove_subscriber($EmailAddress);
+                }
+            }
         }
         function enum_subscribers(){
-
+            $Data = $this->enum_all("newsletter", array("GUID" => ""));
+            return $this->iterator_to_array($Data, "ID", "Email");
         }
 
 
@@ -290,6 +350,9 @@
         function delete_all($Table, $data){
             $table = TableRegistry::get($Table);
             $table->deleteAll($data, false);
+        }
+        function enum_table($Table){
+            return TableRegistry::get($Table)->find('all');
         }
         function enum_all($Table, $data){
             return TableRegistry::get($Table)->find('all')->where($data);

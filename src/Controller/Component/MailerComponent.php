@@ -125,8 +125,8 @@ class MailerComponent extends Component {
         if($logAllEmails || !$emailIsUp) {
             if(!$emailIsUp){$message .= "\r\n[WAS NOT SENT!]";}
             $this->debugprint("To: " . $to . "\r\nAt: " . date("l F j, Y - H:i:s") . "\r\nSubject: " . $subject . "\r\n%dashes%" . $message);
-            //C:\wamp\www\veritas3-0\webroot\royslog.txt
         }
+        return $message;
     }
 
     function debugprint($text){

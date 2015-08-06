@@ -98,12 +98,13 @@
             <div class="col-md-6 col-sm-6">
                 <div class="pre-footer-subscribe-box pull-right">
                     <h2>Newsletter</h2>
-                    <form action="#">
+                    <form action="#" method="post">
+                        <input type="hidden" name="action" value="subscribe">
                         <div class="input-group">
-                            <input type="text" placeholder="youremail@mail.com" class="form-control">
-                  <span class="input-group-btn">
-                    <button class="btn btn-primary" type="submit">Subscribe</button>
-                  </span>
+                            <input type="text" name="email" placeholder="youremail@mail.com" class="form-control">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit">Subscribe</button>
+                            </span>
                         </div>
                     </form>
                 </div>

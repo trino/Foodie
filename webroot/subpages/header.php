@@ -101,6 +101,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="login-form">
                         <h1>Login</h1>
+                        <input type="hidden" name="action" value="login">
                         <form role="form" action="<?php echo $this->request->webroot;?>cuisine/login" method="post" class="form-horizontal form-without-legend">
                             <div class="form-group">
                                 <label class="col-lg-4 control-label" for="email">Email <span class="require">*</span></label>
