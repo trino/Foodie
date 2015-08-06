@@ -60,17 +60,17 @@
                         </div>
                       </div>
                     </fieldset>
+
                     <fieldset>
                       <legend>Newsletter</legend>
                       <div class="checkbox form-group">
-                        <label>
-                          <div class="col-lg-4 col-sm-4">Singup for Newsletter</div>
-                          <div class="col-lg-8 col-sm-8">
-                            <div class="checker"><span><input type="checkbox"></span></div>
-                          </div>
-                        </label>
+                        <label class="col-lg-4 control-label" for="newsletter">Sign up for our Newsletter</label>
+                        <div class="col-lg-8">
+                          <div class="checker"><span><input type="checkbox" name="newsletter" id="newsletter" class="form-control"></span></div>
+                        </div>
                       </div>
                     </fieldset>
+
                     <div class="row">
                       <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">                        
                         <button class="btn btn-primary" type="submit">Create an account</button>
@@ -78,4 +78,3 @@
                       </div>
                     </div>
                   </form>
-            
