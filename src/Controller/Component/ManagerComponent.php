@@ -83,7 +83,7 @@
 
         function new_profile($CreatedBy, $Name, $ProfileType, $EmailAddress, $RestaurantID, $Subscribed){
             $Password = $this->randomPassword(8);
-            $data = array("Name" => $Name, "ProfileType" => $ProfileType, "Email" => $EmailAddress, "CreatedBy" => 0, "RestaurantID" => $RestaurantID, "Subscribed" => $Subscribed, "Password" => md5($Password . $this->salt()));
+            $data = array("Name" => trim($Name), "ProfileType" => $ProfileType, "Email" => strtolower(trim($EmailAddress)), "CreatedBy" => 0, "RestaurantID" => $RestaurantID, "Subscribed" => $Subscribed, "Password" => md5($Password . $this->salt()));
             if($CreatedBy){
                 if(!$this->can_profile_create($CreatedBy, $ProfileType)){return false;}
                 $data["CreatedBy"] = $CreatedBy;
@@ -94,12 +94,40 @@
         }
 
         function edit_profile($ID, $Name, $ProfileType, $EmailAddress, $Password, $Subscribed){
-            $data = array("Name" => $Name, "ProfileType" => $ProfileType, "Email" => $EmailAddress, "Subscribed" => $Subscribed);
+            $data = array("Name" => trim($Name), "ProfileType" => $ProfileType, "Email" => strtolower(trim($EmailAddress)), "Subscribed" => $Subscribed);
             if($Password){
                 $data["Password"] = md5($Password . $this->salt());
             }
             $this->update_database("profiles", "ID", $ID, $data);
         }
+
+        function find_profile($EmailAddress, $Password){
+            $EmailAddress = strtolower(trim($EmailAddress));
+            $Password = md5($Password . $this->salt());
+            return $this->enum_all("profiles", array("Email" => $EmailAddress, "Password" => $Password))->first();
+        }
+
+        function login($Controller, $Profile){
+            if (is_numeric($Profile)){
+                $Profile = $this->get_profile($Profile);
+            }
+            $Controller->request->session()->write('Profile.ID',            $Profile->ID);
+            $Controller->request->session()->write('Profile.Name',          $Profile->Name);
+            $Controller->request->session()->write('Profile.Email',         $Profile->Email);
+            $Controller->request->session()->write('Profile.Type',          $Profile->ProfileType);
+            $Controller->request->session()->write('Profile.Restaurant',    $Profile->RestaurantID);
+        }
+
+
+
+
+
+
+
+
+
+
+
 
 
         //////////////////////////////////////Genre API//////////////////////////////////////
@@ -174,7 +202,7 @@
             }
             return $Date;
         }
-        
+
         function get_day_of_week($Date){//0 is sunday, 6=saturday
             return date('w', $this->parse_date($Date));
         }
