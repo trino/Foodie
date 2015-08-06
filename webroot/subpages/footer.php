@@ -6,24 +6,24 @@
             <div class="col-md-4 steps-block-col">
                 <i class="fa fa-truck"></i>
                 <div>
-                    <h2>Free shipping</h2>
-                    <em>Express delivery within 3 days</em>
+                    <h2>Delivery or Pick up</h2>
+                    <em>Choose your preference</em>
                 </div>
                 <span>&nbsp;</span>
             </div>
             <div class="col-md-4 steps-block-col">
                 <i class="fa fa-gift"></i>
                 <div>
-                    <h2>Daily Gifts</h2>
-                    <em>3 Gifts daily for lucky customers</em>
+                    <h2>Deals, Deals, Deals</h2>
+                    <em>Get the best discount</em>
                 </div>
                 <span>&nbsp;</span>
             </div>
             <div class="col-md-4 steps-block-col">
-                <i class="fa fa-phone"></i>
+                <i class="fa fa-chain-broken"></i>
                 <div>
-                    <h2>477 505 8877</h2>
-                    <em>24/7 customer care available</em>
+                    <h2>Freedom</h2>
+                    <em>No setup fees, hidden costs, or contracts</em>
                 </div>
             </div>
         </div>

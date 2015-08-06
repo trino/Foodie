@@ -9,6 +9,15 @@
         ////////////////////////////////////Profile type API//////////////////////////////////
         function init($Controller){
             $Controller->set('genres', $this->enum_genres());
+            if (isset($_POST["email"]) && isset($_POST["password"])){
+                $profile = $this->find_profile($_POST["email"],$_POST["password"]);
+                if($profile){
+                    $this->login($Controller, $profile);
+                    $Controller->Flash->success($profile->Name . " has been logged in");
+                } else {
+                    $Controller->Flash->error("The email address/password combination failed");
+                }
+            }
         }
 
         function new_profiletype($Name){
@@ -90,6 +99,7 @@
             }
             $data = $this->edit_database("profiles", "ID", "", $data);
             $data["Password"] = $Password;
+            if ($Subscribed) { $this->add_subscriber($EmailAddress, true);}
             return $data;
         }
 
@@ -98,6 +108,8 @@
             if($Password){
                 $data["Password"] = md5($Password . $this->salt());
             }
+            $this->remove_subscriber($EmailAddress);
+            if ($Subscribed) { $this->add_subscriber($EmailAddress, true);}
             $this->update_database("profiles", "ID", $ID, $data);
         }
 
@@ -123,9 +135,16 @@
 
 
 
+        ////////////////////////////////////Newsletter API//////////////////////////////////
+        function add_subscriber($EmailAddress){
 
+        }
+        function remove_subscriber($EmailAddress){
 
+        }
+        function enum_subscribers(){
 
+        }
 
 
 

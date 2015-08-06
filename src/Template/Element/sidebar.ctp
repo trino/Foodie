@@ -1,4 +1,4 @@
-<div class="sidebar col-md-2 col-sm-4">
+<div class="sidebar col-md-2 col-sm-4 col-sm-4 col-xs-5">
     <ul class="list-group margin-bottom-25 sidebar-menu">
         <?php foreach($genres as $genre){
             echo '<li class="list-group-item clearfix"><a href="' . $this->request->webroot . 'cuisine/';
