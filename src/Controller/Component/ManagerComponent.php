@@ -147,6 +147,49 @@
         }
 
 
+        /////////////////////////////////////days off API////////////////////////////////////
+        function add_day_off($RestaurantID, $Day, $Month, $Year){
+            delete_day_off($RestaurantID, $Day, $Month, $Year);
+            $this->new_entry("daysoff", "ID", array("RestaurantID" => $RestaurantID, "Day" => $Day, "Month" => $Month, "Year" => $Year));
+        }
+        function delete_day_off($RestaurantID, $Day, $Month, $Year){
+            $this->delete_all("daysoff", array("RestaurantID" => $RestaurantID, "Day" => $Day, "Month" => $Month, "Year" => $Year));
+        }
+        function enum_days_off($RestaurantID){
+            return enum_all("daysoff", array("RestaurantID" => $RestaurantID));
+        }
+        function is_day_off($RestaurantID, $Day, $Month, $Year){
+            return enum_all("daysoff", array("RestaurantID" => $RestaurantID, "Day" => $Day, "Month" => $Month, "Year" => $Year))->first();
+        }
+
+        /////////////////////////////////////Date API////////////////////////////////////////
+        function now(){
+            return date("Y-m-d H:i:s");
+        }
+
+        //returns date stamp
+        function parse_date($Date){
+            if(strpos($Date, "-")) {
+                return strtotime($Date);
+            }
+            return $Date;
+        }
+        
+        function get_day_of_week($Date){//0 is sunday, 6=saturday
+            return date('w', $this->parse_date($Date));
+        }
+        function get_time($Date){//800
+            return date('Gi', $this->parse_date($Date));
+        }
+        function get_year($Date){//2015
+            return date('Y', $this->parse_date($Date));
+        }
+        function get_month($Date){//01-12
+            return date('m', $this->parse_date($Date));
+        }
+        function get_day($Date){//3 (no leading zero)
+            return date('j', $this->parse_date($Date));
+        }
 
 
         /////////////////////////////////////Hours API///////////////////////////////////////
@@ -159,6 +202,7 @@
             }
             return $ret;
         }
+
         function edit_hour($RestaurantID, $DayOfWeek, $Open, $Close){
             $table = TableRegistry::get('hours');
             $data = array('RestaurantID'=>$RestaurantID, 'DayOfWeek'=>$DayOfWeek);
@@ -166,6 +210,23 @@
             $data["Open"] = $Open;
             $data["Close"] = $Close;
             $this->new_entry("hours", "ID", $data);
+        }
+
+        function is_restaurant_open($RestaurantID, $DayOfWeek, $Time){
+            $Data = TableRegistry::get('hours')->find()->where(['RestaurantID' => $RestaurantID, "DayOfWeek" => $DayOfWeek])->first();
+            if ($Data){
+                return $Data->Open <= $Time && $Data->Close >= $Time;
+            }
+        }
+
+        function is_restaurant_open_now($RestaurantID, $date = ""){
+            if(!$date){ $date = $this->now();}
+            if(strpos($date, "-")){$date = strtotime($date);}
+            if(!$this->is_day_off($RestaurantID, $this->get_day($date), $this->get_month($date), $this->get_year($date))) {
+                $dayofweek = date('w', $date);
+                $time = date('Gi', $date);
+                return $this->is_restaurant_open($RestaurantID, $dayofweek, $time);
+            }
         }
 
 
@@ -178,8 +239,15 @@
 
 
 
-
         /////////////////////////////////DATABASE API///////////////////////////////////
+        function delete_all($Table, $data){
+            $table = TableRegistry::get($Table);
+            $table->deleteAll($data, false);
+        }
+        function enum_all($Table, $data){
+            return TableRegistry::get($Table)->find('all')->where($data);
+        }
+
         function iterator_to_array($entries, $PrimaryKey, $Key){
             $data = array();
             foreach($entries as $profiletype){
