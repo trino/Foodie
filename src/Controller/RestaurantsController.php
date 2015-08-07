@@ -9,7 +9,7 @@ use Cake\View\Exception\MissingTemplateException;
 
 class RestaurantsController extends AppController
 {
-     public function index($slug='')
+    public function index($slug='')
     {
          $this->set('restaurant',$slug);
         

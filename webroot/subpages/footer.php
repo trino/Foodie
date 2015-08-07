@@ -33,7 +33,7 @@
 
 <!-- BEGIN PRE-FOOTER -->
 <div class="pre-footer">
-    <div class="container-fluid">
+    <div class="container-fluid">  <hr>
         <div class="row">
             <!-- BEGIN BOTTOM ABOUT BLOCK -->
             <div class="col-md-3 col-sm-6 pre-footer-col">
@@ -121,7 +121,7 @@
         <div class="row">
             <!-- BEGIN COPYRIGHT -->
             <div class="col-md-6 col-sm-6 padding-top-10">
-                2015 © Metronic Shop UI. ALL Rights Reserved.
+                2015 &copy; didueat.ca / ALL Rights Reserved.
             </div>
             <!-- END COPYRIGHT -->
             <!-- BEGIN PAYMENTS -->

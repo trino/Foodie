@@ -4,7 +4,7 @@
 <!-- Head BEGIN -->
 <head>
     <meta charset="utf-8">
-    <title>Foodie - <?php if(isset($title))echo $title;else echo $this->request->params['action'];?></title>
+    <title>didueat - <?php if(isset($title))echo $title;else echo $this->request->params['action'];?></title>
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -23,8 +23,11 @@
     <link rel="shortcut icon" href="favicon.ico">
 
     <!-- Fonts START -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css"><!--- fonts for slider on the index page -->
+
+    <!--link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css"-->
+
+    <!--- fonts for slider on the index page -->
     <!-- Fonts END -->
 
     <!-- Global styles START -->
@@ -56,7 +59,7 @@
     <script src="<?php echo $this->request->webroot;?>assets/global/plugins/jquery.min.js" type="text/javascript"></script>
     <script src="<?php echo $this->request->webroot;?>assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
     <script src="<?php echo $this->request->webroot;?>assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="<?php echo $this->request->webroot;?>assets/frontend/layout/scripts/back-to-top.js" type="text/javascript"></script>
+    <!--script src="<?php echo $this->request->webroot;?>assets/frontend/layout/scripts/back-to-top.js" type="text/javascript"></script-->
     <script src="<?php echo $this->request->webroot;?>assets/frontend/layout/scripts/sample.js" type="text/javascript"></script>
     <script src="<?php echo $this->request->webroot;?>assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- END CORE PLUGINS -->
@@ -164,7 +167,7 @@
 <!-- BEGIN HEADER -->
 <div class="header">
     <div class="container-fluid">
-        <a class="site-logo" href="<?php echo $this->request->webroot;?>"><img src="<?php echo $this->request->webroot;?>assets/frontend/layout/img/logos/logo-shop-red.png" alt="Metronic Shop UI"></a>
+        <a class="site-logo" href="<?php echo $this->request->webroot;?>"><img src="<?php echo $this->request->webroot;?>assets/frontend/layout/img/logos/logo.jpg" alt="Metronic Shop UI"></a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 

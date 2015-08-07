@@ -1,6 +1,6 @@
 <?php
 
-$debugmode = false;
+$debugmode = true;
 if (file_exists($_SERVER["DOCUMENT_ROOT"] . "debugmode.txt")){
     $debugmode = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "debugmode.txt") == $_SERVER['REMOTE_ADDR'];
 }
@@ -223,7 +223,7 @@ return [
              */
             //'port' => 'nonstandard_port_number',
             'username' => 'root',
-            'password' => 'root',
+            'password' => '',
             'database' => 'food',
             'encoding' => 'utf8',
             'timezone' => 'UTC',

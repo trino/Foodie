@@ -1,3 +1,8 @@
+<div class="col-md-12">
+
+<h1>Pick-up and Delivery in Hamilton</h1>
+  </div>
+
 <?php if($this->request->params['controller']=='Restaurants'){?>
   <div class="margin-bottom-10">
     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -37,7 +42,7 @@
 <?php }?>
 
 
-<div class="col-md-4 col-sm-6 col-xs-12">
+<div class="col-md-3 col-sm-6 col-xs-12">
   <div class="product-item">
     <div class="pi-img-wrapper">
       <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k1.jpg" class="img-responsive" alt="Chow Fun">
@@ -52,7 +57,7 @@
     <div class="sticker sticker-new"></div>
   </div>
 </div>
-<div class="col-md-4 col-sm-6 col-xs-12">
+<div class="col-md-3 col-sm-6 col-xs-12">
   <div class="product-item">
     <div class="pi-img-wrapper">
       <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k2.jpg" class="img-responsive" alt="Chow Fun">
@@ -66,7 +71,7 @@
     <a href="#" class="btn btn-default add2cart">Add to cart</a>
   </div>
 </div>
-<div class="col-md-4 col-sm-6 col-xs-12">
+<div class="col-md-3 col-sm-6 col-xs-12">
   <div class="product-item">
     <div class="pi-img-wrapper">
       <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k3.jpg" class="img-responsive" alt="Chow Fun">
@@ -80,11 +85,9 @@
     <a href="#" class="btn btn-default add2cart">Add to cart</a>
   </div>
 </div>
-<div class="cl"></div>
 
 
-
-<div class="col-md-4 col-sm-6 col-xs-12">
+<div class="col-md-3 col-sm-6 col-xs-12">
   <div class="product-item">
     <div class="pi-img-wrapper">
       <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k1.jpg" class="img-responsive" alt="Chow Fun">
@@ -99,7 +102,7 @@
     <div class="sticker sticker-new"></div>
   </div>
 </div>
-<div class="col-md-4 col-sm-6 col-xs-12">
+<div class="col-md-3 col-sm-6 col-xs-12">
   <div class="product-item">
     <div class="pi-img-wrapper">
       <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k2.jpg" class="img-responsive" alt="Chow Fun">
@@ -113,7 +116,7 @@
     <a href="#" class="btn btn-default add2cart">Add to cart</a>
   </div>
 </div>
-<div class="col-md-4 col-sm-6 col-xs-12">
+<div class="col-md-3 col-sm-6 col-xs-12">
   <div class="product-item">
     <div class="pi-img-wrapper">
       <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k3.jpg" class="img-responsive" alt="Chow Fun">
@@ -127,9 +130,8 @@
     <a href="#" class="btn btn-default add2cart">Add to cart</a>
   </div>
 </div>
-<div class="cl"></div>
 
-<div class="col-md-4 col-sm-6 col-xs-12">
+<div class="col-md-3 col-sm-6 col-xs-12">
   <div class="product-item">
     <div class="pi-img-wrapper">
       <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k1.jpg" class="img-responsive" alt="Chow Fun">
@@ -144,7 +146,7 @@
     <div class="sticker sticker-new"></div>
   </div>
 </div>
-<div class="col-md-4 col-sm-6 col-xs-12">
+<div class="col-md-3 col-sm-6 col-xs-12">
   <div class="product-item">
     <div class="pi-img-wrapper">
       <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k2.jpg" class="img-responsive" alt="Chow Fun">
@@ -158,7 +160,7 @@
     <a href="#" class="btn btn-default add2cart">Add to cart</a>
   </div>
 </div>
-<div class="col-md-4 col-sm-6 col-xs-12">
+<div class="col-md-3 col-sm-6 col-xs-12">
   <div class="product-item">
     <div class="pi-img-wrapper">
       <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k3.jpg" class="img-responsive" alt="Chow Fun">
