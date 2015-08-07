@@ -33,7 +33,7 @@
 
 <!-- BEGIN PRE-FOOTER -->
 <div class="pre-footer">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <!-- BEGIN BOTTOM ABOUT BLOCK -->
             <div class="col-md-3 col-sm-6 pre-footer-col">
@@ -117,7 +117,7 @@
 
 <!-- BEGIN FOOTER -->
 <div class="footer">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <!-- BEGIN COPYRIGHT -->
             <div class="col-md-6 col-sm-6 padding-top-10">

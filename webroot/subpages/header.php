@@ -163,7 +163,7 @@
 
 <!-- BEGIN HEADER -->
 <div class="header">
-    <div class="container">
+    <div class="container-fluid">
         <a class="site-logo" href="<?php echo $this->request->webroot;?>"><img src="<?php echo $this->request->webroot;?>assets/frontend/layout/img/logos/logo-shop-red.png" alt="Metronic Shop UI"></a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
