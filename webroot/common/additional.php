@@ -1,4 +1,4 @@
-
+    <div class="menuwrapper">
     <p>&nbsp;</p>
     <div class="col-md-6">
         <div class="col-sm-3 nopadd">
@@ -20,9 +20,11 @@
             <div class="newaction">
             <a href="javascript:void(0)" class="btn btn-info" onclick="add_additional(0);">Add Additional Item</a><br />
             OR<br />
-            <a href="javascript:void(0)" class="btn btn-info">Save</a>
+            <a href="javascript:void(0)" class="btn btn-info">Save</a><br />
+            OR<br />
+            <a href="javascript:void(0)" class="btn btn-danger removelast" onclick="removelast($(this))">Remove</a>
             </div>
         </div>
     </div>
     <div class="clearfix"></div>    
-    
+    </div>

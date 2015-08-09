@@ -1,11 +1,13 @@
+
 <script src="<?php echo $this->request->webroot;?>assets/global/scripts/additional.js"></script>
-<div class="newmenu">
+
+<div class="newmenu" id="newmenu0">
     <p>&nbsp;</p>
     <div class="col-md-6">
         <div class="col-sm-3 nopadd">
-            <div class="menuimg"></div>
+            <div class="menuimg menuimg0_1"></div>
             <br />
-            <a href="javascript:void(0)" class="btn btn-success newbrowse">Image</a>
+            <a href="javascript:void(0)" class="btn btn-success newbrowse" id="newbrowse0_1">Image</a>
         </div>
         <div class="col-sm-9 lowheight">
             <input class="form-control newtitle" type="text" placeholder="Title" /><br />
@@ -36,6 +38,6 @@
         </div>
     </div>
     <div class="clearfix"></div>    
-    <div class="additional<?php echo $_GET['menu_id'];?>"></div>   
+    <div class="aditional additional<?php echo $_GET['menu_id'];?>"></div>   
     <div class="clearfix"></div>
 </div>
