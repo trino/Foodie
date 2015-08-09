@@ -33,5 +33,6 @@ class RestaurantsController extends AppController
         $this->layout='admin';
         $this->set('type',$type);
     }
+    
 }
 ?>

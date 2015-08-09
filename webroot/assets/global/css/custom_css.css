@@ -1,1 +1,13 @@
+.clearfix{clear:both;}
 ul.parentinfo{list-style:none;}
+a.btn{color:#FFF!important;}
+.marbot{margin-bottom:40px;}
+.itemimg{max-width: 100%;}
+.expand{background:url('../../../images/expand.png') no-repeat right;display:inline-block;padding:15px;}
+.expandbtn{display:inline-block;padding:10px;padding-left:10px;display:block;float:right;}
+.menuimg{min-height: 100px;background:#e5e5e5;}
+.newmenu{padding-left:23px;}
+.nopadd{padding:0;}
+.newbrowse{width:100%;}
+.lowheight{line-height:10px;}
+.newaction{line-height:31px;}
