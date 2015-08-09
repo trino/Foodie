@@ -9,7 +9,7 @@
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="#">Chow Fun</a> <span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cusine));?>]</a></span></h3>
+                  <h3><a href="#">Chow Fun</a> <span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cuisine));?>]</a></span></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                   <div class="sticker sticker-new"></div>
@@ -24,7 +24,7 @@
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="#">Sea Cucumber</a> <span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cusine));?>]</a></span></h3>
+                  <h3><a href="#">Sea Cucumber</a> <span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cuisine));?>]</a></span></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
@@ -38,7 +38,7 @@
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Phoenix Claws</a> <span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cusine));?>]</a></span></h3>
+                  <h3><a href="shop-item.html">Phoenix Claws</a> <span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cuisine));?>]</a></span></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
@@ -58,7 +58,7 @@
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Chow Fun</a><span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cusine));?>]</a></span></h3>
+                  <h3><a href="shop-item.html">Chow Fun</a><span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cuisine));?>]</a></span></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                   <div class="sticker sticker-new"></div>
@@ -73,7 +73,7 @@
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Chow Fun2</a><span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cusine));?>]</a></span></h3>
+                  <h3><a href="shop-item.html">Chow Fun2</a><span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cuisine));?>]</a></span></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
@@ -87,7 +87,7 @@
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Chow Fun3</a><span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cusine));?>]</a></span></h3>
+                  <h3><a href="shop-item.html">Chow Fun3</a><span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cuisine));?>]</a></span></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
@@ -107,7 +107,7 @@
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Chow Fun</a><span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cusine));?>]</a></span></h3>
+                  <h3><a href="shop-item.html">Chow Fun</a><span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cuisine));?>]</a></span></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                   <div class="sticker sticker-new"></div>
@@ -122,7 +122,7 @@
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Chow Fun2</a><span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cusine));?>]</a></span></h3>
+                  <h3><a href="shop-item.html">Chow Fun2</a><span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cuisine));?>]</a></span></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
@@ -136,7 +136,7 @@
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Chow Fun3</a><span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cusine));?>]</a></span></h3>
+                  <h3><a href="shop-item.html">Chow Fun3</a><span class="right"><a href="#">[<?php echo ucfirst(str_replace('-',' ',$cuisine));?>]</a></span></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>

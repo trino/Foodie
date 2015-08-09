@@ -89,3 +89,6 @@ src/Controller/logs/debug.log
 *.log
 tmp/cache/persistent/myapp_cake_core_translations_cake_en__u_s
 
+*.log
+config/app.php
+config/app.php

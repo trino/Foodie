@@ -162,7 +162,6 @@
     </div>
     <!-- END SLIDER --><?php */?>
 
-         <div class="col-md-10 col-sm-4">    
-         <?php echo $this->element('menus');?>
-            </div>
- 
+ <div class="col-md-10 col-sm-8 col-xs-7">
+   <?php echo $this->element('menus');?>
+ </div>
