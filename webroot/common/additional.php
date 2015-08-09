@@ -14,6 +14,15 @@
         </div> 
         <div class="clearfix"></div>   
     </div>
-    
+    <div class="col-md-6">
+        <div class="col-md-8">
+            
+            <div class="newaction">
+            <a href="javascript:void(0)" class="btn btn-info" onclick="add_additional(0);">Add Additional Item</a><br />
+            OR<br />
+            <a href="javascript:void(0)" class="btn btn-info">Save</a>
+            </div>
+        </div>
+    </div>
     <div class="clearfix"></div>    
     
