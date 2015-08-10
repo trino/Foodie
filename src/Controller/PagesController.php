@@ -22,7 +22,7 @@ class PagesController extends AppController {
 
     }
     
-    public function cuisine($slug) {
+    public function cuisine($slug = "home") {
         $this->set('cuisine', $slug);
     }
 }

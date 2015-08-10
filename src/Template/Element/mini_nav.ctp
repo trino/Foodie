@@ -1,4 +1,8 @@
-
+<?php
+    $userID = $this->request->session()->read('Profile.ID');
+    $userName = $this->request->session()->read('Profile.Name');
+    $Restaurant = $this->request->session()->read('Profile.Restaurant');
+?>
 <div class="col-md-6 col-sm-6 additional-shop-info">
     <ul class="list-unstyled list-inline">
         <li><i class="fa fa-phone"></i><span>+1 456 6717</span></li>
@@ -25,11 +29,18 @@
 <!-- BEGIN TOP BAR MENU -->
 <div class="col-md-6 col-sm-6 additional-nav">
      <ul class="list-unstyled list-inline pull-right">
-        <li><a href="shop-account.html">My Account</a></li>
-        <li><a href="shop-wishlist.html">My Wishlist</a></li>
+        <?php
+            if($userID){
+                echo '<li><a href="shop-account.html">My Account</a></li>';
+                echo '<li><a href="shop-wishlist.html">My Wishlist</a></li>';
+                echo '<li><a href="' . $this->request->webroot . 'users/dashboard">User Dashboard</a></li>';
+                if ($Restaurant) {
+                    echo '<li><a href="' . $this->request->webroot . 'restaurants/dashboard">Dashboard</a></li>';
+                }
+            } else {
+                echo '<li><a href="#login-pop-up" class="fancybox-fast-view">Log In</a></li>';
+            }
+        ?>
         <li><a href="shop-checkout.html">Checkout</a></li>
-        <li><a href="#login-pop-up" class="fancybox-fast-view">Log In</a></li>
-        <li><a href="<?php echo $this->request->webroot;?>restaurants/dashboard">Dashboard</a></li>
-        <li><a href="<?php echo $this->request->webroot;?>users/dashboard">User Dashboard</a></li>
     </ul>
 </div>
