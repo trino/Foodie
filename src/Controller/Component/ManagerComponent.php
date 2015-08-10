@@ -228,8 +228,11 @@
         function rename_genre($ID, $Name){
             $this->update_database('genres', "ID", $ID, array("Name" => $Name));
         }
-        function enum_restaurants($Genre){
-            return $this->enum_anything("restaurants", "Genre", $Genre);
+        function enum_restaurants($Genre = ""){
+            if($Genre) {
+                return $this->enum_anything("restaurants", "Genre", $Genre);
+            }
+            return $this->enum_table("restaurants");
         }
 
 
@@ -405,8 +408,8 @@
         function enum_table($Table){
             return TableRegistry::get($Table)->find('all');
         }
-        function enum_all($Table, $data){
-            return TableRegistry::get($Table)->find('all')->where($data);
+        function enum_all($Table, $conditions = ""){
+            return TableRegistry::get($Table)->find('all')->where($conditions);
         }
 
         function iterator_to_array($entries, $PrimaryKey, $Key){

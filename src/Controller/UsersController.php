@@ -25,9 +25,7 @@ use Cake\View\Exception\MissingTemplateException;
  *
  * @link http://book.cakephp.org/3.0/en/controllers/pages-controller.html
  */
-class UsersController extends AppController
-{
-
+class UsersController extends AppController {
     /**
      * Displays a view
      *
@@ -35,12 +33,17 @@ class UsersController extends AppController
      * @throws \Cake\Network\Exception\NotFoundException When the view file could not
      *   be found or \Cake\View\Exception\MissingTemplateException in debug mode.
      */
-    public function dashboard()
-    {
+    public function dashboard() {
         $this->layout = "admin";
     }
-     public function orders()
-    {
+
+     public function orders() {
         $this->layout = "admin";
+    }
+
+    public function logout(){
+        $this->layout = "none";
+        $this->request->session()->destroy();
+        $this->redirect('/');
     }
 }

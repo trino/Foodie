@@ -8,18 +8,16 @@
         <li><i class="fa fa-phone"></i><span>+1 456 6717</span></li>
         <!-- BEGIN CURRENCIES -->
         <li class="shop-currencies">
-            <a href="javascript:void(0);">€</a>
-            <a href="javascript:void(0);">£</a>
-            <a href="javascript:void(0);" class="current">$</a>
+            <a href="javascript:void(0);" style="display: none;">€</a>
+            <a href="javascript:void(0);" style="display: none;">£</a>
+            <a href="javascript:void(0);" class="current">$CDN</a>
         </li>
         <!-- END CURRENCIES -->
         <!-- BEGIN LANGS -->
-        <li class="langs-block">
+        <li class="langs-block" style="display: none;">
             <a href="javascript:void(0);" class="current">English </a>
             <div class="langs-block-others-wrapper"><div class="langs-block-others">
               <a href="javascript:void(0);">French</a>
-              <a href="javascript:void(0);">Germany</a>
-              <a href="javascript:void(0);">Turkish</a>
             </div></div>
         </li>
         <!-- END LANGS -->
@@ -37,6 +35,7 @@
                 if ($Restaurant) {
                     echo '<li><a href="' . $this->request->webroot . 'restaurants/dashboard">Dashboard</a></li>';
                 }
+                echo '<li><a href="' . $this->request->webroot . 'users/logout">Log Out</a></li>';
             } else {
                 echo '<li><a href="#login-pop-up" class="fancybox-fast-view">Log In</a></li>';
             }

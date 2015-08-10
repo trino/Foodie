@@ -36,6 +36,7 @@ class RestaurantsController extends AppController {
 
     public function all() {
         $this->layout='admin';
+        $this->set("Restaurants", $this->Manager->enum_restaurants());
     }
 
     public function signup() {
