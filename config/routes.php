@@ -60,6 +60,7 @@ Router::scope('/', function ($routes) {
     $routes->connect('/restaurants/menu_form', ['controller' => 'Restaurants', 'action' => 'menu_form']);
     $routes->connect('/restaurants/orders/*', ['controller' => 'Restaurants', 'action' => 'orders']);
     $routes->connect('/restaurants/report/*', ['controller' => 'Restaurants', 'action' => 'report']);
+    $routes->connect('/restaurants/all/*', ['controller' => 'Restaurants', 'action' => 'all']);
     $routes->connect('/restaurants/*', ['controller' => 'Restaurants', 'action' => 'index']);
 
     /**

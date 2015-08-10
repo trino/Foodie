@@ -375,6 +375,7 @@
                         </li>
                     </ul>
                 </li>
+                <li><a href="<?php echo $this->request->webroot;?>restaurants/all">List Restaurants</a></li>
                 <li><a href="<?php echo $this->request->webroot;?>pages/about">About Us</a></li>
                 <li><a href="<?php echo $this->request->webroot;?>pages/contact">Contact Us</a></li>
                 <?php /*<li class="dropdown dropdown100 nav-catalogue">
