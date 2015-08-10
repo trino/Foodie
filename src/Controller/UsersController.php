@@ -35,6 +35,8 @@ class UsersController extends AppController {
      */
     public function dashboard() {
         $this->layout = "admin";
+        $Me = $this->request->session()->read('Profile.ID');
+        $this->set("Profile", $this->Manager->get_profile($Me));
     }
 
      public function orders() {

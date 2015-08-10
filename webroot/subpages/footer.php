@@ -53,6 +53,9 @@
                     <li><i class="fa fa-angle-right"></i> <a href="contacts.html">Contact Us</a></li>
                     <li><i class="fa fa-angle-right"></i> <a href="#">Careers</a></li>
                     <li><i class="fa fa-angle-right"></i> <a href="#">Payment Methods</a></li>
+
+
+                    <li><i class="fa fa-angle-right"></i> <a href="<?= $this->request->webroot; ?>pages/disclaimers">Disclaimers</a></li>
                 </ul>
             </div>
             <!-- END INFO BLOCK -->

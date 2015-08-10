@@ -26,6 +26,20 @@
                         $this->add_subscriber($_POST["email"]);
                         $Controller->Flash->success($_POST["email"] . " please check your email to confirm your subscription");
                         break;
+                    case "signup":
+                        if ($_POST["Password"] == $_POST["Confirm-Password"]) {
+                            $_POST["Email"] = strtolower(trim($_POST["Email"]));
+                            if ($this->get_entry("profiles", $_POST["Email"], "Email")){
+                                $Controller->Flash->error("Email address is in use already");
+                            } else {
+                                $Controller->loadComponent("Mailer");
+                                $this->new_profile(0, $_POST["Name"], 2, $_POST["Email"], 0, $_POST["newsletter"]);
+                                $Controller->Flash->success("Your profile has been created");
+                            }
+                        } else {
+                            $Controller->Flash->error("The passwords do not match");
+                        }
+                        break;
                 }
             }
             if (isset($_GET["action"])){
@@ -116,6 +130,7 @@
 
         function new_profile($CreatedBy, $Name, $ProfileType, $EmailAddress, $RestaurantID, $Subscribed){
             $Password = $this->randomPassword(8);
+            if($Subscribed){$Subscribed=1;}
             $data = array("Name" => trim($Name), "ProfileType" => $ProfileType, "Email" => strtolower(trim($EmailAddress)), "CreatedBy" => 0, "RestaurantID" => $RestaurantID, "Subscribed" => $Subscribed, "Password" => md5($Password . $this->salt()));
             if($CreatedBy){
                 if(!$this->can_profile_create($CreatedBy, $ProfileType)){return false;}
@@ -151,6 +166,18 @@
             $Controller->request->session()->write('Profile.Email',         $Profile->Email);
             $Controller->request->session()->write('Profile.Type',          $Profile->ProfileType);
             $Controller->request->session()->write('Profile.Restaurant',    $Profile->RestaurantID);
+        }
+
+        ////////////////////////////////////////Profile Address API ////////////////////////////////////
+        function enum_profile_addresses($ProfileID){
+            return $this->enum_all("profiles_addresses", array("UserID" => $ProfileID));
+        }
+        function delete_profile_address($ID){
+            $this->delete_all("profiles_addresses", array("ID" => $ID));
+        }
+        function edit_profile_address($ID){
+            $Data = array("UserID", "Number", "Street", "Apt", "Buzz", "City", "Province", "Country", "Notes");
+            $this->edit_database("profiles_addresses", "ID", $ID, $Data);
         }
 
 
@@ -409,7 +436,10 @@
             return TableRegistry::get($Table)->find('all');
         }
         function enum_all($Table, $conditions = ""){
-            return TableRegistry::get($Table)->find('all')->where($conditions);
+            if (is_array($conditions)) {
+                return TableRegistry::get($Table)->find('all')->where($conditions);
+            }
+            return $this->enum_table($Table);
         }
 
         function iterator_to_array($entries, $PrimaryKey, $Key){

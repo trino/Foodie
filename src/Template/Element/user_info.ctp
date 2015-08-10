@@ -1,62 +1,40 @@
-      
-            <form role="form" class="form-horizontal">
+      <form action="" class="form-horizontal" method="post">
+                <INPUT TYPE="hidden" name="action" value="signup">
                     <fieldset>
                       <legend>Your personal details</legend>
                       <div class="form-group">
-                        <label class="col-lg-4 control-label" for="firstname">Restaurant Name <span class="require">*</span></label>
+                        <label class="col-lg-4 control-label" for="Name">Name <span class="require">*</span></label>
                         <div class="col-lg-8">
-                          <input type="text" id="firstname" class="form-control">
+                          <input type="text" name="Name" class="form-control">
                         </div>
                       </div>
+
                       <div class="form-group">
-                        <label class="col-lg-4 control-label" for="email">Email <span class="require">*</span></label>
+                        <label class="col-lg-4 control-label" for="Email">Email <span class="require">*</span></label>
                         <div class="col-lg-8">
-                          <input type="text" id="email" class="form-control">
+                          <input type="text" name="Email" class="form-control">
                         </div>
                       </div>
+
                       <div class="form-group">
-                        <label class="col-lg-4 control-label" for="lastname">Street Address <span class="require">*</span></label>
+                        <label class="col-lg-4 control-label" for="Phone">Phone<span class="require">*</span></label>
                         <div class="col-lg-8">
-                          <input type="text" id="lastname" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-4 control-label" for="lastname">City<span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" id="lastname" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-4 control-label" for="lastname">State/Province <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" id="lastname" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-4 control-label" for="lastname">Postal Code<span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" id="lastname" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-4 control-label" for="lastname">Phone<span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" id="lastname" class="form-control">
+                          <input type="text" name="Phone" class="form-control">
                         </div>
                       </div>
                     </fieldset>
                     <fieldset>
                       <legend>Your password</legend>
                       <div class="form-group">
-                        <label class="col-lg-4 control-label" for="password">Password <span class="require">*</span></label>
+                        <label class="col-lg-4 control-label" for="Password">Password <span class="require">*</span></label>
                         <div class="col-lg-8">
-                          <input type="text" id="password" class="form-control">
+                          <input type="text" name="Password" class="form-control">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="col-lg-4 control-label" for="confirm-password">Confirm password <span class="require">*</span></label>
+                        <label class="col-lg-4 control-label" for="Confirm-Password">Confirm password <span class="require">*</span></label>
                         <div class="col-lg-8">
-                          <input type="text" id="confirm-password" class="form-control">
+                          <input type="text" name="Confirm-Password" class="form-control">
                         </div>
                       </div>
                     </fieldset>
