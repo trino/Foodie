@@ -865,7 +865,7 @@
 
 /* BEGIN max width 390px */
 @media (max-width: 390px) {
-	.steps-block .fa-truck, .steps-block .fa-gift, .steps-block .fa-phone {
+	.steps-block .fa {
 	    border: 2px solid #FFFFFF;
 	    border-radius: 30px !important;
 	    float: left;

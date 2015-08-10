@@ -1,5 +1,5 @@
 <?php
- 
+
 namespace App\Controller;
 
 use Cake\Core\Configure;
@@ -9,16 +9,19 @@ use Cake\View\Exception\MissingTemplateException;
 
 class RestaurantsController extends AppController
 {
-     public function index($slug='')
+    public function index($slug='')
     {
          $this->set('restaurant',$slug);
-        
+
     }
     public function dashboard()
     {
         $this->layout='admin';
     }
-    
+    public function all()
+    {        $this->layout='admin';
+
+    }
     public function menu_manager()
     {
         $this->layout='admin';
@@ -27,11 +30,12 @@ class RestaurantsController extends AppController
     {
         $this->layout='admin';
     }
-    
+
     public function orders($type='history')
     {
         $this->layout='admin';
         $this->set('type',$type);
     }
+    
 }
 ?>

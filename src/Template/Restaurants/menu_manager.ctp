@@ -1,225 +1,142 @@
- <div class="row " style="padding-top: 20px;">
-        <div class="col-xs-12">
-            <div class="">
-                <!--div class="banners--big">
-Welcome, test
-</div-->
+
+<div class="col-md-12">
+    <?php echo $this->element('restaurant_menus');?>
+    <div class="col-md-10">
+    
+        <div class="dashboard">
+            <div class="content-page">
+                <h1>Menu Manager</h1>
+                <hr />
+                <a href="javascript:void(0);" onclick="add_item();" class="btn btn-primary">Add New Menu Item</a>
+                <div class="addnew" style="display: none;"></div>
+                <hr />
+                <ul class="parentinfo">
+                
+                    <li class="infolistwhite row marbot" id="parent4">
+                        
+                        <div class="col-md-4 menu_item">
+                            
+                            <div class="col-sm-4" style="padding: 0;">
+                                <img class="itemimg4 itemimg" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k2.jpg"  />
+                            </div>
+                            <div class="col-sm-8">
+                                <h4  class="itemtitle4" >Chow Fun</h4>
+                            </div>
+                            <div class="clearfix"></div>
+                
+                        </div>
+                
+                        <div class="col-md-8">
+                        <a href="javascript:void(0)" id="edititem4" onclick="edit_item(4)" class="btn btn-success">Edit Item</a>
+                        <a href="javascript:void(0)" id="addimgitem4" class="btn btn-info addimgcat">Add Image</a>
+                        <a href="javascript:void(0)" id="deleteitem4" onclick="delete_item(4)" class="deletecat btn btn-danger">Delete</a>
+                        <a href="javascript:void(0)" class="expandbtn expand1"><span class="expand"></span></a>
+                        
+                
+                        <div style="clear: both;"></div>
+                        </div>
+                
+                        <div class="clearfix"></div>
+                         
+                
+                 </li>
+                 
+                 <li class="infolistwhite row marbot" id="parent3">
+                        
+                        <div class="col-md-4 menu_item">
+                            
+                            <div class="col-sm-4" style="padding: 0;">
+                                <img class="itemimg3 itemimg" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k3.jpg"  />
+                            </div>
+                            <div class="col-sm-8">
+                                <h4  class="itemtitle3" >Chow Fun</h4>
+                            </div>
+                            <div class="clearfix"></div>
+                
+                        </div>
+                
+                        <div class="col-md-8">
+                        <a href="javascript:void(0)" id="edititem3" onclick="edit_item(3)" class="btn btn-success">Edit Item</a>
+                        <a href="javascript:void(0)" id="addimgitem3" class="btn btn-info addimgcat">Add Image</a>
+                        <a href="javascript:void(0)" id="deleteitem3" onclick="delete_item(3)" class="deletecat btn btn-danger">Delete</a>
+                        <a href="javascript:void(0)" class="expandbtn expand1"><span class="expand"></span></a>
+                        
+                
+                        <div style="clear: both;"></div>
+                        </div>
+                
+                        <div class="clearfix"></div>
+                         
+                
+                 </li>
+                 
+                 <li class="infolistwhite row marbot" id="parent2">
+                        
+                        <div class="col-md-4 menu_item">
+                            
+                            <div class="col-sm-4" style="padding: 0;">
+                                <img class="itemimg2 itemimg" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k2.jpg"  />
+                            </div>
+                            <div class="col-sm-8">
+                                <h4  class="itemtitle2" >Chow Fun</h4>
+                            </div>
+                            <div class="clearfix"></div>
+                
+                        </div>
+                
+                        <div class="col-md-8">
+                        <a href="javascript:void(0)" id="edititem2" onclick="edit_item(2)" class="btn btn-success">Edit Item</a>
+                        <a href="javascript:void(0)" id="addimgitem2" class="btn btn-info addimgcat">Add Image</a>
+                        <a href="javascript:void(0)" id="deleteitem2" onclick="delete_item(2)" class="deletecat btn btn-danger">Delete</a>
+                        <a href="javascript:void(0)" class="expandbtn expand1"><span class="expand"></span></a>
+                        
+                
+                        <div style="clear: both;"></div>
+                        </div>
+                
+                        <div class="clearfix"></div>
+                         
+                
+                 </li>
+                 
+                 <li class="infolistwhite row marbot" id="parent1">
+                        
+                        <div class="col-md-4 menu_item">
+                            
+                            <div class="col-sm-4" style="padding: 0;">
+                                <img class="itemimg1 itemimg" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k1.jpg"  />
+                            </div>
+                            <div class="col-sm-8">
+                                <h4  class="itemtitle1" >Chow Fun</h4>
+                            </div>
+                            <div class="clearfix"></div>
+                
+                        </div>
+                
+                        <div class="col-md-8">
+                        <a href="javascript:void(0)" id="edititem1" onclick="edit_item(1)" class="btn btn-success">Edit Item</a>
+                        <a href="javascript:void(0)" id="addimgitem1" class="btn btn-info addimgcat">Add Image</a>
+                        <a href="javascript:void(0)" id="deleteitem1" onclick="delete_item(1)" class="deletecat btn btn-danger">Delete</a>
+                        <a href="javascript:void(0)" class="expandbtn expand1"><span class="expand"></span></a>
+                        
+                
+                        <div style="clear: both;"></div>
+                        </div>
+                
+                        <div class="clearfix"></div>
+                         
+                
+                 </li>
+                
+                </ul>
             </div>
+        
+        
         </div>
+        <div class="clearfix  hidden-xs"></div>
+    
+    
     </div>
-  <div class="col-md-12">
-<?php echo $this->element('restaurant_menus');?>
-<div class="col-xs-12  col-sm-9">
-<div class="grid">
-<h3 class="sidebar__title">Menu Manager</h3>
-<hr class="shop__divider">
-<div class="dashboard">
-
-<div class="">
-
-
-
-
-
-<div class="clearfix"></div>
-<div class="col-xs-12 col-sm-12">
-<ul class="parentinfo">
-
-    <li class="infolistwhite row" id="catid" style="padding-bottom:0px;">
-        
-        <div class="col-xs-12 col-sm-4 cattitle" style="padding-top:7px;">
-        <div class="col-sm-4" style="padding: 0;"><img style="max-width: 100%;" src="<?php echo $this->request->webroot;?>images/608760_802485.png"  /></div>
-        <div class="col-sm-8"><h4  class="sidebar__title" >Rolls</h4></div>
-
-        <div class="clearfix"></div>
-
-        </div>
-
-        <div class="col-xs-12 col-sm-8 marbot icon-move">
-         <a href="javascript:void(0)" id="editcat" onclick="$('.cattitle').html('<input class=\'myinputs catetitle\' type=\'text\' value = \'rolls\'/><a href\'javascript:void(0);\' class=\'btn btn-success changeme\' id=\'change\'>Save</a>');$('#item').hide();" class="btn btn-success">Edit Category</a>
-        <a href="javascript:void(0)" id="addmenucat" class="btn btn-darker" onclick="$('#item').show();$('.cattitle').html('<h3 class=\'sidebar__title\'>Rolls</h3>');clear_all('');">Add Item</a>
-        <a href="javascript:void(0)" id="addimgcat" class="btn btn-info addimgcat">Add Image</a>
-        <a href="javascript:void(0)" id="deletecat" class="deletecat btn btn-danger">Delete</a>
-
-        
-
-        <div style="clear: both;"></div>
-        </div>
-
-        <div class="clearfix"></div>
-          <div class="col-xs-12 col-sm-8 addmenu" style="display: none;margin-bottom:10px;" id="item">
-            <div class="menu_item">
-                <div class="col-xs-12 col-sm-4"><strong>Item Name</strong></div><div class="col-xs-12 col-sm-8"><input type="text" name="menu_item" class="menu_item_name" placeholder="" /></div>
-                <div class="clearfix"></div>
-                <div class="col-xs-12 col-sm-4"><strong>Item Price</strong></div><div class="col-xs-12 col-sm-8"><input type="text" name="price" class="price" placeholder="" /></div>
-                <div class="clearfix"></div>
-                <div class="col-xs-12 col-sm-4"><strong>Description</strong></div><div class="col-xs-12 col-sm-8"><input type="text" name="description" class="description" placeholder="" /></div>
-                <div class="clearfix"></div>
-                <input type="hidden" name="cat_id" class="cat_id" value="<?php $cats['MenuCategory']['id'];?>" />
-                <input type="button" class="opt btn btn-info" onclick="$(this).parent().find('.radios').show();$('.hasopt').val(1);if($('#addopt').attr('style')=='display: none;'){$('#addopt').show();}else{$('#addopt').attr('style','display: none;');}$('#addopt').load('<?php echo $this->request->webroot;?>restaurants/optional/');" value="Has additional Items" />
-                <input type="hidden" name="has_opt" value="0" class="hasopt" />
-                
-                 
-                <div class="optional" id="addopt" style="display: none;">
-                </div>
-                
-                <a href="javascript:void(0);" id="itemadd" class="btn btn-primary addmenubtn">Add</a>
-                
-            </div>
-            
-        </div>
-        <div class="clearfix">
-</div>
- </li>
- <li class="infolistwhite row" id="catid" style="padding-bottom:0px;">
-        
-        <div class="col-xs-12 col-sm-4 cattitle" style="padding-top:7px;">
-        <div class="col-sm-4" style="padding: 0;"><img style="max-width: 100%;" src="<?php echo $this->request->webroot;?>images/713930_422295.png"  /></div>
-        <div class="col-sm-8"><h4  class="sidebar__title" >Drinks</h4></div>
-
-        <div class="clearfix"></div>
-
-        </div>
-
-        <div class="col-xs-12 col-sm-8 marbot icon-move">
-         <a href="javascript:void(0)" id="editcat" onclick="$('.cattitle').html('<input class=\'myinputs catetitle\' type=\'text\' value = \'rolls\'/><a href\'javascript:void(0);\' class=\'btn btn-success changeme\' id=\'change\'>Save</a>');$('#item').hide();" class="btn btn-success">Edit Category</a>
-        <a href="javascript:void(0)" id="addmenucat" class="btn btn-darker" onclick="$('#item').show();$('.cattitle').html('<h3 class=\'sidebar__title\'>Drinks</h3>');clear_all('');">Add Item</a>
-        <a href="javascript:void(0)" id="addimgcat" class="btn btn-info addimgcat">Add Image</a>
-        <a href="javascript:void(0)" id="deletecat" class="deletecat btn btn-danger">Delete</a>
-
-        
-
-        <div style="clear: both;"></div>
-        </div>
-
-        <div class="clearfix"></div>
-          <div class="col-xs-12 col-sm-8 addmenu" style="display: none;margin-bottom:10px;" id="item">
-            <div class="menu_item">
-                <div class="col-xs-12 col-sm-4"><strong>Item Name</strong></div><div class="col-xs-12 col-sm-8"><input type="text" name="menu_item" class="menu_item_name" placeholder="" /></div>
-                <div class="clearfix"></div>
-                <div class="col-xs-12 col-sm-4"><strong>Item Price</strong></div><div class="col-xs-12 col-sm-8"><input type="text" name="price" class="price" placeholder="" /></div>
-                <div class="clearfix"></div>
-                <div class="col-xs-12 col-sm-4"><strong>Description</strong></div><div class="col-xs-12 col-sm-8"><input type="text" name="description" class="description" placeholder="" /></div>
-                <div class="clearfix"></div>
-                <input type="hidden" name="cat_id" class="cat_id" value="<?php $cats['MenuCategory']['id'];?>" />
-                <input type="button" class="opt btn btn-info" onclick="$(this).parent().find('.radios').show();$('.hasopt').val(1);if($('#addopt').attr('style')=='display: none;'){$('#addopt').show();}else{$('#addopt').attr('style','display: none;');}$('#addopt').load('<?php echo $this->request->webroot;?>restaurants/optional/');" value="Has additional Items" />
-                <input type="hidden" name="has_opt" value="0" class="hasopt" />
-                
-                 
-                <div class="optional" id="addopt" style="display: none;">
-                </div>
-                
-                <a href="javascript:void(0);" id="itemadd" class="btn btn-primary addmenubtn">Add</a>
-                
-            </div>
-            
-        </div>
-        <div class="clearfix">
-</div>
- </li>
- <li class="infolistwhite row" id="catid" style="padding-bottom:0px;">
-        
-        <div class="col-xs-12 col-sm-4 cattitle" style="padding-top:7px;">
-        <div class="col-sm-4" style="padding: 0;"><img style="max-width: 100%;" src="<?php echo $this->request->webroot;?>images/795950_413229.png"  /></div>
-        <div class="col-sm-8"><h4  class="sidebar__title" >Rice</h4></div>
-
-        <div class="clearfix"></div>
-
-        </div>
-
-        <div class="col-xs-12 col-sm-8 marbot icon-move">
-         <a href="javascript:void(0)" id="editcat" onclick="$('.cattitle').html('<input class=\'myinputs catetitle\' type=\'text\' value = \'rolls\'/><a href\'javascript:void(0);\' class=\'btn btn-success changeme\' id=\'change\'>Save</a>');$('#item').hide();" class="btn btn-success">Edit Category</a>
-        <a href="javascript:void(0)" id="addmenucat" class="btn btn-darker" onclick="$('#item').show();$('.cattitle').html('<h3 class=\'sidebar__title\'>Rolls</h3>');clear_all('');">Add Item</a>
-        <a href="javascript:void(0)" id="addimgcat" class="btn btn-info addimgcat">Add Image</a>
-        <a href="javascript:void(0)" id="deletecat" class="deletecat btn btn-danger">Delete</a>
-
-        
-
-        <div style="clear: both;"></div>
-        </div>
-
-        <div class="clearfix"></div>
-          <div class="col-xs-12 col-sm-8 addmenu" style="display: none;margin-bottom:10px;" id="item">
-            <div class="menu_item">
-                <div class="col-xs-12 col-sm-4"><strong>Item Name</strong></div><div class="col-xs-12 col-sm-8"><input type="text" name="menu_item" class="menu_item_name" placeholder="" /></div>
-                <div class="clearfix"></div>
-                <div class="col-xs-12 col-sm-4"><strong>Item Price</strong></div><div class="col-xs-12 col-sm-8"><input type="text" name="price" class="price" placeholder="" /></div>
-                <div class="clearfix"></div>
-                <div class="col-xs-12 col-sm-4"><strong>Description</strong></div><div class="col-xs-12 col-sm-8"><input type="text" name="description" class="description" placeholder="" /></div>
-                <div class="clearfix"></div>
-                <input type="hidden" name="cat_id" class="cat_id" value="<?php $cats['MenuCategory']['id'];?>" />
-                <input type="button" class="opt btn btn-info" onclick="$(this).parent().find('.radios').show();$('.hasopt').val(1);if($('#addopt').attr('style')=='display: none;'){$('#addopt').show();}else{$('#addopt').attr('style','display: none;');}$('#addopt').load('<?php echo $this->request->webroot;?>restaurants/optional/');" value="Has additional Items" />
-                <input type="hidden" name="has_opt" value="0" class="hasopt" />
-                
-                 
-                <div class="optional" id="addopt" style="display: none;">
-                </div>
-                
-                <a href="javascript:void(0);" id="itemadd" class="btn btn-primary addmenubtn">Add</a>
-                
-            </div>
-            
-        </div>
-        <div class="clearfix">
-</div>
- </li>
- <li class="infolistwhite row" id="catid" style="padding-bottom:0px;">
-        
-        <div class="col-xs-12 col-sm-4 cattitle" style="padding-top:7px;">
-        <div class="col-sm-4" style="padding: 0;"><img style="max-width: 100%;" src="<?php echo $this->request->webroot;?>images/807424_788210.jpg"  /></div>
-        <div class="col-sm-8"><h4  class="sidebar__title" >Rolls</h4></div>
-
-        <div class="clearfix"></div>
-
-        </div>
-
-        <div class="col-xs-12 col-sm-8 marbot icon-move">
-         <a href="javascript:void(0)" id="editcat" onclick="$('.cattitle').html('<input class=\'myinputs catetitle\' type=\'text\' value = \'rolls\'/><a href\'javascript:void(0);\' class=\'btn btn-success changeme\' id=\'change\'>Save</a>');$('#item').hide();" class="btn btn-success">Edit Category</a>
-        <a href="javascript:void(0)" id="addmenucat" class="btn btn-darker" onclick="$('#item').show();$('.cattitle').html('<h3 class=\'sidebar__title\'>Rolls</h3>');clear_all('');">Add Item</a>
-        <a href="javascript:void(0)" id="addimgcat" class="btn btn-info addimgcat">Add Image</a>
-        <a href="javascript:void(0)" id="deletecat" class="deletecat btn btn-danger">Delete</a>
-
-        
-
-        <div style="clear: both;"></div>
-        </div>
-
-        <div class="clearfix"></div>
-          <div class="col-xs-12 col-sm-8 addmenu" style="display: none;margin-bottom:10px;" id="item">
-            <div class="menu_item">
-                <div class="col-xs-12 col-sm-4"><strong>Item Name</strong></div><div class="col-xs-12 col-sm-8"><input type="text" name="menu_item" class="menu_item_name" placeholder="" /></div>
-                <div class="clearfix"></div>
-                <div class="col-xs-12 col-sm-4"><strong>Item Price</strong></div><div class="col-xs-12 col-sm-8"><input type="text" name="price" class="price" placeholder="" /></div>
-                <div class="clearfix"></div>
-                <div class="col-xs-12 col-sm-4"><strong>Description</strong></div><div class="col-xs-12 col-sm-8"><input type="text" name="description" class="description" placeholder="" /></div>
-                <div class="clearfix"></div>
-                <input type="hidden" name="cat_id" class="cat_id" value="<?php $cats['MenuCategory']['id'];?>" />
-                <input type="button" class="opt btn btn-info" onclick="$(this).parent().find('.radios').show();$('.hasopt').val(1);if($('#addopt').attr('style')=='display: none;'){$('#addopt').show();}else{$('#addopt').attr('style','display: none;');}$('#addopt').load('<?php echo $this->request->webroot;?>restaurants/optional/');" value="Has additional Items" />
-                <input type="hidden" name="has_opt" value="0" class="hasopt" />
-                
-                 
-                <div class="optional" id="addopt" style="display: none;">
-                </div>
-                
-                <a href="javascript:void(0);" id="itemadd" class="btn btn-primary addmenubtn">Add</a>
-                
-            </div>
-            
-        </div>
-        <div class="clearfix">
-</div>
- </li>
-
-</ul>
-</div>
-</div>
-
-</div>
-<div class="clearfix  hidden-xs"></div>
-</div>
-<hr class="shop__divider">
-
-</div>
 </div>
 
 

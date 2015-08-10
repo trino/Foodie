@@ -1084,9 +1084,7 @@ steps block and steps block elements
 .steps-block-simple .steps-block-col div {
 	margin-left: 0;
 }
-.steps-block .fa-truck,
-.steps-block .fa-gift,
-.steps-block .fa-phone {
+.steps-block .fa {
 	font-size: 30px;
 	border: solid 2px #fff;
 	border-radius: 30px !important;

@@ -1,4 +1,10 @@
 <?php
+
+$debugmode = true;
+if (file_exists($_SERVER["DOCUMENT_ROOT"] . "debugmode.txt")){
+    $debugmode = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "debugmode.txt") == $_SERVER['REMOTE_ADDR'];
+}
+
 return [
     /**
      * Debug Level:
@@ -216,9 +222,9 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'nonstandard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'my_app',
+            'username' => 'root',
+            'password' => '',
+            'database' => 'food',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'cacheMetadata' => true,

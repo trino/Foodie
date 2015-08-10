@@ -3065,3 +3065,47 @@ Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
 
 
 
+2015-08-10 15:04:56 Notice: Notice (8): Undefined variable: genres in [F:\wamp\www\Foodie\src\Template\Element\sidebar.ctp, line 3]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Element\sidebar.ctp, line 3
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1161
+Cake\View\View::element() - CORE\src\View\View.php, line 376
+include - APP/Template\Layout\default.ctp, line 8
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::renderLayout() - CORE\src\View\View.php, line 511
+Cake\View\View::render() - CORE\src\View\View.php, line 473
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 296
+Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 172
+Cake\Error\ErrorHandler::_displayException() - CORE\src\Error\ErrorHandler.php, line 145
+Cake\Error\BaseErrorHandler::handleException() - CORE\src\Error\BaseErrorHandler.php, line 156
+[main] - [internal], line ??
+
+
+
+2015-08-10 15:05:21 Notice: Notice (8): Undefined variable: genres in [F:\wamp\www\Foodie\src\Template\Element\sidebar.ctp, line 3]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Element\sidebar.ctp, line 3
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1161
+Cake\View\View::element() - CORE\src\View\View.php, line 376
+include - APP/Template\Layout\default.ctp, line 8
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::renderLayout() - CORE\src\View\View.php, line 511
+Cake\View\View::render() - CORE\src\View\View.php, line 473
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 296
+Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 172
+Cake\Error\ErrorHandler::_displayException() - CORE\src\Error\ErrorHandler.php, line 145
+Cake\Error\BaseErrorHandler::handleException() - CORE\src\Error\BaseErrorHandler.php, line 156
+[main] - [internal], line ??
+
+
+

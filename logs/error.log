@@ -3221,3 +3221,140 @@ Stack Trace:
 #3 {main}
 
 
+2015-08-10 15:04:56 Warning: Warning (2): Invalid argument supplied for foreach() in [F:\wamp\www\Foodie\src\Template\Element\sidebar.ctp, line 3]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Element\sidebar.ctp, line 3
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1161
+Cake\View\View::element() - CORE\src\View\View.php, line 376
+include - APP/Template\Layout\default.ctp, line 8
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::renderLayout() - CORE\src\View\View.php, line 511
+Cake\View\View::render() - CORE\src\View\View.php, line 473
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 296
+Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 172
+Cake\Error\ErrorHandler::_displayException() - CORE\src\Error\ErrorHandler.php, line 145
+Cake\Error\BaseErrorHandler::handleException() - CORE\src\Error\BaseErrorHandler.php, line 156
+[main] - [internal], line ??
+
+
+
+2015-08-10 15:04:56 Error: [PDOException] SQLSTATE[HY000] [1049] Unknown database 'food'
+Request URL: /Foodie/
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Driver\PDODriverTrait.php(48): PDO->__construct('mysql:host=loca...', 'root', '', Array)
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(89): Cake\Database\Driver\Mysql->_connect('mysql:host=loca...', Array)
+#2 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Schema\BaseSchema.php(46): Cake\Database\Driver\Mysql->connect()
+#3 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Dialect\MysqlDialectTrait.php(62): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(44): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Connection.php(319): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\ORM\Table.php(425): Cake\Database\Connection->schemaCollection()
+#8 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\ORM\Query.php(141): Cake\ORM\Table->schema()
+#9 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\ORM\Query.php(123): Cake\ORM\Query->addDefaultTypes(Object(Cake\ORM\Table))
+#10 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\ORM\Table.php(1217): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(Cake\ORM\Table))
+#11 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\ORM\Table.php(921): Cake\ORM\Table->query()
+#12 F:\wamp\www\Foodie\src\Controller\Component\ManagerComponent.php(223): Cake\ORM\Table->find('all')
+#13 F:\wamp\www\Foodie\src\Controller\Component\ManagerComponent.php(12): App\Controller\Component\ManagerComponent->enum_genres()
+#14 F:\wamp\www\Foodie\src\Controller\AppController.php(42): App\Controller\Component\ManagerComponent->init(Object(App\Controller\PagesController))
+#15 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(278): App\Controller\AppController->initialize()
+#16 [internal function]: Cake\Controller\Controller->__construct(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Pages')
+#17 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Filter\ControllerFactoryFilter.php(87): ReflectionClass->newInstance(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Pages')
+#18 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Filter\ControllerFactoryFilter.php(49): Cake\Routing\Filter\ControllerFactoryFilter->_getController(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#19 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\DispatcherFilter.php(145): Cake\Routing\Filter\ControllerFactoryFilter->beforeDispatch(Object(Cake\Event\Event))
+#20 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Event\EventManager.php(389): Cake\Routing\DispatcherFilter->handle(Object(Cake\Event\Event), Object(Cake\Network\Request), Object(Cake\Network\Response))
+#21 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Event\EventManager.php(355): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#22 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Event\EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#23 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(62): Cake\Routing\Dispatcher->dispatchEvent('Dispatcher.befo...', Array)
+#24 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#25 {main}
+
+
+2015-08-10 15:05:21 Warning: Warning (2): Invalid argument supplied for foreach() in [F:\wamp\www\Foodie\src\Template\Element\sidebar.ctp, line 3]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 139
+include - APP/Template\Element\sidebar.ctp, line 3
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1161
+Cake\View\View::element() - CORE\src\View\View.php, line 376
+include - APP/Template\Layout\default.ctp, line 8
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 834
+Cake\View\View::_render() - CORE\src\View\View.php, line 794
+Cake\View\View::renderLayout() - CORE\src\View\View.php, line 511
+Cake\View\View::render() - CORE\src\View\View.php, line 473
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 582
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 296
+Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 172
+Cake\Error\ErrorHandler::_displayException() - CORE\src\Error\ErrorHandler.php, line 145
+Cake\Error\BaseErrorHandler::handleException() - CORE\src\Error\BaseErrorHandler.php, line 156
+[main] - [internal], line ??
+
+
+
+2015-08-10 15:05:21 Error: [PDOException] SQLSTATE[HY000] [1049] Unknown database 'food'
+Request URL: /Foodie/
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Driver\PDODriverTrait.php(48): PDO->__construct('mysql:host=loca...', 'root', '', Array)
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(89): Cake\Database\Driver\Mysql->_connect('mysql:host=loca...', Array)
+#2 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Schema\BaseSchema.php(46): Cake\Database\Driver\Mysql->connect()
+#3 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Dialect\MysqlDialectTrait.php(62): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(44): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Connection.php(319): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\ORM\Table.php(425): Cake\Database\Connection->schemaCollection()
+#8 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\ORM\Query.php(141): Cake\ORM\Table->schema()
+#9 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\ORM\Query.php(123): Cake\ORM\Query->addDefaultTypes(Object(Cake\ORM\Table))
+#10 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\ORM\Table.php(1217): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(Cake\ORM\Table))
+#11 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\ORM\Table.php(921): Cake\ORM\Table->query()
+#12 F:\wamp\www\Foodie\src\Controller\Component\ManagerComponent.php(223): Cake\ORM\Table->find('all')
+#13 F:\wamp\www\Foodie\src\Controller\Component\ManagerComponent.php(12): App\Controller\Component\ManagerComponent->enum_genres()
+#14 F:\wamp\www\Foodie\src\Controller\AppController.php(42): App\Controller\Component\ManagerComponent->init(Object(App\Controller\PagesController))
+#15 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(278): App\Controller\AppController->initialize()
+#16 [internal function]: Cake\Controller\Controller->__construct(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Pages')
+#17 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Filter\ControllerFactoryFilter.php(87): ReflectionClass->newInstance(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Pages')
+#18 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Filter\ControllerFactoryFilter.php(49): Cake\Routing\Filter\ControllerFactoryFilter->_getController(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#19 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\DispatcherFilter.php(145): Cake\Routing\Filter\ControllerFactoryFilter->beforeDispatch(Object(Cake\Event\Event))
+#20 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Event\EventManager.php(389): Cake\Routing\DispatcherFilter->handle(Object(Cake\Event\Event), Object(Cake\Network\Request), Object(Cake\Network\Response))
+#21 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Event\EventManager.php(355): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#22 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Event\EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#23 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(62): Cake\Routing\Dispatcher->dispatchEvent('Dispatcher.befo...', Array)
+#24 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#25 {main}
+
+
+2015-08-10 15:18:37 Error: [PDOException] SQLSTATE[HY000] [1049] Unknown database 'food'
+Request URL: /Foodie/
+Stack Trace:
+#0 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Driver\PDODriverTrait.php(48): PDO->__construct('mysql:host=loca...', 'root', '', Array)
+#1 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(89): Cake\Database\Driver\Mysql->_connect('mysql:host=loca...', Array)
+#2 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Schema\BaseSchema.php(46): Cake\Database\Driver\Mysql->connect()
+#3 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Dialect\MysqlDialectTrait.php(62): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(44): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Database\Connection.php(319): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\ORM\Table.php(425): Cake\Database\Connection->schemaCollection()
+#8 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\ORM\Query.php(141): Cake\ORM\Table->schema()
+#9 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\ORM\Query.php(123): Cake\ORM\Query->addDefaultTypes(Object(Cake\ORM\Table))
+#10 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\ORM\Table.php(1217): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(Cake\ORM\Table))
+#11 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\ORM\Table.php(921): Cake\ORM\Table->query()
+#12 F:\wamp\www\Foodie\src\Controller\Component\ManagerComponent.php(223): Cake\ORM\Table->find('all')
+#13 F:\wamp\www\Foodie\src\Controller\Component\ManagerComponent.php(12): App\Controller\Component\ManagerComponent->enum_genres()
+#14 F:\wamp\www\Foodie\src\Controller\AppController.php(42): App\Controller\Component\ManagerComponent->init(Object(App\Controller\PagesController))
+#15 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Controller\Controller.php(278): App\Controller\AppController->initialize()
+#16 [internal function]: Cake\Controller\Controller->__construct(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Pages')
+#17 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Filter\ControllerFactoryFilter.php(87): ReflectionClass->newInstance(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Pages')
+#18 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Filter\ControllerFactoryFilter.php(49): Cake\Routing\Filter\ControllerFactoryFilter->_getController(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#19 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\DispatcherFilter.php(145): Cake\Routing\Filter\ControllerFactoryFilter->beforeDispatch(Object(Cake\Event\Event))
+#20 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Event\EventManager.php(389): Cake\Routing\DispatcherFilter->handle(Object(Cake\Event\Event), Object(Cake\Network\Request), Object(Cake\Network\Response))
+#21 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Event\EventManager.php(355): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#22 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Event\EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#23 F:\wamp\www\Foodie\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(62): Cake\Routing\Dispatcher->dispatchEvent('Dispatcher.befo...', Array)
+#24 F:\wamp\www\Foodie\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#25 {main}
+
+

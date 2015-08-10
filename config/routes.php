@@ -53,11 +53,14 @@ Router::scope('/', function ($routes) {
      * ...and connect the rest of 'Pages' controller's URLs.
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
-    $routes->connect('/cusine/*', ['controller' => 'Pages', 'action' => 'cusine']);
+    $routes->connect('/cuisine/*', ['controller' => 'Pages', 'action' => 'cuisine']);
     $routes->connect('/restaurants/dashboard', ['controller' => 'Restaurants', 'action' => 'dashboard']);
     $routes->connect('/restaurants/menu_manager', ['controller' => 'Restaurants', 'action' => 'menu_manager']);
+    $routes->connect('/restaurants/additional', ['controller' => 'Restaurants', 'action' => 'additional']);
+    $routes->connect('/restaurants/menu_form', ['controller' => 'Restaurants', 'action' => 'menu_form']);
     $routes->connect('/restaurants/orders/*', ['controller' => 'Restaurants', 'action' => 'orders']);
     $routes->connect('/restaurants/report/*', ['controller' => 'Restaurants', 'action' => 'report']);
+    $routes->connect('/restaurants/all/*', ['controller' => 'Restaurants', 'action' => 'all']);
     $routes->connect('/restaurants/*', ['controller' => 'Restaurants', 'action' => 'index']);
 
     /**
