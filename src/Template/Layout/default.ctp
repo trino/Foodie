@@ -14,4 +14,4 @@
         </div>
         <!-- END SIDEBAR & CONTENT -->
     </div>
-<?php include("subpages/footer.php"); ?>
+<?php include("subpages/footer.php"); ?> 
