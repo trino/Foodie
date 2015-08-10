@@ -62,6 +62,7 @@ Router::scope('/', function ($routes) {
     $routes->connect('/restaurants/report/*', ['controller' => 'Restaurants', 'action' => 'report']);
     $routes->connect('/restaurants/all/*', ['controller' => 'Restaurants', 'action' => 'all']);
     $routes->connect('/restaurants/*', ['controller' => 'Restaurants', 'action' => 'index']);
+    $routes->connect('/restaurants/signup', ['controller' => 'Restaurants', 'action' => 'signup']);
 
     /**
      * Connect catchall routes for all controllers.

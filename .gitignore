@@ -93,3 +93,5 @@ tmp/cache/persistent/myapp_cake_core_translations_cake_en__u_s
 config/app.php
 config/app.php
 *.log
+
+config/app.php
