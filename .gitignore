@@ -95,3 +95,4 @@ config/app.php
 *.log
 
 config/app.php
+*.log
