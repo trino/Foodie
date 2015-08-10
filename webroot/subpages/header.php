@@ -49,6 +49,9 @@
     <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/style-responsive.css" rel="stylesheet">
     <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color">
     <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/custom.css" rel="stylesheet">
+
+
+    <!-- MAKE ALL CSS CHANGES TO HERE -->
     <link href="<?php echo $this->request->webroot;?>assets/global/css/custom_css.css" rel="stylesheet">
     <!-- Theme styles END -->
 
