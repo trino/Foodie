@@ -33,7 +33,12 @@ class RestaurantsController extends AppController {
         }
     }
 
+
     public function all() {
+        $this->layout='admin';
+    }
+
+    public function signup() {
         $this->layout='admin';
     }
 
