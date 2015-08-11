@@ -39,6 +39,62 @@ class UsersController extends AppController {
         $this->set("Profile", $this->Manager->get_profile($Me));
     }
 
+    function address_belongs_to_me($ID){
+        $Me = $this->request->session()->read('Profile.ID');
+        $Address = $this->Manager->get_profile_address($ID);
+        if($Address->UserID != $Me){
+            die("You are attempting to edit an address that does not belong to you.");
+        }
+    }
+
+    public function search_addresses(){
+        foreach($_POST as $Key => $Value){
+            $_POST[$Key] = trim($Value);
+        }
+        $conditions = array("UserID" => 0);
+        if($_POST["Name"]) {$conditions[] = "MATCH(Name) AGAINST('" . $_POST["Name"] . "' IN BOOLEAN MODE)";}
+        if($_POST["Number"]) {$conditions["Number"] = $_POST["Number"];}
+        if($_POST["Street"]) {$conditions["Street"] = $_POST["Street"];}
+        if($_POST["City"]) {$conditions["City"] = $_POST["City"];}
+        if($_POST["Country"]) {$conditions["Country"] = $_POST["Country"];}
+        if($_POST["PostalCode"]) {$conditions["PostalCode"] = str_replace(" ", "", $_POST["PostalCode"]);}
+        $_POST["Phone"] = $this->Manager->kill_non_numeric($_POST["Phone"]);
+        if($_POST["Phone"]) {$conditions["Phone"] = $_POST["Phone"];}
+        return $this->Manager->enum_all("profiles_addresses", $conditions);
+    }
+
+    public function addresses(){
+        $this->layout = "admin";
+        $Me = $this->request->session()->read('Profile.ID');
+        if(isset($_POST["action"])){
+            switch ($_POST["action"]) {
+                case "search":
+                    $Me="";
+                    $this->set("Addresses", $this->search_addresses());
+                    break;
+                case "save":
+                    if (isset($_POST["ID"])) {
+                        $this->address_belongs_to_me($_POST["ID"]);
+                    } else {
+                        $_POST["ID"] = "";
+                    }
+                    $this->Manager->edit_profile_address($_POST["ID"], $Me, $_POST["Name"], $_POST["Number"], $_POST["Street"], $_POST["Apt"], $_POST["Buzz"], $_POST["City"], $_POST["Province"], $_POST["PostalCode"], $_POST["Country"], $_POST["Notes"]);
+                    break;
+            }
+        }
+        if (isset($_GET["action"])){
+            switch($_GET["action"]){
+                case "delete":
+                    $this->address_belongs_to_me($_GET["ID"]);
+                    $this->Manager->delete_profile_address($_GET["ID"]);
+                    $this->Flash->success("Address was deleted");
+                    break;
+            }
+        }
+
+        if($Me) {$this->set("Addresses", $this->Manager->enum_profile_addresses($Me));}
+    }
+
      public function orders() {
         $this->layout = "admin";
     }

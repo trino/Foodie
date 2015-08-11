@@ -146,7 +146,7 @@
             }
         }
 
-        function randomPassword($Length) {
+        function randomPassword($Length=8) {
             $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
             $pass = "";
             $alphaLength = strlen($alphabet) - 1;
@@ -158,9 +158,9 @@
         }
 
         function new_profile($CreatedBy, $Name, $Password, $ProfileType, $EmailAddress, $RestaurantID, $Subscribed = ""){
-            $Password = md5($Password . $this->salt());
+            if(!$Password){$Password=randomPassword();}
             if($Subscribed){$Subscribed=1;} else {$Subscribed =0;}
-            $data = array("Name" => trim($Name), "ProfileType" => $ProfileType, "Email" => strtolower(trim($EmailAddress)), "CreatedBy" => 0, "RestaurantID" => $RestaurantID, "Subscribed" => $Subscribed, "Password" => $Password);
+            $data = array("Name" => trim($Name), "ProfileType" => $ProfileType, "Email" => strtolower(trim($EmailAddress)), "CreatedBy" => 0, "RestaurantID" => $RestaurantID, "Subscribed" => $Subscribed, "Password" => md5($Password . $this->salt()));
             if($CreatedBy){
                 if(!$this->can_profile_create($CreatedBy, $ProfileType)){return false;}
                 $data["CreatedBy"] = $CreatedBy;
@@ -207,11 +207,13 @@
         function delete_profile_address($ID){
             $this->delete_all("profiles_addresses", array("ID" => $ID));
         }
-        function edit_profile_address($ID){
-            $Data = array("UserID", "Number", "Street", "Apt", "Buzz", "City", "Province", "Country", "Notes");
-            $this->edit_database("profiles_addresses", "ID", $ID, $Data);
+        function get_profile_address($ID){
+            return $this->get_entry("profiles_addresses", $ID);
         }
-
+        function edit_profile_address($ID, $UserID, $Name, $Number, $Street, $Apt, $Buzz, $City, $Province, $PostalCode, $Country, $Notes){
+            $Data = array("UserID" => $UserID, "Name" => $Name, "Number" => $Number, "Street" => $Street, "Apt" => $Apt, "Buzz" => $Buzz, "City" => $City, "Province" => $Province, "PostalCode" => $PostalCode, "Country" =>$Country, "Notes" =>$Notes);
+            return $this->edit_database("profiles_addresses", "ID", $ID, $Data);
+        }
 
 
 
@@ -641,8 +643,11 @@
             }
         }
 
+        function kill_non_numeric($text){
+            return preg_replace("/[^0-9]/", "", $text);
+        }
         function left($text, $length){
-            return substr($text,0,$length)	;
+            return substr($text,0,$length);
         }
         function right($text, $length){
             return substr($text, -$length);

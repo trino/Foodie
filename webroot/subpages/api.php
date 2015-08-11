@@ -68,8 +68,10 @@ function makeselectoption($Value, $Text, $UserSetting = ""){
     echo '>' . $Text . '</OPTION>';
 }
 
-function provinces($name, $value, $Language = "English", $IncludeUSA = False){
-    echo '<SELECT name="' . $name . '">';
+function provinces($name, $value, $Language = "English", $IncludeUSA = False, $onchange =""){
+    echo '<SELECT id="' . $name . '" name="' . $name . '" class="form-control"';
+    if($onchange){echo ' onchange="' . $onchange . '"  onclick="' . $onchange . '"'; }
+    echo '>';
     $acronyms = getprovinces("Acronyms", $IncludeUSA);
     $Provinces = getprovinces($Language, $IncludeUSA);
     $ID=0;

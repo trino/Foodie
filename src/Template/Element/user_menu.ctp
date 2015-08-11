@@ -8,6 +8,7 @@
           <ul class="list-group margin-bottom-25 sidebar-menu">
           
             <li class="list-group-item clearfix"><a href="<?php echo $this->request->webroot;?>users/dashboard">User Info</a></li>
+            <li class="list-group-item clearfix"><a href="<?php echo $this->request->webroot;?>users/addresses">Address</a></li>
           
             <li class="list-group-item clearfix"><a href="<?php echo $this->request->webroot;?>users/orders">View Orders</a></li>
             
