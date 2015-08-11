@@ -250,10 +250,35 @@ Header and header elements
 .top-cart-content li {
 	list-style: none;
 	margin: 0;
-	padding: 9px 0;
+	padding: 9px 0 35px;
 	border-bottom: solid 1px #f2f2f2;
 	width: 100%;
 	overflow: hidden;
+    position: relative;    
+}
+.top-cart-content .slimScrollDiv .decrease {
+    top: 65px;
+    left: 0;
+    position: absolute;
+    
+}
+
+.top-cart-content .slimScrollDiv ul li .receipt_image {
+    display: inline-block;
+    width: auto !important;
+    
+}
+
+.top-cart-content .slimScrollDiv .increase {
+    top: 65px;
+    left: 22px;
+    position: absolute;
+    background: #428bca !important;
+}
+
+.increase > strong, .decrease > strong {
+    padding: 0 !important;
+    width: auto !important;
 }
 .top-cart-content img,
 .top-cart-content em,
