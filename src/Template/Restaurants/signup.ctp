@@ -1,4 +1,66 @@
-<div class="row margin-bottom-40">
+<div class="slide">
+    <div class="text">Slide Goes Here</div>
+    
+</div>
+
+    <div class="heading"><div class="text"><b>Intro</b> duction</div></div>
+
+
+<div class="intro">
+
+    
+   <div class="text"> Sed posuere congue erat consequat ultrices. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur ut dapibus ante, vitae porttitor nisl. Aliquam non rhoncus augue. Cras laoreet ultrices lacus id mollis. Nam vitae turpis consectetur, aliquet purus nec, dictum purus. Etiam sollicitudin augue a condimentum bibendum. Nullam id dapibus metus, ut cursus felis. Vestibulum sollicitudin tincidunt lacus et vestibulum. Etiam vitae sapien quis lorem malesuada suscipit. Donec nulla eros, tristique quis molestie vel, dictum id magna. Curabitur dictum ante id ultrices aliquam.
+    
+       <button class="btn-3">Learn More </button></div>
+
+
+    
+</div>
+
+
+
+
+<div class="heading"><div class="text"><b>Basic</b> Steps</div></div>
+
+
+
+<div class="grid">
+   <div class="col-1-3">
+     <div class="module">
+         
+         <img src="/Foodie/images/click.png">
+         
+       <h3>Choose A Service</h3>
+				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean volutpat luctus mollis. </p>	
+     </div>
+   </div>
+   <div class="col-1-3">
+     <div class="module">
+                  <img src="/Foodie/images/clip.png">
+
+     		<h3>Register With Us</h3>
+				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies</p>	
+     </div>
+   </div>
+    
+     <div class="col-1-3">
+     <div class="module">
+                           <img src="/Foodie/images/box.png">
+
+     		<h3>Get all the gooodies</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur justo mauris, a rutrum est eleifend non. Aenean volutpat luctus mollis.</p>	
+     </div>
+   </div>
+</div>
+
+
+<div class="services">
+
+
+<div class="eyes"><div class="texted"><b>Our</b> Services</div></div>
+
+
+<div class="row margin-bottom-40" style="margin-top: 50px; padding: 30px;">
     <!-- Pricing -->
     <div class="col-md-3">
         <div class="pricing hover-effect">
@@ -165,4 +227,46 @@
         </div>
     </div>
     <!--//End Pricing -->
+</div>
+    
+</div>
+
+<div class="test"><div class="black"><div class="simple"><div class="texted"><b>Happy</b> Customers</div></div>
+    
+    <div class="grid nine" style="background: transparent; margin: 29px 150px;">
+   <div class="col-1-2">
+     <div class="module">
+         
+         <div class="speech-bubble">
+  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies
+</div>
+         
+  <img src="/Foodie/images/01.jpg">        
+         <p> <strong>Haley From </strong><b>Tim Hortons, CA </b></p>	
+     </div>
+   </div>
+     <div class="col-1-2">
+     <div class="module">
+         
+         <div class="speech-bubble">
+  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies
+</div>
+         
+  <img src="/Foodie/images/02.jpg">        
+         <p> <strong>Henry From </strong><b>Burget King , CA </b></p>	
+     </div>
+   </div>
+</div>
+
+    
+</div></div>
+
+<div class="sign">
+    
+        <div class="heading"><div class="text"><b>Still</b> Confused?</div></div>
+    
+    <center><img src="http://i.imgur.com/GScAvXS.png"></center>
+    <br><br>
+
+    
 </div>
