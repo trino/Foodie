@@ -43,11 +43,9 @@ Temporary Items
 .apdisk
 *.sqlite
 logs/error.log
-*.log
 .idea/workspace.xml
 *.xml
 logs/error.log
-*.log
 tmp/cache/*
 src/Controller/logs/**
 bin/**
@@ -85,18 +83,5 @@ myapp_cake_*
 tmp/cache/**
 tmp/debug_kit.sqlite
 webroot/royslog.txt
-src/Controller/logs/debug.log
-*.log
-tmp/cache/persistent/myapp_cake_core_translations_cake_en__u_s
-
-*.log
 config/app.php
-config/app.php
-*.log
-<<<<<<< HEAD
-=======
-
-config/app.php
-*.log
->>>>>>> origin/master
 *.log
