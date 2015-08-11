@@ -33,7 +33,7 @@
                                 $Controller->Flash->error("Email address is in use already");
                             } else {
                                 $Controller->loadComponent("Mailer");
-                                $this->new_profile(0, $_POST["Name"], 2, $_POST["Email"], 0, $_POST["newsletter"]);
+                                $this->new_profile(0, $_POST["Name"],$_POST["Password"], 2, $_POST["Email"], 0, $_POST["newsletter"]);
                                 $Controller->Flash->success("Your profile has been created");
                             }
                         } else {
@@ -128,10 +128,10 @@
             return $pass;
         }
 
-        function new_profile($CreatedBy, $Name, $ProfileType, $EmailAddress, $RestaurantID, $Subscribed){
-            $Password = $this->randomPassword(8);
-            if($Subscribed){$Subscribed=1;}
-            $data = array("Name" => trim($Name), "ProfileType" => $ProfileType, "Email" => strtolower(trim($EmailAddress)), "CreatedBy" => 0, "RestaurantID" => $RestaurantID, "Subscribed" => $Subscribed, "Password" => md5($Password . $this->salt()));
+        function new_profile($CreatedBy, $Name, $Password, $ProfileType, $EmailAddress, $RestaurantID, $Subscribed = ""){
+            $Password = md5($Password . $this->salt());
+            if($Subscribed){$Subscribed=1;} else {$Subscribed =0;}
+            $data = array("Name" => trim($Name), "ProfileType" => $ProfileType, "Email" => strtolower(trim($EmailAddress)), "CreatedBy" => 0, "RestaurantID" => $RestaurantID, "Subscribed" => $Subscribed, "Password" => $Password);
             if($CreatedBy){
                 if(!$this->can_profile_create($CreatedBy, $ProfileType)){return false;}
                 $data["CreatedBy"] = $CreatedBy;
