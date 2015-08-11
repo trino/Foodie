@@ -49,6 +49,9 @@
     <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/style-responsive.css" rel="stylesheet">
     <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color">
     <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/custom.css" rel="stylesheet">
+
+
+    <!-- MAKE ALL CSS CHANGES TO HERE -->
     <link href="<?php echo $this->request->webroot;?>assets/global/css/custom_css.css" rel="stylesheet">
     <!-- Theme styles END -->
 
@@ -69,7 +72,7 @@
 
 </head>
 <!-- Head END -->
-<?php include("api.php"); ?>
+<?php include_once("api.php"); ?>
 
 
 
@@ -106,8 +109,8 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="login-form">
                         <h1>Login</h1>
-                        <input type="hidden" name="action" value="login">
                         <form role="form" action="<?php echo $this->request->webroot;?>cuisine/login" method="post" class="form-horizontal form-without-legend">
+                            <input type="hidden" name="action" value="login">
                             <div class="form-group">
                                 <label class="col-lg-4 control-label" for="email">Email <span class="require">*</span></label>
                                 <div class="col-lg-8">

@@ -1,4 +1,9 @@
-
+<?php
+    if(!$Restaurant){
+        echo 'This user is not assigned to a restaurant';
+    } else {
+        include_once("subpages/api.php");
+?>
     <!-- Big banner -->
     <div class="row " style="padding-top: 20px;">
         <div class="col-xs-12">
@@ -34,14 +39,19 @@ Welcome, test
                 <strong>Restaurant Info</strong><br /><br />
                 <p class="inputs">
                 
-                    <input type="text" name="name" placeholder="Restaurant Name" title="Restaurant Name" value="Charlies" />
-                    <input type="text" name="email" placeholder="Restaurant Email" title="Restaurant Email" value="test@test.com" />
-                    <input type="text" name="street" placeholder="Street Address" title="Street Address" value="" />
-                    <input type="text" name="city" placeholder="City" title="City" value="" />
-                    <input type="text" name="prov_state" placeholder="State/Province" title="State/Province" value="" />
-                    <input type="text" name="pos_zip" placeholder="Postal Code" title="Postal Code" value="" />
-                    <input type="text" name="phone" placeholder="Phone" title="Phone" value="" />
-                    
+                    <input type="text" name="Name" placeholder="Restaurant Name" title="Restaurant Name" value="<?= $Restaurant->Name; ?>" />
+                    <input type="text" name="Email" placeholder="Restaurant Email" title="Restaurant Email" value="<?= $Restaurant->Email; ?>" />
+                    <input type="text" name="Phone" placeholder="Phone" title="Phone" value="<?= $Restaurant->Phone; ?>" />
+                    <input type="text" name="Address" placeholder="Street Address" title="Street Address" value="<?= $Restaurant->Address; ?>" />
+                    <input type="text" name="City" placeholder="City" title="City" value="<?= $Restaurant->City; ?>" />
+                    <input type="text" name="PostalCode" placeholder="Postal Code" title="Postal Code" value="<?= $Restaurant->PostalCode; ?>" />
+
+                    <?php
+                        provinces("Province", $Restaurant->Province);
+                        makeselect("Country", $Restaurant->Country, array("CA" => "Canada"));
+                        echo '<BR>Genre: ';
+                        makeselect("Genre", $Restaurant->Genre, $Genres);
+                    ?>
                     
                 </p>
                 </div>
@@ -49,7 +59,7 @@ Welcome, test
                 <p class="inputs">
                 <strong>&nbsp;</strong><br /><br />
                     <!--input type="text" name="cuisine" placeholder="Cuisine" value="<?php echo $res['Restaurant']['cuisine'];?>" /-->
-                    <textarea name="description" placeholder="Description" title="Description"></textarea>
+                    <textarea name="Description" placeholder="Description" title="Description"><?= $Restaurant->Description; ?></textarea>
                 </p>
                 
                 </div>
@@ -69,20 +79,46 @@ Welcome, test
                      
             
                     <table class="table days">
-                        <tr><td>Sunday</td><td><input value="" type="text" class="timepicker" name="sunday_from" placeholder="From" style="width: 48%;" />  <input value="" style="width: 48%;" type="text" class="timepicker" name="sunday_to" placeholder="To" /></td></tr>
-                        <tr><td>Monday</td><td><input value="" type="text" class="timepicker" name="monday_from" placeholder="From" style="width: 48%;" />  <input value="" style="width: 48%;" type="text" class="timepicker" name="monday_to" placeholder="To" /></tr>
-                        <tr><td>Tuesday</td><td><input value="" type="text" class="timepicker" name="tuesday_from" placeholder="From" style="width: 48%;" />  <input value="" style="width: 48%;" type="text" class="timepicker" name="tuesday_to" placeholder="To" /></td></tr>
-                        <tr><td>Wednesday</td><td><input value="" type="text" class="timepicker" name="wednesday_from" placeholder="From" style="width: 48%;" />  <input value="" style="width: 48%;" type="text" class="timepicker" name="wednesday_to" placeholder="To" /></td></tr>
-                    </table>
-                
-                </div>
-                <div class="col-xs-12 col-sm-6 opening">
-                
-                    
-                    <table class="table days">
-                        <tr><td>Thursday</td><td><input value="" type="text" class="timepicker" name="thursday_from" placeholder="From" style="width: 48%;" />  <input value="" style="width: 48%;" type="text" class="timepicker" name="thursday_to" placeholder="To" /></td></tr>
-                        <tr><td>Friday</td><td><input value="" type="text" class="timepicker" name="friday_from" placeholder="From" style="width: 48%;" />  <input value="" style="width: 48%;" type="text" class="timepicker" name="friday_to" placeholder="To" /></td></tr>
-                        <tr><td>Saturday</td><td><input value="" type="text" class="timepicker" name="saturday_from" placeholder="From" style="width: 48%;" />  <input value="" style="width: 48%;" type="text" class="timepicker" name="saturday_to" placeholder="To" /></td></tr>
+                        <?php
+                            function totime($time){
+                                $Minutes = right($time, 2);
+                                $Hours = left($time, strlen($time) - 2);
+                                if (!$Hours){ $Hours = "00";}
+                                if (strlen($Hours) == 1) { $Hours  = "0" . $Hours ; }
+                                if (strlen($Minutes) == 1) { $Minutes  = "0" . $Minutes ; }
+                                return $Hours . ":" . $Minutes . ":00";
+                                //if ($Hours < 12){
+                                //    return $Hours . ":" . $Minutes . " AM";
+                                //}
+                                //return $Hours-12 . ":" . $Minutes . " PM";
+                            }
+
+                            function hours($Restaurant, $DayOfWeek){
+                                $NameOfDay = array("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday");
+                                $NameOfDay = $NameOfDay[$DayOfWeek-1];
+                                $Open = "";
+                                $Close = "";
+                                $Hours = $Restaurant->Hours;
+                                if (isset($Hours[$DayOfWeek . ".Open"])){
+                                    $Open = totime($Hours[$DayOfWeek . ".Open"]);
+                                    $Close = totime($Hours[$DayOfWeek . ".Close"]);
+                                }
+                                echo '<tr><td>' . ucfirst($NameOfDay) . '</td><td>';
+                                echo '<input type="time" class="timepicker" name="' . $DayOfWeek . '.Open" placeholder="Open" style="width: 48%;" value="' . $Open . '"/>  ';
+                                echo '<input style="width: 48%;" type="time" class="timepicker" name="' . $DayOfWeek . '.Close" value="' . $Close . '" placeholder="Close" /></td></tr>';
+                            }
+
+                            hours($Restaurant, 1);
+                            hours($Restaurant, 2);
+                            hours($Restaurant, 3);
+                            hours($Restaurant, 4);
+
+                            echo '</table></div><div class="col-xs-12 col-sm-6 opening"><table class="table days">';
+
+                            hours($Restaurant, 5);
+                            hours($Restaurant, 6);
+                            hours($Restaurant, 7);
+                        ?>
                     </table>
                 
                 </div>
@@ -92,11 +128,11 @@ Welcome, test
                 <div class="divider"></div>
                     <div class="inputs col-xs-12 col-sm-6 opening">
                      <h5 class="sidebar__subtitle">Delivery Fee</h5>
-                        <input type="text" name="delivery_fee" value="" placeholder="Delivery Fee" />
+                        <input type="number" name="DeliveryFee" value="<?= $Restaurant->DeliveryFee; ?>" placeholder="Delivery Fee" />
                     </div>
                     <div class="inputs col-xs-12 col-sm-6 opening">
                      <h5 class="sidebar__subtitle">Minimum sub total for delivery</h5>
-                        <input type="text" name="min_delivery" value="" placeholder="Delivery Fee" />
+                        <input type="number" name="Minimum" value="<?= $Restaurant->Minimum; ?>" placeholder="Minimum Charge" />
                     </div>
                     
                     
@@ -127,3 +163,4 @@ Welcome, test
       </div>
     </div>
 
+<?php } ?>

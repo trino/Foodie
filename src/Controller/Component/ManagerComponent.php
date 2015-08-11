@@ -26,6 +26,20 @@
                         $this->add_subscriber($_POST["email"]);
                         $Controller->Flash->success($_POST["email"] . " please check your email to confirm your subscription");
                         break;
+                    case "signup":
+                        if ($_POST["Password"] == $_POST["Confirm-Password"]) {
+                            $_POST["Email"] = strtolower(trim($_POST["Email"]));
+                            if ($this->get_entry("profiles", $_POST["Email"], "Email")){
+                                $Controller->Flash->error("Email address is in use already");
+                            } else {
+                                $Controller->loadComponent("Mailer");
+                                $this->new_profile(0, $_POST["Name"], 2, $_POST["Email"], 0, $_POST["newsletter"]);
+                                $Controller->Flash->success("Your profile has been created");
+                            }
+                        } else {
+                            $Controller->Flash->error("The passwords do not match");
+                        }
+                        break;
                 }
             }
             if (isset($_GET["action"])){
@@ -35,7 +49,7 @@
                         if ($Email){
                             $Controller->Flash->success($Email . " has been subscribed");
                         } else {
-                            $Controller->Flash->error("Key not found");
+                            $Controller->Flash->error("Subscription key not found");
                         }
                         break;
                 }
@@ -43,6 +57,7 @@
         }
 
         function new_profiletype($Name){
+            $this->logevent("Made a new profile type: " . $Name, false);
             return new_anything("profiletypes", $Name);
         }
         function get_profile_permissions(){//lists all permissions
@@ -52,6 +67,7 @@
             if(!$ID){
                 $ID = $this->new_profiletype($Name);
             }
+            $this->logevent("Changed profile type: " . $ID . " (" . $Name . ", " . $Hierarchy . ", " . print_r($Permissions, true) . ")", false);
             $data = array("Name" => $Name, "Hierarchy" => $Hierarchy);
             if ($Permissions == "ALL"){
                 $Permissions = $this->get_profile_permissions();
@@ -114,6 +130,7 @@
 
         function new_profile($CreatedBy, $Name, $ProfileType, $EmailAddress, $RestaurantID, $Subscribed){
             $Password = $this->randomPassword(8);
+            if($Subscribed){$Subscribed=1;}
             $data = array("Name" => trim($Name), "ProfileType" => $ProfileType, "Email" => strtolower(trim($EmailAddress)), "CreatedBy" => 0, "RestaurantID" => $RestaurantID, "Subscribed" => $Subscribed, "Password" => md5($Password . $this->salt()));
             if($CreatedBy){
                 if(!$this->can_profile_create($CreatedBy, $ProfileType)){return false;}
@@ -149,6 +166,18 @@
             $Controller->request->session()->write('Profile.Email',         $Profile->Email);
             $Controller->request->session()->write('Profile.Type',          $Profile->ProfileType);
             $Controller->request->session()->write('Profile.Restaurant',    $Profile->RestaurantID);
+        }
+
+        ////////////////////////////////////////Profile Address API ////////////////////////////////////
+        function enum_profile_addresses($ProfileID){
+            return $this->enum_all("profiles_addresses", array("UserID" => $ProfileID));
+        }
+        function delete_profile_address($ID){
+            $this->delete_all("profiles_addresses", array("ID" => $ID));
+        }
+        function edit_profile_address($ID){
+            $Data = array("UserID", "Number", "Street", "Apt", "Buzz", "City", "Province", "Country", "Notes");
+            $this->edit_database("profiles_addresses", "ID", $ID, $Data);
         }
 
 
@@ -226,8 +255,11 @@
         function rename_genre($ID, $Name){
             $this->update_database('genres', "ID", $ID, array("Name" => $Name));
         }
-        function enum_restaurants($Genre){
-            return $this->enum_anything("restaurants", "Genre", $Genre);
+        function enum_restaurants($Genre = ""){
+            if($Genre) {
+                return $this->enum_anything("restaurants", "Genre", $Genre);
+            }
+            return $this->enum_table("restaurants");
         }
 
 
@@ -244,11 +276,13 @@
             }
             return $restaurant;
         }
-        function edit_restaurant($ID, $Name, $GenreID, $Email, $Phone, $Address, $City, $Province, $Country, $PostalCode){
+        function edit_restaurant($ID, $Name, $GenreID, $Email, $Phone, $Address, $City, $Province, $Country, $PostalCode, $Description, $DeliveryFee, $Minimum){
             if(!$ID){
                 $ID = $this->new_anything("restaurants", $Name);
             }
-            $data = array("Name" => $Name, "Genre" => $GenreID, "Email" => $Email, "Phone" => $Phone, "Address" => $Address, "City" => $City, "Province" => $Province, "Country" => $Country, "PostalCode" => $PostalCode);
+            $C = ', ';
+            $this->logevent("Edited restaurant: " . $Name .$C. $GenreID .$C. $Email .$C. $Phone .$C. $Address .$C. $City .$C. $Province .$C. $Country .$C. $PostalCode .$C. $Description .$C. $DeliveryFee .$C. $Minimum);
+            $data = array("Name" => $Name, "Genre" => $GenreID, "Email" => $Email, "Phone" => $Phone, "Address" => $Address, "City" => $City, "Province" => $Province, "Country" => $Country, "PostalCode" => $PostalCode, "Description" => $Description, "DeliveryFee" => $DeliveryFee, "Minimum" => $Minimum);
             $this->update_database("restaurants", "ID", $ID, $data);
             return $ID;
         }
@@ -256,10 +290,14 @@
 
         /////////////////////////////////////days off API////////////////////////////////////
         function add_day_off($RestaurantID, $Day, $Month, $Year){
-            delete_day_off($RestaurantID, $Day, $Month, $Year);
+            delete_day_off($RestaurantID, $Day, $Month, $Year, false);
+            $this->logevent("Added a day off on: " . $Day . "-" . $Month . "-" . $Year);
             $this->new_entry("daysoff", "ID", array("RestaurantID" => $RestaurantID, "Day" => $Day, "Month" => $Month, "Year" => $Year));
         }
-        function delete_day_off($RestaurantID, $Day, $Month, $Year){
+        function delete_day_off($RestaurantID, $Day, $Month, $Year, $IsNew = true){
+            if ($IsNew){
+                $this->logevent("Deleted a day off on: " . $Day . "-" . $Month . "-" . $Year);
+            }
             $this->delete_all("daysoff", array("RestaurantID" => $RestaurantID, "Day" => $Day, "Month" => $Month, "Year" => $Year));
         }
         function enum_days_off($RestaurantID){
@@ -310,10 +348,32 @@
             return $ret;
         }
 
+        function to_time($Time){
+            if($Time){
+                if (substr_count($Time, ":") == 2) {
+                    $Time = $this->left($Time, strlen($Time) - 3);
+                }
+                return str_replace(":", "", $Time);
+            }
+        }
+
+        function edit_hours($RestaurantID, $Data){
+            $Days = array();
+            for ($DayOfWeek = 1; $DayOfWeek < 8; $DayOfWeek++){
+                $Open = $this->to_time($Data[$DayOfWeek . "_Open"]);
+                $Close = $this->to_time($Data[$DayOfWeek . "_Close"]);
+                $Days[$DayOfWeek] = $Open . " to " . $Close;
+                $this->edit_hour($RestaurantID, $DayOfWeek, $Open, $Close);
+            }
+            $this->logevent("Edited hours: " . print_r($Days, true));
+        }
+
         function edit_hour($RestaurantID, $DayOfWeek, $Open, $Close){
             $table = TableRegistry::get('hours');
             $data = array('RestaurantID'=>$RestaurantID, 'DayOfWeek'=>$DayOfWeek);
             $table->deleteAll($data, false);
+            if(!$Open){$Open = "0000";}
+            if(!$Close){$Close = "2359";}
             $data["Open"] = $Open;
             $data["Close"] = $Close;
             $this->new_entry("hours", "ID", $data);
@@ -344,6 +404,27 @@
 
 
 
+        /////////////////////////////////Event log API////////////////////////////////////
+        function logevent($Event, $DoRestaurant = true){
+            $UserID = $this->request->session()->read('Profile.ID');
+            $RestaurantID = 0;
+            if ($DoRestaurant) {
+                $RestaurantID = $this->request->session()->read('Profile.RestaurantID');
+                if (!$RestaurantID) {
+                    $RestaurantID = $this->get_profile($UserID)->RestaurantID;
+                }
+            }
+            $Date = $this->now();
+            $this->new_entry("eventlog", "ID", array("UserID" => $UserID, "RestaurantID" => $RestaurantID, "Date" => $Date, "Text" => $Event));
+        }
+        function enum_events($RestaurantID){
+            return $this->enum_all("eventlog", array("RestaurantID" => $RestaurantID));
+        }
+
+
+
+
+
 
 
         /////////////////////////////////DATABASE API///////////////////////////////////
@@ -354,8 +435,11 @@
         function enum_table($Table){
             return TableRegistry::get($Table)->find('all');
         }
-        function enum_all($Table, $data){
-            return TableRegistry::get($Table)->find('all')->where($data);
+        function enum_all($Table, $conditions = ""){
+            if (is_array($conditions)) {
+                return TableRegistry::get($Table)->find('all')->where($conditions);
+            }
+            return $this->enum_table($Table);
         }
 
         function iterator_to_array($entries, $PrimaryKey, $Key){
@@ -521,6 +605,13 @@
             foreach($iteratable as $item){
                 debug($item);
             }
+        }
+
+        function left($text, $length){
+            return substr($text,0,$length)	;
+        }
+        function right($text, $length){
+            return substr($text, -$length);
         }
     }
 ?>

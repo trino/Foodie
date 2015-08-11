@@ -54,6 +54,7 @@ Router::scope('/', function ($routes) {
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
     $routes->connect('/cuisine/*', ['controller' => 'Pages', 'action' => 'cuisine']);
+    $routes->connect('/restaurants/eventlog', ['controller' => 'Restaurants', 'action' => 'eventlog']);
     $routes->connect('/restaurants/dashboard', ['controller' => 'Restaurants', 'action' => 'dashboard']);
     $routes->connect('/restaurants/menu_manager', ['controller' => 'Restaurants', 'action' => 'menu_manager']);
     $routes->connect('/restaurants/additional', ['controller' => 'Restaurants', 'action' => 'additional']);
@@ -62,6 +63,7 @@ Router::scope('/', function ($routes) {
     $routes->connect('/restaurants/report/*', ['controller' => 'Restaurants', 'action' => 'report']);
     $routes->connect('/restaurants/all/*', ['controller' => 'Restaurants', 'action' => 'all']);
     $routes->connect('/restaurants/*', ['controller' => 'Restaurants', 'action' => 'index']);
+    $routes->connect('/restaurants/signup', ['controller' => 'Restaurants', 'action' => 'signup']);
 
     /**
      * Connect catchall routes for all controllers.

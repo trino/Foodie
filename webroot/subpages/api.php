@@ -45,14 +45,36 @@ function getIterator($Objects, $Fieldname, $Value){
     return false;
 }
 
+function left($text, $length){
+    return substr($text,0,$length)	;
+}
+function right($text, $length){
+    return substr($text, -$length);
+}
 
-function provinces($name, $Language = "English", $IncludeUSA = False){
-    echo '<SELECT class="form-control" name="' . $name . '">';
+function makeselect($Name, $Value, $Data){
+    echo '<SELECT name="' . $Name . '">';
+    foreach($Data as $Key => $Title){
+        makeselectoption($Key, $Title, $Value);
+    }
+    echo '</SELECT>';
+}
+
+function makeselectoption($Value, $Text, $UserSetting = ""){
+    echo '<OPTION value="' . $Value . '"';
+    if ($UserSetting == $Value || $UserSetting == $Text){
+        echo ' SELECTED';
+    }
+    echo '>' . $Text . '</OPTION>';
+}
+
+function provinces($name, $value, $Language = "English", $IncludeUSA = False){
+    echo '<SELECT name="' . $name . '">';
     $acronyms = getprovinces("Acronyms", $IncludeUSA);
     $Provinces = getprovinces($Language, $IncludeUSA);
     $ID=0;
     foreach($acronyms as $acronym){
-        echo '<OPTION value="' . $acronym . '">' . $Provinces[$ID] . '</OPTION>';
+        makeselectoption($acronym, $Provinces[$ID], $value);
         $ID++;
     }
     echo '</SELECT>';
