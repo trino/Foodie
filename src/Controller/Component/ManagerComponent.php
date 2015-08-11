@@ -6,7 +6,7 @@
 
 
     class ManagerComponent extends Component {
-        ////////////////////////////////////Profile type API//////////////////////////////////
+        ///////////////////////handles certain forms that don't point anywhere/////////////////////////////////////
         function init($Controller){
             $this->Controller = $Controller;
             $Controller->set('genres', $this->enum_genres());
@@ -19,6 +19,23 @@
                             $Controller->Flash->success($profile->Name . " has been logged in");
                         } else {
                             $Controller->Flash->error("The email address/password combination failed");
+                        }
+                        break;
+                    case "editprofile":
+                        $Password = "";
+                        if ($this->is_email_in_use($this->read("ID"), $_POST["Email"])){
+                            $Controller->Flash->error("That email address is in use already");
+                        } else {
+                            $doit = $_POST["Password"] == $_POST["Confirm-Password"];
+                            if ($doit) {
+                                $Password = $_POST["Password"];
+                            } else {
+                                $Controller->Flash->error("The passwords do not match");
+                            }
+                            if ($doit) {
+                                $this->edit_profile($this->read("ID"), $_POST["Name"],  $_POST["Email"], $_POST["Phone"], $Password, isset($_POST["newsletter"]));
+                                $Controller->Flash->success("Your profile has been edited");
+                            }
                         }
                         break;
                     case "subscribe":
@@ -56,6 +73,9 @@
             }
         }
 
+
+
+        ////////////////////////////////////Profile type API//////////////////////////////////
         function new_profiletype($Name){
             $this->logevent("Made a new profile type: " . $Name, false);
             return new_anything("profiletypes", $Name);
@@ -94,6 +114,15 @@
 
 
         ////////////////////////////////////Profile API/////////////////////////////////////////
+        function read($Name){
+            return $this->request->session()->read('Profile.' . $Name);
+        }
+
+        function is_email_in_use($NotByUserID, $EmailAddress){
+            $EmailAddress = strtolower(trim($EmailAddress));
+            return TableRegistry::get('profiles')->find('all')->where(["Email"=>$EmailAddress, "ID !=" => $NotByUserID])->first();
+        }
+
         function salt(){
             return "18eb00e8-f835-48cb-bbda-49ee6960261f";
         }
@@ -142,13 +171,16 @@
             return $data;
         }
 
-        function edit_profile($ID, $Name, $ProfileType, $EmailAddress, $Password, $Subscribed){
-            $data = array("Name" => trim($Name), "ProfileType" => $ProfileType, "Email" => strtolower(trim($EmailAddress)), "Subscribed" => $Subscribed);
+        function edit_profile($ID, $Name, $EmailAddress, $Phone, $Password, $Subscribed = 0, $ProfileType = 0){
+            $data = array("Name" => trim($Name), "Email" => strtolower(trim($EmailAddress)), "Phone" => $Phone, "Subscribed" => $Subscribed);
             if($Password){
                 $data["Password"] = md5($Password . $this->salt());
             }
+            if($ProfileType){
+                $data["ProfileType"] = $ProfileType;
+            }
             $this->set_subscribed($EmailAddress,$Subscribed);
-            $this->update_database("profiles", "ID", $ID, $data);
+            return $this->update_database("profiles", "ID", $ID, $data);
         }
 
         function find_profile($EmailAddress, $Password){
@@ -466,6 +498,8 @@
         //only use when you know the primary key value exists
         function update_database($Table, $PrimaryKey, $Value, $Data){
             TableRegistry::get($Table)->query()->update()->set($Data)->where([$PrimaryKey => $Value])->execute();
+            $Data[$PrimaryKey] = $Value;
+            return $Data;
         }
 
         function edit_database($Table, $PrimaryKey, $Value, $Data){
