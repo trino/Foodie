@@ -64,6 +64,7 @@ class UsersController extends AppController {
     }
 
     public function addresses(){
+        $this->Manager->verify_login($this, "Users");
         $this->layout = "admin";
         $Me = $this->request->session()->read('Profile.ID');
         if(isset($_POST["action"])){

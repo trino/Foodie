@@ -69,10 +69,35 @@
                             $Controller->Flash->error("Subscription key not found");
                         }
                         break;
+                    case "test":
+                        $Controller->Flash->error("test");
+                        break;
                 }
             }
         }
-
+        public function verify_login($_this, $controller){
+            $exceptions = "";
+            //valid controllers: Foodie, Menus, Pages, Restaurants, Users
+            switch($controller){
+                case "clients":
+                    $exceptions = array("quickcontact");
+                    break;
+            }
+            if($exceptions) {
+                if (!is_array($exceptions)) {$exceptions = array($exceptions);}
+                foreach ($exceptions as $exception) {
+                    if (strpos($_SERVER["REQUEST_URI"], $controller . "/" . $exception) !== false) {
+                        return true;
+                    }
+                }
+            }
+            $profileID = $this->read('ID');
+            if (!$profileID) {
+                $_this->Flash->error("Please login");
+                $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                $_this->redirect('/?url=' . urlencode($url));
+            }
+        }
 
 
         ////////////////////////////////////Profile type API//////////////////////////////////
