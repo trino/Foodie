@@ -1,6 +1,6 @@
 <?php if ($this->request->params['controller'] == 'Restaurants') { ?>
     <div class="margin-bottom-10">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="product-item">
                 <div class="pi-img-wrapper">
                     <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"
@@ -34,12 +34,12 @@
             </div>
         </div>
 
-        <div class="cl"></div>
+
     </div>
 <?php } ?>
 
 <div class="margin-bottom-10">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="product-item">
             <div class="pi-img-wrapper">
                 <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"
@@ -59,7 +59,7 @@
             <div class="sticker sticker-new"></div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="product-item">
             <div class="pi-img-wrapper">
                 <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k2.jpg"
@@ -77,7 +77,7 @@
             <a href="#" class="btn btn-default add2cart">Add to cart</a>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="product-item">
             <div class="pi-img-wrapper">
                 <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k3.jpg"
@@ -95,13 +95,73 @@
             <a href="#" class="btn btn-default add2cart">Add to cart</a>
         </div>
     </div>
-    <div class="cl"></div>
 
+    <div class="col-md-3">
+        <div class="product-item">
+            <div class="pi-img-wrapper">
+                <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"
+                     class="img-responsive" alt="Chow Fun">
+
+                <div>
+                    <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"
+                       class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                </div>
+            </div>
+            <h3><a href="shop-item.html">Chow Fun</a></h3>
+
+            <div class="pi-price">$29.00</div>
+            <a href="#" class="btn btn-default add2cart">Add to cart</a>
+
+            <div class="sticker sticker-new"></div>
+        </div>
+    </div>
 </div>
 
 
+
 <div class="margin-bottom-10">
-    <div class="col-md-4">
+
+
+    <div class="col-md-3">
+        <div class="product-item">
+            <div class="pi-img-wrapper">
+                <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k2.jpg"
+                     class="img-responsive" alt="Chow Fun">
+
+                <div>
+                    <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k2.jpg"
+                       class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                </div>
+            </div>
+            <h3><a href="shop-item.html">Chow Fun2</a></h3>
+
+            <div class="pi-price">$29.00</div>
+            <a href="#" class="btn btn-default add2cart">Add to cart</a>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-item">
+            <div class="pi-img-wrapper">
+                <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k3.jpg"
+                     class="img-responsive" alt="Chow Fun">
+
+                <div>
+                    <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k3.jpg"
+                       class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                </div>
+            </div>
+            <h3><a href="shop-item.html">Chow Fun3</a></h3>
+
+            <div class="pi-price">$29.00</div>
+            <a href="#" class="btn btn-default add2cart">Add to cart</a>
+        </div>
+    </div>
+
+
+    <div class="col-md-3">
         <div class="product-item">
             <div class="pi-img-wrapper">
                 <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"
@@ -121,7 +181,7 @@
             <div class="sticker sticker-new"></div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="product-item">
             <div class="pi-img-wrapper">
                 <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k2.jpg"
@@ -139,87 +199,7 @@
             <a href="#" class="btn btn-default add2cart">Add to cart</a>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="product-item">
-            <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k3.jpg"
-                     class="img-responsive" alt="Chow Fun">
 
-                <div>
-                    <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k3.jpg"
-                       class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-            </div>
-            <h3><a href="shop-item.html">Chow Fun3</a></h3>
-
-            <div class="pi-price">$29.00</div>
-            <a href="#" class="btn btn-default add2cart">Add to cart</a>
-        </div>
-    </div>
-    <div class="cl"></div>
-
-</div>
-
-
-<div class="margin-bottom-10">
-    <div class="col-md-4">
-        <div class="product-item">
-            <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"
-                     class="img-responsive" alt="Chow Fun">
-
-                <div>
-                    <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"
-                       class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-            </div>
-            <h3><a href="shop-item.html">Chow Fun</a></h3>
-
-            <div class="pi-price">$29.00</div>
-            <a href="#" class="btn btn-default add2cart">Add to cart</a>
-
-            <div class="sticker sticker-new"></div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="product-item">
-            <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k2.jpg"
-                     class="img-responsive" alt="Chow Fun">
-
-                <div>
-                    <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k2.jpg"
-                       class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-            </div>
-            <h3><a href="shop-item.html">Chow Fun2</a></h3>
-
-            <div class="pi-price">$29.00</div>
-            <a href="#" class="btn btn-default add2cart">Add to cart</a>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="product-item">
-            <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k3.jpg"
-                     class="img-responsive" alt="Chow Fun">
-
-                <div>
-                    <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k3.jpg"
-                       class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-            </div>
-            <h3><a href="shop-item.html">Chow Fun3</a></h3>
-
-            <div class="pi-price">$29.00</div>
-            <a href="#" class="btn btn-default add2cart">Add to cart</a>
-        </div>
-    </div>
-    <div class="cl"></div>
 
 </div>
 

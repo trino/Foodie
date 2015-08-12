@@ -40,12 +40,12 @@ Header and header elements
 	position: inherit;
 }
 .ecommerce .site-logo {
-	padding-top: 28px;
-	padding-bottom: 27px;
+	padding-top: 15px;
+	padding-bottom: 10px;
 }
 .ecommerce .reduce-header .site-logo {
-	padding-top: 16px;
-	padding-bottom: 18px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .ecommerce .header-navigation li.menu-search {
@@ -925,7 +925,6 @@ Header and header elements
 	background: #fff;
 	padding: 22px;
 	position: relative;
-	margin-right: 10px;
 }
 .product-main-image {
 	margin-bottom: 20px;

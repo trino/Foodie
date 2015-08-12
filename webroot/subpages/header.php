@@ -37,18 +37,18 @@
 
     <!-- Page level plugin styles START -->
     <link href="<?php echo $this->request->webroot;?>assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
-    <link href="<?php echo $this->request->webroot;?>assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="<?php echo $this->request->webroot;?>assets/global/plugins/slider-layer-slider/css/layerslider.css" rel="stylesheet">
+    <!--link href="<?php echo $this->request->webroot;?>assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet"-->
+    <!--link href="<?php echo $this->request->webroot;?>assets/global/plugins/slider-layer-slider/css/layerslider.css" rel="stylesheet"-->
     <!-- Page level plugin styles END -->
 
     <!-- Theme styles START -->
     <link href="<?php echo $this->request->webroot;?>assets/global/css/components.css" rel="stylesheet">
     <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/style.css" rel="stylesheet">
     <link href="<?php echo $this->request->webroot;?>assets/frontend/pages/css/style-shop.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo $this->request->webroot;?>assets/frontend/pages/css/style-layer-slider.css" rel="stylesheet">
+    <!--link href="<?php echo $this->request->webroot;?>assets/frontend/pages/css/style-layer-slider.css" rel="stylesheet"-->
     <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/style-responsive.css" rel="stylesheet">
     <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color">
-    <link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/custom.css" rel="stylesheet">
+    <!--link href="<?php echo $this->request->webroot;?>assets/frontend/layout/css/custom.css" rel="stylesheet"-->
 
 
     <!-- MAKE ALL CSS CHANGES TO HERE -->
@@ -63,8 +63,8 @@
     <script src="<?php echo $this->request->webroot;?>assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
     <script src="<?php echo $this->request->webroot;?>assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!--script src="<?php echo $this->request->webroot;?>assets/frontend/layout/scripts/back-to-top.js" type="text/javascript"></script-->
-    <script src="<?php echo $this->request->webroot;?>assets/frontend/layout/scripts/sample.js" type="text/javascript"></script>
-    <script src="<?php echo $this->request->webroot;?>assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <!--script src="<?php echo $this->request->webroot;?>assets/frontend/layout/scripts/sample.js" type="text/javascript"></script-->
+    <!--script src="<?php echo $this->request->webroot;?>assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script-->
     <script src="<?php echo $this->request->webroot;?>assets/global/scripts/menu_manager.js"></script>
     <script src="<?php echo $this->request->webroot;?>assets/global/scripts/upload.js"></script>
     <!-- END CORE PLUGINS -->
@@ -73,12 +73,6 @@
 </head>
 <!-- Head END -->
 <?php include_once("api.php"); ?>
-
-
-
-
-
-
 
 
 
@@ -172,7 +166,7 @@
 <!-- BEGIN HEADER -->
 <div class="header">
     <div class="container-fluid">
-        <a class="site-logo" href="<?php echo $this->request->webroot;?>"><img src="<?php echo $this->request->webroot;?>assets/frontend/layout/img/logos/logo.jpg" alt="Metronic Shop UI"></a>
+        <a class="site-logo" href="<?php echo $this->request->webroot;?>"><img src="<?php echo $this->request->webroot;?>assets/frontend/layout/img/logos/logo.png" alt="Metronic Shop UI"></a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
