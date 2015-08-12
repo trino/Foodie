@@ -57,7 +57,7 @@
 
     <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
 
-    
+
     <!--[if lt IE 9]>
     <script src="<?php echo $this->request->webroot;?>assets/global/plugins/respond.min.js"></script>
     <![endif]-->
