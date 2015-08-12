@@ -1134,6 +1134,7 @@ Customized Bootstrap Buttons
   -moz-box-shadow: none;
   box-shadow: none;
   text-shadow: none;
+  style: margin-top: 0px;
 }
 .btn.dropdown-toggle, .btn-group .btn.dropdown-toggle, .btn:hover, .btn:disabled, .btn[disabled], .btn:focus, .btn:active, .btn.active {
   outline: none !important;

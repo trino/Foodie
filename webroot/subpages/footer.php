@@ -50,7 +50,7 @@
                     <li><i class="fa fa-angle-right"></i> <a href="#">Customer Service</a></li>
                     <li><i class="fa fa-angle-right"></i> <a href="#">Order Tracking</a></li>
                     <li><i class="fa fa-angle-right"></i> <a href="#">Shipping &amp; Returns</a></li>
-                    <li><i class="fa fa-angle-right"></i> <a href="contacts.html">Contact Us</a></li>
+                    <li><i class="fa fa-angle-right"></i> <a href="<?= $this->request->webroot; ?>pages/contact">Contact Us</a></li>
                     <li><i class="fa fa-angle-right"></i> <a href="#">Careers</a></li>
                     <li><i class="fa fa-angle-right"></i> <a href="#">Payment Methods</a></li>
 
