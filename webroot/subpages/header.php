@@ -142,11 +142,12 @@
         </div>
         <div id="forget-passsword" style="display: none;">
             <h1>Forgot Your Password?</h1>
-            <form role="form" class="form-horizontal form-without-legend">
+            <form role="form" class="form-horizontal form-without-legend" method="post">
                 <div class="form-group col-md-12">
                     <label class="col-lg-4 control-label" for="email">Email</label>
                     <div class="col-lg-8">
-                        <input type="text" id="email" class="form-control">
+                        <input type="hidden" Name="action" value="forgotpass">
+                        <input type="text" Name="Email" class="form-control">
                     </div>
                 </div>
 

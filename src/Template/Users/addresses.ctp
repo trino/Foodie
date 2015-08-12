@@ -134,7 +134,7 @@
                 if ($isset){
                     echo '<BUTTON class="btn btn-danger" onclick="confirmdelete();" type="button">Delete</BUTTON>';
                 } else {
-                    echo '<input class="btn btn-warning" onclick="changeaction();" type="submit" value="Search" title="Use this to search for hotels/hospitals or other landmarks">';
+                    //echo '<input class="btn btn-warning" onclick="changeaction();" type="submit" value="Search" title="Use this to search for hotels/hospitals or other landmarks">';
                 }
             ?>
         </div>
