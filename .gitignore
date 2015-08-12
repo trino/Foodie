@@ -85,3 +85,4 @@ tmp/debug_kit.sqlite
 webroot/royslog.txt
 config/app.php
 *.log
+*.log

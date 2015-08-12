@@ -264,8 +264,14 @@
 <div class="sign">
     
         <div class="heading"><div class="text"><b>Still</b> Confused?</div></div>
-    
-    <center> <img src="/Foodie/images/sign.png">  </center>
+
+
+    <?php
+        include_once("subpages/api.php");
+
+        echo $this->element('restaurant_info');?>
+
+
     <br><br>
 
     

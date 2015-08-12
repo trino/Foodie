@@ -41,7 +41,18 @@ class RestaurantsController extends AppController {
 
     public function signup() {
         $this->layout='admin';
-    }
+        $Restaurant = $this->Manager->get_profile($this->request->session()->read('Profile.ID'))->RestaurantID;
+        if($Restaurant) {
+            if (isset($_POST["Name"])){
+                $this->Manager->edit_restaurant($Restaurant, $_POST["Name"], $_POST["Genre"], $_POST["Email"], $_POST["Phone"], $_POST["Address"], $_POST["City"], $_POST["Province"], $_POST["Country"], $_POST["PostalCode"], $_POST["Description"], $_POST["DeliveryFee"], $_POST["Minimum"]);
+                $this->Manager->edit_hours($Restaurant, $_POST);
+            }
+            $Restaurant = $this->Manager->get_restaurant($Restaurant, true);
+            $this->set("Restaurant", $Restaurant);
+            $this->set("Genres", $this->Manager->enum_genres());
+        } else {
+            $this->set("Restaurant", false);
+        }    }
 
     public function menu_manager() {
         $this->layout='admin';
