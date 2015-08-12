@@ -45,7 +45,7 @@ a.btn{color:#FFF!important;}
 }
 
 .heading {
- background: #E84D1C;
+ background: #E9232D;
     height: 100px;
     width: 100%;
     text-align: center;
@@ -71,7 +71,7 @@ a.btn{color:#FFF!important;}
     text-align: center;
     padding: 0px 10px;
     background: #fff;
-    color: #E84D1C;
+    color: #E9232D;
         font-weight: 400;
         font-size: 37px;
 
@@ -87,21 +87,21 @@ a.btn{color:#FFF!important;}
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     font-size: 35px;
-    border-top: 3px solid #E84D1C;
-    border-bottom: 3px solid #E84D1C;
+    border-top: 3px solid #E9232D;
+    border-bottom: 3px solid #E9232D;
     padding-top: 3px;
     width: 100%;
     display: inline;    
-        border-right: 3px solid #E84D1C;
+        border-right: 3px solid #E9232D;
     padding-right: 6px;
-    color: #E84D1C;
+    color: #E9232D;
     text-align: center;
 }
 
 .eyes b {
     text-align: center;
     padding: 0px 10px;
-    background: #E84D1C;
+    background: #E9232D;
     color: #fff;
         font-weight: 400;
         font-size: 37px;
@@ -138,7 +138,7 @@ a.btn{color:#FFF!important;}
 .simple b {
     text-align: center;
     padding: 0px 10px;
-    background: #E84D1C;
+    background: #E9232D;
     color: #fff;
         font-weight: 400;
         font-size: 31px;
@@ -158,8 +158,8 @@ button::after {
 }
 
 button {
-  background: #E84D1C;
-  border: 3px solid #E84D1C;
+  background: #E9232D;
+  border: 3px solid #E9232D;
   border-radius: 5px;
   color: #fff;
     display: block;
@@ -168,13 +168,12 @@ button {
     margin: 1em auto;
     padding: 11px 15px;
     position: relative;
-    font-family: 'Playball', cursive;
     letter-spacing: 2px;
 }
 
 button::before,
 button::after {
-  background: #E84D1C;
+  background: #E9232D;
   content: '';
   position: absolute;
   z-index: -1;
@@ -228,7 +227,7 @@ button:hover {
 
 
 .grid h3 {
-   color: #E84D1C;
+   color: #E9232D;
     font-family: Lato;
     font-weight: 700;
     font-size: 16px;
@@ -283,7 +282,7 @@ button:hover {
 
 .module img {
  margin-bottom: 30px;   
-        border: 1px solid #E84D1C;
+        border: 1px solid #E9232D;
     padding: 8px;
 }
 
@@ -362,7 +361,7 @@ button:hover {
 
 .nine img {
     border-radius: 50% !important;
-   border: 2px dashed #E84D1C;
+   border: 2px dashed #E9232D;
 }
 
 .nine {
@@ -376,7 +375,7 @@ button:hover {
 }
 
 .nine b {
-    color: #E84D1C;
+    color: #E9232D;
     text-transform: uppercase;
     padding: 0px 3px;
     letter-spacing: 1px;

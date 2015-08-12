@@ -265,7 +265,7 @@
     
         <div class="heading"><div class="text"><b>Still</b> Confused?</div></div>
     
-    <center><img src="http://i.imgur.com/GScAvXS.png"></center>
+    <center> <img src="/Foodie/images/sign.png">  </center>
     <br><br>
 
     
