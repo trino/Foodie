@@ -5,7 +5,7 @@
 
          
           <ul class="list-group margin-bottom-25 sidebar-menu">
-              <li class="list-group-item clearfix"><a href="<?php echo $this->request->webroot;?>restaurants/dashboardd"><i class="fa fa-angle-right"></i> Restaurant Info</a></li>
+              <li class="list-group-item clearfix"><a href="<?php echo $this->request->webroot;?>restaurants/dashboard"><i class="fa fa-angle-right"></i> Restaurant Info</a></li>
           
             <li class="list-group-item clearfix"><a href="<?php echo $this->request->webroot;?>restaurants/menu_manager"><i class="fa fa-angle-right"></i> Menu Manager</a></li>
             
