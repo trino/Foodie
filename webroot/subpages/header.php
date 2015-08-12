@@ -176,7 +176,7 @@
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
-        <!-- BEGIN CART -->
+        <!-- BEGIN CART
         <div class="top-cart-block">
             <div class="top-cart-info">
                 <a href="javascript:void(0);" class="top-cart-info-count">3 items</a>
@@ -251,7 +251,7 @@
                 </div>
             </div>
         </div>
-        <!--END CART -->
+        END CART -->
 
         <!-- BEGIN NAVIGATION -->
         <div class="header-navigation">

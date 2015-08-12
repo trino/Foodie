@@ -1312,8 +1312,8 @@ Nostrud duis molestie at dolore.</p>
             ccc++;
             subtotal = Number(subtotal) + Number($(this).text());
         })
-        if (ccc > 3)
-            $('.orders').attr('style', 'display:block;height:260px;overflow-x:hidden;overflow-y:scroll;');
+        //if (ccc > 3)
+           // $('.orders').attr('style', 'display:block;height:260px;overflow-x:hidden;overflow-y:scroll;');
         subtotal = parseFloat(subtotal);
         //subtotal = Number(subtotal)+Number(price);
         subtotal = subtotal.toFixed(2);
@@ -1345,111 +1345,7 @@ Nostrud duis molestie at dolore.</p>
 
         //$('.subitems_'+menu_id).hide();
     });
-    $('.decrease').live('click', function () {
-        //alert('test');
-        var menuid = $(this).attr('id');
-        var numid = menuid.replace('dec', '');
-
-        var quant = $('#list' + numid + ' span.count').text();
-        quant = quant.replace('x ','');
-        
-        var amount = $('#list' + numid + ' .amount').text();
-        amount = parseFloat(amount);
-
-        var subtotal = "";
-        $('.total').each(function () {
-            subtotal = Number(subtotal) + Number($(this).text());
-        })
-        subtotal = parseFloat(subtotal);
-        subtotal = Number(subtotal) - Number(amount);
-        subtotal = subtotal.toFixed(2);
-        $('span.subtotal').text(subtotal);
-        $('input.subtotal').val(subtotal);
-
-        var tax = $('#tax').text();
-        tax = parseFloat(tax);
-        tax = (tax / 100) * subtotal;
-        tax = tax.toFixed(2);
-        $('span.tax').text(tax);
-        $('input.tax').val(tax);
-
-        var del_fee = $('.df').val();
-        del_fee = parseFloat(del_fee);
-
-
-        var gtotal = Number(subtotal) + Number(tax) + Number(del_fee);
-        gtotal = gtotal.toFixed(2);
-        $('span.grandtotal').text(gtotal);
-        $('input.grandtotal').val(gtotal);
-
-        var total = $('#list' + numid + ' .total').text();
-        total = total.replace("$","");
-        total = parseFloat(total);
-        total = Number(total) - Number(amount);
-        total = total.toFixed(2);
-        $('#list' + numid + ' .total').text('$'+total);
-
-        quant = parseFloat(quant);
-        //alert(quant);
-        if (quant == 1) {
-            $('#list' + numid).remove();
-            $('#profilemenu' + numid).text('Add');
-            $('#profilemenu' + numid).attr('style', '');
-            $('#profilemenu' + numid).addClass('add_menu_profile');
-            $('#profilemenu' + numid).removeAttr('disabled');
-            var ccc = 0;
-            $('.total').each(function () {
-                ccc++;
-            });
-            if (ccc < 4)
-                $('.orders').removeAttr('style');
-            $('.orders').show();
-        }
-        else {
-            quant--;
-            $('#list' + numid + ' span.count').text('x '+quant);
-            $('#list' + numid + ' input.count').val(quant);
-            //$('#list'+numid+' .count').val(quant-1);
-        }
-    });
-
-    $('.increase').live('click', function () {
-        var menuid = $(this).attr('id');
-        var numid = menuid.replace('inc', '');
-        var quant = '';
-        quant = $('#list' + numid + ' span.count').text();
-        quant = quant.replace('x ','');
-        quant = parseFloat(quant);
-        var amount = $('#list' + numid + ' .amount').text();
-        amount = parseFloat(amount);
-        var subtotal = $('.subtotal').text();
-        subtotal = parseFloat(subtotal);
-        subtotal = Number(subtotal) + Number(amount);
-        subtotal = subtotal.toFixed(2);
-        $('span.subtotal').text(subtotal);
-        $('input.subtotal').val(subtotal);
-        var tax = $('#tax').text();
-        tax = parseFloat(tax);
-        tax = (tax / 100) * subtotal;
-        tax = tax.toFixed(2);
-        $('span.tax').text(tax);
-        $('input.tax').val(tax);
-        var del_fee = $('.df').val();
-        del_fee = parseFloat(del_fee);
-        var gtotal = Number(subtotal) + Number(tax) + Number(del_fee);
-        gtotal = gtotal.toFixed(2);
-        $('span.grandtotal').text(gtotal);
-        $('input.grandtotal').val(gtotal);
-        var total = $('#list' + numid + ' .total').text();
-        total = total.replace("$","");
-        total = parseFloat(total);
-        total = Number(total) + Number(amount);
-        total = total.toFixed(2);
-        $('#list' + numid + ' .total').text('$'+total);
-        quant++;
-        $('#list' + numid + ' span.count').text('x '+quant);
-        $('#list' + numid + ' input.count').val(quant);
-    });
+    
 
   function inArray(needle, haystack) {
     var length = haystack.length;
