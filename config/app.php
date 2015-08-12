@@ -223,8 +223,8 @@ return [
              */
             //'port' => 'nonstandard_port_number',
             'username' => 'root',
-            'password' => 'root',
-            'database' => 'foodii',
+            'password' => '',
+            'database' => 'food',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
