@@ -9,6 +9,10 @@
         ///////////////////////handles certain forms that don't point anywhere/////////////////////////////////////
         function init($Controller){
             $this->Controller = $Controller;
+            $Me = $this->read('ID');
+            $this->Controller->set("userID", $Me);
+            $this->Controller->set("Profile", $this->get_profile($Me));
+
             $Controller->set('genres', $this->enum_genres());
             if (isset($_POST["action"])){
                 switch ($_POST["action"]) {
@@ -57,6 +61,19 @@
                             $Controller->Flash->error("The passwords do not match");
                         }
                         break;
+                    case "forgotpass":
+                        $newPassword = $this->forgot_password($_POST["Email"]);
+                        if ($newPassword){
+                            $Controller->loadComponent("Mailer");
+                            $Controller->Mailer->sendEmail($_POST["Email"],"Password reset","Your password has been changed to: " . $newPassword);
+                            $Controller->Flash->success("Your password has been reset and emailed to you");
+                        } else {
+                            $Controller->Flash->error("The email address '" . $_POST["Email"] . "', was not found");
+                        }
+                        break;
+                    default:
+                        debug($_POST);
+                        die($_POST["action"] . " is not handled");
                 }
             }
             if (isset($_GET["action"])){
@@ -126,14 +143,16 @@
             return $ID;
         }
 
-        function enum_profiletypes($Hierarchy = ""){
+        function enum_profiletypes($Hierarchy = "", $toArray = true){
             $table = TableRegistry::get('profiletypes');
             if($Hierarchy){
+                die("Hier: " . $Hierarchy);
                 $entries = $table->find('all')->where(["Hierarchy >"=>$Hierarchy]);
             } else {
                 $entries = $table->find('all');
             }
-            return $this->iterator_to_array($entries, "ID", "Name");
+            if($toArray) {return $this->iterator_to_array($entries, "ID", "Name");}
+            return $entries;
         }
 
 
@@ -156,17 +175,21 @@
             return TableRegistry::get('profiles')->find('all')->where([$Key=>$Value]);
         }
 
-        function get_profile($ID){
+        function get_profile($ID = ""){
+            if(!$ID){$ID=$this->read("ID");}
             return $this->get_entry("profiles", $ID);
         }
-        function get_profile_type($ProfileID){
+
+        function get_profile_type($ProfileID, $GetByType = false){
+            if($GetByType){return $this->get_entry("profiletypes", $ProfileID);}
             $profiletype = $this->get_entry("profiles", $ProfileID)->ProfileType;
             return $this->get_entry("profiletypes", $profiletype);
         }
+
         function can_profile_create($ProfileID, $ProfileType){
             $creatorprofiletype = $this->get_profile_type($ProfileID);
             if($creatorprofiletype->CanCreateProfiles){
-                $ProfileType = $this->get_profile_type($ProfileType);
+                $ProfileType = $this->get_profile_type($ProfileType, true);
                 return $creatorprofiletype->Hierarchy < $ProfileType->Hierarchy;
             }
         }
@@ -182,15 +205,31 @@
             return $pass;
         }
 
+        function is_valid_email($EmailAddress){
+            //http://php.net/manual/en/function.filter-var.php
+            //filter_var can also validate: FILTER_VALIDATE_IP FILTER_VALIDATE_INT FILTER_VALIDATE_BOOLEAN FILTER_VALIDATE_URL FILTER_SANITIZE_STRING
+            //flags FILTER_NULL_ON_FAILURE FILTER_FLAG_PATH_REQUIRED FILTER_FLAG_STRIP_LOW FILTER_FLAG_STRIP_HIGH
+            $EmailAddress = strtolower(trim($EmailAddress));
+            if (filter_var($EmailAddress, FILTER_VALIDATE_EMAIL)) {
+                return $EmailAddress;
+            }
+        }
+
         function new_profile($CreatedBy, $Name, $Password, $ProfileType, $EmailAddress, $RestaurantID, $Subscribed = ""){
-            if(!$Password){$Password=randomPassword();}
+            $EmailAddress = $this->is_valid_email($EmailAddress);
+            if(!$EmailAddress){return false;}
+            if($this->get_entry("profiles", $EmailAddress, "Email")){return false;}
+            if(!$Password){$Password=$this->randomPassword();}
             if($Subscribed){$Subscribed=1;} else {$Subscribed =0;}
-            $data = array("Name" => trim($Name), "ProfileType" => $ProfileType, "Email" => strtolower(trim($EmailAddress)), "CreatedBy" => 0, "RestaurantID" => $RestaurantID, "Subscribed" => $Subscribed, "Password" => md5($Password . $this->salt()));
+            $data = array("Name" => trim($Name), "ProfileType" => $ProfileType, "Email" => $EmailAddress, "CreatedBy" => 0, "RestaurantID" => $RestaurantID, "Subscribed" => $Subscribed, "Password" => md5($Password . $this->salt()));
             if($CreatedBy){
                 if(!$this->can_profile_create($CreatedBy, $ProfileType)){return false;}
                 $data["CreatedBy"] = $CreatedBy;
             }
             $data = $this->edit_database("profiles", "ID", "", $data);
+            if($CreatedBy){
+                $this->logevent("Created user: " . $data["ID"] . " (" . $data["Name"] . ")");
+            }
             $data["Password"] = $Password;
             $this->set_subscribed($EmailAddress,$Subscribed);
             return $data;
@@ -225,6 +264,16 @@
             $Controller->request->session()->write('Profile.Restaurant',    $Profile->RestaurantID);
         }
 
+        function forgot_password($Email){
+            $Email = strtolower(trim($Email));
+            $Profile = $this->get_entry("profiles", $Email, "Email");
+            if ($Profile){
+                $Password = $this->randomPassword();
+                $this->update_database("profiles", "ID", $Profile->ID, array("Password" => md5($Password . $this->salt())));
+                return $Password;
+            }
+        }
+
         ////////////////////////////////////////Profile Address API ////////////////////////////////////
         function enum_profile_addresses($ProfileID){
             return $this->enum_all("profiles_addresses", array("UserID" => $ProfileID));
@@ -240,7 +289,10 @@
             return $this->edit_database("profiles_addresses", "ID", $ID, $Data);
         }
 
-
+        function check_permission($Permission, $UserID = ""){
+            if(!$UserID){$UserID = $this->read("ID");}
+            return $this->get_profile_type($UserID)->$Permission;
+        }
 
 
 
@@ -346,6 +398,39 @@
             return $ID;
         }
 
+        function enum_employees($ID = "", $Hierarchy = ""){
+            if(!$ID){
+                $ID = $this->get_current_restaurant();
+            }
+            if($Hierarchy){
+                return $this->enum_all("Profiles", array("RestaurantID" => $ID, "Hierarchy >" => $Hierarchy));
+            }
+            return $this->enum_profiles("RestaurantID", $ID);//->order("Hierarchy" , "ASC");
+        }
+
+        function get_current_restaurant(){
+            $Profile = $this->read('ID');
+            if($Profile) {
+                return $this->get_profile($Profile)->RestaurantID;
+            }
+        }
+
+        function hire_employee($UserID, $RestaurantID = 0){
+            if(!$this->check_permission("CanHireOrFire")){return false;}
+
+            $Profile = $this->get_profile($UserID);
+            $Name = "";
+            if($RestaurantID){//hire
+                if (!$Profile->RestaurantID) { $Name = "Hired"; }
+            } else {//fire
+                if ($Profile->RestaurantID) { $Name = "Fired"; }
+            }
+            if($Name){
+                $this->update_database("profiles", "ID", $UserID, array("RestaurantID" => $RestaurantID));
+                $this->logevent($Name . ": " . $Profile->ID . " (" . $Profile->Name . ")" );
+                return true;
+            }
+        }
 
         /////////////////////////////////////days off API////////////////////////////////////
         function add_day_off($RestaurantID, $Day, $Month, $Year){
@@ -676,6 +761,22 @@
         }
         function right($text, $length){
             return substr($text, -$length);
+        }
+        function getIterator($Objects, $Fieldname, $Value){
+            foreach($Objects as $Object){
+                if ($Object->$Fieldname == $Value){
+                    return $Object;
+                }
+            }
+            return false;
+        }
+
+        function status($Bool, $Success, $Fail) {
+            if ($Bool) {
+                $this->Controller->Flash->success($Success);
+            } else {
+                $this->Controller->Flash->error($Fail);
+            }
         }
     }
 ?>
