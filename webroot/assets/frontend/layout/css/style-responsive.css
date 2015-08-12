@@ -672,23 +672,48 @@
 		padding-top: 7px;
 	}
     
-    .ecommerce .main .top-cart-block .fa-shopping-cart {
-        
-        position: static;
-    }
+.ecommerce .main .top-cart-block .fa-shopping-cart {
+    float: right;
+    position: static;
+}
     
     .ecommerce .main .top-cart-content-wrapper{
         position: static;
     }
     
-    .ecommerce .main .top-cart-content strong {
+.ecommerce .main .top-cart-content strong {
     font-weight: normal;
-    width: auto;
+    width: 40% !important;
+}
+
+.top-cart-content li{
+    padding-left: 10px;
+}
+
+.ecommerce .main .top-cart-content-wrapper {
+    border-bottom: 2px solid #e6400c;
+}
+
+.top-cart-content .slimScrollDiv .decrease {
+    left: 13px;
+}
+
+.top-cart-content .slimScrollDiv .increase {
+    left: 33px;
+}
+
+.slimScrollDiv ul li .receipt_image .btn > strong {
+    width: 100% !important;
 }
 
 .ecommerce .main .top-cart-content em {
     margin-right: 8px !important;
 }
+
+.top-cart-content::after {
+display: none;
+}
+
 .bottom-cart {
     background: #fff none repeat scroll 0 0;
     bottom: 0;
@@ -700,8 +725,23 @@
 }
 
 .top-cart-block {
-    display: none;
-} 
+    bottom: 0;
+    display: block;
+    left: 5px;
+    margin-bottom: 34px !important;
+    padding: 0 !important;
+    position: fixed;
+    width: 100% !important;
+    z-index: 999;
+}
+
+.top-cart-content .text-right {
+    display: inline-block;
+}
+
+.top-cart-content .totals.col-md-12 {
+    width: 100%;
+}
 
 .fixed-header .header-navigation li > a, .fixed-header .dropdown.open .dropdown-toggle, .fixed-header .header-navigation li.open > a {
     font-size: 16px;
@@ -710,6 +750,11 @@
 .bottoma-cart {
     display: block;
 } 
+
+.top-cart-content .btn-default {
+    padding-bottom: 5px;
+}
+
 .top-cart-content {
     width: 96% !important;
 }
@@ -721,6 +766,27 @@
 
 .top-cart-content em {
     width: auto !important;
+}
+
+.top-cart-info {
+    bottom: 0;
+    float: none;
+    left: 5px;
+    padding-bottom: 1px !important;
+    padding-top: 1px !important;
+    position: fixed;
+    width: 96%;
+    z-index: 999;
+}
+
+.top-cart-info-count {
+    float: left;
+    margin-top: 5px;
+}
+
+.top-cart-info-value {
+    position: relative;
+    top: 5px;
 }
 
 }
