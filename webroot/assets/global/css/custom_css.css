@@ -12,7 +12,7 @@ body {
 
 .clearfix{clear:both;}
 ul.parentinfo{list-style:none;}
-a.btn{color:#FFF!important;}
+a.btn{color:#FFF;}
 .marbot{margin-bottom:40px;}
 .itemimg{max-width: 100%;}
 .expand{background:url('../../../images/expand.png') no-repeat right;display:inline-block;padding:15px;}
@@ -45,7 +45,7 @@ a.btn{color:#FFF!important;}
 }
 
 .heading {
- background: #E9232D;
+ background: #ce0b10;
     height: 100px;
     width: 100%;
     text-align: center;
@@ -71,7 +71,7 @@ a.btn{color:#FFF!important;}
     text-align: center;
     padding: 0px 10px;
     background: #fff;
-    color: #E9232D;
+    color: #ce0b10;
         font-weight: 400;
         font-size: 37px;
 
@@ -87,21 +87,21 @@ a.btn{color:#FFF!important;}
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     font-size: 35px;
-    border-top: 3px solid #E9232D;
-    border-bottom: 3px solid #E9232D;
+    border-top: 3px solid #ce0b10;
+    border-bottom: 3px solid #ce0b10;
     padding-top: 3px;
     width: 100%;
     display: inline;    
-        border-right: 3px solid #E9232D;
+        border-right: 3px solid #ce0b10;
     padding-right: 6px;
-    color: #E9232D;
+    color: #ce0b10;
     text-align: center;
 }
 
 .eyes b {
     text-align: center;
     padding: 0px 10px;
-    background: #E9232D;
+    background: #ce0b10;
     color: #fff;
         font-weight: 400;
         font-size: 37px;
@@ -138,7 +138,7 @@ a.btn{color:#FFF!important;}
 .simple b {
     text-align: center;
     padding: 0px 10px;
-    background: #E9232D;
+    background: #ce0b10;
     color: #fff;
         font-weight: 400;
         font-size: 31px;
@@ -158,8 +158,8 @@ button::after {
 }
 
 button {
-  background: #E9232D;
-  border: 3px solid #E9232D;
+  background: #ce0b10;
+  border: 3px solid #ce0b10;
   border-radius: 5px;
   color: #fff;
     display: block;
@@ -173,7 +173,7 @@ button {
 
 button::before,
 button::after {
-  background: #E9232D;
+  background: #ce0b10;
   content: '';
   position: absolute;
   z-index: -1;
@@ -227,7 +227,7 @@ button:hover {
 
 
 .grid h3 {
-   color: #E9232D;
+   color: #ce0b10;
     font-family: Lato;
     font-weight: 700;
     font-size: 16px;
@@ -282,7 +282,7 @@ button:hover {
 
 .module img {
  margin-bottom: 30px;   
-        border: 1px solid #E9232D;
+        border: 1px solid #ce0b10;
     padding: 8px;
 }
 
@@ -361,7 +361,7 @@ button:hover {
 
 .nine img {
     border-radius: 50% !important;
-   border: 2px dashed #E9232D;
+   border: 2px dashed #ce0b10;
 }
 
 .nine {
@@ -375,7 +375,7 @@ button:hover {
 }
 
 .nine b {
-    color: #E9232D;
+    color: #ce0b10;
     text-transform: uppercase;
     padding: 0px 3px;
     letter-spacing: 1px;
