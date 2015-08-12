@@ -4,7 +4,7 @@
     use Cake\Controller\Component;
     use Cake\ORM\TableRegistry;
 
-
+    /////////////////////////////CSS: webroot\assets\global\css\components.css ////////////////////////////////////
     class ManagerComponent extends Component {
         ///////////////////////handles certain forms that don't point anywhere/////////////////////////////////////
         function init($Controller){
@@ -44,6 +44,7 @@
                         break;
                     case "subscribe":
                         $Controller->loadComponent("Mailer");
+                        $this->add_subscriber($_POST["email"]);
                         $this->add_subscriber($_POST["email"]);
                         $Controller->Flash->success($_POST["email"] . " please check your email to confirm your subscription");
                         break;
@@ -236,7 +237,7 @@
         }
 
         function edit_profile($ID, $Name, $EmailAddress, $Phone, $Password, $Subscribed = 0, $ProfileType = 0){
-            $data = array("Name" => trim($Name), "Email" => strtolower(trim($EmailAddress)), "Phone" => $Phone, "Subscribed" => $Subscribed);
+            $data = array("Name" => trim($Name), "Email" => strtolower(trim($EmailAddress)), "Phone" => $this->cleanphone($Phone), "Subscribed" => $Subscribed);
             if($Password){
                 $data["Password"] = md5($Password . $this->salt());
             }
@@ -380,6 +381,12 @@
 
 
         //////////////////////////////////////Restaurant API/////////////////////////////////
+        function cleanphone($Phone){
+            $Phone = $this->kill_non_numeric($Phone, "+");
+            //add a check to be sure only the first digit is a +
+            return $Phone;
+        }
+
         function get_restaurant($ID, $IncludeHours = False){
             $restaurant = $this->get_entry("restaurants", $ID);
             if($IncludeHours){
@@ -392,8 +399,8 @@
                 $ID = $this->new_anything("restaurants", $Name);
             }
             $C = ', ';
-            $this->logevent("Edited restaurant: " . $Name .$C. $GenreID .$C. $Email .$C. $Phone .$C. $Address .$C. $City .$C. $Province .$C. $Country .$C. $PostalCode .$C. $Description .$C. $DeliveryFee .$C. $Minimum);
-            $data = array("Name" => $Name, "Genre" => $GenreID, "Email" => $Email, "Phone" => $Phone, "Address" => $Address, "City" => $City, "Province" => $Province, "Country" => $Country, "PostalCode" => $PostalCode, "Description" => $Description, "DeliveryFee" => $DeliveryFee, "Minimum" => $Minimum);
+            $this->logevent("Edited restaurant: " . $Name .$C. $GenreID .$C. $Email .$C. $this->cleanphone($Phone) .$C. $Address .$C. $City .$C. $Province .$C. $Country .$C. $PostalCode .$C. $Description .$C. $DeliveryFee .$C. $Minimum);
+            $data = array("Name" => $Name, "Genre" => $GenreID, "Email" => $Email, "Phone" => $this->cleanphone($Phone), "Address" => $Address, "City" => $City, "Province" => $Province, "Country" => $Country, "PostalCode" => $PostalCode, "Description" => $Description, "DeliveryFee" => $DeliveryFee, "Minimum" => $Minimum);
             $this->update_database("restaurants", "ID", $ID, $data);
             return $ID;
         }
@@ -753,8 +760,8 @@
             }
         }
 
-        function kill_non_numeric($text){
-            return preg_replace("/[^0-9]/", "", $text);
+        function kill_non_numeric($text, $allowmore = ""){
+            return preg_replace("/[^0-9" . $allowmore . "]/", "", $text);
         }
         function left($text, $length){
             return substr($text,0,$length);

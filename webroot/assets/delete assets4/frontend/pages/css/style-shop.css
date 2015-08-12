@@ -1140,4 +1140,5 @@ Shop Stype Buttons
 ***/
 .btn {
 	text-transform: uppercase;
+	margin-top: 0px;
 }
