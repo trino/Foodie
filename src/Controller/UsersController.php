@@ -98,7 +98,14 @@ class UsersController extends AppController {
     }
 
      public function orders() {
-        $this->layout = "admin";
+        $this->layout = "orders";
+         if (isset($_GET["ID"]) && $this->Manager->check_permission("CanEditGlobalSettings")){
+             $UserID = $_GET["ID"];
+         } else {
+             $UserID = $this->Manager->read("ID");
+         }
+         $this->set("OrderType", "User");
+         $this->set("Orders", $this->Manager->enum_orders($UserID, true));
     }
 
     public function logout(){

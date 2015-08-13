@@ -27,7 +27,6 @@
                                     listitems($this->request->webroot, "Administrator", "", array(
                                           "Users" => "restaurants/employees",
                                           "Restaurants" => "restaurants/restaurants",
-                                          "Orders" => "",
                                     ));
                                     echo '<hr class="shop__divider">';
                               }
@@ -36,7 +35,7 @@
                                         "Restaurant Info" => "dashboard",
                                         "Menu Manager" => "menu_manager",
                                         "Pending Orders <span class='notification'>(10)</span>" => "orders/pending",
-                                        "Order History" => "orders/history",
+                                        "Order History" => "orders",
                                         "Event Log" => "eventlog",
                                         "Employee Manager" => "employees",
                                         "Print Report" => "report"

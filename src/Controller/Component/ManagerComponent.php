@@ -67,14 +67,16 @@
                         }
                         break;
                     case "forgotpass":
+                        $_POST["Email"] = str_replace(" ", "+", trim(stripcslashes($_POST["Email"])));
                         $newPassword = $this->forgot_password($_POST["Email"]);
                         if ($newPassword){
                             $Controller->loadComponent("Mailer");
                             $Controller->Mailer->sendEmail($_POST["Email"],"Password reset","Your password has been changed to: " . $newPassword);
-                            $Controller->Flash->success("Your password has been reset and emailed to you");
+                            echo "Your password has been reset and emailed to you";
                         } else {
-                            $Controller->Flash->error("The email address '" . $_POST["Email"] . "', was not found");
+                            echo "The email address '" . $_POST["Email"] . "', was not found";
                         }
+                        die();
                         break;
                     default:
                         if (strpos($_POST["action"], ".bypass")){
@@ -613,6 +615,19 @@
         }
 
 
+
+
+
+
+        /////////////////////////////////Orders API/////////////////////////////////////
+        function enum_orders($ID, $IsUser = false){
+            if($IsUser){
+                $Conditions["UserID"] = $ID;
+            } else {
+                $Conditions["RestaurantID"] = $ID;
+            }
+            return array();//nothing to search yet
+        }
 
 
 

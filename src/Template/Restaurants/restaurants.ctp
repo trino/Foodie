@@ -28,6 +28,7 @@
                                 $Genre = $Genres[$Restuaurant->Genre];
                             }
                             echo '<TR><TD>' . $Restuaurant->ID . $TD . $Restuaurant->Name . $TD . $Restuaurant->Email . $TD . $Restuaurant->Phone . $TD  . $Genre . $TD;
+                            echo '<a href="' . $this->request->webroot . 'restaurants/orders?ID=' . $Restuaurant->ID . '" class="btn btn-info">Orders</a>';
                             echo '<a href="' . $this->request->webroot . 'restaurants/dashboard?ID=' . $Restuaurant->ID . '" class="btn btn-info">Edit</a>';
                             if ($Restuaurant->Open) {
                                 makebutton($Restuaurant, "Close", "warning");

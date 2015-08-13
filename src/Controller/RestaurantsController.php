@@ -85,9 +85,15 @@ class RestaurantsController extends AppController {
         $this->layout='admin';
     }
 
-    public function orders($type='history') {
-        $this->layout='admin';
-        $this->set('type',$type);
+    public function orders() {
+        $this->layout='orders';
+        if (isset($_GET["ID"]) && $this->Manager->check_permission("CanEditGlobalSettings")){
+            $RestaurantID = $_GET["ID"];
+        } else {
+            $RestaurantID = $this->get_current_restaurant();
+        }
+        $this->set("OrderType", "Restaurant");
+        $this->set("Orders", $this->Manager->enum_orders($RestaurantID));
     }
 
     function eventlog(){

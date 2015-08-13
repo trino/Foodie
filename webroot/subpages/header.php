@@ -145,17 +145,18 @@
         </div>
         <div id="forget-passsword" style="display: none;">
             <h1>Forgot Your Password?</h1>
+            <DIV ID="forgot-message" align="center"></DIV>
             <form role="form" class="form-horizontal form-without-legend" method="post">
                 <div class="form-group col-md-12">
                     <label class="col-lg-4 control-label" for="email">Email</label>
                     <div class="col-lg-8">
                         <input type="hidden" Name="action" value="forgotpass">
-                        <input type="text" Name="Email" class="form-control">
+                        <input type="text" Name="Email" id="forgot-email" class="form-control">
                     </div>
                 </div>
 
                 <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-5">
-                    <button class="btn btn-primary" type="submit">Send</button>
+                    <button class="btn btn-primary" type="button" onclick="forgotpass();">Send</button>
                 </div>
 
             </form>
@@ -290,6 +291,25 @@
     }
     function setvalue(ElementID, Value){
         document.getElementById(ElementID).innerHTML = Value;
+    }
+
+    function escapechars(text){
+        return text.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    }
+
+    function forgotpass(){
+        $.ajax({
+            url: "<?php echo $this->request->webroot;?>",
+            data: "action=forgotpass&Email=" + escapechars(getvalue("forgot-email")),
+            type: "post",
+            success: function (msg) {
+                setvalue("forgot-message", msg);
+            },
+            failure: function (msg){
+                setvalue("forgot-message", "ERROR: " + msg);
+            }
+        });
+        return false;
     }
 
     function trylogin(){
