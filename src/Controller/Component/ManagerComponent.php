@@ -387,12 +387,15 @@
 
 
 
-
         //////////////////////////////////////Restaurant API/////////////////////////////////
         function cleanphone($Phone){
             $Phone = $this->kill_non_numeric($Phone, "+");
             //add a check to be sure only the first digit is a +
             return $Phone;
+        }
+        function blank_restaurant(){
+            $Restaurant = (object) ['Name' => '', 'Email' => '', 'Phone' => '', 'Address' => '', 'PostalCode' => '', 'City' => 'HAMILTON', 'Province' => 'ON', 'Country' => 'Canada', 'Genre' => 0, 'Hours' => array(), 'DeliveryFee' => 0, 'Minimum' => 0, 'Description' => ''];
+            return $Restaurant;
         }
 
         function get_restaurant($ID, $IncludeHours = False){
@@ -792,6 +795,11 @@
             } else {
                 $this->Controller->Flash->error($Fail);
             }
+        }
+
+        function array_to_object($Array){
+            $object = (object) $Array;
+            return $object;
         }
     }
 ?>

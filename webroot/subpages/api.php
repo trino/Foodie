@@ -62,7 +62,7 @@ function makeselect($Name, $Value, $Data){
 
 function makeselectoption($Value, $Text, $UserSetting = ""){
     echo '<OPTION value="' . $Value . '"';
-    if ($UserSetting == $Value || $UserSetting == $Text){
+    if ($UserSetting && ($UserSetting == $Value || $UserSetting == $Text)){
         echo ' SELECTED';
     }
     echo '>' . $Text . '</OPTION>';
