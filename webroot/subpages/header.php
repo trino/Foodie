@@ -102,12 +102,10 @@
         </div>
         <div id="login-pop-up" style="display:none;">
             <div class="login-pop-up">
-
-
-
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="login-form">
                         <h1>Login</h1>
+                        <DIV ID="message" align="center"></DIV>
                         <form role="form" action="<?php echo $this->request->webroot;?>cuisine/login" method="post" class="form-horizontal form-without-legend">
                             <input type="hidden" name="action" value="login">
                             <div class="form-group">
@@ -129,7 +127,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
-                                    <input class="btn btn-primary" type="submit" Value="Login">
+                                    <input class="btn btn-primary" type="button" Value="Login" onclick="trylogin(); return false;">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -257,216 +255,12 @@
         <div class="header-navigation">
             <ul>
 
-                <?php /* <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
-                Woman
-
-              </a>
-
-              <!-- BEGIN DROPDOWN MENU -->
-              <ul class="dropdown-menu">
-                <li class="dropdown-submenu">
-                  <a href="shop-product-list.html">Hi Tops <i class="fa fa-angle-right"></i></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="shop-product-list.html">Second Level Link</a></li>
-                    <li><a href="shop-product-list.html">Second Level Link</a></li>
-                    <li class="dropdown-submenu">
-                      <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
-                        Second Level Link
-                        <i class="fa fa-angle-right"></i>
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a href="shop-product-list.html">Third Level Link</a></li>
-                        <li><a href="shop-product-list.html">Third Level Link</a></li>
-                        <li><a href="shop-product-list.html">Third Level Link</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="shop-product-list.html">Running Shoes</a></li>
-                <li><a href="shop-product-list.html">Jackets and Coats</a></li>
-              </ul>
-              <!-- END DROPDOWN MENU -->
-            </li><?php */?>
-
                 <li><a href="<?php echo $this->request->webroot;?>">Home</a></li>
-                <li class="dropdown dropdown-megamenu">
-                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
-                        Restaurants
-
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="header-navigation-content">
-                                <div class="row">
-                                    <div class="col-md-4 header-navigation-col">
-                                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/american">American</a></h4>
-                                        <ul>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 1</a></li>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 1</a></li>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 1</a></li>
-
-                                        </ul>
-                                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/asian">Asian</a></h4>
-                                        <ul>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 2</a></li>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 2</a></li>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 2</a></li>
-
-                                        </ul>
-                                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/chinese">Chinese</a></h4>
-                                        <ul>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 3</a></li>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 3</a></li>
-
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-4 header-navigation-col">
-
-                                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/german">German</a></h4>
-                                        <ul>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 4</a></li>
-
-                                        </ul>
-                                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/halal">Halal</a></h4>
-                                        <ul>
-                                            <li><a href="<?php echo $this->request->webroot;?>/restaurants/restaurant-1">Restaurant 5</a></li>
-
-                                        </ul>
-                                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/indain">Indian</a></h4>
-                                        <ul>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 6</a></li>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 6</a></li>
-
-                                        </ul>
-                                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/italian">Italian</a></h4>
-                                        <ul>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 7</a></li>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 7</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-4 header-navigation-col">
-
-
-
-                                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/korean">Korean</a></h4>
-                                        <ul>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 8</a></li>
-                                        </ul>
-                                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/latin">Latin</a></h4>
-                                        <ul>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 9</a></li>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 9</a></li>
-                                        </ul>
-                                        <h4><a href="<?php echo $this->request->webroot;?>cuisine/north-american">North American</a></h4>
-                                        <ul>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 10</a></li>
-                                            <li><a href="<?php echo $this->request->webroot;?>restaurants/restaurant-1">Restaurant 10</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-12 nav-brands">
-                                        <ul>
-                                            <li><a href="#"><img title="esprit" alt="esprit" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/brands/esprit.jpg"></a></li>
-                                            <li><a href="#"><img title="gap" alt="gap" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/brands/gap.jpg"></a></li>
-                                            <li><a href="#"><img title="next" alt="next" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/brands/next.jpg"></a></li>
-                                            <li><a href="#"><img title="puma" alt="puma" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/brands/puma.jpg"></a></li>
-                                            <li><a href="#"><img title="zara" alt="zara" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/brands/zara.jpg"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
                 <li><a href="<?php echo $this->request->webroot;?>restaurants/all">List Restaurants</a></li>
                 <li><a href="<?php echo $this->request->webroot;?>restaurants/signup">Restaurant Sign Up</a></li>
                 <li><a href="<?php echo $this->request->webroot;?>pages/about">About Us</a></li>
                 <li><a href="<?php echo $this->request->webroot;?>pages/contact">Contact Us</a></li>
-                <?php /*<li class="dropdown dropdown100 nav-catalogue">
-              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
-                New
 
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <div class="header-navigation-content">
-                    <div class="row">
-                      <div class="col-md-3 col-sm-4 col-xs-6">
-                        <div class="product-item">
-                          <div class="pi-img-wrapper">
-                            <a href="shop-item.html"><img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
-                          </div>
-                          <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                          <div class="pi-price">$29.00</div>
-                          <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-4 col-xs-6">
-                        <div class="product-item">
-                          <div class="pi-img-wrapper">
-                            <a href="shop-item.html"><img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/model3.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
-                          </div>
-                          <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                          <div class="pi-price">$29.00</div>
-                          <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-4 col-xs-6">
-                        <div class="product-item">
-                          <div class="pi-img-wrapper">
-                            <a href="shop-item.html"><img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/model7.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
-                          </div>
-                          <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                          <div class="pi-price">$29.00</div>
-                          <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-4 col-xs-6">
-                        <div class="product-item">
-                          <div class="pi-img-wrapper">
-                            <a href="shop-item.html"><img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
-                          </div>
-                          <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                          <div class="pi-price">$29.00</div>
-                          <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
-                Pages
-
-              </a>
-
-              <ul class="dropdown-menu">
-                <li class="active"><a href="shop-index.html">Home Default</a></li>
-                <li><a href="shop-index-header-fix.html">Home Header Fixed</a></li>
-                <li><a href="shop-index-light-footer.html">Home Light Footer</a></li>
-                <li><a href="shop-product-list.html">Product List</a></li>
-                <li><a href="shop-search-result.html">Search Result</a></li>
-                <li><a href="shop-item.html">Product Page</a></li>
-                <li><a href="shop-shopping-cart-null.html">Shopping Cart (Null Cart)</a></li>
-                <li><a href="shop-shopping-cart.html">Shopping Cart</a></li>
-                <li><a href="shop-checkout.html">Checkout</a></li>
-                <li><a href="shop-about.html">About</a></li>
-                <li><a href="shop-contacts.html">Contacts</a></li>
-                <li><a href="shop-account.html">My account</a></li>
-                <li><a href="shop-wishlist.html">My Wish List</a></li>
-                <li><a href="shop-goods-compare.html">Product Comparison</a></li>
-                <li><a href="shop-standart-forms.html">Standart Forms</a></li>
-                <li><a href="shop-faq.html">FAQ</a></li>
-                <li><a href="shop-privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="shop-terms-conditions-page.html">Terms &amp; Conditions</a></li>
-              </ul>
-            </li>
-            <li><a href="index.html" target="_blank">Corporate</a></li>
-            <li><a href="onepage-index.html" target="_blank">One Page</a></li>
-            <li><a href="http://keenthemes.com/preview/metronic/theme/templates/admin&amp;page=ecommerce_index.html" target="_blank">Admin theme</a></li>
-            <?php */?>
                 <!-- BEGIN TOP SEARCH -->
                 <li class="menu-search">
                     <span class="sep"></span>
@@ -489,3 +283,31 @@
     </div>
 </div>
 <!-- Header END -->
+
+<SCRIPT>
+    function getvalue(ElementID){
+        return document.getElementById(ElementID).value;
+    }
+    function setvalue(ElementID, Value){
+        document.getElementById(ElementID).innerHTML = Value;
+    }
+
+    function trylogin(){
+        $.ajax({
+            url: "<?php echo $this->request->webroot;?>",
+            data: "action=login&email=" + getvalue("email") + "&password=" + getvalue("password"),
+            type: "post",
+            success: function (msg) {
+                if(msg) {
+                    setvalue("message", msg);
+                } else {
+                    location.reload();
+                }
+            },
+            failure: function (msg){
+                setvalue("message", msg);
+            }
+        });
+        return false;
+    }
+</SCRIPT>

@@ -15,14 +15,19 @@
             $Controller->set('genres', $this->enum_genres());
             if (isset($_POST["action"])){
                 switch ($_POST["action"]) {
+                    case "test"://for ajax testing
+                        echo "Success!";
+                        die();
+                        break;
                     case "login":
                         $profile = $this->find_profile($_POST["email"], $_POST["password"]);
                         if ($profile) {
                             $Me = $this->login($Controller, $profile);
-                            $Controller->Flash->success($profile->Name . " has been logged in");
+                            //$Controller->Flash->success($profile->Name . " has been logged in");
                         } else {
-                            $Controller->Flash->error("The email address/password combination failed");
+                            echo "The email address/password combination failed";
                         }
+                        die();
                         break;
                     case "editprofile":
                         $Password = "";
