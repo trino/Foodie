@@ -33,10 +33,7 @@
         <?php
             if($userID){
                 //echo '<li><a href="shop-account.html">My Account</a></li>';
-                echo '<li><a href="' . $this->request->webroot . 'users/dashboard">Your Dashboard</a></li>';
-                if ($Restaurant) {
-                    echo '<li><a href="' . $this->request->webroot . 'restaurants/dashboard">Restaurant Dashboard</a></li>';
-                }
+                echo '<li><a href="' . $this->request->webroot . 'users/dashboard">Dashboard</a></li>';
                 echo '<li><a href="' . $this->request->webroot . 'users/logout">Log Out</a></li>';
             } else {
                 echo '<li><a href="#login-pop-up" class="fancybox-fast-view">Log In</a></li>';

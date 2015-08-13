@@ -8,6 +8,7 @@
     class ManagerComponent extends Component {
         ///////////////////////handles certain forms that don't point anywhere/////////////////////////////////////
         function init($Controller){
+            $Controller->set("Manager", $this);
             $this->Controller = $Controller;
             $Me = $this->read('ID');
 

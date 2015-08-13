@@ -15,7 +15,7 @@ Welcome, test
         </div>
     </div>
   <div class="col-md-12">
-    <?php echo $this->element('restaurant_menus');?>
+    <?php echo $this->element('user_menu');?>
     <div class="col-xs-10  col-sm-9">
       <div class="grid">
         
