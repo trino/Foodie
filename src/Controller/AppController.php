@@ -39,6 +39,7 @@ class AppController extends Controller
         parent::initialize();
         $this->loadComponent('Flash');
         $this->loadComponent('Manager');
+        date_default_timezone_set('America/Toronto');
         $this->Manager->init($this);
     }
 }

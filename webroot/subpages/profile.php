@@ -1,3 +1,8 @@
+            <?php
+            date_default_timezone_set('America/Toronto');
+            //echo date('M t, h:i');
+            
+            ?>
             <div class="form-group">
                 <div class="col-xs-12">
                     <h2>Delivery Detail</h2>
@@ -20,7 +25,18 @@
               <div class="form-group">
                   <div class="col-xs-12 col-sm-6">
                     <input type="text" placeholder="Date" class="form-control  form-control--contact hasDatepicker" name="ordered_on_date" id="ordered_on_date" required="">
-                    <input type="text" placeholder="Time" class="form-control  form-control--contact hasTimepicker" name="ordered_on_time" id="ordered_on_time" required="">
+                    <select class="form-control  form-control--contact hasTimepicker" name="ordered_on_time" id="ordered_on_time" required="">
+                        <option>ASAP</option>
+                        <?php
+                        for($i=30;$i<570;$i=$i+30)
+            {
+                
+                echo "<option value='".date('M t, ', strtotime("+".($i-30)." minutes")). date('h:i', strtotime("+".($i-30)." minutes")) . ' - '. date('h:i', strtotime("+".$i." minutes"))."'>". date('M t, ', strtotime("+".($i-30)." minutes")). date('h:i', strtotime("+".($i-30)." minutes")) . ' - '. date('h:i', strtotime("+".$i." minutes"))."</option>";
+                
+                
+            }
+                ?>        
+                    </select>
                   </div>  
 
                   <div style="margin-top: 27px;" class="col-xs-12 col-sm-5">
