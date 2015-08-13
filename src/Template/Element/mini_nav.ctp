@@ -1,6 +1,10 @@
 <?php
-    $userName = $Profile->Name;
-    $Restaurant = $Profile->RestaurantID;
+    $userName = "Not logged in";
+    $Restaurant = $userName;
+    if($Profile) {
+        $userName = $Profile->Name;
+        $Restaurant = $Profile->RestaurantID;
+    }
 ?>
 <div class="col-md-6 col-sm-6 additional-shop-info">
     <ul class="list-unstyled list-inline">
