@@ -124,7 +124,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-8 col-md-offset-4 padding-left-0">
-                                    <a href="#forget-passsword" class="fancybox-fast-view">Forget Password?</a>
+                                    <a href="#forget-passsword" class="fancybox-fast-view">Forgot Password?</a>
                                 </div>
                             </div>
                             <div class="col-md-6">
