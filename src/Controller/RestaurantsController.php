@@ -92,10 +92,13 @@ class RestaurantsController extends AppController {
                     if ($_GET["Email"]){
                         $conditions["Email"] = trim(strtolower($_GET["Email"]));
                     }
+                    if ($_GET["Phone"]){
+                        $conditions["Phone"] = $this->Manager->cleanphone($_GET["Phone"]);
+                    }
                     $this->set("Users", $this->Manager->enum_all("profiles", $conditions));
                     break;
                 case "newemployee":
-                    $profile=$this->Manager->new_profile($Profile->ID, $_GET["Name"], "", $_GET["ProfileType"], $_GET["Email"], $Profile->RestaurantID, 0);
+                    $profile=$this->Manager->new_profile($Profile->ID, $_GET["Name"], "", $_GET["ProfileType"], $_GET["Email"], $_GET["Phone"], $Profile->RestaurantID, 0);
                     $this->Manager->status($profile, "Profile created", "Profile could not be created");
                     if($profile) {
                         $this->loadComponent("Mailer");

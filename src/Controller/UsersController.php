@@ -40,6 +40,7 @@ class UsersController extends AppController {
     }
 
     function address_belongs_to_me($ID){
+        if(!$ID){return true;}
         $Me = $this->request->session()->read('Profile.ID');
         $Address = $this->Manager->get_profile_address($ID);
         if($Address->UserID != $Me){
@@ -79,7 +80,7 @@ class UsersController extends AppController {
                     } else {
                         $_POST["ID"] = "";
                     }
-                    $this->Manager->edit_profile_address($_POST["ID"], $Me, $_POST["Name"], $_POST["Number"], $_POST["Street"], $_POST["Apt"], $_POST["Buzz"], $_POST["City"], $_POST["Province"], $_POST["PostalCode"], $_POST["Country"], $_POST["Notes"]);
+                    $this->Manager->edit_profile_address($_POST["ID"], $Me, $_POST["Name"], $_POST["Phone"], $_POST["Number"], $_POST["Street"], $_POST["Apt"], $_POST["Buzz"], $_POST["City"], $_POST["Province"], $_POST["PostalCode"], $_POST["Country"], $_POST["Notes"]);
                     break;
             }
         }

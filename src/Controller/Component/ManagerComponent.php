@@ -53,7 +53,7 @@
                                 $Controller->Flash->error("Email address is in use already");
                             } else {
                                 $Controller->loadComponent("Mailer");
-                                $this->new_profile(0, $_POST["Name"],$_POST["Password"], 2, $_POST["Email"], 0, $_POST["newsletter"]);
+                                $this->new_profile(0, $_POST["Name"],$_POST["Password"], 2, $_POST["Email"], $_POST["Phone"], 0, $_POST["newsletter"]);
                                 $Controller->Flash->success("Your profile has been created");
                             }
                         } else {
@@ -71,8 +71,12 @@
                         }
                         break;
                     default:
-                        debug($_POST);
-                        die($_POST["action"] . " is not handled");
+                        if (strpos($_POST["action"], ".bypass")){
+                            $_POST["action"] = str_replace(".bypass", "", $_POST["action"]);
+                        } else {
+                            debug($_POST);
+                            die($_POST["action"] . " is not handled");
+                        }
                 }
             }
             if (isset($_GET["action"])){
@@ -217,13 +221,14 @@
             }
         }
 
-        function new_profile($CreatedBy, $Name, $Password, $ProfileType, $EmailAddress, $RestaurantID, $Subscribed = ""){
+        function new_profile($CreatedBy, $Name, $Password, $ProfileType, $EmailAddress, $Phone, $RestaurantID, $Subscribed = ""){
             $EmailAddress = $this->is_valid_email($EmailAddress);
+            $Phone=$this->cleanphone($Phone);
             if(!$EmailAddress){return false;}
             if($this->get_entry("profiles", $EmailAddress, "Email")){return false;}
             if(!$Password){$Password=$this->randomPassword();}
             if($Subscribed){$Subscribed=1;} else {$Subscribed =0;}
-            $data = array("Name" => trim($Name), "ProfileType" => $ProfileType, "Email" => $EmailAddress, "CreatedBy" => 0, "RestaurantID" => $RestaurantID, "Subscribed" => $Subscribed, "Password" => md5($Password . $this->salt()));
+            $data = array("Name" => trim($Name), "ProfileType" => $ProfileType, "Phone" => $Phone, "Email" => $EmailAddress, "CreatedBy" => 0, "RestaurantID" => $RestaurantID, "Subscribed" => $Subscribed, "Password" => md5($Password . $this->salt()));
             if($CreatedBy){
                 if(!$this->can_profile_create($CreatedBy, $ProfileType)){return false;}
                 $data["CreatedBy"] = $CreatedBy;
@@ -288,8 +293,8 @@
         function get_profile_address($ID){
             return $this->get_entry("profiles_addresses", $ID);
         }
-        function edit_profile_address($ID, $UserID, $Name, $Number, $Street, $Apt, $Buzz, $City, $Province, $PostalCode, $Country, $Notes){
-            $Data = array("UserID" => $UserID, "Name" => $Name, "Number" => $Number, "Street" => $Street, "Apt" => $Apt, "Buzz" => $Buzz, "City" => $City, "Province" => $Province, "PostalCode" => $PostalCode, "Country" =>$Country, "Notes" =>$Notes);
+        function edit_profile_address($ID, $UserID, $Name, $Phone, $Number, $Street, $Apt, $Buzz, $City, $Province, $PostalCode, $Country, $Notes){
+            $Data = array("UserID" => $UserID, "Name" => $Name, "Phone" => $this->cleanphone($Phone), "Number" => $Number, "Street" => $Street, "Apt" => $Apt, "Buzz" => $Buzz, "City" => $City, "Province" => $Province, "PostalCode" => $PostalCode, "Country" =>$Country, "Notes" =>$Notes);
             return $this->edit_database("profiles_addresses", "ID", $ID, $Data);
         }
 

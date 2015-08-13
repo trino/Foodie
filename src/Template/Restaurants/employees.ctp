@@ -15,6 +15,7 @@
                             <TH>ID</TH>
                             <TH>Name</TH>
                             <TH>Email</TH>
+                            <TH>Phone</TH>
                             <TH>Type</TH>
                             <TH>Actions</TH>
                         </TR>
@@ -25,6 +26,7 @@
                             <TD><INPUT type="HIDDEN" id="action" NAME="action" value="newemployee"></TD>
                             <TD><INPUT type="text" name="Name" style="width: 100%" value="<?php if (isset($_GET["Name"])) {echo $_GET["Name"];} ?>"></TD>
                             <TD><INPUT type="email" name="Email" style="width: 100%" value="<?php if (isset($_GET["Email"])) {echo $_GET["Email"];} ?>"></TD>
+                            <TD><INPUT type="phone" name="Phone" style="width: 100%" value="<?php if (isset($_GET["Phone"])) {echo format_phone($_GET["Phone"]);} ?>"></TD>
                             <TD>
                                 <SELECT name="ProfileType">
                                     <?php
@@ -48,7 +50,8 @@
         if($Employee->ID != $Me){
             $ProfileType = getIterator($ProfileTypes, "ID", $Employee->ProfileType);
             $TD = '<TD ALIGN="LEFT">';
-            echo '<TR>' . $TD . $Employee->ID . '</TD>' . $TD . $Employee->Name . '</TD>' . $TD . $Employee->Email . '</TD>' . $TD . $ProfileType->Name . '</TD>' . $TD;
+            $TDs = '</TD>' . $TD;
+            echo '<TR>' . $TD . $Employee->ID . $TDs . $Employee->Name . $TDs . $Employee->Email . $TDs . format_phone($Employee->Phone) . $TDs . $ProfileType->Name . $TDs;
             if($myType->CanHireOrFire) {
                 if ($Employee->RestaurantID) {
                     echo '<a href="?action=fire&ID=' . $Employee->ID . '" class="btn btn-danger" onclick="return confirm(' . "'Are you sure you want to fire " . addslashes($Employee->Name) . "?'" . ');">Fire</a>';

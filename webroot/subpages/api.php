@@ -53,7 +53,7 @@ function right($text, $length){
 }
 
 function makeselect($Name, $Value, $Data){
-    echo '<SELECT name="' . $Name . '">';
+    echo '<SELECT name="' . $Name . '" class="form-control">';
     foreach($Data as $Key => $Title){
         makeselectoption($Key, $Title, $Value);
     }
@@ -120,6 +120,26 @@ function addTrans($array, $Trans = ""){
         }
     }
     return $array;
+}
+
+function format_phone($phone) {
+    if(!isset($phone{3})) { return ''; }// note: making sure we have something
+    $phone = preg_replace("/[^0-9]/", "", $phone);// note: strip out everything but numbers
+    $length = strlen($phone);
+    switch($length) {
+        case 7:
+            return preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $phone);
+            break;
+        case 10:
+            return preg_replace("/([0-9]{3})([0-9]{3})([0-9]{4})/", "($1) $2-$3", $phone);
+            break;
+        case 11:
+            return preg_replace("/([0-9]{1})([0-9]{3})([0-9]{3})([0-9]{4})/", "$1($2) $3-$4", $phone);
+            break;
+        default:
+            return $phone;
+            break;
+    }
 }
 
 function getColumnNames($Table, $ignore = "", $justColumnNames = false){
