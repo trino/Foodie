@@ -26,11 +26,11 @@ class RestaurantsController extends AppController {
                 $this->Manager->edit_hours($Restaurant, $_POST);
             }
             $Restaurant = $this->Manager->get_restaurant($Restaurant, true);
-            $this->set("Restaurant", $Restaurant);
-            $this->set("Genres", $this->Manager->enum_genres());
         } else {
-            $this->set("Restaurant", false);
+            $Restaurant = $this->Manager->blank_restaurant();
         }
+        $this->set("Restaurant", $Restaurant);
+        $this->set("Genres", $this->Manager->enum_genres());
     }
 
 
@@ -42,15 +42,29 @@ class RestaurantsController extends AppController {
     public function signup() {
         $this->layout='admin';
         $Me = $this->Manager->read('ID');
-        $Restaurant=false;
+        $Restaurant="";
+        $DidSave = false;
         if($Me) {
-            $Restaurant = $this->Manager->get_profile($Me)->RestaurantID;
+            $Restaurant = $this->Manager->get_current_restaurant();
+        }
+        if (isset($_POST["Name"])){
+            $_POST["Email"] = trim(strtolower($_POST["Email"]));
+            $DidSave = !$this->Manager->get_entry("restaurants",  $_POST["Email"], "Email") && !$this->Manager->is_email_in_use($_POST["Email"]);
+            if($DidSave) {
+                $Restaurant = $this->Manager->edit_restaurant($Restaurant, $_POST["Name"], $_POST["Genre"], $_POST["Email"], $_POST["Phone"], $_POST["Address"], $_POST["City"], $_POST["Province"], $_POST["Country"], $_POST["PostalCode"], $_POST["Description"], $_POST["DeliveryFee"], $_POST["Minimum"]);
+                $this->Manager->edit_hours($Restaurant, $_POST);
+                if ($Me) {
+                    $this->Manager->hire_employee($Me, $Restaurant, 3);
+                } else {
+                    $this->Manager->new_profile(0, $_POST["Name"] . " (Owner)", "", 3, $_POST["Email"], $_POST["Phone"], $Restaurant);
+                }
+                $this->Flash->success("Restaurant created and you have been assigned to it");
+                $this->redirect("/");
+            } else {
+                $this->Flash->error("That email address is in use");
+            }
         }
         if($Restaurant) {
-            if (isset($_POST["Name"])){
-                $this->Manager->edit_restaurant($Restaurant, $_POST["Name"], $_POST["Genre"], $_POST["Email"], $_POST["Phone"], $_POST["Address"], $_POST["City"], $_POST["Province"], $_POST["Country"], $_POST["PostalCode"], $_POST["Description"], $_POST["DeliveryFee"], $_POST["Minimum"]);
-                $this->Manager->edit_hours($Restaurant, $_POST);
-            }
             $Restaurant = $this->Manager->get_restaurant($Restaurant, true);
         } else {
             $Restaurant = $this->Manager->blank_restaurant();
@@ -111,10 +125,10 @@ class RestaurantsController extends AppController {
                     }
                     break;
                 case "hire":
-                    $this->Manager->status($this->Manager->hire_employee($_GET["ID"], $Profile->RestaurantID), "Employee was hired", "Unable to hire employee");
+                    $this->Manager->status($this->Manager->hire_employee($_GET["ID"], $Profile->RestaurantID, 4), "Employee was hired", "Unable to hire employee");
                     break;
                 case "fire":
-                    $this->Manager->status($this->Manager->hire_employee($_GET["ID"], 0), "Employee was fired", "Unable to fire employee");
+                    $this->Manager->status($this->Manager->hire_employee($_GET["ID"], 0, 999), "Employee was fired", "Unable to fire employee");
                     break;
             }
         }

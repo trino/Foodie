@@ -25,7 +25,7 @@
                         break;
                     case "editprofile":
                         $Password = "";
-                        if ($this->is_email_in_use($this->read("ID"), $_POST["Email"])){
+                        if ($this->is_email_in_use($_POST["Email"], $this->read("ID"))){
                             $Controller->Flash->error("That email address is in use already");
                         } else {
                             $doit = $_POST["Password"] == $_POST["Confirm-Password"];
@@ -168,9 +168,13 @@
             return $this->request->session()->read('Profile.' . $Name);
         }
 
-        function is_email_in_use($NotByUserID, $EmailAddress){
+        function is_email_in_use($EmailAddress, $NotByUserID=0){
             $EmailAddress = strtolower(trim($EmailAddress));
-            return TableRegistry::get('profiles')->find('all')->where(["Email"=>$EmailAddress, "ID !=" => $NotByUserID])->first();
+            if($NotByUserID) {
+                return TableRegistry::get('profiles')->find('all')->where(["Email" => $EmailAddress, "ID !=" => $NotByUserID])->first();
+            } else {
+                return $this->get_entry("profiles",$EmailAddress, "Email");
+            }
         }
 
         function salt(){
@@ -236,6 +240,8 @@
             $data = $this->edit_database("profiles", "ID", "", $data);
             if($CreatedBy){
                 $this->logevent("Created user: " . $data["ID"] . " (" . $data["Name"] . ")");
+            } else {//if($CreatedBy == -1) {
+                //$this->edit_database("profiles", "ID", $data->ID, array("CreatedBy" => $data->ID));
             }
             $data["Password"] = $Password;
             $this->set_subscribed($EmailAddress,$Subscribed);
@@ -394,7 +400,7 @@
             return $Phone;
         }
         function blank_restaurant(){
-            $Restaurant = (object) ['Name' => '', 'Email' => '', 'Phone' => '', 'Address' => '', 'PostalCode' => '', 'City' => 'HAMILTON', 'Province' => 'ON', 'Country' => 'Canada', 'Genre' => 0, 'Hours' => array(), 'DeliveryFee' => 0, 'Minimum' => 0, 'Description' => ''];
+            $Restaurant = (object) ['ID' => 0, 'Name' => '', 'Email' => '', 'Phone' => '', 'Address' => '', 'PostalCode' => '', 'City' => 'HAMILTON', 'Province' => 'ON', 'Country' => 'Canada', 'Genre' => 0, 'Hours' => array(), 'DeliveryFee' => 0, 'Minimum' => 0, 'Description' => ''];
             return $Restaurant;
         }
 
@@ -433,10 +439,11 @@
             }
         }
 
-        function hire_employee($UserID, $RestaurantID = 0){
+        function hire_employee($UserID, $RestaurantID = 0, $ProfileType = ""){
             if(!$this->check_permission("CanHireOrFire")){return false;}
 
             $Profile = $this->get_profile($UserID);
+            if(!$ProfileType){$ProfileType=$Profile->ProfileType;}
             $Name = "";
             if($RestaurantID){//hire
                 if (!$Profile->RestaurantID) { $Name = "Hired"; }
@@ -444,7 +451,7 @@
                 if ($Profile->RestaurantID) { $Name = "Fired"; }
             }
             if($Name){
-                $this->update_database("profiles", "ID", $UserID, array("RestaurantID" => $RestaurantID));
+                $this->update_database("profiles", "ID", $UserID, array("RestaurantID" => $RestaurantID, "ProfileType" => $ProfileType));
                 $this->logevent($Name . ": " . $Profile->ID . " (" . $Profile->Name . ")" );
                 return true;
             }
@@ -569,6 +576,10 @@
         /////////////////////////////////Event log API////////////////////////////////////
         function logevent($Event, $DoRestaurant = true){
             $UserID = $this->request->session()->read('Profile.ID');
+            if(!$UserID){
+                $UserID=0;
+                $DoRestaurant=false;
+            }
             $RestaurantID = 0;
             if ($DoRestaurant) {
                 $RestaurantID = $this->request->session()->read('Profile.RestaurantID');
@@ -789,7 +800,7 @@
             return false;
         }
 
-        function status($Bool, $Success, $Fail) {
+        function status($Bool, $Success, $Fail = "") {
             if ($Bool) {
                 $this->Controller->Flash->success($Success);
             } else {

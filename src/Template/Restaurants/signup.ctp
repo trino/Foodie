@@ -1,10 +1,8 @@
 <div class="slide">
     <div class="text">Slide Goes Here</div>
-    
 </div>
 
     <div class="heading"><div class="text"><b>Intro</b> duction</div></div>
-
 
 <div class="intro">
 
@@ -268,11 +266,7 @@
 
     <?php
         include_once("subpages/api.php");
-
         echo $this->element('restaurant_info');?>
-
-
     <br><br>
 
-    
 </div>
