@@ -249,6 +249,7 @@
         }
 
         function find_profile($EmailAddress, $Password){
+            //echo $this->salt();die();
             $EmailAddress = strtolower(trim($EmailAddress));
             $Password = md5($Password . $this->salt());
             return $this->enum_all("profiles", array("Email" => $EmailAddress, "Password" => $Password))->first();

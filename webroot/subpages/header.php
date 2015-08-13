@@ -69,6 +69,7 @@
     <!--script src="<?php echo $this->request->webroot;?>assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script-->
     <script src="<?php echo $this->request->webroot;?>assets/global/scripts/menu_manager.js"></script>
     <script src="<?php echo $this->request->webroot;?>assets/global/scripts/upload.js"></script>
+    
     <!-- END CORE PLUGINS -->
 
 
