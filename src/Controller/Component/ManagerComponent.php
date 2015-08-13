@@ -10,8 +10,6 @@
         function init($Controller){
             $this->Controller = $Controller;
             $Me = $this->read('ID');
-            $this->Controller->set("userID", $Me);
-            $this->Controller->set("Profile", $this->get_profile($Me));
 
             $Controller->set('genres', $this->enum_genres());
             if (isset($_POST["action"])){
@@ -19,7 +17,7 @@
                     case "login":
                         $profile = $this->find_profile($_POST["email"], $_POST["password"]);
                         if ($profile) {
-                            $this->login($Controller, $profile);
+                            $Me = $this->login($Controller, $profile);
                             $Controller->Flash->success($profile->Name . " has been logged in");
                         } else {
                             $Controller->Flash->error("The email address/password combination failed");
@@ -92,6 +90,9 @@
                         break;
                 }
             }
+
+            $this->Controller->set("userID", $Me);
+            $this->Controller->set("Profile", $this->get_profile($Me));
         }
         public function verify_login($_this, $controller){
             $exceptions = "";
@@ -264,6 +265,7 @@
             $Controller->request->session()->write('Profile.Email',         $Profile->Email);
             $Controller->request->session()->write('Profile.Type',          $Profile->ProfileType);
             $Controller->request->session()->write('Profile.Restaurant',    $Profile->RestaurantID);
+            return $Profile->ID;
         }
 
         function forgot_password($Email){
