@@ -1,6 +1,9 @@
 <?php
       function listitem($webroot, $URL, $Name){
+            $isme = strpos($_SERVER["REQUEST_URI"], $URL) !== false && strpos($URL, "/") < strlen($URL) - 1;
+            if($isme){ Echo "<B>";}
             echo '<li class="list-group-item clearfix"><a href="' . $webroot . $URL . '"><i class="fa fa-angle-right"></i> ' . $Name . '</a></li>';
+            if($isme){ Echo "</B>";}
       }
       function listitems($webroot, $Name, $Controller, $Items){
             echo '<H4>' . $Name . '</H4><ul class="list-group margin-bottom-25 sidebar-menu">';
