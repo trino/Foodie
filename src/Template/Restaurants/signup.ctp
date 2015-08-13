@@ -11,8 +11,6 @@
     
        <button class="btn-3">Learn More </button></div>
 
-
-    
 </div>
 
 
