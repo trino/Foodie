@@ -8,7 +8,7 @@
 
 
 <fieldset><div class="form-group"><?php
-    include_once("subpages/api.php");
+    include_once("common/api.php");
 
     $ID = "";
     if (isset($_GET["ID"])) {
@@ -33,7 +33,7 @@
 <form action="" class="form-horizontal" method="post">
     <?php
         $isset=isset($Address);
-        include_once("subpages/api.php");
+        include_once("common/api.php");
         echo '<INPUT TYPE="HIDDEN" NAME="ID" VALUE="' . $ID . '">';
     ?>
     <INPUT TYPE="HIDDEN" NAME="action" ID="action" VALUE="save.bypass">

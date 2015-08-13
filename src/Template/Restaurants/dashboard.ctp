@@ -2,7 +2,7 @@
     if(!$Restaurant){
         echo 'This user is not assigned to a restaurant';
     } else {
-        include_once("subpages/api.php");
+        include_once("common/api.php");
 ?>
     <!-- Big banner -->
     <div class="row " style="padding-top: 20px;">

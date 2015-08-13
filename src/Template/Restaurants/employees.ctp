@@ -1,5 +1,5 @@
 <?php
-    include_once("subpages/api.php");
+    include_once("common/api.php");
     $myType = getIterator($ProfileTypes, "ID", $Profile->ProfileType);
 ?>
 <div class="col-md-12">

@@ -1,4 +1,4 @@
-<script src="<?php echo $this->request->webroot;?>assets/global/scripts/additional.js"></script>
+<script src="<?php echo $this->request->webroot;?>/scripts/additional.js"></script>
 <div class="newmenu" id="newmenu0">
     <p>&nbsp;</p>
     <div class="col-md-6">

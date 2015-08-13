@@ -1,4 +1,4 @@
-<?php include("subpages/header.php"); ?>
+<?php include("common/header.php"); ?>
    <?= $this->Flash->render() ?>
    <div class="main">
         <!-- BEGIN SIDEBAR & CONTENT -->
@@ -14,4 +14,4 @@
         </div>
         <!-- END SIDEBAR & CONTENT -->
     </div>
-<?php include("subpages/footer.php"); ?> 
+<?php include("common/footer.php"); ?>

@@ -1,5 +1,5 @@
 <?php
-include_once("subpages/api.php");
+include_once("common/api.php");
 ?>
 <div class="col-md-12">
     <?php echo $this->element('user_menu');?>
@@ -20,7 +20,7 @@ include_once("subpages/api.php");
                 </THEAD>
                     <TBODY>
                         <?php
-                            include_once("subpages/api.php");
+                            include_once("common/api.php");
 
                             foreach($Events as $Event){
                                 $Profile = getIterator($Profiles, "ID", $Event->UserID);

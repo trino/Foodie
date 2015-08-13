@@ -3,7 +3,7 @@
         <div class="col-md-4 profilepic">
             <p>
                 <strong>Restaurant Image</strong><br /><br />
-                <img id="picture" src="<?=$this->request->webroot."/images/default.png"; ?>" title="" style="width: 100%;"  /><br />
+                <img id="picture" src="<?=$this->request->webroot."/img/default.png"; ?>" title="" style="width: 100%;"  /><br />
                 <a href="javascript:void(0);" id="uploadbtn" class="btn btn-success">Change Image</a>
             </p>
         </div>

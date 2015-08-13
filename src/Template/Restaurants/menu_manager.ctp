@@ -17,7 +17,7 @@
                         <div class="col-md-4 menu_item">
                             
                             <div class="col-sm-4" style="padding: 0;">
-                                <img class="itemimg4 itemimg" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k2.jpg"  />
+                                <img class="itemimg4 itemimg" src="<?php echo $this->request->webroot;?>/img/products/k2.jpg"  />
                             </div>
                             <div class="col-sm-8">
                                 <h4  class="itemtitle4" >Chow Fun</h4>
@@ -46,7 +46,7 @@
                         <div class="col-md-4 menu_item">
                             
                             <div class="col-sm-4" style="padding: 0;">
-                                <img class="itemimg3 itemimg" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k3.jpg"  />
+                                <img class="itemimg3 itemimg" src="<?php echo $this->request->webroot;?>/img/products/k3.jpg"  />
                             </div>
                             <div class="col-sm-8">
                                 <h4  class="itemtitle3" >Chow Fun</h4>
@@ -75,7 +75,7 @@
                         <div class="col-md-4 menu_item">
                             
                             <div class="col-sm-4" style="padding: 0;">
-                                <img class="itemimg2 itemimg" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k2.jpg"  />
+                                <img class="itemimg2 itemimg" src="<?php echo $this->request->webroot;?>/img/products/k2.jpg"  />
                             </div>
                             <div class="col-sm-8">
                                 <h4  class="itemtitle2" >Chow Fun</h4>
@@ -104,7 +104,7 @@
                         <div class="col-md-4 menu_item">
                             
                             <div class="col-sm-4" style="padding: 0;">
-                                <img class="itemimg1 itemimg" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k1.jpg"  />
+                                <img class="itemimg1 itemimg" src="<?php echo $this->request->webroot;?>/img/products/k1.jpg"  />
                             </div>
                             <div class="col-sm-8">
                                 <h4  class="itemtitle1" >Chow Fun</h4>

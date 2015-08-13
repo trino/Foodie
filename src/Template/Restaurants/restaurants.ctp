@@ -18,7 +18,7 @@
                     </THEAD>
                     <TBODY>
                     <?php
-                        include_once("subpages/api.php");
+                        include_once("common/api.php");
                         $Restuaurants = $Manager->enum_restaurants();
                         $Genres = $Manager->enum_genres();
                         $TD = "</TD><TD>";

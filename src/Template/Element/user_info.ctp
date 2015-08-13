@@ -1,6 +1,6 @@
 <?php
     $isset = isset($Profile);
-    include_once("subpages/api.php");
+    include_once("common/api.php");
 ?>
 <form action="" class="form-horizontal" method="post">
     <INPUT TYPE="hidden" name="action" value="<?php if($isset) { echo 'editprofile'; } else { echo 'signup'; } ?>">

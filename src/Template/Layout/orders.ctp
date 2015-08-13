@@ -1,5 +1,5 @@
 <?php
-    include("subpages/header.php");
+    include("common/header.php");
     echo $this->Flash->render();
 
     function count2($var){
@@ -75,5 +75,5 @@ Welcome, test
     </div>
 </div>
 <?php
-    include("subpages/footer.php");
+    include("common/footer.php");
 ?>

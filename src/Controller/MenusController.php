@@ -14,14 +14,14 @@ class MenusController extends AppController {
     }
 
     function uploadimg() {
-        //echo $this->request->webroot.'assets/frontend/pages/img/products/k1.jpg';die();
+        //echo $this->request->webroot.'/img/products/k1.jpg';die();
         if(isset($_FILES['myfile']['name']) && $_FILES['myfile']['name']) {
             $name = $_FILES['myfile']['name'];
             $arr = explode('.', $name);
             $ext = end($arr);
             $file = date('YmdHis') . '.' . $ext;
-            move_uploaded_file($_FILES['myfile']['tmp_name'], APP . '../webroot/assets/frontend/pages/img/products/' . $file);
-            $file = $this->request->webroot . 'assets/frontend/pages/img/products/' . $file;
+            move_uploaded_file($_FILES['myfile']['tmp_name'], APP . '../webroot//img/products/' . $file);
+            $file = $this->request->webroot . '/img/products/' . $file;
             //$this->resize($file, array("300x300", "150x150"), true);
             echo $file;
             die();

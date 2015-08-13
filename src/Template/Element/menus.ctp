@@ -3,11 +3,11 @@
         <div class="col-md-3">
             <div class="product-item">
                 <div class="pi-img-wrapper">
-                    <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"
+                    <img src="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
                          class="img-responsive" alt="Chow Fun">
 
                     <div>
-                        <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"
+                        <a href="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
                            class="btn btn-default fancybox-button">Zoom</a>
                         <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
@@ -42,11 +42,11 @@
     <div class="col-md-3">
         <div class="product-item">
             <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"
+                <img src="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
                      class="img-responsive" alt="Chow Fun">
 
                 <div>
-                    <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"
+                    <a href="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
                        class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                 </div>
@@ -62,11 +62,11 @@
     <div class="col-md-3">
         <div class="product-item">
             <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k2.jpg"
+                <img src="<?php echo $this->request->webroot; ?>/img/products/k2.jpg"
                      class="img-responsive" alt="Chow Fun">
 
                 <div>
-                    <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k2.jpg"
+                    <a href="<?php echo $this->request->webroot; ?>/img/products/k2.jpg"
                        class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                 </div>
@@ -80,11 +80,11 @@
     <div class="col-md-3">
         <div class="product-item">
             <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k3.jpg"
+                <img src="<?php echo $this->request->webroot; ?>/img/products/k3.jpg"
                      class="img-responsive" alt="Chow Fun">
 
                 <div>
-                    <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k3.jpg"
+                    <a href="<?php echo $this->request->webroot; ?>/img/products/k3.jpg"
                        class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                 </div>
@@ -99,11 +99,11 @@
     <div class="col-md-3">
         <div class="product-item">
             <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"
+                <img src="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
                      class="img-responsive" alt="Chow Fun">
 
                 <div>
-                    <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"
+                    <a href="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
                        class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                 </div>
@@ -126,11 +126,11 @@
     <div class="col-md-3">
         <div class="product-item">
             <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k2.jpg"
+                <img src="<?php echo $this->request->webroot; ?>/img/products/k2.jpg"
                      class="img-responsive" alt="Chow Fun">
 
                 <div>
-                    <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k2.jpg"
+                    <a href="<?php echo $this->request->webroot; ?>/img/products/k2.jpg"
                        class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                 </div>
@@ -144,11 +144,11 @@
     <div class="col-md-3">
         <div class="product-item">
             <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k3.jpg"
+                <img src="<?php echo $this->request->webroot; ?>/img/products/k3.jpg"
                      class="img-responsive" alt="Chow Fun">
 
                 <div>
-                    <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k3.jpg"
+                    <a href="<?php echo $this->request->webroot; ?>/img/products/k3.jpg"
                        class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                 </div>
@@ -164,11 +164,11 @@
     <div class="col-md-3">
         <div class="product-item">
             <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"
+                <img src="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
                      class="img-responsive" alt="Chow Fun">
 
                 <div>
-                    <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"
+                    <a href="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
                        class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                 </div>
@@ -184,11 +184,11 @@
     <div class="col-md-3">
         <div class="product-item">
             <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k2.jpg"
+                <img src="<?php echo $this->request->webroot; ?>/img/products/k2.jpg"
                      class="img-responsive" alt="Chow Fun">
 
                 <div>
-                    <a href="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k2.jpg"
+                    <a href="<?php echo $this->request->webroot; ?>/img/products/k2.jpg"
                        class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                 </div>
@@ -220,7 +220,7 @@
             </div>
             <div class="col-sm-6">
                 <img class="popimage_4776" width="150"
-                     src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/k1.jpg"/>
+                     src="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"/>
             </div>
             <div class="clearfix"></div>
 
@@ -1094,12 +1094,12 @@
               <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-3">
                   <div class="product-main-image">
-                    <img src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/model7.jpg" alt="Cool green dress with red bell" class="img-responsive">
+                    <img src="<?php echo $this->request->webroot; ?>/img/products/model7.jpg" alt="Cool green dress with red bell" class="img-responsive">
                   </div>
-                  <div class="product-other-images">
-                    <a href="#" class="active"><img alt="Berry Lace Dress" src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/model3.jpg"></a>
-                    <a href="#"><img alt="Berry Lace Dress" src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/model4.jpg"></a>
-                    <a href="#"><img alt="Berry Lace Dress" src="<?php echo $this->request->webroot; ?>assets/frontend/pages/img/products/model5.jpg"></a>
+                  <div class="product-other-img">
+                    <a href="#" class="active"><img alt="Berry Lace Dress" src="<?php echo $this->request->webroot; ?>/img/products/model3.jpg"></a>
+                    <a href="#"><img alt="Berry Lace Dress" src="<?php echo $this->request->webroot; ?>/img/products/model4.jpg"></a>
+                    <a href="#"><img alt="Berry Lace Dress" src="<?php echo $this->request->webroot; ?>/img/products/model5.jpg"></a>
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-9">

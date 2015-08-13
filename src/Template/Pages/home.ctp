@@ -6,7 +6,7 @@
         <!-- slide one start -->
         <div class="ls-slide ls-slide1" data-ls="offsetxin: right; slidedelay: 7000; transition2d: 24,25,27,28;">
 
-          <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/layerslider/slide1/bg.jpg" class="ls-bg" alt="Slide background">
+          <img src="<?php echo $this->request->webroot;?>/img/layerslider/slide1/bg.jpg" class="ls-bg" alt="Slide background">
 
           <div class="ls-l ls-title" style="top: 96px; left: 35%; white-space: nowrap;" data-ls="
             fade: true; 
@@ -36,7 +36,7 @@
         <!-- slide two start -->
         <div class="ls-slide ls-slide2" data-ls="offsetxin: right; slidedelay: 7000; transition2d: 110,111,112,113;">
 
-          <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/layerslider/slide2/bg.jpg" class="ls-bg" alt="Slide background">
+          <img src="<?php echo $this->request->webroot;?>/img/layerslider/slide2/bg.jpg" class="ls-bg" alt="Slide background">
           
           <div class="ls-l ls-title" style="top: 40%; left: 21%; white-space: nowrap;" data-ls="
           fade: true; 
@@ -86,7 +86,7 @@
         <!-- slide three start -->
         <div class="ls-slide ls-slide3" data-ls="offsetxin: right; slidedelay: 7000; transition2d: 92,93,105;">
 
-          <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/layerslider/slide3/bg.jpg" class="ls-bg" alt="Slide background">
+          <img src="<?php echo $this->request->webroot;?>/img/layerslider/slide3/bg.jpg" class="ls-bg" alt="Slide background">
           
           <div class="ls-l ls-title" style="top: 83px; left: 33%; white-space: nowrap;" data-ls="
           fade: true; 
@@ -125,7 +125,7 @@
         <!-- slide four start -->
         <div class="ls-slide ls-slide4" data-ls="offsetxin: right; slidedelay: 7000; transition2d: 110,111,112,113;">
 
-          <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/layerslider/slide5/bg.jpg" class="ls-bg" alt="Slide background">
+          <img src="<?php echo $this->request->webroot;?>/img/layerslider/slide5/bg.jpg" class="ls-bg" alt="Slide background">
           
           <div class="ls-l ls-title" style="top: 35%; left: 60%; white-space: nowrap;" data-ls="
           fade: true; 

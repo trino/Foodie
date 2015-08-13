@@ -43,19 +43,19 @@
                     <!-- Carousel items -->
                     <div class="carousel-inner">
                       <div class="item active">
-                        <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/pics/img2-medium.jpg" alt="">
+                        <img src="<?php echo $this->request->webroot;?>/img/pics/img2-medium.jpg" alt="">
                         <div class="carousel-caption">
                           <p>Excepturi sint occaecati cupiditate non provident</p>
                         </div>
                       </div>
                       <div class="item">
-                        <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/pics/img1-medium.jpg" alt="">
+                        <img src="<?php echo $this->request->webroot;?>/img/pics/img1-medium.jpg" alt="">
                         <div class="carousel-caption">
                           <p>Ducimus qui blanditiis praesentium voluptatum</p>
                         </div>
                       </div>
                       <div class="item">
-                        <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/pics/img2-medium.jpg" alt="">
+                        <img src="<?php echo $this->request->webroot;?>/img/pics/img2-medium.jpg" alt="">
                         <div class="carousel-caption">
                           <p>Ut non libero consectetur adipiscing elit magna</p>
                         </div>
@@ -83,7 +83,7 @@
                       <div class="active item">
                         <blockquote><p>Denim you probably haven't heard of. Lorem ipsum dolor met consectetur adipisicing sit amet, consectetur adipisicing elit, of them jean shorts sed magna aliqua. Lorem ipsum dolor met consectetur adipisicing sit amet do eiusmod dolore.</p></blockquote>
                         <div class="carousel-info">
-                          <img class="pull-left" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/people/img1-small.jpg" alt="">
+                          <img class="pull-left" src="<?php echo $this->request->webroot;?>/img/people/img1-small.jpg" alt="">
                           <div class="pull-left">
                             <span class="testimonials-name">Lina Mars</span>
                             <span class="testimonials-post">Commercial Director</span>
@@ -93,7 +93,7 @@
                       <div class="item">
                         <blockquote><p>Raw denim you Mustache cliche tempor, williamsburg carles vegan helvetica probably haven't heard of them jean shorts austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p></blockquote>
                         <div class="carousel-info">
-                          <img class="pull-left" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/people/img5-small.jpg" alt="">
+                          <img class="pull-left" src="<?php echo $this->request->webroot;?>/img/people/img5-small.jpg" alt="">
                           <div class="pull-left">
                             <span class="testimonials-name">Kate Ford</span>
                             <span class="testimonials-post">Commercial Director</span>
@@ -103,7 +103,7 @@
                       <div class="item">
                         <blockquote><p>Reprehenderit butcher stache cliche tempor, williamsburg carles vegan helvetica.retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid Aliquip placeat salvia cillum iphone.</p></blockquote>
                         <div class="carousel-info">
-                          <img class="pull-left" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/people/img2-small.jpg" alt="">
+                          <img class="pull-left" src="<?php echo $this->request->webroot;?>/img/people/img2-small.jpg" alt="">
                           <div class="pull-left">
                             <span class="testimonials-name">Jake Witson</span>
                             <span class="testimonials-post">Commercial Director</span>
@@ -141,7 +141,7 @@
                 <ul class="list-unstyled">
                   <li class="col-md-3">
                     <div class="thumbnail">
-                      <img alt="" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/people/img1-large.jpg">
+                      <img alt="" src="<?php echo $this->request->webroot;?>/img/people/img1-large.jpg">
                       <h3>
                         <strong>Lina Doe</strong> 
                         <small>Chief Executive Officer / CEO</small>
@@ -157,7 +157,7 @@
                   </li>
                   <li class="col-md-3">
                     <div class="thumbnail">
-                      <img alt="" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/people/img4-large.jpg">
+                      <img alt="" src="<?php echo $this->request->webroot;?>/img/people/img4-large.jpg">
                       <h3>
                         <strong>Carles Puyol</strong> 
                         <small>Chief Executive Officer / CEO</small>
@@ -173,7 +173,7 @@
                   </li>
                   <li class="col-md-3">
                     <div class="thumbnail">
-                      <img alt="" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/people/img2-large.jpg">
+                      <img alt="" src="<?php echo $this->request->webroot;?>/img/people/img2-large.jpg">
                       <h3>
                         <strong>Andres Iniesta</strong> 
                         <small>Chief Executive Officer / CEO</small>
@@ -189,7 +189,7 @@
                   </li>
                   <li class="col-md-3">
                     <div class="thumbnail">
-                      <img alt="" src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/people/img5-large.jpg">
+                      <img alt="" src="<?php echo $this->request->webroot;?>/img/people/img5-large.jpg">
                       <h3>
                         <strong>Jessica Alba</strong> 
                         <small>Chief Executive Officer / CEO</small>
