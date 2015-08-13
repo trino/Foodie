@@ -19,7 +19,11 @@ class RestaurantsController extends AppController {
 
     public function dashboard() {
         $this->layout='admin';
-        $Restaurant = $this->Manager->get_current_restaurant();
+        if($this->Manager->check_permission("CanEditGlobalSettings") && isset($_GET["ID"])){
+            $Restaurant = $_GET["ID"];
+        } else {
+            $Restaurant = $this->Manager->get_current_restaurant();
+        }
         if($Restaurant) {
             if (isset($_POST["Name"])){
                 $this->Manager->edit_restaurant($Restaurant, $_POST["Name"], $_POST["Genre"], $_POST["Email"], $_POST["Phone"], $_POST["Address"], $_POST["City"], $_POST["Province"], $_POST["Country"], $_POST["PostalCode"], $_POST["Description"], $_POST["DeliveryFee"], $_POST["Minimum"]);
@@ -100,11 +104,14 @@ class RestaurantsController extends AppController {
     function employees(){
         $this->layout='admin';
         $Profile = $this->Manager->get_profile();
-
         if (isset($_GET["action"])){
             switch($_GET["action"]){
                 case "usersearch":
-                    $conditions = array("RestaurantID" => 0);
+                    $conditions = array();
+                    $ProfileType = $this->get_profile_type($Profile->ID);
+                    if(!$ProfileType->CanPossess && !$ProfileType->CanEditGlobalSettings) {
+                        $conditions["RestaurantID"] = 0;
+                    }
                     if ($_GET["Name"]){
                         $conditions[] = "Name like '%" . $_GET["Name"] . "%'";
                     }
@@ -130,12 +137,39 @@ class RestaurantsController extends AppController {
                 case "fire":
                     $this->Manager->status($this->Manager->hire_employee($_GET["ID"], 0, 999), "Employee was fired", "Unable to fire employee");
                     break;
+                case "possess":
+                    if($this->Manager->check_permission("CanPossess")){
+                        $this->Flash->success("You have possessed this user");
+                        $this->Manager->login($_GET["ID"]);
+                    } else {
+                        $this->Flash->error("I'm sorry Dave, I'm afraid I can't do that");
+                    }
             }
         }
-
         $this->set("Employees", $this->Manager->enum_employees($Profile->RestaurantID,$Profile->Hierarchy));
         $this->set("ProfileTypes", $this->Manager->enum_profiletypes(0, false));
+    }
 
+    function restaurants(){
+        $this->layout='admin';
+
+        if (isset($_GET["action"])) {
+            if ($this->Manager->check_permission("CanEditGlobalSettings")) {
+                $Restaurant = $_GET["ID"];
+                switch (strtolower($_GET["action"])) {
+                    case "open":
+                        $this->Manager->openclose_restaurant($Restaurant, true);
+                        break;
+                    case "close":
+                        $this->Manager->openclose_restaurant($Restaurant, false);
+                        break;
+                    case "delete":
+                        $this->Manager->delete_restaurant($Restaurant);
+                        break;
+                }
+                $this->Flash->success("The restaurant has been " . strtolower($_GET["action"]) . "ed");
+            }
+        }
     }
 }
 ?>

@@ -2,7 +2,7 @@
     $userName = "Not logged in";
     $Restaurant = $userName;
     if($Profile) {
-        $userName = $Profile->Name;
+        $userName = ucfirst($Profile->Name);
         $Restaurant = $Profile->RestaurantID;
     }
 ?>
@@ -33,7 +33,7 @@
         <?php
             if($userID){
                 //echo '<li><a href="shop-account.html">My Account</a></li>';
-                echo '<li><a href="' . $this->request->webroot . 'users/dashboard">Dashboard</a></li>';
+                echo '<li><a href="' . $this->request->webroot . 'users/dashboard">' . $userName . "'s Dashboard</a></li>";
                 echo '<li><a href="' . $this->request->webroot . 'users/logout">Log Out</a></li>';
             } else {
                 echo '<li><a href="#login-pop-up" class="fancybox-fast-view">Log In</a></li>';

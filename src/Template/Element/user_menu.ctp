@@ -1,6 +1,6 @@
 <?php
       function listitem($webroot, $URL, $Name){
-            $isme = strpos($_SERVER["REQUEST_URI"], $URL) !== false && strpos($URL, "/") < strlen($URL) - 1;
+            $isme = $URL && strpos($_SERVER["REQUEST_URI"], $URL) !== false && strpos($URL, "/") < strlen($URL) - 1;
             if($isme){ Echo "<B>";}
             echo '<li class="list-group-item clearfix"><a href="' . $webroot . $URL . '"><i class="fa fa-angle-right"></i> ' . $Name . '</a></li>';
             if($isme){ Echo "</B>";}
@@ -8,7 +8,10 @@
       function listitems($webroot, $Name, $Controller, $Items){
             echo '<H4>' . $Name . '</H4><ul class="list-group margin-bottom-25 sidebar-menu">';
             foreach($Items as $Name => $URL){
-                  listitem($webroot, $Controller . "/" . $URL, $Name);
+                  if($Controller){
+                        $URL = $Controller . "/" . $URL;
+                  }
+                  listitem($webroot, $URL, $Name);
             }
             echo '</ul>';
       }
@@ -21,8 +24,10 @@
                         if($userID) {
                               $ProfileType = $Manager->get_profile_type($userID);
                               if($ProfileType->CanEditGlobalSettings){
-                                    listitems($this->request->webroot, "Administrator", "restaurants", array(
-                                          "N/A" => ""
+                                    listitems($this->request->webroot, "Administrator", "", array(
+                                          "Users" => "restaurants/employees",
+                                          "Restaurants" => "restaurants/restaurants",
+                                          "Orders" => "",
                                     ));
                                     echo '<hr class="shop__divider">';
                               }

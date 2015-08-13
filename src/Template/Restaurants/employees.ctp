@@ -47,17 +47,20 @@
 
 <?php
     function printemployee($Me, $myType, $Employee, $ProfileTypes){
-        if($Employee->ID != $Me){
+        if($Employee->ID != $Me->ID){
             $ProfileType = getIterator($ProfileTypes, "ID", $Employee->ProfileType);
             $TD = '<TD ALIGN="LEFT">';
             $TDs = '</TD>' . $TD;
             echo '<TR>' . $TD . $Employee->ID . $TDs . $Employee->Name . $TDs . $Employee->Email . $TDs . format_phone($Employee->Phone) . $TDs . $ProfileType->Name . $TDs;
-            if($myType->CanHireOrFire) {
+            if($Me->RestaurantID && $myType->CanHireOrFire) {
                 if ($Employee->RestaurantID) {
                     echo '<a href="?action=fire&ID=' . $Employee->ID . '" class="btn btn-danger" onclick="return confirm(' . "'Are you sure you want to fire " . addslashes($Employee->Name) . "?'" . ');">Fire</a>';
                 } else {
                     echo '<a href="?action=hire&ID=' . $Employee->ID . '" class="btn btn-primary" onclick="return confirm(' . "'Are you sure you want to hire " . addslashes($Employee->Name) . "?'" . ');">Hire</a>';
                 }
+            }
+            if($myType->CanPossess){
+                echo '<a href="?action=possess&ID=' . $Employee->ID . '" class="btn btn-info" onclick="return confirm(' . "'Are you sure you want to possess " . addslashes($Employee->Name) . "?'" . ');">Possess</a>';
             }
             echo '</TD></TR>';
             return true;
@@ -67,7 +70,7 @@
     if (isset($Users)){
         if (iterator_count($Users)) {
             foreach ($Users as $Employee) {
-                printemployee($userID, $myType, $Employee, $ProfileTypes);
+                printemployee($Profile, $myType, $Employee, $ProfileTypes);
             }
         } else {
             echo '<TR><TD colspan="5">No users found</TD></TR>';
@@ -76,7 +79,7 @@
 
     $hasemployees = false;
     foreach ($Employees as $Employee) {
-        if(printemployee($userID, $myType, $Employee, $ProfileTypes)){
+        if(printemployee($Profile, $myType, $Employee, $ProfileTypes)){
             $hasemployees = true;
         }
     }

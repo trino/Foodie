@@ -22,7 +22,7 @@
                     case "login":
                         $profile = $this->find_profile($_POST["email"], $_POST["password"]);
                         if ($profile) {
-                            $Me = $this->login($Controller, $profile);
+                            $Me = $this->login( $profile);
                             //$Controller->Flash->success($profile->Name . " has been logged in");
                         } else {
                             echo "The email address/password combination failed";
@@ -273,15 +273,15 @@
             return $this->enum_all("profiles", array("Email" => $EmailAddress, "Password" => $Password))->first();
         }
 
-        function login($Controller, $Profile){
+        function login($Profile){
             if (is_numeric($Profile)){
                 $Profile = $this->get_profile($Profile);
             }
-            $Controller->request->session()->write('Profile.ID',            $Profile->ID);
-            $Controller->request->session()->write('Profile.Name',          $Profile->Name);
-            $Controller->request->session()->write('Profile.Email',         $Profile->Email);
-            $Controller->request->session()->write('Profile.Type',          $Profile->ProfileType);
-            $Controller->request->session()->write('Profile.Restaurant',    $Profile->RestaurantID);
+            $this->Controller->request->session()->write('Profile.ID',            $Profile->ID);
+            $this->Controller->request->session()->write('Profile.Name',          $Profile->Name);
+            $this->Controller->request->session()->write('Profile.Email',         $Profile->Email);
+            $this->Controller->request->session()->write('Profile.Type',          $Profile->ProfileType);
+            $this->Controller->request->session()->write('Profile.Restaurant',    $Profile->RestaurantID);
             return $Profile->ID;
         }
 
@@ -463,6 +463,18 @@
             }
         }
 
+        function openclose_restaurant($RestaurantID, $Status = false){
+            if($Status){$Status=1;} else {$Status = 0;}
+            $this->logevent("Set status to: " . $Status, true, $RestaurantID);
+            $this->update_database("restaurants", "ID", $RestaurantID, array("Open" => $Status));
+        }
+
+        function delete_restaurant($RestaurantID, $NewProfileType = 2){
+            $this->logevent("Deleted restaurant", true, $RestaurantID);
+            $this->delete_all("restaurants", array("ID" => $RestaurantID));
+            $this->update_database("profiles", "RestaurantID", $RestaurantID, array("RestaurantID" => 0, "ProfileType" => $NewProfileType));
+        }
+
         /////////////////////////////////////days off API////////////////////////////////////
         function add_day_off($RestaurantID, $Day, $Month, $Year){
             delete_day_off($RestaurantID, $Day, $Month, $Year, false);
@@ -555,9 +567,11 @@
         }
 
         function is_restaurant_open($RestaurantID, $DayOfWeek, $Time){
-            $Data = TableRegistry::get('hours')->find()->where(['RestaurantID' => $RestaurantID, "DayOfWeek" => $DayOfWeek])->first();
-            if ($Data){
-                return $Data->Open <= $Time && $Data->Close >= $Time;
+            if ($this->get_restaurant($RestaurantID)->Open) {
+                $Data = TableRegistry::get('hours')->find()->where(['RestaurantID' => $RestaurantID, "DayOfWeek" => $DayOfWeek])->first();
+                if ($Data) {
+                    return $Data->Open <= $Time && $Data->Close >= $Time;
+                }
             }
         }
 
@@ -580,15 +594,13 @@
 
 
         /////////////////////////////////Event log API////////////////////////////////////
-        function logevent($Event, $DoRestaurant = true){
+        function logevent($Event, $DoRestaurant = true, $RestaurantID = 0){
             $UserID = $this->request->session()->read('Profile.ID');
             if(!$UserID){
                 $UserID=0;
                 $DoRestaurant=false;
             }
-            $RestaurantID = 0;
             if ($DoRestaurant) {
-                $RestaurantID = $this->request->session()->read('Profile.RestaurantID');
                 if (!$RestaurantID) {
                     $RestaurantID = $this->get_profile($UserID)->RestaurantID;
                 }
