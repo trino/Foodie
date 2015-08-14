@@ -66,7 +66,7 @@
     <script src="<?php echo $this->request->webroot;?>plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!--script src="<?php echo $this->request->webroot;?>/scripts/back-to-top.js" type="text/javascript"></script-->
     <!--script src="<?php echo $this->request->webroot;?>/scripts/sample.js" type="text/javascript"></script-->
-    <!--script src="<?php echo $this->request->webroot;?>/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script-->
+    <script src="<?php echo $this->request->webroot;?>plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <script src="<?php echo $this->request->webroot;?>scripts/menu_manager.js"></script>
     <script src="<?php echo $this->request->webroot;?>scripts/upload.js"></script>
     

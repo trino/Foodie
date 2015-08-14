@@ -6,9 +6,10 @@ date_default_timezone_set('America/Toronto');
 ?>
 <div class="form-group">
     <div class="col-xs-12">
-        <h2>Delivery Detail</h2>
+        <h2><?php echo (isset($_GET['delivery']))?'Delivery':'Pickup';?> Detail</h2>
     </div>
 </div>
+<form id="profiles">
 <div class="form-group">
     <div class="col-xs-12">
     <input type="text" style="padding-top: 0;margin-top: 0;" placeholder="Name" class="form-control  form-control--contact" name="ordered_by" id="fullname" required="">
@@ -24,38 +25,53 @@ date_default_timezone_set('America/Toronto');
     <div class="clearfix"></div>                        
   </div>
   <div class="form-group">
-      <div class="col-xs-12 col-sm-6">
-        <input type="text" placeholder="Date" class="form-control  form-control--contact hasDatepicker" name="ordered_on_date" id="ordered_on_date" required="">
-        <select class="form-control  form-control--contact hasTimepicker" name="ordered_on_time" id="ordered_on_time" required="">
+  <div class="col-xs-12">
+    <input type="password" name="password" id="password1" class="form-control  form-control--contact" placeholder="Password" onkeyup="check_val(this.value);" />
+  </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="form-group confirm_password" style="display: none;">
+      <div class="col-xs-12">
+        <input type="password" id="confirm_password" name="conform_password" class="form-control  form-control--contact" placeholder="Confirm Password"   />
+      </div>
+    <div class="clearfix"></div>
+  </div>
+  
+  <div class="form-group">
+      <div class="col-xs-12">
+        
+        <select class="form-control  form-control--contact" name="ordered_on_time" id="ordered_on_time" required="">
             <option>ASAP</option>
             <?php
             for($i=30;$i<570;$i=$i+30)
-{
-    
-    echo "<option value='".date('M t, ', strtotime("+".($i-30)." minutes")). date('h:i', strtotime("+".($i-30)." minutes")) . ' - '. date('h:i', strtotime("+".$i." minutes"))."'>". date('M t, ', strtotime("+".($i-30)." minutes")). date('h:i', strtotime("+".($i-30)." minutes")) . ' - '. date('h:i', strtotime("+".$i." minutes"))."</option>";
-    
-    
-}
-    ?>        
+            {
+                
+                echo "<option value='".date('M t, ', strtotime("+".($i-30)." minutes")). date('h:i', strtotime("+".($i-30)." minutes")) . ' - '. date('h:i', strtotime("+".$i." minutes"))."'>". date('M t, ', strtotime("+".($i-30)." minutes")). date('h:i', strtotime("+".($i-30)." minutes")) . ' - '. date('h:i', strtotime("+".$i." minutes"))."</option>";
+                
+                
+            }
+                ?>        
         </select>
-      </div>  
+      </div>
+      <div class="clearfix"></div> 
 
 </div>
+<div <?php echo (isset($_GET['delivery']))?'':'style="display:none;"';?>>
 <div class="form-group">
 <!--textarea placeholder="Address 2" name="address2"></textarea-->   
 <div class="col-xs-12 col-sm-6">
-<input type="text" placeholder="Address 2" class="form-control  form-control--contact" name="address2">
+<input type="text" placeholder="Address 2" class="form-control  form-control--contact" name="address2" <?php echo (!isset($_GET['delivery']))?'':'required=""';?>>
 </div>                        
 
 
 
 <div class="col-xs-12 col-sm-6">                        
-    <input type="text" placeholder="City" class="form-control  form-control--contact" name="city" id="city" required="">                        
+    <input type="text" placeholder="City" class="form-control  form-control--contact" name="city" id="city" <?php echo (!isset($_GET['delivery']))?'':'required=""';?>>                        
 </div>
 </div>
 <div class="form-group">
 <div class="col-xs-12 col-sm-6">
-<select required="" class="form-control form-control--contact" name="province">
+<select <?php echo (!isset($_GET['delivery']))?'':'required=""';?> class="form-control form-control--contact" name="province">
     <option value="Alberta">Alberta</option>
     <option value="British Columbia">British Columbia</option>
     <option value="Manitoba">Manitoba</option>
@@ -70,20 +86,67 @@ date_default_timezone_set('America/Toronto');
                         
 </div>
 <div class="col-xs-12 col-sm-6">
-    <input type="text" placeholder="Postal Code" class="form-control  form-control--contact" name="postal_code" id="postal_code" required="">
+    <input type="text" placeholder="Postal Code" class="form-control  form-control--contact" name="postal_code" id="postal_code" <?php echo (!isset($_GET['delivery']))?'':'required=""';?>>
 </div>                        
 <div class="clearfix"></div>
 </div>
 </div>
 <div class="form-group">
 <div class="col-xs-12">
-<textarea placeholder="Additional Notes" name="remarks"></textarea>
+<textarea placeholder="Additional Notes" class="form-control  form-control--contact"  name="remarks"></textarea>
 </div> 
 <div class="clearfix"></div>                       
 </div>
 <div class="form-group">
 <div class="col-xs-12">
-<a href="javascript:void(0)" class="btn btn-primary" onclick="checkout();">Checkout</a>
+<button type="submit" class="btn btn-primary" >Checkout</button>
 </div>
 <div class="clearfix"></div>  
 </div>
+</form>
+<script>
+function check_val(v)
+{
+    if(v!=''){
+        $('.confirm_password').show();
+    $('#confirm_password').attr('required','required');}
+}
+var password = document.getElementById("password1")
+  , confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+    
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+    $('#confirm_password').removeAttr('required');
+  }
+}
+
+password.onchange = validatePassword;
+
+confirm_password.onkeyup = validatePassword;
+$(function(){
+    $('#profiles').submit(function(e){
+            e.preventDefault();
+            
+            var datas = $('#profiles input').serialize();
+            $.ajax({
+                type:'post',
+                url:'http://localhost/Foodie/users/ajax_register',
+                data: datas,
+                success:function(msg){
+                  if(msg =='0')
+                  {
+                    $('.top-cart-content ').text('Thank You.');
+                  }
+                  else if(msg == '1')
+                    alert('Email Already Registred.');
+                }
+            })
+        });
+    
+});   
+
+</script>

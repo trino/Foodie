@@ -51,12 +51,12 @@
         var del = $('#delivery_flag').val();
         if(del == '0')
         {
-            $('.top-cart-content').load('<?php echo $this->request->webroot."subpages/profile.php";?>');
+            $('.top-cart-content').load('<?php echo $this->request->webroot."common/profile.php";?>');
         }
         else
         {
 
-            $('.top-cart-content').load('<?php echo $this->request->webroot."subpages/profile.php?delivery";?>');
+            $('.top-cart-content').load('<?php echo $this->request->webroot."common/profile.php?delivery";?>');
 
         }
         
@@ -90,6 +90,8 @@
     }
     
     $(function(){
+        
+      
         $( window ).resize(function() {
         var wd = $(window).width();
         if(wd<='767')

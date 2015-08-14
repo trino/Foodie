@@ -17,6 +17,7 @@ namespace App\Controller;
 use Cake\Core\Configure;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
+use Cake\ORM\TableRegistry;
 
 /**
  * Static content controller
@@ -112,5 +113,36 @@ class UsersController extends AppController {
         $this->layout = "none";
         $this->request->session()->destroy();
         $this->redirect('/');
+    }
+    
+    public function ajax_register()
+    {
+        $this->layout = 'blank';
+        $EmailAddress =  $_POST['email'];
+        $Password = $_POST['password'];
+        $Phone = $_POST['contact'];
+        $Name = $_POST['ordered_by'];
+        
+        
+        if($_POST['password']!='')
+        {
+            if($this->Manager->get_entry("profiles", $EmailAddress, "Email"))
+             {
+                $this->response->body('1');
+             }
+             else
+             {
+                $this->Manager->new_profile(0, $Name,$Password, 2, $EmailAddress, $Phone, 0, '0');
+                $this->response->body('0');
+                
+             }
+             
+        }
+        else
+        {
+            $this->response->body('0');
+        }
+         
+            return $this->response;
     }
 }
