@@ -51,11 +51,11 @@
         var del = $('#delivery_flag').val();
         if(del == '0')
         {
-            $('.top-cart-content').html('Thanks For your Order');
+            $('.top-cart-content').load('<?php echo $this->request->webroot."subpages/profile.php";?>');
         }
         else
         {
-            $('.top-cart-content').load('<?php echo $this->request->webroot."subpages/profile.php";?>');
+            $('.top-cart-content').load('<?php echo $this->request->webroot."subpages/profile.php?delivery";?>');
         }
         
     }
