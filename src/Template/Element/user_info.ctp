@@ -1,5 +1,6 @@
 <?php
-  $isset = isset($Profile);
+    $isset = isset($Profile);
+    include_once("common/api.php");
 ?>
 <form action="" class="form-horizontal" method="post">
     <INPUT TYPE="hidden" name="action" value="<?php if($isset) { echo 'editprofile'; } else { echo 'signup'; } ?>">
@@ -22,7 +23,7 @@
         <div class="form-group">
             <label class="col-lg-4 control-label" for="Phone">Phone<span class="require">*</span></label>
             <div class="col-lg-8">
-              <input type="text" name="Phone" class="form-control" value="<?php if($isset) {echo $Profile->Phone; } ?>">
+              <input type="phone" name="Phone" class="form-control" value="<?php if($isset) {echo format_phone($Profile->Phone); } ?>">
             </div>
         </div>
     </fieldset>

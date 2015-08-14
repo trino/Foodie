@@ -375,12 +375,12 @@ class HtmlHelperTest extends TestCase
         $expected = ['img' => ['src' => '/my/custom/path/test.gif', 'alt' => '']];
         $this->assertHtml($expected, $result);
 
-        $result = $this->Html->image('test.gif', ['pathPrefix' => 'http://cakephp.org/assets/img/']);
-        $expected = ['img' => ['src' => 'http://cakephp.org/assets/img/test.gif', 'alt' => '']];
+        $result = $this->Html->image('test.gif', ['pathPrefix' => 'http://cakephp.org//img/']);
+        $expected = ['img' => ['src' => 'http://cakephp.org//img/test.gif', 'alt' => '']];
         $this->assertHtml($expected, $result);
 
-        $result = $this->Html->image('test.gif', ['pathPrefix' => '//cakephp.org/assets/img/']);
-        $expected = ['img' => ['src' => '//cakephp.org/assets/img/test.gif', 'alt' => '']];
+        $result = $this->Html->image('test.gif', ['pathPrefix' => '//cakephp.org//img/']);
+        $expected = ['img' => ['src' => '//cakephp.org//img/test.gif', 'alt' => '']];
         $this->assertHtml($expected, $result);
 
         $previousConfig = Configure::read('App.imageBaseUrl');
@@ -908,9 +908,9 @@ class HtmlHelperTest extends TestCase
         ];
         $this->assertHtml($expected, $result);
 
-        $result = $this->Html->script('foo3', ['pathPrefix' => 'http://cakephp.org/assets/js/']);
+        $result = $this->Html->script('foo3', ['pathPrefix' => 'http://cakephp.org//js/']);
         $expected = [
-            'script' => ['src' => 'http://cakephp.org/assets/js/foo3.js']
+            'script' => ['src' => 'http://cakephp.org//js/foo3.js']
         ];
         $this->assertHtml($expected, $result);
 

@@ -40,6 +40,7 @@ class UsersController extends AppController {
     }
 
     function address_belongs_to_me($ID){
+        if(!$ID){return true;}
         $Me = $this->request->session()->read('Profile.ID');
         $Address = $this->Manager->get_profile_address($ID);
         if($Address->UserID != $Me){
@@ -64,6 +65,7 @@ class UsersController extends AppController {
     }
 
     public function addresses(){
+        $this->Manager->verify_login($this, "Users");
         $this->layout = "admin";
         $Me = $this->request->session()->read('Profile.ID');
         if(isset($_POST["action"])){
@@ -78,7 +80,7 @@ class UsersController extends AppController {
                     } else {
                         $_POST["ID"] = "";
                     }
-                    $this->Manager->edit_profile_address($_POST["ID"], $Me, $_POST["Name"], $_POST["Number"], $_POST["Street"], $_POST["Apt"], $_POST["Buzz"], $_POST["City"], $_POST["Province"], $_POST["PostalCode"], $_POST["Country"], $_POST["Notes"]);
+                    $this->Manager->edit_profile_address($_POST["ID"], $Me, $_POST["Name"], $_POST["Phone"], $_POST["Number"], $_POST["Street"], $_POST["Apt"], $_POST["Buzz"], $_POST["City"], $_POST["Province"], $_POST["PostalCode"], $_POST["Country"], $_POST["Notes"]);
                     break;
             }
         }
@@ -96,7 +98,14 @@ class UsersController extends AppController {
     }
 
      public function orders() {
-        $this->layout = "admin";
+        $this->layout = "orders";
+         if (isset($_GET["ID"]) && $this->Manager->check_permission("CanEditGlobalSettings")){
+             $UserID = $_GET["ID"];
+         } else {
+             $UserID = $this->Manager->read("ID");
+         }
+         $this->set("OrderType", "User");
+         $this->set("Orders", $this->Manager->enum_orders($UserID, true));
     }
 
     public function logout(){

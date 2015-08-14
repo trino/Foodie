@@ -20,7 +20,7 @@
     
         <div class="row" >
         <div class="col-md-4 col-sm-4">
-            <img class="img-responsive" alt = "" src = "<?php echo $this->request->webroot;?>assets/frontend/pages/img/works/img4.jpg">
+            <img class="img-responsive" alt = "" src = "<?php echo $this->request->webroot;?>/img/works/img4.jpg">
         </div>
         <div class="col-md-8 col-sm-8">
             <h2><a href="blog-item.html"><?= $Restaurant->Name; ?></a></h2>

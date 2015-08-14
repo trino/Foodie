@@ -1,10 +1,8 @@
 <div class="slide">
     <div class="text">Slide Goes Here</div>
-    
 </div>
 
     <div class="heading"><div class="text"><b>Intro</b> duction</div></div>
-
 
 <div class="intro">
 
@@ -13,8 +11,6 @@
     
        <button class="btn-3">Learn More </button></div>
 
-
-    
 </div>
 
 
@@ -28,7 +24,7 @@
    <div class="col-1-3">
      <div class="module">
          
-         <img src="/Foodie/images/click.png">
+         <img src="/Foodie/img/click.png">
          
        <h3>Choose A Service</h3>
 				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean volutpat luctus mollis. </p>	
@@ -36,7 +32,7 @@
    </div>
    <div class="col-1-3">
      <div class="module">
-                  <img src="/Foodie/images/clip.png">
+                  <img src="/Foodie/img/clip.png">
 
      		<h3>Register With Us</h3>
 				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies</p>	
@@ -45,7 +41,7 @@
     
      <div class="col-1-3">
      <div class="module">
-                           <img src="/Foodie/images/box.png">
+                           <img src="/Foodie/img/box.png">
 
      		<h3>Get all the gooodies</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur justo mauris, a rutrum est eleifend non. Aenean volutpat luctus mollis.</p>	
@@ -241,7 +237,7 @@
   Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies
 </div>
          
-  <img src="/Foodie/images/01.jpg">        
+  <img src="/Foodie/img/01.jpg">
          <p> <strong>Haley From </strong><b>Tim Hortons, CA </b></p>	
      </div>
    </div>
@@ -252,7 +248,7 @@
   Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies
 </div>
          
-  <img src="/Foodie/images/02.jpg">        
+  <img src="/Foodie/img/02.jpg">
          <p> <strong>Henry From </strong><b>Burget King , CA </b></p>	
      </div>
    </div>
@@ -264,9 +260,11 @@
 <div class="sign">
     
         <div class="heading"><div class="text"><b>Still</b> Confused?</div></div>
-    
-    <center><img src="http://i.imgur.com/GScAvXS.png"></center>
+
+
+    <?php
+        include_once("common/api.php");
+        echo $this->element('restaurant_info');?>
     <br><br>
 
-    
 </div>

@@ -8,6 +8,8 @@
 
 
 <fieldset><div class="form-group"><?php
+    include_once("common/api.php");
+
     $ID = "";
     if (isset($_GET["ID"])) {
         $ID = $_GET["ID"];
@@ -31,12 +33,10 @@
 <form action="" class="form-horizontal" method="post">
     <?php
         $isset=isset($Address);
-        include_once("subpages/api.php");
-        if($isset){
-            echo '<INPUT TYPE="HIDDEN" NAME="ID" VALUE="' . $Address->ID . '">';
-        }
+        include_once("common/api.php");
+        echo '<INPUT TYPE="HIDDEN" NAME="ID" VALUE="' . $ID . '">';
     ?>
-    <INPUT TYPE="HIDDEN" NAME="action" ID="action" VALUE="save">
+    <INPUT TYPE="HIDDEN" NAME="action" ID="action" VALUE="save.bypass">
     <fieldset>
         <div class="form-group">
             <label class="col-lg-4 control-label" for="Name">Name of the address<span class="require">*</span></label>
@@ -105,7 +105,7 @@
             <label class="col-lg-4 control-label" for="Name">Phone Number <span class="require">*</span></label>
             <STRONG>Include any neccesary extensions</STRONG>
             <div class="col-lg-2">
-                <input type="text" name="Phone" class="form-control" value="<?php if($isset) {echo $Address->Phone; } ?>">
+                <input type="text" name="Phone" class="form-control" value="<?php if($isset) {echo format_phone($Address->Phone); } ?>">
             </div>
         </div>
 
@@ -134,7 +134,7 @@
                 if ($isset){
                     echo '<BUTTON class="btn btn-danger" onclick="confirmdelete();" type="button">Delete</BUTTON>';
                 } else {
-                    echo '<input class="btn btn-warning" onclick="changeaction();" type="submit" value="Search" title="Use this to search for hotels/hospitals or other landmarks">';
+                    //echo '<input class="btn btn-warning" onclick="changeaction();" type="submit" value="Search" title="Use this to search for hotels/hospitals or other landmarks">';
                 }
             ?>
         </div>

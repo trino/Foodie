@@ -1,7 +1,10 @@
 <?php
-    $userID = $this->request->session()->read('Profile.ID');
-    $userName = $this->request->session()->read('Profile.Name');
-    $Restaurant = $this->request->session()->read('Profile.Restaurant');
+    $userName = "Not logged in";
+    $Restaurant = $userName;
+    if($Profile) {
+        $userName = ucfirst($Profile->Name);
+        $Restaurant = $Profile->RestaurantID;
+    }
 ?>
 <div class="col-md-6 col-sm-6 additional-shop-info">
     <ul class="list-unstyled list-inline">
@@ -29,12 +32,8 @@
      <ul class="list-unstyled list-inline pull-right">
         <?php
             if($userID){
-                echo '<li><a href="shop-account.html">My Account</a></li>';
-                echo '<li><a href="shop-wishlist.html">My Wishlist</a></li>';
-                echo '<li><a href="' . $this->request->webroot . 'users/dashboard">User Dashboard</a></li>';
-                if ($Restaurant) {
-                    echo '<li><a href="' . $this->request->webroot . 'restaurants/dashboard">Dashboard</a></li>';
-                }
+                //echo '<li><a href="shop-account.html">My Account</a></li>';
+                echo '<li><a href="' . $this->request->webroot . 'users/dashboard">' . $userName . "'s Dashboard</a></li>";
                 echo '<li><a href="' . $this->request->webroot . 'users/logout">Log Out</a></li>';
             } else {
                 echo '<li><a href="#login-pop-up" class="fancybox-fast-view">Log In</a></li>';

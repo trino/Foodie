@@ -1,6 +1,6 @@
 <!-- Page level plugin styles START -->
-  <link href="<?php echo $this->request->webroot;?>assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
-  <link href="<?php echo $this->request->webroot;?>assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo $this->request->webroot;?>/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+  <link href="<?php echo $this->request->webroot;?>/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin styles END -->
 
         
@@ -75,13 +75,13 @@
      
     
     <!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
-    <script src="<?php echo $this->request->webroot;?>assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script><!-- pop up -->
-    <script src="<?php echo $this->request->webroot;?>assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="<?php echo $this->request->webroot;?>/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script><!-- pop up -->
+    <script src="<?php echo $this->request->webroot;?>/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
-    <script src="<?php echo $this->request->webroot;?>assets/global/plugins/gmaps/gmaps.js" type="text/javascript"></script>
-    <script src="<?php echo $this->request->webroot;?>assets/frontend/pages/scripts/contact-us.js" type="text/javascript"></script>
+    <script src="<?php echo $this->request->webroot;?>/plugins/gmaps/gmaps.js" type="text/javascript"></script>
+    <script src="<?php echo $this->request->webroot;?>/scripts/contact-us.js" type="text/javascript"></script>
 
-    <script src="<?php echo $this->request->webroot;?>assets/frontend/layout/scripts/layout.js" type="text/javascript"></script>
+    <script src="<?php echo $this->request->webroot;?>/scripts/layout.js" type="text/javascript"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
             Layout.init();

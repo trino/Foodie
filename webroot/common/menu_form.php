@@ -1,6 +1,4 @@
-
-<script src="<?php echo $this->request->webroot;?>assets/global/scripts/additional.js"></script>
-
+<script src="<?php echo $this->request->webroot;?>/scripts/additional.js"></script>
 <div class="newmenu" id="newmenu0">
     <p>&nbsp;</p>
     <div class="col-md-6">
@@ -31,7 +29,7 @@
             </select>
             <br />
             <div class="newaction">
-            <a href="javascript:void(0)" class="btn btn-info" onclick="add_additional(0);">Add Additional Item</a><br />
+            <a href="javascript:void(0)" class="btn btn-info add_additional" id="add_additional0">Add Additional Item</a><br />
             OR<br />
             <a href="javascript:void(0)" class="btn btn-info">Save</a>
             </div>

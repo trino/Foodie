@@ -4,26 +4,34 @@
     use Cake\Controller\Component;
     use Cake\ORM\TableRegistry;
 
-
+    /////////////////////////////CSS: webroot\assets\global\css\components.css ////////////////////////////////////
     class ManagerComponent extends Component {
         ///////////////////////handles certain forms that don't point anywhere/////////////////////////////////////
         function init($Controller){
+            $Controller->set("Manager", $this);
             $this->Controller = $Controller;
+            $Me = $this->read('ID');
+
             $Controller->set('genres', $this->enum_genres());
             if (isset($_POST["action"])){
                 switch ($_POST["action"]) {
+                    case "test"://for ajax testing
+                        echo "Success!";
+                        die();
+                        break;
                     case "login":
                         $profile = $this->find_profile($_POST["email"], $_POST["password"]);
                         if ($profile) {
-                            $this->login($Controller, $profile);
-                            $Controller->Flash->success($profile->Name . " has been logged in");
+                            $Me = $this->login( $profile);
+                            //$Controller->Flash->success($profile->Name . " has been logged in");
                         } else {
-                            $Controller->Flash->error("The email address/password combination failed");
+                            echo "The email address/password combination failed";
                         }
+                        die();
                         break;
                     case "editprofile":
                         $Password = "";
-                        if ($this->is_email_in_use($this->read("ID"), $_POST["Email"])){
+                        if ($this->is_email_in_use($_POST["Email"], $this->read("ID"))){
                             $Controller->Flash->error("That email address is in use already");
                         } else {
                             $doit = $_POST["Password"] == $_POST["Confirm-Password"];
@@ -41,6 +49,7 @@
                     case "subscribe":
                         $Controller->loadComponent("Mailer");
                         $this->add_subscriber($_POST["email"]);
+                        $this->add_subscriber($_POST["email"]);
                         $Controller->Flash->success($_POST["email"] . " please check your email to confirm your subscription");
                         break;
                     case "signup":
@@ -50,13 +59,32 @@
                                 $Controller->Flash->error("Email address is in use already");
                             } else {
                                 $Controller->loadComponent("Mailer");
-                                $this->new_profile(0, $_POST["Name"],$_POST["Password"], 2, $_POST["Email"], 0, $_POST["newsletter"]);
+                                $this->new_profile(0, $_POST["Name"],$_POST["Password"], 2, $_POST["Email"], $_POST["Phone"], 0, $_POST["newsletter"]);
                                 $Controller->Flash->success("Your profile has been created");
                             }
                         } else {
                             $Controller->Flash->error("The passwords do not match");
                         }
                         break;
+                    case "forgotpass":
+                        $_POST["Email"] = str_replace(" ", "+", trim(stripcslashes($_POST["Email"])));
+                        $newPassword = $this->forgot_password($_POST["Email"]);
+                        if ($newPassword){
+                            $Controller->loadComponent("Mailer");
+                            $Controller->Mailer->sendEmail($_POST["Email"],"Password reset","Your password has been changed to: " . $newPassword);
+                            echo "Your password has been reset and emailed to you";
+                        } else {
+                            echo "The email address '" . $_POST["Email"] . "', was not found";
+                        }
+                        die();
+                        break;
+                    default:
+                        if (strpos($_POST["action"], ".bypass")){
+                            $_POST["action"] = str_replace(".bypass", "", $_POST["action"]);
+                        } else {
+                            debug($_POST);
+                            die($_POST["action"] . " is not handled");
+                        }
                 }
             }
             if (isset($_GET["action"])){
@@ -69,10 +97,38 @@
                             $Controller->Flash->error("Subscription key not found");
                         }
                         break;
+                    case "test":
+                        $Controller->Flash->error("test");
+                        break;
                 }
             }
-        }
 
+            $this->Controller->set("userID", $Me);
+            $this->Controller->set("Profile", $this->get_profile($Me));
+        }
+        public function verify_login($_this, $controller){
+            $exceptions = "";
+            //valid controllers: Foodie, Menus, Pages, Restaurants, Users
+            switch($controller){
+                case "clients":
+                    $exceptions = array("quickcontact");
+                    break;
+            }
+            if($exceptions) {
+                if (!is_array($exceptions)) {$exceptions = array($exceptions);}
+                foreach ($exceptions as $exception) {
+                    if (strpos($_SERVER["REQUEST_URI"], $controller . "/" . $exception) !== false) {
+                        return true;
+                    }
+                }
+            }
+            $profileID = $this->read('ID');
+            if (!$profileID) {
+                $_this->Flash->error("Please login");
+                $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                $_this->redirect('/?url=' . urlencode($url));
+            }
+        }
 
 
         ////////////////////////////////////Profile type API//////////////////////////////////
@@ -101,14 +157,16 @@
             return $ID;
         }
 
-        function enum_profiletypes($Hierarchy = ""){
+        function enum_profiletypes($Hierarchy = "", $toArray = true){
             $table = TableRegistry::get('profiletypes');
             if($Hierarchy){
+                die("Hier: " . $Hierarchy);
                 $entries = $table->find('all')->where(["Hierarchy >"=>$Hierarchy]);
             } else {
                 $entries = $table->find('all');
             }
-            return $this->iterator_to_array($entries, "ID", "Name");
+            if($toArray) {return $this->iterator_to_array($entries, "ID", "Name");}
+            return $entries;
         }
 
 
@@ -118,9 +176,13 @@
             return $this->request->session()->read('Profile.' . $Name);
         }
 
-        function is_email_in_use($NotByUserID, $EmailAddress){
+        function is_email_in_use($EmailAddress, $NotByUserID=0){
             $EmailAddress = strtolower(trim($EmailAddress));
-            return TableRegistry::get('profiles')->find('all')->where(["Email"=>$EmailAddress, "ID !=" => $NotByUserID])->first();
+            if($NotByUserID) {
+                return TableRegistry::get('profiles')->find('all')->where(["Email" => $EmailAddress, "ID !=" => $NotByUserID])->first();
+            } else {
+                return $this->get_entry("profiles",$EmailAddress, "Email");
+            }
         }
 
         function salt(){
@@ -131,17 +193,21 @@
             return TableRegistry::get('profiles')->find('all')->where([$Key=>$Value]);
         }
 
-        function get_profile($ID){
+        function get_profile($ID = ""){
+            if(!$ID){$ID=$this->read("ID");}
             return $this->get_entry("profiles", $ID);
         }
-        function get_profile_type($ProfileID){
+
+        function get_profile_type($ProfileID, $GetByType = false){
+            if($GetByType){return $this->get_entry("profiletypes", $ProfileID);}
             $profiletype = $this->get_entry("profiles", $ProfileID)->ProfileType;
             return $this->get_entry("profiletypes", $profiletype);
         }
+
         function can_profile_create($ProfileID, $ProfileType){
             $creatorprofiletype = $this->get_profile_type($ProfileID);
             if($creatorprofiletype->CanCreateProfiles){
-                $ProfileType = $this->get_profile_type($ProfileType);
+                $ProfileType = $this->get_profile_type($ProfileType, true);
                 return $creatorprofiletype->Hierarchy < $ProfileType->Hierarchy;
             }
         }
@@ -157,22 +223,41 @@
             return $pass;
         }
 
-        function new_profile($CreatedBy, $Name, $Password, $ProfileType, $EmailAddress, $RestaurantID, $Subscribed = ""){
-            if(!$Password){$Password=randomPassword();}
+        function is_valid_email($EmailAddress){
+            //http://php.net/manual/en/function.filter-var.php
+            //filter_var can also validate: FILTER_VALIDATE_IP FILTER_VALIDATE_INT FILTER_VALIDATE_BOOLEAN FILTER_VALIDATE_URL FILTER_SANITIZE_STRING
+            //flags FILTER_NULL_ON_FAILURE FILTER_FLAG_PATH_REQUIRED FILTER_FLAG_STRIP_LOW FILTER_FLAG_STRIP_HIGH
+            $EmailAddress = strtolower(trim($EmailAddress));
+            if (filter_var($EmailAddress, FILTER_VALIDATE_EMAIL)) {
+                return $EmailAddress;
+            }
+        }
+
+        function new_profile($CreatedBy, $Name, $Password, $ProfileType, $EmailAddress, $Phone, $RestaurantID, $Subscribed = ""){
+            $EmailAddress = $this->is_valid_email($EmailAddress);
+            $Phone=$this->cleanphone($Phone);
+            if(!$EmailAddress){return false;}
+            if($this->get_entry("profiles", $EmailAddress, "Email")){return false;}
+            if(!$Password){$Password=$this->randomPassword();}
             if($Subscribed){$Subscribed=1;} else {$Subscribed =0;}
-            $data = array("Name" => trim($Name), "ProfileType" => $ProfileType, "Email" => strtolower(trim($EmailAddress)), "CreatedBy" => 0, "RestaurantID" => $RestaurantID, "Subscribed" => $Subscribed, "Password" => md5($Password . $this->salt()));
+            $data = array("Name" => trim($Name), "ProfileType" => $ProfileType, "Phone" => $Phone, "Email" => $EmailAddress, "CreatedBy" => 0, "RestaurantID" => $RestaurantID, "Subscribed" => $Subscribed, "Password" => md5($Password . $this->salt()));
             if($CreatedBy){
                 if(!$this->can_profile_create($CreatedBy, $ProfileType)){return false;}
                 $data["CreatedBy"] = $CreatedBy;
             }
             $data = $this->edit_database("profiles", "ID", "", $data);
+            if($CreatedBy){
+                $this->logevent("Created user: " . $data["ID"] . " (" . $data["Name"] . ")");
+            } else {//if($CreatedBy == -1) {
+                //$this->edit_database("profiles", "ID", $data->ID, array("CreatedBy" => $data->ID));
+            }
             $data["Password"] = $Password;
             $this->set_subscribed($EmailAddress,$Subscribed);
             return $data;
         }
 
         function edit_profile($ID, $Name, $EmailAddress, $Phone, $Password, $Subscribed = 0, $ProfileType = 0){
-            $data = array("Name" => trim($Name), "Email" => strtolower(trim($EmailAddress)), "Phone" => $Phone, "Subscribed" => $Subscribed);
+            $data = array("Name" => trim($Name), "Email" => strtolower(trim($EmailAddress)), "Phone" => $this->cleanphone($Phone), "Subscribed" => $Subscribed);
             if($Password){
                 $data["Password"] = md5($Password . $this->salt());
             }
@@ -184,20 +269,32 @@
         }
 
         function find_profile($EmailAddress, $Password){
+            //echo $this->salt();die();
             $EmailAddress = strtolower(trim($EmailAddress));
             $Password = md5($Password . $this->salt());
             return $this->enum_all("profiles", array("Email" => $EmailAddress, "Password" => $Password))->first();
         }
 
-        function login($Controller, $Profile){
+        function login($Profile){
             if (is_numeric($Profile)){
                 $Profile = $this->get_profile($Profile);
             }
-            $Controller->request->session()->write('Profile.ID',            $Profile->ID);
-            $Controller->request->session()->write('Profile.Name',          $Profile->Name);
-            $Controller->request->session()->write('Profile.Email',         $Profile->Email);
-            $Controller->request->session()->write('Profile.Type',          $Profile->ProfileType);
-            $Controller->request->session()->write('Profile.Restaurant',    $Profile->RestaurantID);
+            $this->Controller->request->session()->write('Profile.ID',            $Profile->ID);
+            $this->Controller->request->session()->write('Profile.Name',          $Profile->Name);
+            $this->Controller->request->session()->write('Profile.Email',         $Profile->Email);
+            $this->Controller->request->session()->write('Profile.Type',          $Profile->ProfileType);
+            $this->Controller->request->session()->write('Profile.Restaurant',    $Profile->RestaurantID);
+            return $Profile->ID;
+        }
+
+        function forgot_password($Email){
+            $Email = strtolower(trim($Email));
+            $Profile = $this->get_entry("profiles", $Email, "Email");
+            if ($Profile){
+                $Password = $this->randomPassword();
+                $this->update_database("profiles", "ID", $Profile->ID, array("Password" => md5($Password . $this->salt())));
+                return $Password;
+            }
         }
 
         ////////////////////////////////////////Profile Address API ////////////////////////////////////
@@ -210,12 +307,15 @@
         function get_profile_address($ID){
             return $this->get_entry("profiles_addresses", $ID);
         }
-        function edit_profile_address($ID, $UserID, $Name, $Number, $Street, $Apt, $Buzz, $City, $Province, $PostalCode, $Country, $Notes){
-            $Data = array("UserID" => $UserID, "Name" => $Name, "Number" => $Number, "Street" => $Street, "Apt" => $Apt, "Buzz" => $Buzz, "City" => $City, "Province" => $Province, "PostalCode" => $PostalCode, "Country" =>$Country, "Notes" =>$Notes);
+        function edit_profile_address($ID, $UserID, $Name, $Phone, $Number, $Street, $Apt, $Buzz, $City, $Province, $PostalCode, $Country, $Notes){
+            $Data = array("UserID" => $UserID, "Name" => $Name, "Phone" => $this->cleanphone($Phone), "Number" => $Number, "Street" => $Street, "Apt" => $Apt, "Buzz" => $Buzz, "City" => $City, "Province" => $Province, "PostalCode" => $PostalCode, "Country" =>$Country, "Notes" =>$Notes);
             return $this->edit_database("profiles_addresses", "ID", $ID, $Data);
         }
 
-
+        function check_permission($Permission, $UserID = ""){
+            if(!$UserID){$UserID = $this->read("ID");}
+            return $this->get_profile_type($UserID)->$Permission;
+        }
 
 
 
@@ -301,8 +401,17 @@
 
 
 
-
         //////////////////////////////////////Restaurant API/////////////////////////////////
+        function cleanphone($Phone){
+            $Phone = $this->kill_non_numeric($Phone, "+");
+            //add a check to be sure only the first digit is a +
+            return $Phone;
+        }
+        function blank_restaurant(){
+            $Restaurant = (object) ['ID' => 0, 'Name' => '', 'Email' => '', 'Phone' => '', 'Address' => '', 'PostalCode' => '', 'City' => 'HAMILTON', 'Province' => 'ON', 'Country' => 'Canada', 'Genre' => 0, 'Hours' => array(), 'DeliveryFee' => 0, 'Minimum' => 0, 'Description' => ''];
+            return $Restaurant;
+        }
+
         function get_restaurant($ID, $IncludeHours = False){
             $restaurant = $this->get_entry("restaurants", $ID);
             if($IncludeHours){
@@ -315,12 +424,58 @@
                 $ID = $this->new_anything("restaurants", $Name);
             }
             $C = ', ';
-            $this->logevent("Edited restaurant: " . $Name .$C. $GenreID .$C. $Email .$C. $Phone .$C. $Address .$C. $City .$C. $Province .$C. $Country .$C. $PostalCode .$C. $Description .$C. $DeliveryFee .$C. $Minimum);
-            $data = array("Name" => $Name, "Genre" => $GenreID, "Email" => $Email, "Phone" => $Phone, "Address" => $Address, "City" => $City, "Province" => $Province, "Country" => $Country, "PostalCode" => $PostalCode, "Description" => $Description, "DeliveryFee" => $DeliveryFee, "Minimum" => $Minimum);
+            $this->logevent("Edited restaurant: " . $Name .$C. $GenreID .$C. $Email .$C. $this->cleanphone($Phone) .$C. $Address .$C. $City .$C. $Province .$C. $Country .$C. $PostalCode .$C. $Description .$C. $DeliveryFee .$C. $Minimum);
+            $data = array("Name" => $Name, "Genre" => $GenreID, "Email" => $Email, "Phone" => $this->cleanphone($Phone), "Address" => $Address, "City" => $City, "Province" => $Province, "Country" => $Country, "PostalCode" => $PostalCode, "Description" => $Description, "DeliveryFee" => $DeliveryFee, "Minimum" => $Minimum);
             $this->update_database("restaurants", "ID", $ID, $data);
             return $ID;
         }
 
+        function enum_employees($ID = "", $Hierarchy = ""){
+            if(!$ID){
+                $ID = $this->get_current_restaurant();
+            }
+            if($Hierarchy){
+                return $this->enum_all("Profiles", array("RestaurantID" => $ID, "Hierarchy >" => $Hierarchy));
+            }
+            return $this->enum_profiles("RestaurantID", $ID);//->order("Hierarchy" , "ASC");
+        }
+
+        function get_current_restaurant(){
+            $Profile = $this->read('ID');
+            if($Profile) {
+                return $this->get_profile($Profile)->RestaurantID;
+            }
+        }
+
+        function hire_employee($UserID, $RestaurantID = 0, $ProfileType = ""){
+            if(!$this->check_permission("CanHireOrFire")){return false;}
+
+            $Profile = $this->get_profile($UserID);
+            if(!$ProfileType){$ProfileType=$Profile->ProfileType;}
+            $Name = "";
+            if($RestaurantID){//hire
+                if (!$Profile->RestaurantID) { $Name = "Hired"; }
+            } else {//fire
+                if ($Profile->RestaurantID) { $Name = "Fired"; }
+            }
+            if($Name){
+                $this->update_database("profiles", "ID", $UserID, array("RestaurantID" => $RestaurantID, "ProfileType" => $ProfileType));
+                $this->logevent($Name . ": " . $Profile->ID . " (" . $Profile->Name . ")" );
+                return true;
+            }
+        }
+
+        function openclose_restaurant($RestaurantID, $Status = false){
+            if($Status){$Status=1;} else {$Status = 0;}
+            $this->logevent("Set status to: " . $Status, true, $RestaurantID);
+            $this->update_database("restaurants", "ID", $RestaurantID, array("Open" => $Status));
+        }
+
+        function delete_restaurant($RestaurantID, $NewProfileType = 2){
+            $this->logevent("Deleted restaurant", true, $RestaurantID);
+            $this->delete_all("restaurants", array("ID" => $RestaurantID));
+            $this->update_database("profiles", "RestaurantID", $RestaurantID, array("RestaurantID" => 0, "ProfileType" => $NewProfileType));
+        }
 
         /////////////////////////////////////days off API////////////////////////////////////
         function add_day_off($RestaurantID, $Day, $Month, $Year){
@@ -414,9 +569,11 @@
         }
 
         function is_restaurant_open($RestaurantID, $DayOfWeek, $Time){
-            $Data = TableRegistry::get('hours')->find()->where(['RestaurantID' => $RestaurantID, "DayOfWeek" => $DayOfWeek])->first();
-            if ($Data){
-                return $Data->Open <= $Time && $Data->Close >= $Time;
+            if ($this->get_restaurant($RestaurantID)->Open) {
+                $Data = TableRegistry::get('hours')->find()->where(['RestaurantID' => $RestaurantID, "DayOfWeek" => $DayOfWeek])->first();
+                if ($Data) {
+                    return $Data->Open <= $Time && $Data->Close >= $Time;
+                }
             }
         }
 
@@ -439,11 +596,13 @@
 
 
         /////////////////////////////////Event log API////////////////////////////////////
-        function logevent($Event, $DoRestaurant = true){
+        function logevent($Event, $DoRestaurant = true, $RestaurantID = 0){
             $UserID = $this->request->session()->read('Profile.ID');
-            $RestaurantID = 0;
+            if(!$UserID){
+                $UserID=0;
+                $DoRestaurant=false;
+            }
             if ($DoRestaurant) {
-                $RestaurantID = $this->request->session()->read('Profile.RestaurantID');
                 if (!$RestaurantID) {
                     $RestaurantID = $this->get_profile($UserID)->RestaurantID;
                 }
@@ -456,6 +615,19 @@
         }
 
 
+
+
+
+
+        /////////////////////////////////Orders API/////////////////////////////////////
+        function enum_orders($ID, $IsUser = false){
+            if($IsUser){
+                $Conditions["UserID"] = $ID;
+            } else {
+                $Conditions["RestaurantID"] = $ID;
+            }
+            return array();//nothing to search yet
+        }
 
 
 
@@ -643,14 +815,35 @@
             }
         }
 
-        function kill_non_numeric($text){
-            return preg_replace("/[^0-9]/", "", $text);
+        function kill_non_numeric($text, $allowmore = ""){
+            return preg_replace("/[^0-9" . $allowmore . "]/", "", $text);
         }
         function left($text, $length){
             return substr($text,0,$length);
         }
         function right($text, $length){
             return substr($text, -$length);
+        }
+        function getIterator($Objects, $Fieldname, $Value){
+            foreach($Objects as $Object){
+                if ($Object->$Fieldname == $Value){
+                    return $Object;
+                }
+            }
+            return false;
+        }
+
+        function status($Bool, $Success, $Fail = "") {
+            if ($Bool) {
+                $this->Controller->Flash->success($Success);
+            } else {
+                $this->Controller->Flash->error($Fail);
+            }
+        }
+
+        function array_to_object($Array){
+            $object = (object) $Array;
+            return $object;
         }
     }
 ?>

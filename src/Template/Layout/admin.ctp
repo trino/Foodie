@@ -1,6 +1,6 @@
 <?php
-  include("subpages/header.php");
+  include("common/header.php");
   echo $this->Flash->render();
   echo $this->fetch('content');
-  include("subpages/footer.php");
+  include("common/footer.php");
 ?>

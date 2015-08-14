@@ -3,9 +3,9 @@
               <div class="col-md-4">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k1.jpg" class="img-responsive" alt="Chow Fun">
+                    <img src="<?php echo $this->request->webroot;?>/img/products/k1.jpg" class="img-responsive" alt="Chow Fun">
                     <div>
-                      <a href="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="<?php echo $this->request->webroot;?>/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
@@ -18,9 +18,9 @@
               <div class="col-md-4">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k2.jpg" class="img-responsive" alt="Sea Cucumber">
+                    <img src="<?php echo $this->request->webroot;?>/img/products/k2.jpg" class="img-responsive" alt="Sea Cucumber">
                     <div>
-                      <a href="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="<?php echo $this->request->webroot;?>/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
@@ -32,9 +32,9 @@
               <div class="col-md-4">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k3.jpg" class="img-responsive" alt="Phoenix Claws">
+                    <img src="<?php echo $this->request->webroot;?>/img/products/k3.jpg" class="img-responsive" alt="Phoenix Claws">
                     <div>
-                      <a href="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="<?php echo $this->request->webroot;?>/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
@@ -52,9 +52,9 @@
               <div class="col-md-4">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k1.jpg" class="img-responsive" alt="Chow Fun">
+                    <img src="<?php echo $this->request->webroot;?>/img/products/k1.jpg" class="img-responsive" alt="Chow Fun">
                     <div>
-                      <a href="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="<?php echo $this->request->webroot;?>/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
@@ -67,9 +67,9 @@
               <div class="col-md-4">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k2.jpg" class="img-responsive" alt="Chow Fun">
+                    <img src="<?php echo $this->request->webroot;?>/img/products/k2.jpg" class="img-responsive" alt="Chow Fun">
                     <div>
-                      <a href="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="<?php echo $this->request->webroot;?>/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
@@ -81,9 +81,9 @@
               <div class="col-md-4">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k3.jpg" class="img-responsive" alt="Chow Fun">
+                    <img src="<?php echo $this->request->webroot;?>/img/products/k3.jpg" class="img-responsive" alt="Chow Fun">
                     <div>
-                      <a href="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="<?php echo $this->request->webroot;?>/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
@@ -101,9 +101,9 @@
               <div class="col-md-4">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k1.jpg" class="img-responsive" alt="Chow Fun">
+                    <img src="<?php echo $this->request->webroot;?>/img/products/k1.jpg" class="img-responsive" alt="Chow Fun">
                     <div>
-                      <a href="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="<?php echo $this->request->webroot;?>/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
@@ -116,9 +116,9 @@
               <div class="col-md-4">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k2.jpg" class="img-responsive" alt="Chow Fun">
+                    <img src="<?php echo $this->request->webroot;?>/img/products/k2.jpg" class="img-responsive" alt="Chow Fun">
                     <div>
-                      <a href="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="<?php echo $this->request->webroot;?>/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
@@ -130,9 +130,9 @@
               <div class="col-md-4">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k3.jpg" class="img-responsive" alt="Chow Fun">
+                    <img src="<?php echo $this->request->webroot;?>/img/products/k3.jpg" class="img-responsive" alt="Chow Fun">
                     <div>
-                      <a href="<?php echo $this->request->webroot;?>assets/frontend/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="<?php echo $this->request->webroot;?>/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>

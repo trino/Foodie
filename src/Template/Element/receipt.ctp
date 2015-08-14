@@ -55,7 +55,9 @@
         }
         else
         {
+
             $('.top-cart-content').load('<?php echo $this->request->webroot."subpages/profile.php?delivery";?>');
+
         }
         
     }

@@ -1049,13 +1049,13 @@ class RouteTest extends TestCase
         $this->assertEquals('asset._controller:_action', $route->getName());
 
         $route = new Route(
-            '/a/assets/:action',
+            '/a//:action',
             ['plugin' => 'asset', 'controller' => 'assets']
         );
         $this->assertEquals('asset.assets:_action', $route->getName());
 
         $route = new Route(
-            '/assets/get',
+            '//get',
             ['plugin' => 'asset', 'controller' => 'assets', 'action' => 'get']
         );
         $this->assertEquals('asset.assets:get', $route->getName());
@@ -1075,13 +1075,13 @@ class RouteTest extends TestCase
         $this->assertEquals('admin:_controller:_action', $route->getName());
 
         $route = new Route(
-            '/:prefix/assets/:action',
+            '/:prefix//:action',
             ['controller' => 'assets']
         );
         $this->assertEquals('_prefix:assets:_action', $route->getName());
 
         $route = new Route(
-            '/admin/assets/get',
+            '/admin//get',
             ['prefix' => 'admin', 'plugin' => 'asset', 'controller' => 'assets', 'action' => 'get']
         );
         $this->assertEquals('admin:asset.assets:get', $route->getName());
