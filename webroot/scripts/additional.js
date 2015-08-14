@@ -45,20 +45,9 @@ $('.removelast').live('click',function(){
         if(i==tot-1)
         {
             if(i==1)
-            $(this).html('<a class="btn btn-info add_additional" id="add_additional0" href="javascript:void(0)">Add Additional Item</a>'+
-                '<br>'+
-                'OR'+
-                '<br>'+
-                '<a class="btn btn-info" href="javascript:void(0)">Save</a>');
+            $(this).html('<a class="btn btn-info add_additional" id="add_additional0" href="javascript:void(0)">Add Addons</a> <a class="btn btn-info" href="javascript:void(0)">Save</a>');
                 else
-                $(this).html('<a class="btn btn-info add_additional" id="add_additional0" href="javascript:void(0)">Add Additional Item</a>'+
-                '<br>'+
-                'OR'+
-                '<br>'+
-                '<a class="btn btn-info" href="javascript:void(0)">Save</a><br/>'+
-                
-            'OR<br />'+
-            '<a href="javascript:void(0)" class="btn btn-danger removelast">Remove</a>');
+                $(this).html('<a class="btn btn-info add_additional" id="add_additional0" href="javascript:void(0)">Add Addons</a> <a class="btn btn-info" href="javascript:void(0)">Save</a><br/> <a href="javascript:void(0)" class="btn btn-danger removelast">Remove</a>');
                 
             $(this).show();
         }

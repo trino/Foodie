@@ -12,7 +12,7 @@
                 <hr />
                 <ul class="parentinfo">
                 
-                    <li class="infolistwhite row marbot" id="parent4">
+                    <li class="infolistwhite row marbot newmenu" id="parent4">
                         
                         <div class="col-md-4 menu_item">
                             
@@ -41,7 +41,7 @@
                 
                  </li>
                  
-                 <li class="infolistwhite row marbot" id="parent3">
+                 <li class="infolistwhite row marbot newmenu" id="parent3">
                         
                         <div class="col-md-4 menu_item">
                             
@@ -70,7 +70,7 @@
                 
                  </li>
                  
-                 <li class="infolistwhite row marbot" id="parent2">
+                 <li class="infolistwhite row marbot newmenu" id="parent2">
                         
                         <div class="col-md-4 menu_item">
                             
@@ -99,7 +99,7 @@
                 
                  </li>
                  
-                 <li class="infolistwhite row marbot" id="parent1">
+                 <li class="infolistwhite row marbot newmenu" id="parent1">
                         
                         <div class="col-md-4 menu_item">
                             

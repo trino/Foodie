@@ -1,5 +1,7 @@
 <script src="<?php echo $this->request->webroot;?>/scripts/additional.js"></script>
+
 <div class="newmenu" id="newmenu0">
+    
     <p>&nbsp;</p>
     <div class="col-md-6">
         <div class="col-sm-3 nopadd">
@@ -29,13 +31,17 @@
             </select>
             <br />
             <div class="newaction">
-            <a href="javascript:void(0)" class="btn btn-info add_additional" id="add_additional0">Add Additional Item</a><br />
-            OR<br />
-            <a href="javascript:void(0)" class="btn btn-info">Save</a>
+            <a href="javascript:void(0)" class="btn btn-info add_additional" id="add_additional0">Add Addons</a> <a href="javascript:void(0)" class="btn btn-info">Save</a>
             </div>
         </div>
     </div>
-    <div class="clearfix"></div>    
-    <div class="aditional additional<?php echo $_GET['menu_id'];?>"></div>   
+    <div class="clearfix"></div> 
+    <hr />   
+    <div class="additional additional<?php echo $_GET['menu_id'];?>">
+        
+        <div class="col-md-12"><h2>Addons</h2></div>
+        <div class="clearfix"></div>    
+    </div>   
     <div class="clearfix"></div>
 </div>
+
