@@ -91,7 +91,7 @@ class RestaurantsController extends AppController {
         if (isset($_GET["ID"]) && $this->Manager->check_permission("CanEditGlobalSettings")){
             $RestaurantID = $_GET["ID"];
         } else {
-            $RestaurantID = $this->get_current_restaurant();
+            $RestaurantID = $this->Manager->get_current_restaurant();
         }
         $this->set("OrderType", "Restaurant");
         $this->set("Orders", $this->Manager->enum_orders($RestaurantID));
