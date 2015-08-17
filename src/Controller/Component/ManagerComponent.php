@@ -322,12 +322,13 @@
             $EmailAddress = strtolower(trim($EmailAddress));
             if($this->is_valid_email($EmailAddress)) {
                 $Entry = $this->get_entry("newsletter", $EmailAddress, "Email");
+                $GUID="";
                 if ($Entry) {
                     if (!$Entry->GUID) { return true; }
-                    $GUID = $Entry->GUID;
+                    if(!$authorized){$GUID = $Entry->GUID;}
                     $this->update_database("newsletter", "ID", $Entry->ID, array("GUID" => $GUID));
                 } else {
-                    $GUID = com_create_guid();
+                    if(!$authorized){$GUID = com_create_guid();}
                     $this->new_entry("newsletter", "ID", array("GUID" => $GUID, "Email" => $EmailAddress));
                 }
                 $path = '<A HREF="' . $this->Controller->request->webroot . "cuisine?action=subscribe&key=" . $GUID . '">Click here to finish registration</A>';
@@ -347,6 +348,7 @@
             $Entry = $this->get_entry("newsletter", $Key, "GUID");
             if($Entry){
                 $this->update_database("newsletter", "ID", $Entry->ID, array("GUID" => ""));
+                $this->update_database("profiles", "Email", $Entry->Email, array("subscribed" => 1));
                 return $Entry->Email;
             }
         }

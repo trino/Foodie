@@ -104,7 +104,11 @@
                     <form action="#" method="post">
                         <input type="hidden" name="action" value="subscribe">
                         <div class="input-group">
-                            <input type="text" name="email" placeholder="youremail@mail.com" class="form-control">
+                            <input type="text" name="email" placeholder="youremail@mail.com" class="form-control" <?php
+                                if (isset($Profile)){
+                                    echo ' VALUE="' . $Profile->Email . '"';
+                                }
+                            ?>>
                             <span class="input-group-btn">
                                 <button class="btn btn-primary" type="submit">Subscribe</button>
                             </span>
