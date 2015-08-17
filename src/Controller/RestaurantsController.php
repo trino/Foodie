@@ -5,6 +5,7 @@ namespace App\Controller;
 use Cake\Core\Configure;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
+use Cake\ORM\TableRegistry;
 
 
 class RestaurantsController extends AppController {
@@ -176,6 +177,80 @@ class RestaurantsController extends AppController {
                 $this->Flash->success("The restaurant has been " . strtolower($_GET["action"]) . "ed");
             }
         }
+    }
+    
+    function order_ajax()
+    {
+        $this->layout = 'blank';
+        
+        if (isset($_POST['menu_ids']) && $_POST['menu_ids'])
+        {
+            
+            $i = 0;
+            foreach ($_POST['menu_ids'] as $menu_ids) {
+                $i++;
+                if ($i == 1) {
+                    $arr['menu_ids'] = $menu_ids;
+                } else
+                    $arr['menu_ids'] = $arr['menu_ids'] . ',' . $menu_ids;
+            }
+            $i = 0;
+            foreach ($_POST['prs'] as $prs) {
+                //echo $prs;
+                $i++;
+                if ($i == 1) {
+                    $arr['prs'] = $prs;
+                } else
+                    $arr['prs'] = $arr['prs'] . ',' . $prs;
+            }
+            $i = 0;
+            foreach ($_POST['qtys'] as $qtys) {
+                //echo $prs;
+                $i++;
+                if ($i == 1) {
+                    $arr['qtys'] = $qtys;
+                } else
+                    $arr['qtys'] = $arr['qtys'] . ',' . $qtys;
+            }
+            $i = 0;
+            foreach ($_POST['extras'] as $extra) {
+                $extra = trim($extra);
+                $i++;
+                if ($i == 1) {
+                    $arr['extras'] = $extra;
+                } else
+                    $arr['extras'] = $arr['extras'] . ',' . $extra;
+            }
+            $i = 0;
+            foreach ($_POST['listid'] as $lst) {
+                $lst = trim($lst);
+                $i++;
+                if ($i == 1) {
+                    $arr['listid'] = $lst;
+                } else
+                    $arr['listid'] = $arr['listid'] . ',' . $lst;
+            }
+            if ($_POST['order_type'] == '0')
+                $arr['delivery_fee'] = 0.00;
+            else
+                $arr['delivery_fee'] = $_POST['delivery_fee'];
+             date_default_timezone_set('Canada/Eastern');
+            //$arr['order_time'] = date('Y-m-d H:i:s');
+            $arr['res_id'] = $_POST['res_id'];
+            $arr['subtotal'] = $_POST['subtotal'];
+            $arr['g_total'] = $_POST['g_total'];
+            $arr['tax'] = $_POST['tax'];
+            $arr['order_type'] = $_POST['order_type'];
+            
+            
+            $ord = TableRegistry::get('Reservations');
+            $att = $ord->newEntity($arr);
+            $ord->save($att);
+            echo $att->id;
+         
+        }
+        die();
+
     }
 }
 ?>

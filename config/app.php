@@ -2,7 +2,7 @@
 
 $debugmode = true;
 if (file_exists($_SERVER["DOCUMENT_ROOT"] . "debugmode.txt")){
-    $debugmode = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "debugmode.txt") == $_SERVER['REMOTE_ADDR'];
+    //$debugmode = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "debugmode.txt") == $_SERVER['REMOTE_ADDR'];
 }
 
 return [

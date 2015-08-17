@@ -10,7 +10,7 @@
       <strong><a href="shop-item.html">Watch Rolex Classic Rolex Classic Watch Rolex Classic Watch Rolex Classic </a></strong>
       <em class="total">$1230</em>
       <span class="amount" style="display:none;">1230</span>
-      <input type="hidden" class="menu_ids" name="menu_ids[]" value="11" />
+      <input type="hidden" class="menu_ids" name="menu_ids[]" value="1" />
       <input type="hidden" name="extras[]" value="Watch Rolex Classic Rolex Classic Watch Rolex Classic Watch Rolex Classic "/>
       <input type="hidden" name="listid[]" value="1" />
       <input type="hidden" class="prs" name="prs[]" value="1230" />
@@ -28,7 +28,7 @@
       <strong><a href="shop-item.html">Watch Rolex Classic </a></strong>
       <em class="total">$120</em>
       <span class="amount" style="display:none;">120</span>
-      <input type="hidden" class="menu_ids" name="menu_ids[]" value="11" />
+      <input type="hidden" class="menu_ids" name="menu_ids[]" value="1" />
       <input type="hidden" name="extras[]" value="Watch Rolex Classic "/>
       <input type="hidden" name="listid[]" value="2" />
       <input type="hidden" class="prs" name="prs[]" value="120" />
@@ -45,7 +45,7 @@
       <strong><a href="shop-item.html">Watch Rolex Classic </a></strong>
       <em class="total">$123</em>
       <span class="amount" style="display:none;">123</span>
-      <input type="hidden" class="menu_ids" name="menu_ids[]" value="11" />
+      <input type="hidden" class="menu_ids" name="menu_ids[]" value="1" />
       <input type="hidden" name="extras[]" value="Watch Rolex Classic "/>
       <input type="hidden" name="listid[]" value="3" />
       <input type="hidden" class="prs" name="prs[]" value="123" />

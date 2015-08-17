@@ -7,11 +7,13 @@ date_default_timezone_set('America/Toronto');
 <div class="form-group">
     <div class="col-xs-12">
         <h2><?php echo (isset($_GET['delivery']))?'Delivery':'Pickup';?> Detail</h2>
+        
     </div>
 </div>
 <form id="profiles">
 <div class="form-group">
     <div class="col-xs-12">
+    <input type="hidden" name="order_id" value="<?php echo $_GET['order_id'];?>" />
     <input type="text" style="padding-top: 0;margin-top: 0;" placeholder="Name" class="form-control  form-control--contact" name="ordered_by" id="fullname" required="">
     </div>                        
   </div>
@@ -32,7 +34,7 @@ date_default_timezone_set('America/Toronto');
   </div>
   <div class="form-group confirm_password" style="display: none;">
       <div class="col-xs-12">
-        <input type="password" id="confirm_password" name="conform_password" class="form-control  form-control--contact" placeholder="Confirm Password"   />
+        <input type="password" id="confirm_password" name="" class="form-control  form-control--contact" placeholder="Confirm Password"   />
       </div>
     <div class="clearfix"></div>
   </div>
@@ -40,8 +42,8 @@ date_default_timezone_set('America/Toronto');
   <div class="form-group">
       <div class="col-xs-12">
         
-        <select class="form-control  form-control--contact" name="ordered_on_time" id="ordered_on_time" required="">
-            <option>ASAP</option>
+        <select class="form-control  form-control--contact" name="order_till" id="ordered_on_time" required="">
+            <option value="ASAP">ASAP</option>
             <?php
             for($i=30;$i<570;$i=$i+30)
             {
@@ -131,7 +133,7 @@ $(function(){
     $('#profiles').submit(function(e){
             e.preventDefault();
             
-            var datas = $('#profiles input').serialize();
+            var datas = $('#profiles input, select, textarea').serialize();
             $.ajax({
                 type:'post',
                 url:'http://localhost/Foodie/users/ajax_register',

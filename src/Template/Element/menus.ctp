@@ -1673,21 +1673,23 @@ Nostrud duis molestie at dolore.</p>
         var ccc = 0;
         $('.total').each(function () {
             ccc++;
-            subtotal = Number(subtotal) + Number($(this).text());
+            var tt = $(this).text().replace('$','');
+            subtotal = Number(subtotal) + Number(tt);
         })
+        //alert(subtotal);
         //if (ccc > 3)
         // $('.orders').attr('style', 'display:block;height:260px;overflow-x:hidden;overflow-y:scroll;');
         subtotal = parseFloat(subtotal);
         //subtotal = Number(subtotal)+Number(price);
         subtotal = subtotal.toFixed(2);
-        $('span.subtotal').text(subtotal);
+        $('div.subtotal').text(subtotal);
         $('input.subtotal').val(subtotal);
 
         var tax = $('#tax').text();
         tax = parseFloat(tax);
         tax = (tax / 100) * subtotal;
         tax = tax.toFixed(2);
-        $('span.tax').text(tax);
+        $('div.tax').text(tax);
         $('input.tax').val(tax);
 
         var del_fee = $('.df').val();
@@ -1697,7 +1699,7 @@ Nostrud duis molestie at dolore.</p>
         var gtotal = Number(subtotal) + Number(tax) + Number(del_fee);
         gtotal = gtotal.toFixed(2);
 
-        $('span.grandtotal').text(gtotal);
+        $('div.grandtotal').text(gtotal);
         $('input.grandtotal').val(gtotal);
         $('.subitems_' + menu_id).find('input:checkbox, input:radio').each(function () {
             if (!$(this).hasClass('chk'))

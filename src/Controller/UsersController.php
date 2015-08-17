@@ -122,7 +122,16 @@ class UsersController extends AppController {
         $Password = $_POST['password'];
         $Phone = $_POST['contact'];
         $Name = $_POST['ordered_by'];
-        
+        $oid = $_POST['order_id'];
+        $arr['email'] = $_POST['email'];
+        $arr['address2'] = $_POST['address2'];
+        $arr['city'] = $_POST['city'];
+        $arr['ordered_by'] = $_POST['ordered_by'];
+        $arr['postal_code'] = $_POST['postal_code'];
+        $arr['remarks'] = $_POST['remarks'];
+        $arr['order_till'] = $_POST['order_till'];
+        $arr['province'] = $_POST['province'];
+        $arr['contact'] = $Phone;
         
         if($_POST['password']!='')
         {
@@ -133,6 +142,12 @@ class UsersController extends AppController {
              else
              {
                 $this->Manager->new_profile(0, $Name,$Password, 2, $EmailAddress, $Phone, 0, '0');
+                $resevations = TableRegistry::get('Reservations');
+                $query2 = $resevations->query();
+                    $query2->update()
+                    ->set($arr)
+                    ->where(['id' => $oid])
+                    ->execute();
                 $this->response->body('0');
                 
              }
@@ -140,6 +155,12 @@ class UsersController extends AppController {
         }
         else
         {
+            $resevations = TableRegistry::get('Reservations');
+            $query2 = $resevations->query();
+                    $query2->update()
+                    ->set($arr)
+                    ->where(['id' => $oid])
+                    ->execute();
             $this->response->body('0');
         }
          

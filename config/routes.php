@@ -54,6 +54,7 @@ Router::scope('/', function ($routes) {
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
     $routes->connect('/cuisine/*', ['controller' => 'Pages', 'action' => 'cuisine']);
+    $routes->connect('/restaurants/order_ajax', ['controller' => 'Restaurants', 'action' => 'order_ajax']);
 
     $routes->connect('/restaurants/employees', ['controller' => 'Restaurants', 'action' => 'employees']);
     $routes->connect('/restaurants/eventlog', ['controller' => 'Restaurants', 'action' => 'eventlog']);

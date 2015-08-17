@@ -29,12 +29,14 @@
                         <td><strong>Delivery
                             Fee&nbsp;</strong></td><td>&nbsp;$3.50
                             <input type="hidden" value="3.50" class="df" name="delivery_fee" />
-                            <input type="hidden" value="0" id="delivery_flag" />
+                            <input type="hidden" value="0" id="delivery_flag" name="order_type"  />
                         </td>
                     </tr>
                     <tr>
                         <td><strong>Total</strong>&nbsp;</td><td>&nbsp;$<div style="display: inline-block;" class="grandtotal">1664.49</div>
-                        <input type="hidden" name="g_total" class="grandtotal" value="1664.49"/></td>
+                        <input type="hidden" name="g_total" class="grandtotal" value="1664.49"/>
+                        <input type="hidden" name="res_id"  value="1"/>
+                        </td>
                     </tr>
                 </tbody></table>
             </div>
@@ -49,16 +51,27 @@
     function checkout()
     {
         var del = $('#delivery_flag').val();
-        if(del == '0')
-        {
-            $('.top-cart-content').load('<?php echo $this->request->webroot."common/profile.php";?>');
-        }
-        else
-        {
-
-            $('.top-cart-content').load('<?php echo $this->request->webroot."common/profile.php?delivery";?>');
-
-        }
+        var datas = $('.top-cart-content input').serialize();
+        $.ajax({
+            type:'post',
+            url:'<?php echo $this->request->webroot;?>restaurants/order_ajax',
+            data: datas,
+            success:function(id){
+                if(del == '0')
+                {
+                    
+                    $('.top-cart-content').load('<?php echo $this->request->webroot."common/profile.php?order_id=";?>'+id);
+                }
+                else
+                {
+        
+                    $('.top-cart-content').load('<?php echo $this->request->webroot."common/profile.php?delivery&order_id=";?>'+id);
+        
+                }
+            }
+            
+        })
+        
         
     }
     function delivery(t)
