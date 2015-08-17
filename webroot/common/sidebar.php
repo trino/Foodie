@@ -1,5 +1,5 @@
 <div class="sidebar col-md-3 col-sm-4">
-
+          use genres list instead
             <ul class="list-group margin-bottom-25 sidebar-menu">
               <li class="list-group-item clearfix"><a href="#"><i class="fa fa-angle-right"></i> American</a></li>
               <li class="list-group-item clearfix"><a href="#"><i class="fa fa-angle-right"></i> Asian</a></li>
@@ -37,7 +37,6 @@
               </li> --> <?php /*Commented out incase we need multi level*/?>
               <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Chinese</a></li>
               <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> German</a></li>
-              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Halal</a></li>
               <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Indian</a></li>
               <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Italian</a></li>
               <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Korean</a></li>
