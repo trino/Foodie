@@ -198,65 +198,13 @@ class RestaurantsController extends AppController {
     function order_ajax() {
         $this->layout = 'blank';
         if (isset($_POST['menu_ids']) && $_POST['menu_ids']) {
-            $i = 0;
-            foreach ($_POST['menu_ids'] as $menu_ids) {
-                $i++;
-                if ($i == 1) {
-                    $arr['menu_ids'] = $menu_ids;
-                } else {
-                    $arr['menu_ids'] = $arr['menu_ids'] . ',' . $menu_ids;
-                }
-            }
-
-            $i = 0;
-            foreach ($_POST['prs'] as $prs) {
-                //echo $prs;
-                $i++;
-                if ($i == 1) {
-                    $arr['prs'] = $prs;
-                } else {
-                    $arr['prs'] = $arr['prs'] . ',' . $prs;
-                }
-            }
-
-            $i = 0;
-            foreach ($_POST['qtys'] as $qtys) {
-                //echo $prs;
-                $i++;
-                if ($i == 1) {
-                    $arr['qtys'] = $qtys;
-                } else {
-                    $arr['qtys'] = $arr['qtys'] . ',' . $qtys;
-                }
-            }
-
-            $i = 0;
-            foreach ($_POST['extras'] as $extra) {
-                $extra = trim($extra);
-                $i++;
-                if ($i == 1) {
-                    $arr['extras'] = $extra;
-                } else {
-                    $arr['extras'] = $arr['extras'] . ',' . $extra;
-                }
-            }
-
-            $i = 0;
-            foreach ($_POST['listid'] as $lst) {
-                $lst = trim($lst);
-                $i++;
-                if ($i == 1) {
-                    $arr['listid'] = $lst;
-                } else {
-                    $arr['listid'] = $arr['listid'] . ',' . $lst;
-                }
-            }
-
-            if ($_POST['order_type'] == '0')
-                $arr['delivery_fee'] = 0.00;
-            else {
-                $arr['delivery_fee'] = $_POST['delivery_fee'];
-            }
+            $arr['menu_ids'] = implode(",", $_POST['menu_ids']);
+            $arr['prs'] = implode(",", $_POST['prs']);
+            $arr['qtys'] = implode(",", $_POST['qtys']);
+            $arr['extras'] = implode(",", $_POST['extras']);
+            $arr['listid'] = impode(",", $_POST['listid']);
+            if ($_POST['order_type'] == '0'){ $_POST['order_type'] = "0.00";}
+            $arr['delivery_fee'] = $_POST['delivery_fee'];
 
              date_default_timezone_set('Canada/Eastern');
             //$arr['order_time'] = date('Y-m-d H:i:s');
@@ -265,13 +213,12 @@ class RestaurantsController extends AppController {
             $arr['g_total'] = $_POST['g_total'];
             $arr['tax'] = $_POST['tax'];
             $arr['order_type'] = $_POST['order_type'];
-            
-            
+
+            //convert to a Manager API call
             $ord = TableRegistry::get('Reservations');
             $att = $ord->newEntity($arr);
             $ord->save($att);
             echo $att->id;
-         
         }
         die();
     }

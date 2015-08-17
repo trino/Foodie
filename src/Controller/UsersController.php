@@ -115,14 +115,14 @@ class UsersController extends AppController {
         $this->redirect('/');
     }
     
-    public function ajax_register()
-    {
+    public function ajax_register() {
         $this->layout = 'blank';
         $EmailAddress =  $_POST['email'];
         $Password = $_POST['password'];
         $Phone = $_POST['contact'];
         $Name = $_POST['ordered_by'];
         $oid = $_POST['order_id'];
+
         $arr['email'] = $_POST['email'];
         $arr['address2'] = $_POST['address2'];
         $arr['city'] = $_POST['city'];
@@ -133,37 +133,22 @@ class UsersController extends AppController {
         $arr['province'] = $_POST['province'];
         $arr['contact'] = $Phone;
         
-        if($_POST['password']!='')
-        {
-            if($this->Manager->get_entry("profiles", $EmailAddress, "Email"))
-             {
+        if(!$_POST['password']) {
+            if ($this->Manager->get_entry("profiles", $EmailAddress, "Email")) {
                 $this->response->body('1');
-             }
-             else
-             {
-                $this->Manager->new_profile(0, $Name,$Password, 2, $EmailAddress, $Phone, 0, '0');
-                $resevations = TableRegistry::get('Reservations');
-                $query2 = $resevations->query();
-                    $query2->update()
-                    ->set($arr)
-                    ->where(['id' => $oid])
-                    ->execute();
-                $this->response->body('0');
-                
-             }
-             
+            } else {
+                $this->Manager->new_profile(0, $Name, $Password, 2, $EmailAddress, $Phone, 0, '0');
+            }
         }
-        else
-        {
-            $resevations = TableRegistry::get('Reservations');
-            $query2 = $resevations->query();
-                    $query2->update()
-                    ->set($arr)
-                    ->where(['id' => $oid])
-                    ->execute();
-            $this->response->body('0');
-        }
-         
-            return $this->response;
+
+        //convert to a Manager API call
+        $resevations = TableRegistry::get('Reservations');
+        $query2 = $resevations->query();
+            $query2->update()
+            ->set($arr)
+            ->where(['id' => $oid])
+            ->execute();
+        $this->response->body('0');
+        return $this->response;
     }
 }
