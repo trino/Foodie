@@ -48,9 +48,7 @@
                         break;
                     case "subscribe":
                         $Controller->loadComponent("Mailer");
-                        $this->add_subscriber($_POST["email"]);
-                        $this->add_subscriber($_POST["email"]);
-                        $Controller->Flash->success($_POST["email"] . " please check your email to confirm your subscription");
+                        $this->status($this->add_subscriber($_POST["email"]),  "please check your email to confirm your subscription", "Unable to add that address");
                         break;
                     case "signup":
                         if ($_POST["Password"] == $_POST["Confirm-Password"]) {
@@ -228,7 +226,7 @@
             //filter_var can also validate: FILTER_VALIDATE_IP FILTER_VALIDATE_INT FILTER_VALIDATE_BOOLEAN FILTER_VALIDATE_URL FILTER_SANITIZE_STRING
             //flags FILTER_NULL_ON_FAILURE FILTER_FLAG_PATH_REQUIRED FILTER_FLAG_STRIP_LOW FILTER_FLAG_STRIP_HIGH
             $EmailAddress = strtolower(trim($EmailAddress));
-            if (filter_var($EmailAddress, FILTER_VALIDATE_EMAIL)) {
+            if ($EmailAddress && filter_var($EmailAddress, FILTER_VALIDATE_EMAIL)) {
                 return $EmailAddress;
             }
         }
@@ -308,7 +306,7 @@
             return $this->get_entry("profiles_addresses", $ID);
         }
         function edit_profile_address($ID, $UserID, $Name, $Phone, $Number, $Street, $Apt, $Buzz, $City, $Province, $PostalCode, $Country, $Notes){
-            $Data = array("UserID" => $UserID, "Name" => $Name, "Phone" => $this->cleanphone($Phone), "Number" => $Number, "Street" => $Street, "Apt" => $Apt, "Buzz" => $Buzz, "City" => $City, "Province" => $Province, "PostalCode" => $PostalCode, "Country" =>$Country, "Notes" =>$Notes);
+            $Data = array("UserID" => $UserID, "Name" => $Name, "Phone" => $this->cleanphone($Phone), "Number" => $Number, "Street" => $Street, "Apt" => $Apt, "Buzz" => $Buzz, "City" => $City, "Province" => $Province, "PostalCode" => $this->cleanpostalcode($PostalCode), "Country" =>$Country, "Notes" =>$Notes);
             return $this->edit_database("profiles_addresses", "ID", $ID, $Data);
         }
 
@@ -322,19 +320,19 @@
         ////////////////////////////////////Newsletter API//////////////////////////////////
         function add_subscriber($EmailAddress, $authorized = false){
             $EmailAddress = strtolower(trim($EmailAddress));
-            $Entry = $this->get_entry("newsletter", $EmailAddress, "Email");
-            if ($Entry){
-                if (!$Entry->GUID){
-                    return true;
+            if($this->is_valid_email($EmailAddress)) {
+                $Entry = $this->get_entry("newsletter", $EmailAddress, "Email");
+                if ($Entry) {
+                    if (!$Entry->GUID) { return true; }
+                    $GUID = $Entry->GUID;
+                    $this->update_database("newsletter", "ID", $Entry->ID, array("GUID" => $GUID));
+                } else {
+                    $GUID = com_create_guid();
+                    $this->new_entry("newsletter", "ID", array("GUID" => $GUID, "Email" => $EmailAddress));
                 }
-                $GUID = $Entry->GUID;
-                $this->update_database("newsletter", "ID", $Entry->ID, array("GUID" => $GUID));
-            } else {
-                $GUID = com_create_guid();
-                $this->new_entry("newsletter", "ID", array("GUID" => $GUID, "Email" => $EmailAddress));
+                $path = '<A HREF="' . "localhost/Foodie/" . "cuisine?action=subscribe&key=" . $GUID . '">Click here to finish registration</A>';
+                return $this->Controller->Mailer->sendEmail($EmailAddress, "Subscribe", $path);
             }
-            $path = '<A HREF="' . "localhost/Foodie/" . "cuisine?action=subscribe&key=" . $GUID . '">Click here to finish registration</A>';
-            return $this->Controller->Mailer->sendEmail($EmailAddress,"Subscribe", $path);
         }
 
         function remove_subscriber($EmailAddress){
@@ -407,6 +405,17 @@
             //add a check to be sure only the first digit is a +
             return $Phone;
         }
+        function cleanpostalcode($PostalCode){
+            $PostalCode = str_replace(" ", "", strtoupper(trim($PostalCode)));
+            if($this->validateCanadaZip($PostalCode)){
+                $delimeter = "";//" "
+                return $this->left($PostalCode, 3) . $delimeter . $this->right($PostalCode, 3);
+            }
+        }
+        function validateCanadaZip($PostalCode)  {//function by Roshan Bhattara(http://roshanbh.com.np)
+            return preg_match("/^([a-ceghj-npr-tv-z]){1}[0-9]{1}[a-ceghj-npr-tv-z]{1}[0-9]{1}[a-ceghj-npr-tv-z]{1}[0-9]{1}$/i", $PostalCode);
+        }
+
         function blank_restaurant(){
             $Restaurant = (object) ['ID' => 0, 'Name' => '', 'Email' => '', 'Phone' => '', 'Address' => '', 'PostalCode' => '', 'City' => 'HAMILTON', 'Province' => 'ON', 'Country' => 'Canada', 'Genre' => 0, 'Hours' => array(), 'DeliveryFee' => 0, 'Minimum' => 0, 'Description' => ''];
             return $Restaurant;
@@ -424,6 +433,7 @@
                 $ID = $this->new_anything("restaurants", $Name);
             }
             $C = ', ';
+            $PostalCode = $this->cleanpostalcode($PostalCode);
             $this->logevent("Edited restaurant: " . $Name .$C. $GenreID .$C. $Email .$C. $this->cleanphone($Phone) .$C. $Address .$C. $City .$C. $Province .$C. $Country .$C. $PostalCode .$C. $Description .$C. $DeliveryFee .$C. $Minimum);
             $data = array("Name" => $Name, "Genre" => $GenreID, "Email" => $Email, "Phone" => $this->cleanphone($Phone), "Address" => $Address, "City" => $City, "Province" => $Province, "Country" => $Country, "PostalCode" => $PostalCode, "Description" => $Description, "DeliveryFee" => $DeliveryFee, "Minimum" => $Minimum);
             $this->update_database("restaurants", "ID", $ID, $data);
