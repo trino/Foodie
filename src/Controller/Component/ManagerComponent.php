@@ -52,7 +52,7 @@
                         break;
                     case "signup":
                         if ($_POST["Password"] == $_POST["Confirm-Password"]) {
-                            $_POST["Email"] = strtolower(trim($_POST["Email"]));
+                            $_POST["Email"] = $this->clean_email($_POST["Email"]);
                             if ($this->get_entry("profiles", $_POST["Email"], "Email")){
                                 $Controller->Flash->error("Email address is in use already");
                             } else {
@@ -175,7 +175,7 @@
         }
 
         function is_email_in_use($EmailAddress, $NotByUserID=0){
-            $EmailAddress = strtolower(trim($EmailAddress));
+            $EmailAddress = $this->clean_email($EmailAddress);
             if($NotByUserID) {
                 return TableRegistry::get('profiles')->find('all')->where(["Email" => $EmailAddress, "ID !=" => $NotByUserID])->first();
             } else {
@@ -225,7 +225,7 @@
             //http://php.net/manual/en/function.filter-var.php
             //filter_var can also validate: FILTER_VALIDATE_IP FILTER_VALIDATE_INT FILTER_VALIDATE_BOOLEAN FILTER_VALIDATE_URL FILTER_SANITIZE_STRING
             //flags FILTER_NULL_ON_FAILURE FILTER_FLAG_PATH_REQUIRED FILTER_FLAG_STRIP_LOW FILTER_FLAG_STRIP_HIGH
-            $EmailAddress = strtolower(trim($EmailAddress));
+            $EmailAddress = $this->clean_email($EmailAddress);
             if ($EmailAddress && filter_var($EmailAddress, FILTER_VALIDATE_EMAIL)) {
                 return $EmailAddress;
             }
@@ -233,7 +233,7 @@
 
         function new_profile($CreatedBy, $Name, $Password, $ProfileType, $EmailAddress, $Phone, $RestaurantID, $Subscribed = ""){
             $EmailAddress = $this->is_valid_email($EmailAddress);
-            $Phone=$this->cleanphone($Phone);
+            $Phone=$this->clean_phone($Phone);
             if(!$EmailAddress){return false;}
             if($this->get_entry("profiles", $EmailAddress, "Email")){return false;}
             if(!$Password){$Password=$this->randomPassword();}
@@ -255,7 +255,7 @@
         }
 
         function edit_profile($ID, $Name, $EmailAddress, $Phone, $Password, $Subscribed = 0, $ProfileType = 0){
-            $data = array("Name" => trim($Name), "Email" => strtolower(trim($EmailAddress)), "Phone" => $this->cleanphone($Phone), "Subscribed" => $Subscribed);
+            $data = array("Name" => trim($Name), "Email" => $this->clean_email($EmailAddress), "Phone" => $this->clean_phone($Phone), "Subscribed" => $Subscribed);
             if($Password){
                 $data["Password"] = md5($Password . $this->salt());
             }
@@ -268,7 +268,7 @@
 
         function find_profile($EmailAddress, $Password){
             //echo $this->salt();die();
-            $EmailAddress = strtolower(trim($EmailAddress));
+            $EmailAddress = $this->clean_email($EmailAddress);
             $Password = md5($Password . $this->salt());
             return $this->enum_all("profiles", array("Email" => $EmailAddress, "Password" => $Password))->first();
         }
@@ -286,7 +286,7 @@
         }
 
         function forgot_password($Email){
-            $Email = strtolower(trim($Email));
+            $Email = $this->clean_email($Email);
             $Profile = $this->get_entry("profiles", $Email, "Email");
             if ($Profile){
                 $Password = $this->randomPassword();
@@ -306,7 +306,7 @@
             return $this->get_entry("profiles_addresses", $ID);
         }
         function edit_profile_address($ID, $UserID, $Name, $Phone, $Number, $Street, $Apt, $Buzz, $City, $Province, $PostalCode, $Country, $Notes){
-            $Data = array("UserID" => $UserID, "Name" => $Name, "Phone" => $this->cleanphone($Phone), "Number" => $Number, "Street" => $Street, "Apt" => $Apt, "Buzz" => $Buzz, "City" => $City, "Province" => $Province, "PostalCode" => $this->cleanpostalcode($PostalCode), "Country" =>$Country, "Notes" =>$Notes);
+            $Data = array("UserID" => $UserID, "Name" => $Name, "Phone" => $this->clean_phone($Phone), "Number" => $Number, "Street" => $Street, "Apt" => $Apt, "Buzz" => $Buzz, "City" => $City, "Province" => $Province, "PostalCode" => $this->clean_postalcode($PostalCode), "Country" =>$Country, "Notes" =>$Notes);
             return $this->edit_database("profiles_addresses", "ID", $ID, $Data);
         }
 
@@ -319,7 +319,7 @@
 
         ////////////////////////////////////Newsletter API//////////////////////////////////
         function add_subscriber($EmailAddress, $authorized = false){
-            $EmailAddress = strtolower(trim($EmailAddress));
+            $EmailAddress = $this->clean_email($EmailAddress);
             if($this->is_valid_email($EmailAddress)) {
                 $Entry = $this->get_entry("newsletter", $EmailAddress, "Email");
                 $GUID="";
@@ -337,11 +337,11 @@
         }
 
         function remove_subscriber($EmailAddress){
-            $EmailAddress = strtolower(trim($EmailAddress));
+            $EmailAddress = $this->clean_email($EmailAddress);
             $this->delete_all("newsletter", array("Email" => $EmailAddress));
         }
         function is_subscribed($EmailAddress){
-            $EmailAddress = strtolower(trim($EmailAddress));
+            $EmailAddress = $this->clean_email($EmailAddress);
             return $this->get_entry("newsletter", $EmailAddress, "Email");
         }
         function finish_subscription($Key){
@@ -354,7 +354,7 @@
         }
 
         function set_subscribed($EmailAddress, $Status){
-            $EmailAddress = strtolower(trim($EmailAddress));
+            $EmailAddress = $this->clean_email($EmailAddress);
             $is_subscribed = $this->is_subscribed($EmailAddress);
             if($is_subscribed != $Status){
                 if($Status){
@@ -402,12 +402,15 @@
 
 
         //////////////////////////////////////Restaurant API/////////////////////////////////
-        function cleanphone($Phone){
+        function clean_phone($Phone){
             $Phone = $this->kill_non_numeric($Phone, "+");
             //add a check to be sure only the first digit is a +
             return $Phone;
         }
-        function cleanpostalcode($PostalCode){
+        function clean_email($Email){
+            return strtolower(trim($Email));
+        }
+        function clean_postalcode($PostalCode){
             $PostalCode = str_replace(" ", "", strtoupper(trim($PostalCode)));
             if($this->validateCanadaZip($PostalCode)){
                 $delimeter = "";//" "
@@ -435,9 +438,9 @@
                 $ID = $this->new_anything("restaurants", $Name);
             }
             $C = ', ';
-            $PostalCode = $this->cleanpostalcode($PostalCode);
-            $this->logevent("Edited restaurant: " . $Name .$C. $GenreID .$C. $Email .$C. $this->cleanphone($Phone) .$C. $Address .$C. $City .$C. $Province .$C. $Country .$C. $PostalCode .$C. $Description .$C. $DeliveryFee .$C. $Minimum);
-            $data = array("Name" => $Name, "Genre" => $GenreID, "Email" => $Email, "Phone" => $this->cleanphone($Phone), "Address" => $Address, "City" => $City, "Province" => $Province, "Country" => $Country, "PostalCode" => $PostalCode, "Description" => $Description, "DeliveryFee" => $DeliveryFee, "Minimum" => $Minimum);
+            $PostalCode = $this->clean_postalcode($PostalCode);
+            $this->logevent("Edited restaurant: " . $Name .$C. $GenreID .$C. $Email .$C. $this->clean_phone($Phone) .$C. $Address .$C. $City .$C. $Province .$C. $Country .$C. $PostalCode .$C. $Description .$C. $DeliveryFee .$C. $Minimum);
+            $data = array("Name" => $Name, "Genre" => $GenreID, "Email" => $Email, "Phone" => $this->clean_phone($Phone), "Address" => $Address, "City" => $City, "Province" => $Province, "Country" => $Country, "PostalCode" => $PostalCode, "Description" => $Description, "DeliveryFee" => $DeliveryFee, "Minimum" => $Minimum);
             $this->update_database("restaurants", "ID", $ID, $data);
             return $ID;
         }
