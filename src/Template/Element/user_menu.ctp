@@ -27,6 +27,7 @@
                                     listitems($this->request->webroot, "Administrator", "", array(
                                           "Users" => "restaurants/employees",
                                           "Restaurants" => "restaurants/restaurants",
+                                          "Newsletter" => "restaurants/newsletter"
                                     ));
                                     echo '<hr class="shop__divider">';
                               }

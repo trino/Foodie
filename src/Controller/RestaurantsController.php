@@ -159,7 +159,6 @@ class RestaurantsController extends AppController {
 
     function restaurants(){
         $this->layout='admin';
-
         if (isset($_GET["action"])) {
             if ($this->Manager->check_permission("CanEditGlobalSettings")) {
                 $Restaurant = $_GET["ID"];
@@ -178,62 +177,87 @@ class RestaurantsController extends AppController {
             }
         }
     }
+
+    function newsletter(){
+        $this->layout='admin';
+        $subscribers =  $this->Manager->enum_subscribers();
+        $this->set("Subscribers", $subscribers);
+        if (isset($_POST["action"]) && count($subscribers)){
+            $this->loadComponent("Mailer");
+            foreach($subscribers as $Email) {
+                $this->Mailer->sendEmail($Email, $_POST["subject"], $_POST["newsletter"]);
+            }
+            $this->Flash->success(count($subscribers) .  " were emailed");
+        }
+    }
+
+
+
+
     
-    function order_ajax()
-    {
+    function order_ajax() {
         $this->layout = 'blank';
-        
-        if (isset($_POST['menu_ids']) && $_POST['menu_ids'])
-        {
-            
+        if (isset($_POST['menu_ids']) && $_POST['menu_ids']) {
             $i = 0;
             foreach ($_POST['menu_ids'] as $menu_ids) {
                 $i++;
                 if ($i == 1) {
                     $arr['menu_ids'] = $menu_ids;
-                } else
+                } else {
                     $arr['menu_ids'] = $arr['menu_ids'] . ',' . $menu_ids;
+                }
             }
+
             $i = 0;
             foreach ($_POST['prs'] as $prs) {
                 //echo $prs;
                 $i++;
                 if ($i == 1) {
                     $arr['prs'] = $prs;
-                } else
+                } else {
                     $arr['prs'] = $arr['prs'] . ',' . $prs;
+                }
             }
+
             $i = 0;
             foreach ($_POST['qtys'] as $qtys) {
                 //echo $prs;
                 $i++;
                 if ($i == 1) {
                     $arr['qtys'] = $qtys;
-                } else
+                } else {
                     $arr['qtys'] = $arr['qtys'] . ',' . $qtys;
+                }
             }
+
             $i = 0;
             foreach ($_POST['extras'] as $extra) {
                 $extra = trim($extra);
                 $i++;
                 if ($i == 1) {
                     $arr['extras'] = $extra;
-                } else
+                } else {
                     $arr['extras'] = $arr['extras'] . ',' . $extra;
+                }
             }
+
             $i = 0;
             foreach ($_POST['listid'] as $lst) {
                 $lst = trim($lst);
                 $i++;
                 if ($i == 1) {
                     $arr['listid'] = $lst;
-                } else
+                } else {
                     $arr['listid'] = $arr['listid'] . ',' . $lst;
+                }
             }
+
             if ($_POST['order_type'] == '0')
                 $arr['delivery_fee'] = 0.00;
-            else
+            else {
                 $arr['delivery_fee'] = $_POST['delivery_fee'];
+            }
+
              date_default_timezone_set('Canada/Eastern');
             //$arr['order_time'] = date('Y-m-d H:i:s');
             $arr['res_id'] = $_POST['res_id'];
@@ -250,7 +274,6 @@ class RestaurantsController extends AppController {
          
         }
         die();
-
     }
 }
 ?>

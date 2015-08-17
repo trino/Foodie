@@ -330,7 +330,7 @@
                     $GUID = com_create_guid();
                     $this->new_entry("newsletter", "ID", array("GUID" => $GUID, "Email" => $EmailAddress));
                 }
-                $path = '<A HREF="' . "localhost/Foodie/" . "cuisine?action=subscribe&key=" . $GUID . '">Click here to finish registration</A>';
+                $path = '<A HREF="' . $this->Controller->request->webroot . "cuisine?action=subscribe&key=" . $GUID . '">Click here to finish registration</A>';
                 return $this->Controller->Mailer->sendEmail($EmailAddress, "Subscribe", $path);
             }
         }
