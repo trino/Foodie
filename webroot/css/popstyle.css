@@ -40,6 +40,7 @@
 
 .subin.btn.default.btnxx.col-xs-12.col-md-6 {
     text-align: left !important;
+    background-color: #f9f9f9 !important;
 }
 
 .infolist .limit-options {
@@ -57,6 +58,7 @@
 
 .list div {
     margin-bottom: 3px;
+   background-color: #f9f9f9 !important;    
 }
 
 .add_menu_profile.add_end {
@@ -86,6 +88,24 @@
   -moz-transition: all 0.7s ease-in-out;
   -o-transition: all 0.7s ease-in-out;
   transition: all 0.7s ease-in-out;
+}
+
+.add-minus-btn > div {
+   background: #fff none repeat scroll 0 0;
+    border: 1px solid #8c8c8c;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    margin: 0 -4px;
+    text-align: center;
+    vertical-align: middle;
+    width: 70px;
+    border-left: none;
+    border-right:none;
+}
+
+.product-pop-up .btn-primary {
+    margin-right: 0 !important;
 }
 
 .add-minus-btn .minus {

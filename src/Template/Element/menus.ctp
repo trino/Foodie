@@ -212,7 +212,8 @@
     $(function () {
         $('.modal').on('shown.bs.modal', function () {
             $('input:text:visible:first', this).focus();
-        })
+        });
+        /*
         $('.buttons').click(function () {
 
             var tit = $(this).attr('title');
@@ -430,7 +431,7 @@
             $(this).parent().parent().find('.nxt_button').show();
 
         });
-    });
+   */
     $('.clearall , .close').click(function () {
 
         var menu = $(this).attr('id');
@@ -696,11 +697,14 @@
 
         //alert("price:"+price+"title:"+app_title);
         var pre_cnt = $('#list' + ids).find('.count').text();
+        pre_cnt = Number(pre_cnt.replace('x ',''));
+        var n= $('.number'+menu_id).text();
         if (pre_cnt != "")
-            pre_cnt = Number(pre_cnt) + Number(1);
+            pre_cnt = Number(pre_cnt) + Number(n);
         else
-            pre_cnt = 1;
+            pre_cnt = Number(n);
         var img = $('.popimage_' + menu_id).attr('src');
+        //price = price*pre_cnt;
         $('#list' + ids).remove();
         $('.orders').prepend('<li id="list' + ids + '" class="infolist" ></li>');
         $('#list' + ids).html('<span class="receipt_image"><img src="' + img + '" width="37" height="34">' +
@@ -710,10 +714,10 @@
                 //'<span class="cart-content-count">x '+pre_cnt+'</span>'+
             '<span class="amount" style="display:none;">' + price.toFixed(2) + '</span>' +
             '<strong>' + app_title + '</strong>' +
-            '<em class="total">$' + price.toFixed(2) + '</em>' +
+            '<em class="total">$' + (pre_cnt*price).toFixed(2) + '</em>' +
             '<input type="hidden" class="menu_ids" name="menu_ids[]" value="' + menu_id + '" />' +
             '<input type="hidden" name="extras[]" value="' + dbtitle + '"/><input type="hidden" name="listid[]" value="' + ids + '" />' +
-            '<input type="hidden" class="prs" name="prs[]" value="' + price.toFixed(2) + '" />' +
+            '<input type="hidden" class="prs" name="prs[]" value="' + (pre_cnt*price).toFixed(2) + '" />' +
             '<a href="javascript:void(0);" class="del-goods" onclick="$(this).parent().remove()">&nbsp;</a>');
         /*$('#list' + ids).html('<div><span class="namemenu">' + app_title + '</span></div>' +
          '<div style="float:left;width:50%;"><a style="padding: 6px;height: 18px;line-height: 6px" id="dec' + ids + '" class="decrease small btn btn-danger" href="javascript:void(0);">' +
@@ -764,12 +768,12 @@
             if (!$(this).hasClass('chk'))
                 $(this).removeAttr("checked");
         });
-
-        $('#clear_' + menu_id).click();
-
+        $('.number'+menu_id).text('1');
+        //$('#clear_' + menu_id).click();
+        $('.fancybox-close').click();
         //$('.subitems_'+menu_id).hide();
     });
-
+ });
 
     function inArray(needle, haystack) {
         var length = haystack.length;

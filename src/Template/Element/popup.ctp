@@ -1,5 +1,3 @@
-
-
 <div id="product-pop-up" style="display: none; width: 500px;">
 
     <div class="product-page product-pop-up">
@@ -65,8 +63,8 @@
                                                     <button style="border-radius: 17px!important;"
                                                             class="btn btn-primary">A
                                                     </button>
-                                                    <input type="radio" id="extra_5050" title="5050_&lt;br/&gt;(A) Tea_0_Choose Type"
-                                                           class="extra-154" name="extra_154" value=""/>
+                                                    <input type="radio" id="extra_5050" title="5050_<br/> Tea_0_Choose Type"
+                                                           class="extra-154" name="extra_154" value="post"/>
                                                     &nbsp;&nbsp;Tea <b style="display:none;">
                                                     </b></a><b style="display:none;"><a onclick=""
                                                                                         style="text-decoration: none; color: #000;"
@@ -94,7 +92,7 @@
                                                             class="btn btn-primary">B
                                                     </button>
                                                     <input type="radio" id="extra_5051"
-                                                           title="5051_&lt;br/&gt;(B) Milk Tea_0_Choose Type"
+                                                           title="5051_<br/> Milk Tea_0_Choose Type"
                                                            class="extra-154" name="extra_154" value=""
                                                           />
                                                     &nbsp;&nbsp;Milk Tea <b style="display:none;">
@@ -127,7 +125,7 @@
 
                                 <div style="" class="infolist col-xs-12">
                                     <div style="display: none;">
-                                        <input type="checkbox" value="&lt;br/&gt; Add Toppings" title="___" id="159"
+                                        <input type="checkbox" value="<br/> Add Toppings" title="___" id="159"
                                                style="display: none;" checked="checked" class="chk">
                                     </div>
                                     <a href="javascript:void(0);"><strong>Add Toppings</strong></a>
@@ -152,7 +150,7 @@
                                                             class="btn btn-primary">A
                                                     </button>
                                                     <input type="checkbox" id="extra_5066"
-                                                           title="5066_&lt;br/&gt;(A) Lychee Jelly_0.48_Add Toppings"
+                                                           title="5066_<br/> Lychee Jelly_0.48_Add Toppings"
                                                            class="extra-159 spanextra_5066" style=""
                                                            name="extra" value="">
                                                     &nbsp;&nbsp;Lychee Jelly (+ $0.48)
@@ -182,7 +180,7 @@
                                                             class="btn btn-primary">B
                                                     </button>
                                                     <input type="checkbox" id="extra_5067"
-                                                           title="5067_&lt;br/&gt;(B) Aloe Vera Jelly_0.48_Add Toppings"
+                                                           title="5067_<br/> Aloe Vera Jelly_0.48_Add Toppings"
                                                            class="extra-159 spanextra_5067" style=""
                                                            name="extra" value="">
                                                     &nbsp;&nbsp;Aloe Vera Jelly (+ $0.48)
@@ -212,7 +210,7 @@
                                                             class="btn btn-primary">C
                                                     </button>
                                                     <input type="checkbox" id="extra_5068"
-                                                           title="5068_&lt;br/&gt;(C) Green Apple Jelly_0.48_Add Toppings"
+                                                           title="5068_<br/> Green Apple Jelly_0.48_Add Toppings"
                                                            class="extra-159 spanextra_5068" style=""
                                                            name="extra" value="">
                                                     &nbsp;&nbsp;Green Apple Jelly (+ $0.48)
@@ -242,7 +240,7 @@
                                                             class="btn btn-primary">D
                                                     </button>
                                                     <input type="checkbox" id="extra_5069"
-                                                           title="5069_&lt;br/&gt;(D) Strawberry Jelly_0.48_Add Toppings"
+                                                           title="5069_<br/> Strawberry Jelly_0.48_Add Toppings"
                                                            class="extra-159 spanextra_5069" style=""
                                                            name="extra" value="">
                                                     &nbsp;&nbsp;Strawberry Jelly (+ $0.48)
@@ -272,7 +270,7 @@
                                                             class="btn btn-primary">E
                                                     </button>
                                                     <input type="checkbox" id="extra_5070"
-                                                           title="5070_&lt;br/&gt;(E) Tapioca_0.48_Add Toppings"
+                                                           title="5070_<br/> Tapioca_0.48_Add Toppings"
                                                            class="extra-159 spanextra_5070" style=""
                                                            name="extra" value="">
                                                     &nbsp;&nbsp;Tapioca (+ $0.48)
@@ -302,7 +300,7 @@
                                                             class="btn btn-primary">F
                                                     </button>
                                                     <input type="checkbox" id="extra_5071"
-                                                           title="5071_&lt;br/&gt;(F) Mango Jelly_0.48_Add Toppings"
+                                                           title="5071_<br/> Mango Jelly_0.48_Add Toppings"
                                                            class="extra-159 spanextra_5071" style=""
                                                            name="extra" value="">
                                                     &nbsp;&nbsp;Mango Jelly (+ $0.48)
@@ -332,7 +330,7 @@
                                                             class="btn btn-primary">G
                                                     </button>
                                                     <input type="checkbox" id="extra_5072"
-                                                           title="5072_&lt;br/&gt;(G) Grass Jelly_0.48_Add Toppings"
+                                                           title="5072_<br/> Grass Jelly_0.48_Add Toppings"
                                                            class="extra-159 spanextra_5072" style=""
                                                            name="extra" value="">
                                                     &nbsp;&nbsp;Grass Jelly (+ $0.48)
@@ -362,23 +360,23 @@
                 <div class="clearfix"></div>
                 <div style="line-height:45px;" class="col-xs-12 add-btn">
                 <div class="add-minus-btn" style="float:left;">
-                   <a class="btn btn-primary minus" href="javascript:void(0);">-</a>
-                   <div class="number">1</div>
-                   <a class="btn btn-primary add" href="javascript:void(0);">+</a>
+                   <a class="btn btn-primary minus" href="javascript:void(0);" onclick="changeqty('4776','minus')">-</a>
+                   <div class="number4776">1</div>
+                   <a class="btn btn-primary add" href="javascript:void(0);" onclick="changeqty('4776','plus')">+</a>
 
                     
                 </div>
 
                     <a style="float: right; margin-left: 10px;" id="profilemenu4776"
                        class="btn btn-primary add_menu_profile add_end" href="javascript:void(0);">Add</a>
-
-                   <!-- &nbsp;<a style="float: right;margin-left:10px;" id="clear_4776" class="btn btn-danger  clearall"
-                             href="javascript:void(0);">CLOSE</a>&nbsp; &nbsp;
                      <button id="clear_4776"
-                            style="opacity: 1; text-shadow:none;margin-left: 10px;float: right;margin-left: 10px;"
+                            style="opacity: 1; text-shadow:none;margin-left: 10px;float: right;margin-left: 10px;display:none;"
                             data-dismiss="modal" class="btn btn-warning resetslider" type="button">
                         RESET
                     </button>
+                   <!-- &nbsp;<a style="float: right;margin-left:10px;" id="clear_4776" class="btn btn-danger  clearall"
+                             href="javascript:void(0);">CLOSE</a>&nbsp; &nbsp;
+                    
                     &nbsp;
                     <a title="1" class="nxt_button btn btn-primary" href="javascript:void(0);"
                        style="float: right; display: block;">Next</a>
@@ -394,3 +392,20 @@
         </div>
     </div>
 </div>
+<script>
+function changeqty(id,opr)
+{
+        var num = Number($('.number'+id).text());
+        if(num=='1')
+        {
+            if(opr=='plus')
+            num++;
+            
+        }
+        else
+        {
+            (opr == 'plus')?num++:--num;   
+        }
+        $('.number'+id).text(num);
+}
+</script>
