@@ -34,12 +34,16 @@ function ajaxuploadbtn(button_id, doc) {
                 },
                 onComplete: function (file, response) {
                         //alert(response);
+                        var resp = response.split('___');
+                        var path = resp[0];
+                        var img = resp[1];
                         button.html('Browse');
                     
                     window.clearInterval(interval);
                     this.enable();
                     
-                        $("."+button_id.replace('newbrowse','menuimg')).html('<img src="'+response+'" />');
+                        $("."+button_id.replace('newbrowse','menuimg')).html('<img src="'+path+'" /><input type="hidden" class="hiddenimg" value="'+img+'" />');
+                        $("."+button_id.replace('newbrowse','menuimg')).attr('style','min-height:0px!important;')
                         //$('#client_img').val(response);
                     
 //$('.flashimg').show();

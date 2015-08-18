@@ -4,6 +4,8 @@ namespace App\Controller;
 use Cake\Core\Configure;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
+use Cake\Controller\Component;
+use Cake\ORM\TableRegistry;
 class MenusController extends AppController {
     function menu_form() {
         $this->layout = 'blank';
@@ -20,10 +22,10 @@ class MenusController extends AppController {
             $arr = explode('.', $name);
             $ext = end($arr);
             $file = date('YmdHis') . '.' . $ext;
-            move_uploaded_file($_FILES['myfile']['tmp_name'], APP . '../webroot//img/products/' . $file);
-            $file = $this->request->webroot . '/img/products/' . $file;
+            move_uploaded_file($_FILES['myfile']['tmp_name'], APP . '../webroot/img/products/' . $file);
+            $file_path = $this->request->webroot . 'img/products/' . $file;
             //$this->resize($file, array("300x300", "150x150"), true);
-            echo $file;
+            echo $file_path.'___'.$file;
             die();
         }
     }
@@ -41,5 +43,41 @@ class MenusController extends AppController {
             $newfile = $this->Image->getfilename($file) . '-' . $sizes . "." . $this->getextension($file);
             return $this->Image->make_thumb($file, $newfile, $newsize[0], $newsize[1], $CropToFit);
         }
+    }
+    function add()
+    {
+        $this->loadComponent('Manager');
+        $arr['menu_item'] = $_POST['menu_item'];
+        if(isset($_POST['price']))
+        $arr['price'] = $_POST['price'];
+        if(isset($_POST['description']))
+        $arr['description'] = $_POST['description'];
+        if(isset($_POST['image']))
+        $arr['image'] = $_POST['image'];
+        if(isset($_POST['parent']))
+        $arr['parent'] = $_POST['parent'];
+        $arr['res_id'] =  $this->Manager->read('ID');
+        if(isset($_POST['has_addon']))
+        $arr['has_addon'] =  $_POST['has_addon'];
+        
+        if(isset($_POST['sing_mul']))
+        $arr['sing_mul'] =  $_POST['sing_mul'];
+        
+        if(isset($_POST['exact_upto']))
+        $arr['exact_upto'] =  $_POST['exact_upto'];
+        
+        if(isset($_POST['exact_upto_qty']))
+        $arr['exact_upto_qty'] =  $_POST['exact_upto_qty'];
+        
+        if(isset($_POST['req_opt']))
+        $arr['req_opt'] =  $_POST['req_opt'];
+        
+        if(isset($_POST['has_addon']))
+        $arr['has_addon'] =  $_POST['has_addon'];
+        $table = TableRegistry::get('menus');
+        $Data2 = $table->newEntity($arr);
+        $table->save($Data2);
+        echo $Data2->ID;die();
+        
     }
 }

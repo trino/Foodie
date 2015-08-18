@@ -19,7 +19,7 @@
     </div>
     <div class="col-md-6">
         <div class="col-md-8">
-            <select class="form-control newday">
+            <!--<select class="form-control newday">
                 <option>Choose Deal Day</option>
                 <option>Sunday</option>
                 <option>Monday</option>
@@ -29,9 +29,9 @@
                 <option>Friday</option>
                 <option>Saturday</option>
             </select>
-            <br />
+            <br />-->
             <div class="newaction">
-            <a href="javascript:void(0)" class="btn btn-info add_additional" id="add_additional0">Add Addons</a> <a href="javascript:void(0)" class="btn btn-info">Save</a>
+            <a href="javascript:void(0)" class="btn btn-info add_additional" id="add_additional0">Add Addons</a> <a href="javascript:void(0)" class="btn btn-info savebtn">Save</a>
             </div>
         </div>
     </div>

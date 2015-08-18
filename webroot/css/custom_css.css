@@ -388,10 +388,11 @@ button:hover {
 .additional h2{font-size: 18px!important;margin-bottom:15px;margin-left:15px}
 .menuwrapper{background: #fff none repeat scroll 0 0;
     border-radius: 10px !important;
-    margin: 10px;
-    padding-top: 12px;}
-.aitems input{float: left;
+    margin: 25px 10px;
+    padding: 20px 0;}
+.aitems input[type="text"]{float: left;
     height: 26px;
     padding: 4px;
     width: 46%;}
+.itemno{width:100%!important;}
 .aitems a{padding:4px;}
