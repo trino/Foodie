@@ -1,6 +1,5 @@
-    <div class="col-md-10 col-sm-4">          
-            <div class="margin-bottom-10">
-              <div class="col-md-4">
+    <div class="col-md-10 col-sm-8 col-xs-7">    
+              <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
                     <img src="<?php echo $this->request->webroot;?>/img/products/k1.jpg" class="img-responsive" alt="Chow Fun">
@@ -15,7 +14,7 @@
                   <div class="sticker sticker-new"></div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
                     <img src="<?php echo $this->request->webroot;?>/img/products/k2.jpg" class="img-responsive" alt="Sea Cucumber">
@@ -29,7 +28,7 @@
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
                     <img src="<?php echo $this->request->webroot;?>/img/products/k3.jpg" class="img-responsive" alt="Phoenix Claws">
@@ -44,12 +43,8 @@
                 </div>
               </div>
               
-              <div class="cl"></div>
-            </div>
-            
-            
-            <div class="margin-bottom-10">
-              <div class="col-md-4">
+              <!--<div class="cl"></div>-->
+              <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
                     <img src="<?php echo $this->request->webroot;?>/img/products/k1.jpg" class="img-responsive" alt="Chow Fun">
@@ -64,7 +59,7 @@
                   <div class="sticker sticker-new"></div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
                     <img src="<?php echo $this->request->webroot;?>/img/products/k2.jpg" class="img-responsive" alt="Chow Fun">
@@ -78,7 +73,7 @@
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
                     <img src="<?php echo $this->request->webroot;?>/img/products/k3.jpg" class="img-responsive" alt="Chow Fun">
@@ -92,13 +87,9 @@
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
               </div>
-              <div class="cl"></div>
+              <!--<div class="cl"></div>-->
               
-            </div>
-            
-            
-            <div class="margin-bottom-10">
-              <div class="col-md-4">
+              <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
                     <img src="<?php echo $this->request->webroot;?>/img/products/k1.jpg" class="img-responsive" alt="Chow Fun">
@@ -113,7 +104,7 @@
                   <div class="sticker sticker-new"></div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
                     <img src="<?php echo $this->request->webroot;?>/img/products/k2.jpg" class="img-responsive" alt="Chow Fun">
@@ -127,7 +118,7 @@
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
                     <img src="<?php echo $this->request->webroot;?>/img/products/k3.jpg" class="img-responsive" alt="Chow Fun">
@@ -141,9 +132,8 @@
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
               </div>
-              <div class="cl"></div>
+              <!--<div class="cl"></div>-->
               
-            </div>
   </div>
    
           
