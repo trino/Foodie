@@ -3,7 +3,7 @@
 <div class="steps-block steps-block-red">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 steps-block-col">
+            <div class="col-md-4 col-sm-12 col-xs-11 steps-block-col">
                 <i class="fa fa-truck"></i>
                 <div>
                     <h2>Delivery or Pick up</h2>
@@ -11,7 +11,7 @@
                 </div>
                 <span>&nbsp;</span>
             </div>
-            <div class="col-md-4 steps-block-col">
+            <div class="col-md-4 col-sm-12 col-xs-11 steps-block-col">
                 <i class="fa fa-gift"></i>
                 <div>
                     <h2>Deals, Deals, Deals</h2>
@@ -19,7 +19,7 @@
                 </div>
                 <span>&nbsp;</span>
             </div>
-            <div class="col-md-4 steps-block-col">
+            <div class="col-md-4 col-sm-12 col-xs-11 steps-block-col">
                 <i class="fa fa-chain-broken"></i>
                 <div>
                     <h2>Freedom</h2>

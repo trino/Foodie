@@ -6,15 +6,15 @@
         
        
           <!-- BEGIN CONTENT -->
-          <div class="col-md-10">
+          <div class="col-md-10 col-xs-7">
             
             <div class="content-page">
             <h1>Contacts</h1>
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 col-xs-12">
                   <div id="map" class="gmaps margin-bottom-40" style="height:400px;"></div>
                 </div>
-                <div class="col-md-9 col-sm-9">
+                <div class="col-md-9 col-sm-9 col-xs-12">
                   <h2>Contact Form</h2>
                   <p>Lorem ipsum dolor sit amet, Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat consectetuer adipiscing elit, sed diam nonummy nibh euismod tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
                   
