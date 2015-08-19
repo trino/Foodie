@@ -150,7 +150,7 @@ $('.savebtn').live('click',function(){
                                data:'menu_item='+cctitle+'&price='+ccprice+'&parent='+res2,
                                type:'post',
                                success:function(res2){
-                                
+                                window.location=base_url+'restaurants/menu_manager?added';
                                }
                             });
                             
