@@ -1,87 +1,115 @@
-<div id="product-pop-up" style="display: none; width: 500px;">
+
+<div id="product-pop-up_<?php echo $menu->ID;?>" style="display: none; width: 500px;">
 
     <div class="product-page product-pop-up">
         <!--div class="modal-header">
-            <button id="clear_4776" aria-hidden="true" data-dismiss="modal" class="close close4776" type="button">x
+            <button id="clear_<?php echo $menu->ID;?>" aria-hidden="true" data-dismiss="modal" class="close close<?php echo $menu->ID;?>" type="button">x
             </button>
 
         </div-->
         <div style=" font-family:mainfont;" class="modal-body">
             <div style="text-align: left;padding:0px;" class="col-sm-12 col-xs-12 title">
-                <h2 style="color:white;">Roasted Chicken: $ 2.88</h2>
+                <h2 style="color:white;"><?php echo $menu->menu_item;?>: $ <?php echo $menu->price;?></h2>
 
             </div>
             <div class="col-sm-12 col-xs-12">
-                <img class="popimage_4776" width="150"
-                     src="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"/>
+                <img class="popimage_<?php echo $menu->ID;?>" width="150"
+                     src="<?php echo $this->request->webroot; ?>/img/products/<?php echo $menu->image;?>"/>
             </div>
             <div class="clearfix"></div>
 
             <div class="product-titles">
-                <h2>served with 2 sides and 2 dipping sauces </h2>
+                <h2><?php echo $menu->description;?></h2>
             </div>
 
-            <div class="subitems_4776 optionals">
-                <!--<span class="topright"><a href="javascript:void(0)" onclick="$('#Modal4776').toggle();"><strong class="btn btn-danger">x</strong></a></span>-->
+            <div class="subitems_<?php echo $menu->ID;?> optionals">
+                <!--<span class="topright"><a href="javascript:void(0)" onclick="$('#Modal<?php echo $menu->ID;?>').toggle();"><strong class="btn btn-danger">x</strong></a></span>-->
 
                 <div class="clearfix space10"></div>
-                <div style="display:none;"><input type="checkbox" style="display: none;" checked="checked" title="4776_Roasted Chicken-_2.88_" value="" class="chk">
+                <div style="display:none;"><input type="checkbox" style="display: none;" checked="checked" title="<?php echo $menu->ID;?>_<?php echo $menu->menu_item;?>-_<?php echo $menu->price;?>_" value="" class="chk">
                 </div>
                 <div style="overflow: hidden;" class="banner bannerz">
                     <table width="100%">
                         <tbody>
+                        <?php
+                            $submenus = $manager->enum_all('Menus',['parent'=>$menu->ID]);
+                            foreach($submenus as $sub){
+                        ?>
                         <tr class="zxcx">
-                            <td width="100%" id="td_154" style="vertical-align: top;">
-                                <input type="hidden" value="0" id="extra_no_154">
-                                <input type="hidden" value="1" id="required_154">
-                                <input type="hidden" value="0" id="multiple_154">
-                                <input type="hidden" value="1" id="upto_154">
+                            <td width="100%" id="td_<?php echo $sub->ID;?>" style="vertical-align: top;">
+                                <input type="hidden" value="<?php echo $sub->exact_upto_qty;?>" id="extra_no_<?php echo $sub->ID;?>">
+                                <input type="hidden" value="<?php echo $sub->req_opt;?>" id="required_<?php echo $sub->ID;?>">
+                                <input type="hidden" value="<?php echo $sub->sing_mul;?>" id="multiple_<?php echo $sub->ID;?>">
+                                <input type="hidden" value="<?php echo $sub->exact_upto;?>" id="upto_<?php echo $sub->ID;?>">
 
                                 <div style="" class="infolist col-xs-12">
                                     <div style="display: none;">
-                                        <input type="checkbox" value="Side" title="___" id="154"
+                                        <input type="checkbox" value="<?php echo $sub->menu_item;?>" title="___" id="<?php echo $sub->ID;?>"
                                                style="display: none;" checked="checked" class="chk">
                                     </div>
-                                    <a href="javascript:void(0);"><strong>Side</strong></a>
+                                    <a href="javascript:void(0);"><strong><?php echo $sub->menu_item;?></strong></a>
                                     <span><em> </em></span>
 
                                   
-                                                <span class="limit-options" style="float: right;">
-                                                (Mandatory)</span>
+                                    <span class="limit-options" style="float: right;">
+                                    <?php
+                                    if ($sub->exact_upto == 0)
+                                        $upto = "up to ";
+                                    else
+                                        $upto = "exactly ";
+                                    if ($sub->req_opt == '0') {
+                                        if ($sub->exact_upto_qty > 0 && $sub->sing_mul == '0')
+                                            echo "(Select " . $upto . $sub->exact_upto_qty . " Items) ";
+                                        echo "(Optional)";
+                                
+                                    } elseif ($sub->req_opt == '1') {
+                                        if ($sub->exact_upto_qty > 0 && $sub->sing_mul == '0')
+                                            echo "Select " . $upto . $sub->exact_upto_qty . " Items ";
+                                
+                                        echo "(Mandatory)";
+                                        }?>
+                                    </span>
 
                                     <div class="clearfix"></div>
-                                    <span class="error_154" style="color: red; font-weight: bold;"></span>
+                                    <span class="error_<?php echo $sub->ID;?>" style="color: red; font-weight: bold;"></span>
 
                                     <div class="list clearfix">
+                                    <?php
+                                        $mini_menus = $manager->enum_all('Menus',['parent'=>$sub->ID]);
+                                        foreach($mini_menus as $mm):
+                                    ?>
                                         <div class="col-xs-12 col-md-6"  style="padding: 0px;border-radius: 17px 0 0 17px !important;"
                                              class="subin btn default btnxx">
-                                            <div style="padding:0px;border-radius: 17px 0 0 17px !important;"
-                                                >
+                                            <div style="padding:0px;border-radius: 17px 0 0 17px !important;">
                                                 <a style="text-decoration: none;display:inline-block; padding-right: 15px;"
-                                                   title="A" id="buttons_5050" class="buttons "
+                                                   title="A" id="buttons_<?php echo $mm->ID;?>" class="buttons "
                                                    href="javascript:void(0);">
                                                     <button style="border-radius: 17px!important;"
                                                             class="btn btn-primary">A
                                                     </button>
-                                                    <input type="radio" id="extra_5050" title="5050_<br/> Tea_0_Choose Type"
-                                                           class="extra-154" name="extra_154" value="post"/>
-                                                    &nbsp;&nbsp;Tea <b style="display:none;">
+                                                    
+                                                    <input type="<?php echo ($sub->sing_mul=='1')?'radio':'checkbox';?>" id="extra_<?php echo $mm->ID;?>" title="<?php echo $mm->ID;?>_<br/> <?php echo $mm->menu_item;?>_<?php echo $mm->price;?>_<?php echo $sub->menu_item;?>"
+                                                           class="extra-<?php echo $sub->ID;?>" name="extra_<?php echo $sub->ID;?>" value="post"/>
+                                                    &nbsp;&nbsp;<?php echo $mm->menu_item;?>
+                                                    &nbsp;&nbsp;<?php if ($mm->price) echo "(+ $" . number_format(str_replace('$', '', $mm->price), 2) . ")"; ?>
+                                                     <b style="display:none;">
                                                     </b></a><b style="display:none;"><a onclick=""
                                                                                         style="text-decoration: none; color: #000;"
-                                                                                        id="remspan_5050"
+                                                                                        id="remspan_<?php echo $mm->ID;?>"
                                                                                         class="remspan"
                                                                                         href="javascript:;"><b>
                                                             &nbsp;&nbsp;-&nbsp;&nbsp;</b></a>
-                                                    <span id="sprice_0" class="span_5050 allspan">&nbsp;&nbsp;1&nbsp;&nbsp;</span>
+                                                    <span id="sprice_0" class="span_<?php echo $mm->ID;?> allspan">&nbsp;&nbsp;1&nbsp;&nbsp;</span>
                                                     <a style="text-decoration: none; color: #000;" onclick=""
-                                                       id="addspan_5050" class="addspan" href="javascript:;"><b>
+                                                       id="addspan_<?php echo $mm->ID;?>" class="addspan" href="javascript:;"><b>
                                                             &nbsp;&nbsp;+&nbsp;&nbsp;</b></a>
                                                 </b>
 
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
-                                        <div style="padding: 0px;border-radius: 17px 0 0 17px !important;"
+                                        <?php endforeach;?>
+                                        <!--div style="padding: 0px;border-radius: 17px 0 0 17px !important;"
                                              class="subin btn default btnxx">
                                             <div class="col-xs-12 col-md-6"  style="padding:0px;border-radius: 17px 0 0 17px !important;"
                                                 >
@@ -93,7 +121,7 @@
                                                     </button>
                                                     <input type="radio" id="extra_5051"
                                                            title="5051_<br/> Milk Tea_0_Choose Type"
-                                                           class="extra-154" name="extra_154" value=""
+                                                           class="extra-<?php echo $sub->ID;?>" name="extra_<?php echo $sub->ID;?>" value=""
                                                           />
                                                     &nbsp;&nbsp;Milk Tea <b style="display:none;">
                                                     </b></a><b style="display:none;"><a onclick=""
@@ -110,13 +138,14 @@
 
                                             </div>
                                             <div class="clearfix"></div>
-                                        </div>
-                                        <input type="hidden" value="A,B," class="chars_154">
+                                        </div-->
+                                        <input type="hidden" value="A,B," class="chars_<?php echo $sub->ID;?>">
                                     </div>
                                 </div>
                             </td>
                             </tr>
-                            <tr class="zxcx">
+                            <?php }?>
+                            <!--tr class="zxcx">
                             <td width="100%" id="td_159" style="vertical-align: top;">
                                 <input type="hidden" value="3" id="extra_no_159">
                                 <input type="hidden" value="0" id="required_159">
@@ -353,28 +382,28 @@
                                     </div>
                                 </div>
                             </td>
-                        </tr>
+                        </tr-->
                         </tbody>
                     </table>
                 </div>
                 <div class="clearfix"></div>
                 <div style="line-height:45px;" class="col-xs-12 add-btn">
                 <div class="add-minus-btn" style="float:left;">
-                   <a class="btn btn-primary minus" href="javascript:void(0);" onclick="changeqty('4776','minus')">-</a>
-                   <div class="number4776">1</div>
-                   <a class="btn btn-primary add" href="javascript:void(0);" onclick="changeqty('4776','plus')">+</a>
+                   <a class="btn btn-primary minus" href="javascript:void(0);" onclick="changeqty('<?php echo $menu->ID;?>','minus')">-</a>
+                   <div class="number<?php echo $menu->ID;?>">1</div>
+                   <a class="btn btn-primary add" href="javascript:void(0);" onclick="changeqty('<?php echo $menu->ID;?>','plus')">+</a>
 
                     
                 </div>
 
-                    <a style="float: right; margin-left: 10px;" id="profilemenu4776"
+                    <a style="float: right; margin-left: 10px;" id="profilemenu<?php echo $menu->ID;?>"
                        class="btn btn-primary add_menu_profile add_end" href="javascript:void(0);">Add</a>
-                     <button id="clear_4776"
+                     <button id="clear_<?php echo $menu->ID;?>"
                             style="opacity: 1; text-shadow:none;margin-left: 10px;float: right;margin-left: 10px;display:none;"
                             data-dismiss="modal" class="btn btn-warning resetslider" type="button">
                         RESET
                     </button>
-                   <!-- &nbsp;<a style="float: right;margin-left:10px;" id="clear_4776" class="btn btn-danger  clearall"
+                   <!-- &nbsp;<a style="float: right;margin-left:10px;" id="clear_<?php echo $menu->ID;?>" class="btn btn-danger  clearall"
                              href="javascript:void(0);">CLOSE</a>&nbsp; &nbsp;
                     
                     &nbsp;

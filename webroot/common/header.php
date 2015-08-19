@@ -48,7 +48,7 @@
     <!--link href="<?php echo $this->request->webroot;?>/css/style-layer-slider.css" rel="stylesheet"-->
     <link href="<?php echo $this->request->webroot;?>css/style-responsive.css" rel="stylesheet">
     <link href="<?php echo $this->request->webroot;?>css/red.css" rel="stylesheet" id="style-color">
-    <!--link href="<?php echo $this->request->webroot;?>/css/custom.css" rel="stylesheet"-->
+    <link href="<?php echo $this->request->webroot;?>/css/custom.css" rel="stylesheet">
 
 
     <!-- MAKE ALL CSS CHANGES TO HERE -->

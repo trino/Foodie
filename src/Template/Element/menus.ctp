@@ -38,175 +38,56 @@
 
 
     </div>
-<?php } ?>
-
-<div class="margin-bottom-10">
-    <div class="col-md-3">
-        <div class="product-item">
-            <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
-                     class="img-responsive" alt="Chow Fun">
-
-                <div>
-                    <a href="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
-                       class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+<?php }
+    
+    $cnt=0;
+    $menu_count = count($menus);
+    foreach($menus as $menu)
+    {
+        if($cnt== '0'){
+        ?>
+        <div class="margin-bottom-10">
+        <?php }?>
+            <div class="col-md-3">
+                <div class="product-item">
+                    <div class="pi-img-wrapper">
+                        <img src="<?php echo $this->request->webroot; ?>/img/products/<?php echo $menu->image;?>"
+                             class="img-responsive" alt="<?php echo $menu->menu_item;?>"/>
+        
+                        <div>
+                            <a href="<?php echo $this->request->webroot; ?>/img/products/<?php echo $menu->image;?>"
+                               class="btn btn-default fancybox-button">Zoom</a>
+                            <a href="#product-pop-up_<?php echo $menu->ID;?>" class="btn btn-default fancybox-fast-view">View</a>
+                        </div>
+                    </div>
+                    <h3><a href="#"><?php echo $menu->menu_item;?></a></h3>
+        
+                    <div class="pi-price">$<?php echo $menu->price;?></div>
+                    <!--<a href="#" class="btn btn-default add2cart">Add to cart</a-->
+        
+                    <div class="sticker sticker-new"></div>
                 </div>
             </div>
-            <h3><a href="shop-item.html">Chow Fun</a></h3>
-
-            <div class="pi-price">$29.00</div>
-            <a href="#" class="btn btn-default add2cart">Add to cart</a>
-
-            <div class="sticker sticker-new"></div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="product-item">
-            <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>/img/products/k2.jpg"
-                     class="img-responsive" alt="Chow Fun">
-
-                <div>
-                    <a href="<?php echo $this->request->webroot; ?>/img/products/k2.jpg"
-                       class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+            
+            <!-- BEGIN fast view of a product -->
+            <?php 
+             
+            echo $this->element('popup',['menu'=>$menu,'manager'=>$manager]);?>
+         <?php $cnt++;
+         if($cnt%4 =='0'&& $menu_count>4 )
+                {?>  
                 </div>
-            </div>
-            <h3><a href="shop-item.html">Chow Fun2</a></h3>
+        <?php
+                    echo '<div class="margin-bottom-10">';
+                   
+                 }
+                 elseif($cnt == $menu_count)
+                 echo "</div>";
+    
+    }
 
-            <div class="pi-price">$29.00</div>
-            <a href="#" class="btn btn-default add2cart">Add to cart</a>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="product-item">
-            <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>/img/products/k3.jpg"
-                     class="img-responsive" alt="Chow Fun">
+ ?>
 
-                <div>
-                    <a href="<?php echo $this->request->webroot; ?>/img/products/k3.jpg"
-                       class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-            </div>
-            <h3><a href="shop-item.html">Chow Fun3</a></h3>
-
-            <div class="pi-price">$29.00</div>
-            <a href="#" class="btn btn-default add2cart">Add to cart</a>
-        </div>
-    </div>
-
-    <div class="col-md-3">
-        <div class="product-item">
-            <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
-                     class="img-responsive" alt="Chow Fun">
-
-                <div>
-                    <a href="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
-                       class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-            </div>
-            <h3><a href="shop-item.html">Chow Fun</a></h3>
-
-            <div class="pi-price">$29.00</div>
-            <a href="#" class="btn btn-default add2cart">Add to cart</a>
-
-            <div class="sticker sticker-new"></div>
-        </div>
-    </div>
-</div>
-
-
-
-<div class="margin-bottom-10">
-
-
-    <div class="col-md-3">
-        <div class="product-item">
-            <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>/img/products/k2.jpg"
-                     class="img-responsive" alt="Chow Fun">
-
-                <div>
-                    <a href="<?php echo $this->request->webroot; ?>/img/products/k2.jpg"
-                       class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-            </div>
-            <h3><a href="shop-item.html">Chow Fun2</a></h3>
-
-            <div class="pi-price">$29.00</div>
-            <a href="#" class="btn btn-default add2cart">Add to cart</a>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="product-item">
-            <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>/img/products/k3.jpg"
-                     class="img-responsive" alt="Chow Fun">
-
-                <div>
-                    <a href="<?php echo $this->request->webroot; ?>/img/products/k3.jpg"
-                       class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-            </div>
-            <h3><a href="shop-item.html">Chow Fun3</a></h3>
-
-            <div class="pi-price">$29.00</div>
-            <a href="#" class="btn btn-default add2cart">Add to cart</a>
-        </div>
-    </div>
-
-
-    <div class="col-md-3">
-        <div class="product-item">
-            <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
-                     class="img-responsive" alt="Chow Fun">
-
-                <div>
-                    <a href="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
-                       class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-            </div>
-            <h3><a href="shop-item.html">Chow Fun</a></h3>
-
-            <div class="pi-price">$29.00</div>
-            <a href="#" class="btn btn-default add2cart">Add to cart</a>
-
-            <div class="sticker sticker-new"></div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="product-item">
-            <div class="pi-img-wrapper">
-                <img src="<?php echo $this->request->webroot; ?>/img/products/k2.jpg"
-                     class="img-responsive" alt="Chow Fun">
-
-                <div>
-                    <a href="<?php echo $this->request->webroot; ?>/img/products/k2.jpg"
-                       class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-            </div>
-            <h3><a href="shop-item.html">Chow Fun2</a></h3>
-
-            <div class="pi-price">$29.00</div>
-            <a href="#" class="btn btn-default add2cart">Add to cart</a>
-        </div>
-    </div>
-
-
-</div>
-
-<!-- BEGIN fast view of a product -->
-<?php echo $this->element('popup');?>
 <!-- BEGIN CART -->
 <script>
     $(function () {
@@ -524,7 +405,7 @@
 
 
                     if (is_required == '1') {
-                        if (upto == 1) {
+                        if (upto == 0) {
                             if (cnn == 0) {
                                 err++;
                                 td_index = $('#td_' + catid).index();
@@ -535,7 +416,7 @@
                                     td_temp = td_temp;
                                 $('.error_' + catid).html("Options are Mandatory");
                             }
-                            else if (multiples == 1 && cnn > extra_no) {
+                            else if (multiples == 0 && cnn > extra_no) {
 
                                 err++;
                                 td_index = $('#td_' + catid).index();
@@ -561,7 +442,7 @@
                                     td_temp = td_temp;
                                 $('.error_' + catid).html("Options are Mandatory");
                             }
-                            else if (multiples == 1 && cnn != extra_no) {
+                            else if (multiples == 0 && cnn != extra_no) {
 
                                 err++;
                                 td_index = $('#td_' + catid).index();
@@ -578,8 +459,8 @@
                         }
                     }
                     else {
-                        if (upto == 1) {
-                            if (multiples == 1 && cnn > 0 && cnn > extra_no) {
+                        if (upto == 0) {
+                            if (multiples == 0 && cnn > 0 && cnn > extra_no) {
                                 err++;
                                 td_index = $('#td_' + catid).index();
                                 //alert(td_index);
@@ -594,7 +475,7 @@
                             }
                         }
                         else {
-                            if (multiples == 1 && cnn > 0 && cnn != extra_no) {
+                            if (multiples == 0 && cnn > 0 && cnn != extra_no) {
                                 err++;
                                 td_index = $('#td_' + catid).index();
 
@@ -782,6 +663,23 @@
         }
         return false;
     }
+
+function changeqty(id,opr)
+{
+        var num = Number($('.number'+id).text());
+        if(num=='1')
+        {
+            if(opr=='plus')
+            num++;
+            
+        }
+        else
+        {
+            (opr == 'plus')?num++:--num;   
+        }
+        $('.number'+id).text(num);
+}
 </script>
+
          
             

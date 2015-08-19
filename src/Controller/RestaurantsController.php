@@ -15,7 +15,10 @@ class RestaurantsController extends AppController {
     ];
 
     public function index($slug='') {
-         $this->set('restaurant',$slug);
+        
+        $restaurant = $this->Manager->get_entry('Restaurants',$slug,'Slug');
+        $this->set('manager',$this->Manager);
+        $this->set('restaurant',$restaurant);
     }
 
     public function dashboard() {

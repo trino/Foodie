@@ -23,7 +23,7 @@
             <img class="img-responsive" alt = "" src = "<?php echo $this->request->webroot;?>/img/works/img4.jpg">
         </div>
         <div class="col-md-8 col-sm-8">
-            <h2><a href="blog-item.html"><?= $Restaurant->Name; ?></a></h2>
+            <h2><a href="<?php echo $this->request->webroot;?>restaurants/<?php echo $Restaurant->Slug;?>"><?= $Restaurant->Name; ?></a></h2>
             <ul class="blog-info">
                 <li><i class="fa fa-calendar"></i> 25 / 07 / 2013</li>
                 <li><i class="fa fa-comments"></i> 17</li>
