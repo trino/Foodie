@@ -11,25 +11,29 @@
                 <div class="addnew" style="display: none;"></div>
                 <hr />
                 <ul class="parentinfo">
-                
-                    <li class="infolistwhite row marbot newmenu" id="parent4">
+                <?php
+                if($menus){
+                foreach($menus as $menu)
+                {
+                    ?>
+                    <li class="infolistwhite row marbot newmenus" id="parent<?php echo $menu->ID;?>">
                         
                         <div class="col-md-4 menu_item">
                             
                             <div class="col-sm-4" style="padding: 0;">
-                                <img class="itemimg4 itemimg" src="<?php echo $this->request->webroot;?>/img/products/k2.jpg"  />
+                                <img class="itemimg4 itemimg" src="<?php echo $this->request->webroot;?>/img/products/<?php echo $menu->image;?>"  />
                             </div>
                             <div class="col-sm-8">
-                                <h4  class="itemtitle4" >Chow Fun</h4>
+                                <h4 ><?php echo $menu->menu_item;?></h4>
                             </div>
                             <div class="clearfix"></div>
                 
                         </div>
                 
                         <div class="col-md-8">
-                        <a href="javascript:void(0)" id="edititem4" onclick="edit_item(4)" class="btn btn-success">Edit Item</a>
-                        <a href="javascript:void(0)" id="addimgitem4" class="btn btn-info addimgcat">Add Image</a>
-                        <a href="javascript:void(0)" id="deleteitem4" onclick="delete_item(4)" class="deletecat btn btn-danger">Delete</a>
+                        <a href="javascript:void(0)" id="edititem<?php echo $menu->ID;?>" onclick="add_item(<?php echo $menu->ID;?>)" class="btn btn-success">Edit Item</a>
+                        <a href="javascript:void(0)" id="addimgitem<?php echo $menu->ID;?>" class="btn btn-info addimgcat">Add Image</a>
+                        <a href="<?php echo $this->request->webroot;?>menus/delete/<?php echo $menu->ID;?>" onclick="return confirm('Are you sure you want to delete this item?');" id="deleteitem<?php echo $menu->ID;?>" class="deletecat btn btn-danger">Delete</a>
                         <a href="javascript:void(0)" class="expandbtn expand1"><span class="expand"></span></a>
                         
                 
@@ -40,93 +44,17 @@
                          
                 
                  </li>
-                 
-                 <li class="infolistwhite row marbot newmenu" id="parent3">
-                        
-                        <div class="col-md-4 menu_item">
-                            
-                            <div class="col-sm-4" style="padding: 0;">
-                                <img class="itemimg3 itemimg" src="<?php echo $this->request->webroot;?>/img/products/k3.jpg"  />
-                            </div>
-                            <div class="col-sm-8">
-                                <h4  class="itemtitle3" >Chow Fun</h4>
-                            </div>
-                            <div class="clearfix"></div>
+                    <?php
+                }}
+                else
+                {
+                    ?>
+                    <h2 class="nomenu">No item added yet!</h2>
+                    <?php
+                }
+                ?>
                 
-                        </div>
-                
-                        <div class="col-md-8">
-                        <a href="javascript:void(0)" id="edititem3" onclick="edit_item(3)" class="btn btn-success">Edit Item</a>
-                        <a href="javascript:void(0)" id="addimgitem3" class="btn btn-info addimgcat">Add Image</a>
-                        <a href="javascript:void(0)" id="deleteitem3" onclick="delete_item(3)" class="deletecat btn btn-danger">Delete</a>
-                        <a href="javascript:void(0)" class="expandbtn expand1"><span class="expand"></span></a>
-                        
-                
-                        <div style="clear: both;"></div>
-                        </div>
-                
-                        <div class="clearfix"></div>
-                         
-                
-                 </li>
-                 
-                 <li class="infolistwhite row marbot newmenu" id="parent2">
-                        
-                        <div class="col-md-4 menu_item">
-                            
-                            <div class="col-sm-4" style="padding: 0;">
-                                <img class="itemimg2 itemimg" src="<?php echo $this->request->webroot;?>/img/products/k2.jpg"  />
-                            </div>
-                            <div class="col-sm-8">
-                                <h4  class="itemtitle2" >Chow Fun</h4>
-                            </div>
-                            <div class="clearfix"></div>
-                
-                        </div>
-                
-                        <div class="col-md-8">
-                        <a href="javascript:void(0)" id="edititem2" onclick="edit_item(2)" class="btn btn-success">Edit Item</a>
-                        <a href="javascript:void(0)" id="addimgitem2" class="btn btn-info addimgcat">Add Image</a>
-                        <a href="javascript:void(0)" id="deleteitem2" onclick="delete_item(2)" class="deletecat btn btn-danger">Delete</a>
-                        <a href="javascript:void(0)" class="expandbtn expand1"><span class="expand"></span></a>
-                        
-                
-                        <div style="clear: both;"></div>
-                        </div>
-                
-                        <div class="clearfix"></div>
-                         
-                
-                 </li>
-                 
-                 <li class="infolistwhite row marbot newmenu" id="parent1">
-                        
-                        <div class="col-md-4 menu_item">
-                            
-                            <div class="col-sm-4" style="padding: 0;">
-                                <img class="itemimg1 itemimg" src="<?php echo $this->request->webroot;?>/img/products/k1.jpg"  />
-                            </div>
-                            <div class="col-sm-8">
-                                <h4  class="itemtitle1" >Chow Fun</h4>
-                            </div>
-                            <div class="clearfix"></div>
-                
-                        </div>
-                
-                        <div class="col-md-8">
-                        <a href="javascript:void(0)" id="edititem1" onclick="edit_item(1)" class="btn btn-success">Edit Item</a>
-                        <a href="javascript:void(0)" id="addimgitem1" class="btn btn-info addimgcat">Add Image</a>
-                        <a href="javascript:void(0)" id="deleteitem1" onclick="delete_item(1)" class="deletecat btn btn-danger">Delete</a>
-                        <a href="javascript:void(0)" class="expandbtn expand1"><span class="expand"></span></a>
-                        
-                
-                        <div style="clear: both;"></div>
-                        </div>
-                
-                        <div class="clearfix"></div>
-                         
-                
-                 </li>
+                    
                 
                 </ul>
             </div>

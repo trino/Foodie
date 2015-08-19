@@ -60,12 +60,12 @@ $('.removelast').live('click',function(){
 $('.addmorebtn').live('click',function(){
     $(this).closest('.aitems').find('.addmore').append(
     '<div class="cmore"><p style="margin-bottom:0;height:7px;">&nbsp;</p><div class="col-md-10 nopadd">'+
-    '<input class="form-control cctitle" type="text" placeholder="Item" style="width:46%;float:left;" />'+
-    '<input class="form-control ccprice" type="text" placeholder="Price" style="width:46%;float:left;margin-left:10px;" />'+   
+    '<input class="form-control cctitle" type="text" placeholder="Item" />'+
+    '<input class="form-control ccprice" type="text" placeholder="Price" style="margin-left:10px;" />'+   
     '</div>'+ 
     '<div class="col-md-2">'+
     '<a href="javascript:void(0);" class="btn btn-danger btn-small" onclick="$(this).parent().parent().remove();"><span class="fa fa-close"></span></a>'+  
-    '</div><div class="clearfix"></div><div>');
+    '</div><div class="clearfix"></div></div>');
 });
 $('.is_multiple').live('change',function(){
     if($(this).val()==0)

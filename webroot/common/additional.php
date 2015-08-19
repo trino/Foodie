@@ -3,14 +3,45 @@
     <div class="col-md-7">
         
         <div class="col-sm-12 lowheight">
-            <input class="form-control ctitle" type="text" placeholder="Title" /><br />
-            <textarea class="form-control cdescription" placeholder="description"></textarea>    
+            <input class="form-control ctitle" type="text" placeholder="Title" value="<?php if(isset($child->menu_item)){echo $child->menu_item;}?>" /><br />
+            <textarea class="form-control cdescription" placeholder="description"><?php if(isset($child->description)){echo $child->description;}?></textarea>    
         </div> 
         <div class="col-sm-12 additionalitems">
         <div class="aitems">
             
             
             <div class="addmore">
+            <?php
+            if(isset($child->ID)){
+            $more = $this->requestAction('menus/getMore/'.$child->ID);
+            if($more)
+            {
+                $i=0;
+                foreach($more as $cc)
+                {
+                    $i++;
+                    ?>
+                    <div class="cmore">
+                    <?php if($i!=1){?>
+                    	<p style="margin-bottom:0;height:7px;">&nbsp;</p>
+                    <?php }?>
+                        <div class="col-md-10 nopadd">
+                        	<input class="form-control cctitle" type="text" placeholder="Item" value="<?php echo $cc->menu_item;?>" />
+                        	<input class="form-control ccprice" type="text" placeholder="Price" value="<?php echo $cc->price;?>" style="margin-left:10px;" />  
+                        </div>
+                    <div class="col-md-2" <?php if($i==1){?>style="display: none;"<?php }?>>
+                        <a href="javascript:void(0);" class="btn btn-danger btn-small" onclick="$(this).parent().parent().remove();"><span class="fa fa-close"></span></a> 
+                    </div>
+                    <div class="clearfix"></div>
+                    </div>
+                    <?php
+                }
+            }
+            }
+            else
+            {
+                ?>
+                
                 <div class="cmore">
                 <div class="col-md-10 nopadd">
                     <input class="form-control cctitle" type="text" placeholder="Item" />
@@ -22,6 +53,9 @@
                  
                 <div class="clearfix"></div> 
                 </div>
+            <?php
+            }
+            ?>
             </div>
             
             <div class="col-md-12 nopadd">
@@ -66,7 +100,9 @@
         <div class="col-md-12">
             
             <div class="newaction">
-            <a href="javascript:void(0)" class="btn btn-info add_additional" id="add_additional0;">Add Addons</a> <a href="javascript:void(0)" class="btn btn-info savebtn">Save</a> <a href="javascript:void(0)" class="btn btn-danger removelast" onclick="">Remove</a>
+            <?php if(!isset($cmodel) || (isset($ccount) && $ccount==$k)){?>
+            <a href="javascript:void(0)" class="btn btn-info add_additional" id="add_additional0;">Add Addons</a> <a href="javascript:void(0)" class="btn btn-info savebtn">Save</a> <?php if(isset($k) && $k!=1){?><a href="javascript:void(0)" class="btn btn-danger removelast" onclick="">Remove</a><?php }?>
+            <?php }?>
             </div>
         </div>
     </div>

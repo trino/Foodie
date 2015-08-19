@@ -3,13 +3,22 @@ if(path.replace('Foodie','')!=path)
 var base_url = 'http://localhost/Foodie/';
 else
 var base_url = 'http://didyoueat.ca/';
-function add_item()
+function add_item(id=0)
 {
-    
+    if(id==0){ 
     $('.addnew').show();
-    $('.addnew').load(base_url+'menus/menu_form?menu_id=0',function(){
+    $('.addnew').load(base_url+'menus/menu_form/0',function(){
         ajaxuploadbtn('newbrowse0_1');
     });
+    }
+    else
+    {
+        alert(id);
+    
+    $('#parent'+id).load(base_url+'menus/menu_form/'+id,function(){
+        ajaxuploadbtn('newbrowse'+id+'_1');
+      });  
+    }
     
     
 }

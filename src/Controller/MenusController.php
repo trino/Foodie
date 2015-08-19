@@ -7,8 +7,21 @@ use Cake\View\Exception\MissingTemplateException;
 use Cake\Controller\Component;
 use Cake\ORM\TableRegistry;
 class MenusController extends AppController {
-    function menu_form() {
+    function menu_form($id) {
         $this->layout = 'blank';
+        $this->set('menu_id',$id);
+        if($id!=0)
+        {
+            //$id = $_GET['menu_id'];
+            $table = TableRegistry::get('menus');
+            $menus = $table->find()->where(['ID'=>$id])->first();
+            $child = $table->find()->where(['parent'=>$id])->all();
+            $child_count = $table->find()->where(['parent'=>$id])->count();
+            $this->set('model',$menus);
+            $this->set('cmodel',$child);
+            $this->set('ccount',$child_count);
+            
+        }
     }
 
     function additional() {
@@ -79,5 +92,30 @@ class MenusController extends AppController {
         $table->save($Data2);
         echo $Data2->ID;die();
         
+    }
+    public function delete($id)
+    {
+        $this->loadModel("Menus");
+            $this->Menus->deleteAll(['ID'=>$id]);
+            $table = TableRegistry::get('menus');
+            $child = $table->find()->where(['parent'=>$id]);
+            foreach($child as $c)
+            {
+                //echo $c->id;
+                //ssdie('here');
+                $this->Menus->deleteAll(['parent'=>$c->ID]);
+            }
+            
+            $this->Menus->deleteAll(['parent'=>$id]);
+            //die();
+            $this->redirect('/restaurants/menu_manager');
+    }
+    public function getMore($id)
+    {
+       $table = TableRegistry::get('menus');
+        $cchild = $table->find()->where(['parent'=>$id]); 
+        $this->response->body($cchild);
+        return $this->response;
+        die();
     }
 }
