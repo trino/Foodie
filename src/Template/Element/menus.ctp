@@ -38,8 +38,9 @@
 
 
     </div>
-<?php }
-    
+<?php }?>
+<div id="postswrapper">
+<?php   
     $cnt=0;
     $menu_count = count($menus);
     foreach($menus as $menu)
@@ -87,8 +88,32 @@
     }
 
  ?>
+ </div>
+  <div id="loadmoreajaxloader" style="display:none;"><center><img src="<?php echo $this->request->webroot;?>img/ajax-loader.gif" /></center></div>
 
-<!-- BEGIN CART -->
+<script type="text/javascript">
+$(window).scroll(function()
+{
+    if($(window).scrollTop() == $(document).height() - $(window).height())
+    {
+        $('div#loadmoreajaxloader').show();
+        $.ajax({
+        url: "<?php echo $this->request->webroot;?>common/loadmore.php",
+        success: function(html)
+        {
+            if(html)
+            {
+                $("#postswrapper").append(html);
+                $('div#loadmoreajaxloader').hide();
+            }else
+            {
+                $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
+            }
+        }
+        });
+    }
+});
+</script>
 <script>
     $(function () {
         $('.modal').on('shown.bs.modal', function () {

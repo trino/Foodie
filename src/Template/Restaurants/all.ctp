@@ -7,9 +7,6 @@
     ?>
     <h2 class="col-md-12"><a href="#"><?php echo ucfirst(str_replace('-',' ',$restaurant));?></a> Menus</h2>
 </div>
-
-
-
 <div class="col-md-9 col-sm-9 blog-posts">
     <?php foreach($Restaurants as $Restaurant) {
         if($doHR){

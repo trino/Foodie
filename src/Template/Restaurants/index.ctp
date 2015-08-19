@@ -1,4 +1,4 @@
-<div class="col-md-8 col-sm-4">    
+<div class="col-md-8 col-sm-4 menu_div">    
     <h2 class="col-md-12"><a href="#"><?= $restaurant->Name;?></a> Menus</h2>
     <?php 
     
