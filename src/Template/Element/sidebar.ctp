@@ -1,4 +1,4 @@
-<div class="sidebar col-md-2 col-sm-4 col-sm-4 col-xs-5">
+<div class="sidebar col-md-2 col-sm-4 col-sm-4 col-xs-12">
     <h2>Find us on social media</h2>
     <div class="fb-page" data-href="https://www.facebook.com/testrestaurant1255" data-width="292" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true">
         <div class="fb-xfbml-parse-ignore">

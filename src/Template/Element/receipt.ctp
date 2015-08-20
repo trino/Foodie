@@ -1,7 +1,7 @@
    <div class="top-cart-info">
             <a href="javascript:void(0);" class="top-cart-info-count">3 items</a>
             <a href="javascript:void(0);" class="top-cart-info-value">$1260</a>
-              <i class="fa fa-shopping-cart clickable" onclick="$('.itemsz').toggle();"></i>
+              <i class="fa fa-shopping-cart clickable" onclick="$('.itemsz').slideToggle('swing');"></i>
           </div>
         
                         
@@ -104,12 +104,34 @@
     
     $(function(){
         
-      
-        $( window ).resize(function() {
+        
+        $(window).scroll(function(){
+            $('.top-cart-block').css({'top':0});
+            if($(window).scrollTop()== 0)
+            $('.top-cart-block').css({'top':'110px'});
+        });
         var wd = $(window).width();
         if(wd<='767')
+        {
+             $('.top-cart-info').show();
             $('.top-cart-content-wrapper').addClass('itemsz');
+            $('.top-cart-content-wrapper').hide();
+        }   
         else{
+             $('.top-cart-info').hide();
+            $('.top-cart-content-wrapper').show();
+            $('.top-cart-content-wrapper').removeClass('itemsz');
+            
+        }
+        $( window ).resize(function() {
+        var wd = $(window).width();
+        if(wd<='767'){
+            $('.top-cart-info').show();
+            $('.top-cart-content-wrapper').addClass('itemsz');
+            $('.top-cart-content-wrapper').hide();
+            }
+        else{
+            $('.top-cart-info').hide();
             $('.top-cart-content-wrapper').show();
             $('.top-cart-content-wrapper').removeClass('itemsz');
             
