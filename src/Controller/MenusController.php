@@ -59,6 +59,7 @@ class MenusController extends AppController {
     }
     function add()
     {
+         $this->loadModel("Menus");
         $this->loadComponent('Manager');
         $arr['menu_item'] = $_POST['menu_item'];
         if(isset($_POST['price']))
@@ -87,10 +88,38 @@ class MenusController extends AppController {
         
         if(isset($_POST['has_addon']))
         $arr['has_addon'] =  $_POST['has_addon'];
+        if(isset($_GET['id']))
+        $id = $_GET['id'];
+        else
+        $id = 0;
+        if($id==0){
         $table = TableRegistry::get('menus');
         $Data2 = $table->newEntity($arr);
+        
         $table->save($Data2);
-        echo $Data2->ID;die();
+        echo $Data2->ID;die();}
+        else
+        {
+            $table = TableRegistry::get('menus');
+
+                //echo $s;die();
+                $query = $table->query();
+                $query->update()
+                    ->set($arr)
+                    ->where(['id' => $id])
+                    ->execute();
+                    
+                    $child = $table->find()->where(['parent'=>$id]);
+                    foreach($child as $c)
+                    {
+                        //echo $c->id;
+                        //ssdie('here');
+                        $this->Menus->deleteAll(['parent'=>$c->ID]);
+                    }
+                    
+                    $this->Menus->deleteAll(['parent'=>$id]);
+                    echo $id;die();
+        }
         
     }
     public function delete($id)

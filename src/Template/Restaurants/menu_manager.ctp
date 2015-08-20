@@ -7,7 +7,7 @@
             <div class="content-page">
                 <h1>Menu Manager</h1>
                 <hr />
-                <a href="javascript:void(0);" onclick="add_item();" class="btn btn-primary">Add New Menu Item</a>
+                <a href="javascript:void(0);" id="add_item0" class="btn btn-primary add_item">Add New Menu Item</a>
                 <div class="addnew" style="display: none;"></div>
                 <hr />
                 <ul class="parentinfo">
@@ -31,7 +31,7 @@
                         </div>
                 
                         <div class="col-md-8">
-                        <a href="javascript:void(0)" id="edititem<?php echo $menu->ID;?>" onclick="add_item(<?php echo $menu->ID;?>)" class="btn btn-success">Edit Item</a>
+                        <a href="javascript:void(0)" id="add_item<?php echo $menu->ID;?>" class="btn btn-success add_item">Edit Item</a>
                         <a href="javascript:void(0)" id="addimgitem<?php echo $menu->ID;?>" class="btn btn-info addimgcat">Add Image</a>
                         <a href="<?php echo $this->request->webroot;?>menus/delete/<?php echo $menu->ID;?>" onclick="return confirm('Are you sure you want to delete this item?');" id="deleteitem<?php echo $menu->ID;?>" class="deletecat btn btn-danger">Delete</a>
                         <a href="javascript:void(0)" class="expandbtn expand1"><span class="expand"></span></a>

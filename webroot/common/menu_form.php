@@ -5,7 +5,7 @@
     <p>&nbsp;</p>
     <div class="col-md-6">
         <div class="col-sm-3 nopadd">
-            <div class="menuimg menuimg<?php echo $menu_id?>_1" <?php if(isset($model) && $model->image){?>style="min-height:0;"<?php }?>><?php if(isset($model) && $model->image){?><img src="<?php echo $this->request->webroot;?>img/products/<?php echo $model->image;?>" /><?php }?></div>
+            <div class="menuimg menuimg<?php echo $menu_id?>_1" <?php if(isset($model) && $model->image){?>style="min-height:0;"<?php }?>><?php if(isset($model) && $model->image){?><img src="<?php echo $this->request->webroot;?>img/products/<?php echo $model->image;?>" /><input type="hidden" class="hiddenimg" value="<?php echo $model->image;?>" /><?php }?></div>
             <br />
             <a href="javascript:void(0)" class="btn btn-success newbrowse" id="newbrowse<?php echo $menu_id?>_1">Image</a>
         </div>
@@ -30,10 +30,12 @@
                 <option>Saturday</option>
             </select>
             <br />-->
+            <?php if(!isset($ccount) || (isset($ccount) && $ccount==0)){?>
             <div class="newaction">
             
             <a href="javascript:void(0)" class="btn btn-info add_additional" id="add_additional<?php echo $menu_id;?>">Add Addons</a> <a href="javascript:void(0)" class="btn btn-info savebtn">Save</a>
             </div>
+            <?php }?>
         </div>
     </div>
     <div class="clearfix"></div> 
@@ -43,12 +45,15 @@
         <div class="col-md-12"><h2>Addons</h2></div>
         <div class="clearfix"></div>    
         
-        <?php 
+        <?php
+        if(isset($cmodel)){ 
         $k=0;
+        
         foreach($cmodel as $child)
         {
             $k++;
             include('common/additional.php');
+        }
         }
         ?>
     </div>   

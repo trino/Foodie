@@ -75,6 +75,7 @@ $('.is_multiple').live('change',function(){
 })
 $('.savebtn').live('click',function(){
     //var $_this = $(this);
+    var id = $(this).attr('id').replace('save','');
     $_parent = $(this).closest('.newmenu');
     var phas_addon = 0;
     var img = $_parent.find('.hiddenimg').val();
@@ -86,7 +87,7 @@ $('.savebtn').live('click',function(){
     phas_addon = 1;
     
     $.ajax({
-       url:base_url+'menus/add/',
+       url:base_url+'menus/add/?id='+id,
        data:'menu_item='+ptitle+'&description='+pdesc+'&price='+pprice+'&image='+img+'&has_addon='+phas_addon+'&parent=0',
        type:'post',
        success:function(res){
@@ -99,32 +100,13 @@ $('.savebtn').live('click',function(){
                 var ctitle = $_this2.find('.ctitle').val();
                 //alert(ctitle);
                 var cdescription = $_this2.find('.cdescription').val();
-                var req_opt = '';
-                var sing_mul = '';
-                var exact_upto = '';
-                var exact_upto_qty = '';
-                $_this2.find('.is_required').each(function(){
-                    
-                    
-                    if($(this).is(':checked'))
-                    {
-                    //     alert('2');
-                        req_opt = $(this).val();
-                    }
-                });
-                $_this2.find('.is_multiple').each(function(){
-                    if($(this).is(':checked'))
-                    {
-                        sing_mul = $(this).val();
-                    }
-                });
-                $_this2.find('.up_to').each(function(){
-                    if($(this).is(':checked'))
-                    {
-                        exact_upto = $(this).val();
-                        
-                    }
-                });
+                
+                
+                
+                //var exact_upto_qty = '';
+                var req_opt = $_this2.find('.is_req').val();
+                var sing_mul = $_this2.find('.is_mul').val();
+                var exact_upto = $_this2.find('.up_t').val();
                 exact_upto_qty = $_this2.find('.itemno').val();
                 if($_this2.find('cmore').length > 0)
                 {
@@ -137,9 +119,9 @@ $('.savebtn').live('click',function(){
                    data:'menu_item='+ctitle+'&description='+cdescription+'&has_addon='+has_addon2+'&parent='+res+'&req_opt='+req_opt+'&sing_mul='+sing_mul+'&exact_upto='+exact_upto+'&exact_upto_qty='+exact_upto_qty,
                    type:'post',
                    success:function(res2){
-                    if($_parent.find('.cmore').length > 0)
+                    if($_this2.find('.cmore').length > 0)
                     {
-                        $('.cmore',$_parent).each(function(){
+                        $('.cmore',$_this2).each(function(){
                             var cctitle = $(this).find('.cctitle').val();
                             var ccprice = $(this).find('.ccprice').val();
                             
@@ -150,7 +132,7 @@ $('.savebtn').live('click',function(){
                                data:'menu_item='+cctitle+'&price='+ccprice+'&parent='+res2,
                                type:'post',
                                success:function(res2){
-                                window.location=base_url+'restaurants/menu_manager?added';
+                                //window.location=base_url+'restaurants/menu_manager?added';
                                }
                             });
                             
