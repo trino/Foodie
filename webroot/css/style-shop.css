@@ -933,7 +933,10 @@ Header and header elements
 	width: 100%;
 }
 .product-other-images {
-	text-align: left;
+	text-align: center;
+}
+.product-other-images > a {
+    display: inline-block;
 }
 .product-other-images img {
 	width: 58px;

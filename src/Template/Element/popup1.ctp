@@ -54,7 +54,7 @@
                                     <span class="error_154" style="color: red; font-weight: bold;"></span>
 
                                     <div class="list clearfix">
-                                        <div class="col-xs-12 col-md-6"  style="padding: 0px;border-radius: 17px 0 0 17px !important;"
+                                        <div class="col-xs-6 col-md-6"  style="padding: 0px;border-radius: 17px 0 0 17px !important;"
                                              class="subin btn default btnxx">
                                             <div style="padding:0px;border-radius: 17px 0 0 17px !important;"
                                                 >
@@ -84,7 +84,7 @@
                                         </div>
                                         <div style="padding: 0px;border-radius: 17px 0 0 17px !important;"
                                              class="subin btn default btnxx">
-                                            <div class="col-xs-12 col-md-6"  style="padding:0px;border-radius: 17px 0 0 17px !important;"
+                                            <div class="col-xs-6 col-md-6"  style="padding:0px;border-radius: 17px 0 0 17px !important;"
                                                 >
                                                 <a style="text-decoration: none;display:inline-block; padding-right: 15px;"
                                                    title="B" id="buttons_5051" class="buttons "
@@ -140,7 +140,7 @@
                                     <span class="error_159" style="color: red; font-weight: bold;"></span>
 
                                     <div class="list clearfix">
-                                        <div class="col-xs-12 col-md-6"  style="padding: 0px;border-radius: 17px 0 0 17px !important;"
+                                        <div class="col-xs-6 col-md-6"  style="padding: 0px;border-radius: 17px 0 0 17px !important;"
                                              class="subin btn default btnxx">
                                             <div style="padding:0px; ">
 
@@ -170,7 +170,7 @@
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
-                                        <div class="col-xs-12 col-md-6"  style="padding: 0px;border-radius: 17px 0 0 17px !important;"
+                                        <div class="col-xs-6 col-md-6"  style="padding: 0px;border-radius: 17px 0 0 17px !important;"
                                              class="subin btn default btnxx">
                                             <div style="padding:0px; ">
 
@@ -200,7 +200,7 @@
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
-                                        <div class="col-xs-12 col-md-6" style="padding: 0px;border-radius: 17px 0 0 17px !important;"
+                                        <div class="col-xs-6 col-md-6" style="padding: 0px;border-radius: 17px 0 0 17px !important;"
                                              class="subin btn default btnxx">
                                             <div style="padding:0px; " >
 
@@ -230,7 +230,7 @@
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
-                                        <div class=" col-md-6 col-xs-12 " style="padding: 0px;border-radius: 17px 0 0 17px !important;"
+                                        <div class=" col-md-6 col-xs-6 " style="padding: 0px;border-radius: 17px 0 0 17px !important;"
                                              class="subin btn default btnxx">
                                             <div style="padding:0px; " >
 
@@ -261,7 +261,7 @@
                                             <div class="clearfix"></div>
                                         </div>
                                         <div style="padding: 0px;border-radius: 17px 0 0 17px !important;"
-                                             class="subin btn default btnxx col-md-6 col-xs-12 ">
+                                             class="subin btn default btnxx col-md-6 col-xs-6 ">
                                             <div style="padding:0px;">
 
                                                 <a style="text-decoration: none; display:inline-block; padding-right: 15px;"
@@ -291,7 +291,7 @@
                                             <div class="clearfix"></div>
                                         </div>
                                         <div style="padding: 0px;border-radius: 17px 0 0 17px !important;"
-                                             class="subin btn default btnxx col-md-6 col-xs-12 ">
+                                             class="subin btn default btnxx col-md-6 col-xs-6 ">
                                             <div style="padding:0px;">
 
                                                 <a style="text-decoration: none; display:inline-block; padding-right: 15px;"
@@ -321,7 +321,7 @@
                                             <div class="clearfix"></div>
                                         </div>
                                         <div style="padding: 0px;border-radius: 17px 0 0 17px !important;"
-                                             class="subin btn default btnxx col-xs-12 col-md-6">
+                                             class="subin btn default btnxx col-xs-6 col-md-6">
                                             <div style="padding:0px; ">
 
                                                 <a style="text-decoration: none; display:inline-block; padding-right: 15px;"

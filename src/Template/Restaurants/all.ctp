@@ -1,3 +1,4 @@
+<div class="main">
 <div class="col-md-8 col-sm-4">
     <?php
         if(!isset($restaurant)){
@@ -42,4 +43,5 @@
         <li><a href="#">5</a></li>
         <li><a href="#">Next</a></li>
     </ul>
+</div>
 </div>

@@ -430,7 +430,9 @@ Header and header elements
 	border-radius: 0;
 	margin-bottom: 22px;
 	z-index: 999;
-	position: relative;
+	position: fixed !important;
+    width: 100%;
+    top:0px;
 }
 
 /* FIX styles BEGIN */

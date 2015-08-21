@@ -170,12 +170,13 @@
 <!-- BEGIN HEADER -->
 <div class="header">
     <div class="container-fluid">
-        <a class="site-logo" href="<?php echo $this->request->webroot;?>"><img src="<?php echo $this->request->webroot;?>/img/logos/logo.png" alt="Metronic Shop UI"></a>
+        <a class="site-logo" href="<?php echo $this->request->webroot;?>"><img src="<?php echo $this->request->webroot;?>img/logos/logo.png" alt="Metronic Shop UI"></a>
 
-        <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+        <a href="#header-nav" class="mobi-toggler fancybox-fast-view"><i class="fa fa-bars"></i></a>
 
         <!-- BEGIN NAVIGATION -->
-        <div class="header-navigation">
+         <div class="header-navigation-wrap" id="header-nav" >
+        <div class="header-navigation" >
             <ul>
 
                 <li><a href="<?php echo $this->request->webroot;?>">Home</a></li>
@@ -222,7 +223,9 @@
                 <!-- END TOP SEARCH -->
             </ul>
         </div>
+        </div>
         <!-- END NAVIGATION -->
+        
     </div>
 </div>
 <!-- Header END -->

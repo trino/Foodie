@@ -1,12 +1,12 @@
    <div class="top-cart-info">
-            <a href="javascript:void(0);" class="top-cart-info-count">3 items</a>
-            <a href="javascript:void(0);" class="top-cart-info-value">$1260</a>
-              <i class="fa fa-shopping-cart clickable" onclick="$('.itemsz').slideToggle('swing');"></i>
-          </div>
+            <a href="javascript:void(0);" class="top-cart-info-count" id="cart-items">3 items</a>
+            <a href="javascript:void(0);" class="top-cart-info-value" id="cart-total">$1260</a>
+            <a href="#cartsz" class="fancybox-fast-view" ><i class="fa fa-shopping-cart" onclick="#cartsz" ></i></a>
+   </div>
         
                         
           <div class="top-cart-content-wrapper">
-            <div class="top-cart-content " >
+            <div class="top-cart-content " id="cartsz" >
               <?php echo $this->element('_items');?>
          
               <div class="totals col-md-12">
@@ -89,6 +89,7 @@
             $('.grandtotal').text(grandtotal.toFixed(2));
             $('.grandtotal').val(grandtotal.toFixed(2));
             $('#delivery_flag').val('1');
+            $('#cart-total').text('$'+grandtotal.toFixed(2));
         }
         else
         {
@@ -98,19 +99,23 @@
             $('.grandtotal').val(grandtotal.toFixed(2));
             $('#df').hide();
             $('#delivery_flag').val('0');
+            $('#cart-total').text('$'+grandtotal.toFixed(2));
         }
             
     }
     
     $(function(){
-        
+        var wd = $(window).width();
         
         $(window).scroll(function(){
+             if(wd>='767')
+            {
             $('.top-cart-block').css({'top':0});
             if($(window).scrollTop()== 0)
             $('.top-cart-block').css({'top':'110px'});
+            }
         });
-        var wd = $(window).width();
+        
         if(wd<='767')
         {
              $('.top-cart-info').show();

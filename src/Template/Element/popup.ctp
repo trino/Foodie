@@ -78,7 +78,7 @@
                                         $mini_menus = $manager->enum_all('Menus',['parent'=>$sub->ID]);
                                         foreach($mini_menus as $mm):
                                     ?>
-                                        <div class="col-xs-12 col-md-6"  style="padding: 0px;border-radius: 17px 0 0 17px !important;"
+                                        <div class="col-xs-6 col-md-6"  style="padding: 0px;border-radius: 17px 0 0 17px !important;"
                                              class="subin btn default btnxx">
                                             <div style="padding:0px;border-radius: 17px 0 0 17px !important;">
                                                 <a style="text-decoration: none;display:inline-block; padding-right: 15px;"

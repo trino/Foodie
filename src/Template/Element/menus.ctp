@@ -89,10 +89,16 @@
 
  ?>
  </div>
-  <div id="loadmoreajaxloader" style="display:none;"><center><img src="<?php echo $this->request->webroot;?>img/ajax-loader.gif" /></center></div>
+ <div id="loadmoreajaxloader" style="display:none;"><center><img src="<?php echo $this->request->webroot;?>img/ajax-loader.gif" /></center></div>
+ <div class="clearfix"></div>
+ <div class="col-md-12  margin-bottom-10">
+    <button align="center" class="loadmore btn btn-primary">Load More</button>
+ </div>
+ <div class="clearfix"></div>
+  
 
 <script type="text/javascript">
-$(window).scroll(function()
+/*$(window).scroll(function()
 {
     if($(window).scrollTop() == $(document).height() - $(window).height())
     {
@@ -112,10 +118,28 @@ $(window).scroll(function()
         }
         });
     }
-});
+});*/
 </script>
 <script>
     $(function () {
+        $('.loadmore').click(function(){
+            $('div#loadmoreajaxloader').show();
+            $.ajax({
+            url: "<?php echo $this->request->webroot;?>common/loadmore.php",
+            success: function(html)
+            {
+                if(html)
+                {
+                    $("#postswrapper").append(html);
+                    $('div#loadmoreajaxloader').hide();
+                }else
+                {
+                    $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
+                }
+            }
+            });
+        });
+  
         $('.modal').on('shown.bs.modal', function () {
             $('input:text:visible:first', this).focus();
         });
@@ -645,6 +669,8 @@ $(window).scroll(function()
             var tt = $(this).text().replace('$','');
             subtotal = Number(subtotal) + Number(tt);
         })
+        var items = (ccc=='1')?ccc+' item':ccc +' items';
+        $('#cart-items').text(items);
         //alert(subtotal);
         //if (ccc > 3)
         // $('.orders').attr('style', 'display:block;height:260px;overflow-x:hidden;overflow-y:scroll;');
@@ -670,10 +696,12 @@ $(window).scroll(function()
 
         $('div.grandtotal').text(gtotal);
         $('input.grandtotal').val(gtotal);
+        $('#cart-total').text(gtotal);
         $('.subitems_' + menu_id).find('input:checkbox, input:radio').each(function () {
             if (!$(this).hasClass('chk'))
                 $(this).removeAttr("checked");
         });
+        
         $('.number'+menu_id).text('1');
         //$('#clear_' + menu_id).click();
         $('.fancybox-close').click();
