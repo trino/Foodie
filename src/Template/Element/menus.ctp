@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo $this->request->webroot;?>css/popstyle.css"/>
 
 <?php if ($this->request->params['controller'] == 'Restaurants') { ?>
-    <div class="margin-bottom-10">
+    <!--div class="margin-bottom-10">
         <div class="col-md-3">
             <div class="product-item">
                 <div class="pi-img-wrapper">
@@ -37,8 +37,12 @@
         </div>
 
 
-    </div>
+    </div-->
 <?php }?>
+
+
+
+
 <div id="postswrapper">
 <?php   
     $cnt=0;

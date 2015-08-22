@@ -31,8 +31,6 @@ You’ll only pay on orders we send you
 
 <div class="heading"><div class="text"><b>Receive Orders</b> In 10 Mins</div></div>
 
-
-
 <div class="grid">
    <div class="col-1-3">
      <div class="module">

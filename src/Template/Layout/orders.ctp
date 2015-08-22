@@ -23,7 +23,7 @@ Welcome, test
 <div class="col-md-12">
     <?php echo $this->element('user_menu');?>
     <div class="col-xs-12  col-sm-9">
-        <div class="grid">
+        <div class="deleteme">
             <h3 class="sidebar__title">Order History</h3>
             <hr class="shop__divider">
             <div class="dashboard">

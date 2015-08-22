@@ -12,7 +12,7 @@ Welcome, test
   <div class="col-md-12">
     <?php echo $this->element('user_menu');?>
     <div class="col-xs-10  col-sm-9">
-      <div class="grid">
+      <div class="deleteme">
         <!--<ul class="pagination  shop__amount-filter">
           <li>
             <a class="shop__amount-filter__link  hidden-xs" href="shop.html"><span class="glyphicon glyphicon-th"></span></a>
