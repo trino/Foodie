@@ -184,7 +184,7 @@
                 <li><a href="<?php echo $this->request->webroot;?>restaurants/signup">Restaurant Sign Up</a></li>
                 <li><a href="<?php echo $this->request->webroot;?>pages/contact">Contact Us</a></li>
 
-
+                <a style="color:#999999;" href="mailto:info@trinoweb.com?cc=info@didueat.ca">Click here to Email</a>
                 <?php
                     $userName = "Not logged in";
                     $Restaurant = $userName;

@@ -4,25 +4,25 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-12 col-xs-11 steps-block-col">
-                <i class="fa fa-truck"></i>
+                <i class="fa fa-search"></i>
                 <div>
-                    <h2>Delivery or Pick up</h2>
+                    <h3>Pick A Restaurant</h3>
                     <em>Choose your preference</em>
                 </div>
                 <span>&nbsp;</span>
             </div>
             <div class="col-md-4 col-sm-12 col-xs-11 steps-block-col">
-                <i class="fa fa-gift"></i>
+                <i class="fa fa-shopping-cart"></i>
                 <div>
-                    <h2>Deals, Deals, Deals</h2>
+                    <h3>Order Online</h3>
                     <em>Get the best discount</em>
                 </div>
                 <span>&nbsp;</span>
             </div>
             <div class="col-md-4 col-sm-12 col-xs-11 steps-block-col">
-                <i class="fa fa-chain-broken"></i>
+                <i class="fa fa-spoon"></i>
                 <div>
-                    <h2>Freedom</h2>
+                    <h3>Enjoy Your Meal</h3>
                     <em>No setup fees, hidden costs, or contracts</em>
                 </div>
             </div>
