@@ -71,7 +71,7 @@
                         $r1 = rand('1000000','999999999');
                         ?>
                     <input type="radio" onclick="$(this).parent().find('.is_req').val(0);" class="is_required" value="0" name="<?php echo $r1;?>" <?php if(!isset($child->req_opt) || (isset($child->req_opt) && $child->req_opt==0)){?> checked="checked"<?php }?>> Optional&nbsp; &nbsp; OR&nbsp; &nbsp; <input type="radio" value="1" onclick="$(this).parent().find('.is_req').val(1);" class="is_required" name="<?php echo $r1;?>" <?php if(isset($child->req_opt) && $child->req_opt==1){?> checked="checked"<?php }?>> Required
-                    <input type="hidden" class="is_req" <?php if(!isset($child->req_opt) || (isset($child->req_opt) && $child->req_opt==0)){?>value="0"<?php }?> />
+                    <input type="hidden" class="is_req" <?php if(!isset($child->req_opt) || (isset($child->req_opt) && $child->req_opt==0)){?>value="0"<?php }else{?>value="1"<?php }?> />
                 </div>
                 <br />
                 <strong>Customer can select:</strong>
@@ -80,7 +80,7 @@
                         $r2 = rand('1000000','999999999');
                         ?>
                     <input type="radio" onclick="$(this).parent().find('.is_mul').val(1);" class="is_multiple" value="1" name="<?php echo $r2;?>" <?php if(!isset($child->sing_mul) || (isset($child->sing_mul) && $child->sing_mul==1)){?> checked="checked"<?php }?>> Single&nbsp; &nbsp; OR&nbsp; &nbsp; <input type="radio" value="0" class="is_multiple" onclick="$(this).parent().find('.is_mul').val(0);" name="<?php echo $r2;?>"  <?php if((isset($child->sing_mul) && $child->sing_mul==0)){?> checked="checked"<?php }?>> Multiple
-                    <input type="hidden" class="is_mul" <?php if(!isset($child->sing_mul) || (isset($child->sing_mul) && $child->sing_mul==1)){?> value="1"<?php }?> />
+                    <input type="hidden" class="is_mul" <?php if(!isset($child->sing_mul) || (isset($child->sing_mul) && $child->sing_mul==1)){?> value="1"<?php }else{?>value="0"<?php }?> />
                 </div>    
                 <div <?php if(!isset($child->sing_mul) || (isset($child->sing_mul) && $child->sing_mul==1)){?>style="display: none;"<?php }?> class="infolist exact">
                 <br />
@@ -90,7 +90,7 @@
                         <?php
                         $r3 = rand('1000000','999999999');
                         ?>
-                            <input type="hidden" class="up_t" <?php if(!isset($child->exact_upto) || (isset($child->exact_upto) && $child->exact_upto==0)){?> value="0"<?php }?> /><input type="radio" onclick="$(this).parent().find('.up_t').val(0);" <?php if(!isset($child->exact_upto) || (isset($child->exact_upto) && $child->exact_upto==0)){?> checked="checked"<?php }?> class="up_to up_to_selected" value="0" name="<?php echo $r3;?>"> Up to &nbsp; <input type="radio" onclick="$(this).parent().find('.up_t').val(1);" class="up_to" value="1" name="<?php echo $r3;?>" <?php if(isset($child->exact_upto) && $child->exact_upto==1){?> checked="checked"<?php }?>> Exactly</div><div style="clear:both;">
+                            <input type="hidden" class="up_t" <?php if(!isset($child->exact_upto) || (isset($child->exact_upto) && $child->exact_upto==0)){?> value="0"<?php }else{?>value="1"<?php }?> /><input type="radio" onclick="$(this).parent().find('.up_t').val(0);" <?php if(!isset($child->exact_upto) || (isset($child->exact_upto) && $child->exact_upto==0)){?> checked="checked"<?php }?> class="up_to up_to_selected" value="0" name="<?php echo $r3;?>"> Up to &nbsp; <input type="radio" onclick="$(this).parent().find('.up_t').val(1);" class="up_to" value="1" name="<?php echo $r3;?>" <?php if(isset($child->exact_upto) && $child->exact_upto==1){?> checked="checked"<?php }?>> Exactly</div><div style="clear:both;">
                             
                         </div>
                         <div class="clearfix"></div> 
