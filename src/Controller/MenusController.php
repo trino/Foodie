@@ -93,7 +93,12 @@ class MenusController extends AppController {
         else
         $id = 0;
         if($id==0){
+            
+            //$arr['display_order'=>]
         $table = TableRegistry::get('menus');
+        //$table = TableRegistry::get('menus');
+        $orders = $table->find()->where(['res_id'=>$this->Manager->read('ID'),'parent'=>0])->order(['display_order'=>'desc'])->first();
+        $arr['display_order'] = $orders->display_order + 1;
         $Data2 = $table->newEntity($arr);
         
         $table->save($Data2);
@@ -106,7 +111,7 @@ class MenusController extends AppController {
                 $query = $table->query();
                 $query->update()
                     ->set($arr)
-                    ->where(['id' => $id])
+                    ->where(['ID' => $id])
                     ->execute();
                     
                     $child = $table->find()->where(['parent'=>$id]);
@@ -145,6 +150,21 @@ class MenusController extends AppController {
         $cchild = $table->find()->where(['parent'=>$id]); 
         $this->response->body($cchild);
         return $this->response;
+        die();
+    }
+    public function orderCat()
+    {
+        $table = TableRegistry::get('menus');
+        //$menus = $table->find()->where(['res_id'=>$this->Manager->read('ID'),'parent'=>0]);
+        $_POST['ids'] = explode(',',$_POST['ids']);
+        foreach($_POST['ids'] as $k=>$id)
+        {
+           $query = $table->query();
+                $query->update()
+                    ->set(['display_order'=>($k+1)])
+                    ->where(['ID' => $id])
+                    ->execute(); 
+        } 
         die();
     }
 }

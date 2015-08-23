@@ -148,6 +148,10 @@ $('.savebtn').live('click',function(){
                 
             });
         }
+        else
+        {
+            window.location=base_url+'restaurants/menu_manager?added';
+        }
        }
     });
 });

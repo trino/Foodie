@@ -33,7 +33,7 @@
             <?php if(!isset($ccount) || (isset($ccount) && $ccount==0)){?>
             <div class="newaction">
             
-            <a href="javascript:void(0)" class="btn btn-info add_additional" id="add_additional<?php echo $menu_id;?>">Add Addons</a> <a href="javascript:void(0)" class="btn btn-info savebtn">Save</a>
+            <a href="javascript:void(0)" class="btn btn-info add_additional" id="add_additional<?php echo $menu_id;?>">Add Addons</a> <a href="javascript:void(0)" id="save0" class="btn btn-info savebtn">Save</a>
             </div>
             <?php }?>
         </div>

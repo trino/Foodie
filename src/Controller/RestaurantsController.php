@@ -84,7 +84,7 @@ class RestaurantsController extends AppController {
     public function menu_manager() {
         $this->layout='admin';
         $menus = TableRegistry::get('menus');
-        $model = $menus->find()->where(['res_id' => $this->Manager->read('ID'),'parent'=>0])->all();
+        $model = $menus->find()->where(['res_id' => $this->Manager->read('ID'),'parent'=>0])->order(['display_order'=>'asc'])->all();
         $this->set('menus',$model);
     }
 

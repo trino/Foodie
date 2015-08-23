@@ -16,7 +16,7 @@ a.btn{color:#FFF;}
 .marbot{margin-bottom:40px;}
 .itemimg{max-width: 100%;}
 .expand{background:url('../img/expand.png') no-repeat right;display:inline-block;padding:15px;}
-.expandbtn{display:inline-block;padding:10px;padding-left:10px;display:block;float:right;}
+.expandbtn{display:inline-block;padding:10px;padding-left:10px;display:block;float:right;cursor:move!important;}
 .menuimg{min-height: 100px;background:#e5e5e5;}
 .newmenu{border: 1px solid #e1e1e1;
     border-radius: 10px !important;

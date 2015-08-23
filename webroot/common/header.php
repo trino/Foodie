@@ -53,6 +53,7 @@
 
     <!-- MAKE ALL CSS CHANGES TO HERE -->
     <link href="<?php echo $this->request->webroot;?>css/custom_css.css" rel="stylesheet">
+    <link href="<?php echo $this->request->webroot;?>jqueryui/jquery-ui.css" rel="stylesheet">
     <!-- Theme styles END -->
 
     <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
@@ -69,6 +70,7 @@
     <script src="<?php echo $this->request->webroot;?>plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <script src="<?php echo $this->request->webroot;?>scripts/menu_manager.js"></script>
     <script src="<?php echo $this->request->webroot;?>scripts/upload.js"></script>
+    <script src="<?php echo $this->request->webroot;?>jqueryui/jquery-ui.js"></script>
     
     <!-- END CORE PLUGINS -->
 </head>
