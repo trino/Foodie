@@ -86,3 +86,4 @@ webroot/royslog.txt
 config/app.php
 *.log
 *.log
+*.th
