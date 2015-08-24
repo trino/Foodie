@@ -44,10 +44,8 @@ class RestaurantsController extends AppController {
 
     public function all() {
         $this->layout='admin';
-        
-        $genres = TableRegistry::get('genres')->find('list')->select(['ID', 'Name']);
         $this->set("Restaurants", $this->Manager->enum_restaurants());
-        $this->set("Genres", $genres);
+        $this->set("Genres", $this->Manager->enum_genres());
     }
     
    
@@ -202,6 +200,31 @@ class RestaurantsController extends AppController {
         }
     }
 
+    function addresses(){
+        $this->layout='admin';
+        $RestaurantID = $this->Manager->get_current_restaurant();
+        $this->set("RestaurantID", $RestaurantID);
+        if (isset($_GET["action"])) {
+            switch (strtolower($_GET["action"])) {
+                case "delete":
+                    $this->Manager->delete_notification_address($RestaurantID, $_GET["address"]);
+                    $this->Flash->success("The address was deleted");
+                    break;
+                case "addaddress":
+                    $MaxAdd = 3;
+                    $DataType = $this->Manager->data_type($_GET["address"]);
+                    $Current = $this->Manager->count_notification_addresses($RestaurantID, $DataType);
+                    if($Current < $MaxAdd && ($DataType == 0 || $DataType == 1)) {
+                        $this->Manager->add_notification_addresses($RestaurantID, $_GET["address"]);
+                        $this->Flash->success("The address was added");
+                    } else {
+                        $this->Flash->error("You have depleted the number of addresses for that type, or the type is not allowed (" . $this->Manager->data_type_name($DataType) . ")");
+                    }
+                    break;
+            }
+        }
+        $this->set("Addresses", $this->Manager->sort_notification_addresses($RestaurantID));
+    }
 
 
 

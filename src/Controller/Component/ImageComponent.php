@@ -3,6 +3,20 @@ namespace App\Controller\Component;
 use Cake\Controller\Component;
 
 class ImageComponent extends Component {
+    function resize($file, $sizes, $CropToFit = false, $delimeter = "x"){
+        if (is_array($sizes)){
+            $images = array();
+            foreach($sizes as $size) {
+                $images[] = $this->resize($file, $size, $delimeter);
+            }
+            return $images;
+        } else {
+            $newsize = explode($delimeter, $sizes);
+            $newfile = $this->getfilename($file) . '-' . $sizes . "." . $this->getextension($file);
+            return $this->make_thumb($file, $newfile, $newsize[0], $newsize[1], $CropToFit);
+        }
+    }
+
     function getdirectory($path){
         return pathinfo($path, PATHINFO_DIRNAME);
     }
@@ -126,5 +140,48 @@ class ImageComponent extends Component {
         }
     }
 
+    function handle_upload($Dir){
+        if(isset($_FILES['myfile']['name']) && $_FILES['myfile']['name']) {
+            if ($this->right($Dir,1) != "/"){$Dir .= "/";}
+            $dest = $this->resolve_path(APP . '../webroot/' . $this->left($Dir, strlen($Dir)-1));
+            if (!file_exists($dest)){mkdir($dest, 0777, true);}
+            $name = $_FILES['myfile']['name'];
+            $arr = explode('.', $name);
+            $ext = end($arr);
+            $file = date('YmdHis') . '.' . $ext;//unique filename
+            move_uploaded_file($_FILES['myfile']['tmp_name'], APP . '../webroot/' . $Dir . $file);
+            $file_path = $this->request->webroot . $Dir . $file;
+            return $file_path;
+        }
+    }
+
+    function right($text, $length){
+        return substr($text, -$length);
+    }
+    function left($text, $length){
+        return substr($text,0,$length);
+    }
+
+    function resolve_path($str){
+        $str = str_replace('\\', '/', $str);
+        $array = explode('/', $str);
+        $domain = array_shift( $array);
+        $parents = array();
+        foreach( $array as $dir) {
+            switch( $dir) {
+                case '.':
+                    // Don't need to do anything here
+                    break;
+                case '..':
+                    array_pop( $parents);
+                    break;
+                default:
+                    $parents[] = $dir;
+                    break;
+            }
+        }
+
+        return $domain . '/' . implode( '/', $parents);
+    }
 }
 ?>

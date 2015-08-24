@@ -3,6 +3,7 @@
     namespace App\Controller\Component;
     use Cake\Controller\Component;
     use Cake\ORM\TableRegistry;
+    use Cake\Datasource\ConnectionManager;
 
     /////////////////////////////CSS: webroot\assets\global\css\components.css ////////////////////////////////////
     class ManagerComponent extends Component {
@@ -96,6 +97,8 @@
                         }
                         break;
                     case "test":
+                        $startat = $this->get_row_count("postalcodes");
+                        $this->loadCSV("postalcodes", 'C:\wamp\www\Foodie\webroot\CanData.csv', $startat);
                         $Controller->Flash->error("test");
                         break;
                 }
@@ -316,6 +319,26 @@
         }
 
 
+        ////////////////////////////////////profile image API///////////////////////////////////
+        function get_profile_image($Filename, $UserID = ""){
+            if(!$UserID){$UserID = $this->read("ID");}
+            if (strpos($Filename, "/")){$Filename = pathinfo($Filename, PATHINFO_BASENAME);}
+            return $this->enum_all("profiles_images", array("UserID" => $UserID, "Filename" => $Filename))->first();
+        }
+
+        function delete_profile_image($Filename, $UserID = "") {
+            if (!$UserID) {$UserID = $this->read("ID");}
+            if (strpos($Filename, "/")){$Filename = pathinfo($Filename, PATHINFO_BASENAME);}
+            $dir = "img/users/" . $UserID . "/" . $Filename;
+            if (file_exists($dir)) {unlink($dir);}
+            $this->delete_all("profiles_images", array("UserID" => $UserID, "Filename" => $Filename));
+        }
+
+        function edit_profile_image($UserID, $Filename, $RestaurantID, $Title){
+
+        }
+
+
 
         ////////////////////////////////////Newsletter API//////////////////////////////////
         function add_subscriber($EmailAddress, $authorized = false){
@@ -403,9 +426,10 @@
 
         //////////////////////////////////////Restaurant API/////////////////////////////////
         function clean_phone($Phone){
-            $Phone = $this->kill_non_numeric($Phone, "+");
-            //add a check to be sure only the first digit is a +
-            return $Phone;
+            $Phone = $this->kill_non_numeric($Phone, "+");//add a check to be sure only the first digit is a +
+            if($Phone != "+") {
+                return $Phone;
+            }
         }
         function clean_email($Email){
             return strtolower(trim($Email));
@@ -458,6 +482,12 @@
         function get_current_restaurant(){
             $Profile = $this->read('ID');
             if($Profile) {
+                if (isset($_GET["RestaurantID"])) {
+                    $ProfileType = $this->get_profile_type($Profile);
+                    if ($ProfileType->CanEditGlobalSettings) {
+                        return $_GET["RestaurantID"];
+                    }
+                }
                 return $this->get_profile($Profile)->RestaurantID;
             }
         }
@@ -538,6 +568,68 @@
         }
         function get_day($Date){//3 (no leading zero)
             return date('j', $this->parse_date($Date));
+        }
+
+
+        /////////////////////////////////////Notification addresses API///////////////////////
+        function enum_notification_addresses($RestaurantID = "", $Type = ""){
+            if(!$RestaurantID){$RestaurantID = $this->get_current_restaurant();}
+            $conditions = array("RestaurantID" => $RestaurantID);
+            if (is_numeric($Type)){$conditions["Type"] = $Type;}
+            return $this->enum_all("notification_addresses", $conditions);
+        }
+        function count_notification_addresses($RestaurantID = "", $Type = "") {
+            if (!$RestaurantID) {$RestaurantID = $this->get_current_restaurant();}
+            $conditions = array("RestaurantID" => $RestaurantID);
+            if (is_numeric($Type)){$conditions["Type"] = $Type;}
+            return $this->get_row_count("notification_addresses", $conditions);
+        }
+
+        function sort_notification_addresses($RestaurantID = ""){
+            if(!$RestaurantID){$RestaurantID = $this->get_current_restaurant();}
+            $Addresses = $this->enum_notification_addresses($RestaurantID);
+            if($Addresses) {
+                $Types = array("Email", "Phone");
+                $Data = array();
+                foreach ($Types as $Type) {
+                    $Data[$Type] = array();
+                }
+                foreach ($Addresses as $Address) {
+                    $Data[$Types[$Address->Type]][] = $Address->Address;
+                }
+                return $Data;
+            }
+        }
+        function find_notification_address($RestaurantID, $Address){
+            $Type = $this->data_type($Address);
+            if ($Type == 0 || $Type == 1) {//email and phone whitelisted
+                $Address = $this->clean_data($Address);
+                return $this->enum_all("notification_addresses", array("RestaurantID" => $RestaurantID, "Type" => $Type, "Address" => $Address))->first();
+            }
+        }
+        function delete_notification_address($RestaurantID, $Address = "") {
+            if(!$RestaurantID){$RestaurantID = $this->get_current_restaurant();}
+            if($Address) {
+                $Type = $this->data_type($Address);
+                if ($Type == 0 || $Type == 1) {//email and phone whitelisted
+                    $Address = $this->clean_data($Address);
+                    $this->delete_all("notification_addresses", array("RestaurantID" => $RestaurantID, "Type" => $Type, "Address" => $Address));
+                }
+            } else {//delete all
+                $this->delete_all("notification_addresses", array("RestaurantID" => $RestaurantID));
+            }
+        }
+
+        function add_notification_addresses($RestaurantID, $Address){
+            $Type = $this->data_type($Address);
+            if ($Type == 0 || $Type == 1){//email and phone whitelisted
+                $Address = $this->clean_data($Address);
+                if(!$this->find_notification_address($RestaurantID, $Address)){
+                    $Data = array("RestaurantID" => $RestaurantID, "Type" => $Type, "Address" => $Address);
+                    $this->new_entry("notification_addresses", "ID", $Data);
+                    return true;
+                }
+            }
         }
 
 
@@ -647,8 +739,33 @@
 
 
 
+        function data_type_name($Type){
+            $Values = array("Email Address", "Phone Number", "Postal Code");
+            if ($Type <0 or $Type >= count($Values)){ return "Unknown";}
+            return $Values[$Type];
+        }
+        function data_type($Data){
+            if (strpos($Data, "@")){return 0;} //email
+            if ($this->clean_postalcode($Data)) { return 2;}//postal code
+            if($this->clean_phone($Data)) { return 1;} //phone number
 
+            return -1;
+        }
+        function clean_data($Data){
+            switch($this->data_type($Data)){
+                case -1: return trim($Data); break;
+                case 0: return $this->clean_email($Data); break;
+                case 1: return $this->clean_phone($Data); break;
+                case 2: return $this->clean_postalcode($Data); break;
+            }
+        }
         /////////////////////////////////DATABASE API///////////////////////////////////
+        function enum_tables(){
+            $db = ConnectionManager::get('default');
+            $collection = $db->schemaCollection();// Create a schema collection.
+            return $collection->listTables();// Get the table names
+        }
+
         function delete_all($Table, $data){
             $table = TableRegistry::get($Table);
             $table->deleteAll($data, false);
@@ -689,6 +806,15 @@
             TableRegistry::get($Table)->query()->update()->set($Data)->where([$PrimaryKey => $Value])->execute();
             $Data[$PrimaryKey] = $Value;
             return $Data;
+        }
+
+        function get_row_count($Table, $Conditions = ""){
+            $Table = TableRegistry::get($Table);
+            if($Conditions) {
+                return $Table->find('all')->where($Conditions)->count();
+            } else {
+                return $Table->find('all')->count();
+            }
         }
 
         function edit_database($Table, $PrimaryKey, $Value, $Data){
@@ -860,5 +986,75 @@
             $object = (object) $Array;
             return $object;
         }
+
+        //accepts a table name, or the pure (false) column names array
+        function get_primary_key($Table){
+            if (is_string($Table)){
+                $Table = $this->getColumnNames($Table, "", false);
+            }
+            if (is_array($Table)){
+                foreach($Table as $Key => $Value){
+                    if(isset($Value['autoIncrement'])){
+                        return $Key;
+                    }
+                }
+            }
+        }
+
+        function loadCSV($Table, $Filename, $StartAt = 1){
+            $ColumnNames = $this->getColumnNames($Table, "", false);
+            $PrimaryKey = $this->get_primary_key($ColumnNames);
+            if($PrimaryKey) {
+                $table=TableRegistry::get($Table);
+                unset($ColumnNames[$PrimaryKey]);
+                $ColumnNames = array_keys($ColumnNames);
+                $handle = fopen($Filename, "r");
+                if ($handle) {
+                    $Index = 1;
+                    while (($line = fgets($handle)) !== false) {
+                        if($Index >= $StartAt) {
+                            $line = str_replace("&'", "'", $line);
+                            $Text = str_getcsv($line);
+                            $Data = array_combine($ColumnNames, $Text);
+                            $table->query()->insert($ColumnNames)->values($Data)->execute();
+                        }
+                        $Index++;
+                    }
+                    fclose($handle);
+                }
+            }
+        }
+
+        function get_distance_postal($Postal1, $Postal2, $units = "KM"){
+            $Postal1 = $this->clean_postalcode($Postal1);
+            $Postal2 = $this->clean_postalcode($Postal2);
+            if($Postal1 && $Postal2) {
+                $Postal1 = $this->get_entry("postalcodes", $Postal1, "PostalCode");
+                $Postal2 = $this->get_entry("postalcodes", $Postal2, "PostalCode");
+                if($Postal1 && $Postal2) {
+                    return $this->get_distance($Postal1->Lattitude, $Postal1->Longitude, $Postal2->Lattitude, $Postal2->Longitude, $units);
+                }
+            }
+        }
+
+        function get_distance($lat1, $lon1, $lat2, $lon2, $units = "KM") {
+            $theta = $lon1 - $lon2;
+            $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+            $dist = acos($dist);
+            $dist = rad2deg($dist);
+            $miles = $dist * 60 * 1.1515;
+            switch (strtoupper($units)){
+                case "KM": return ($miles * 1.609344); break;
+                case "N": return ($miles * 0.8684); break;
+                default: return $miles;
+            }
+        }
+
+        function get($Key, $Default = ""){
+            if (isset($_POST[$Key])){ return $_POST[$Key]; }
+            if (isset($_GET[$Key])){ return $_GET[$Key]; }
+            return $Default;
+        }
+
     }
 ?>

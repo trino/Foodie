@@ -70,6 +70,30 @@ class UsersController extends AppController {
         return $this->Manager->enum_all("profiles_addresses", $conditions);
     }
 
+    public function images() {
+        $this->layout = "admin";
+        if(isset($_GET["action"])) {
+            switch ($_GET["action"]) {
+                case "delete":
+                    $this->Manager->delete_profile_image($_GET["file"]);
+                    break;
+            }
+        }
+    }
+
+    function upload($UserID){
+        $this->layout = "none";
+        $this->loadComponent("Image");
+        $dir = "img/users/" . $UserID;
+        $filename = $this->Image->handle_upload($dir);
+        $filename = pathinfo($filename, PATHINFO_BASENAME);//filename only, with extension
+        $dir = $dir . "/";
+        $this->Image->make_thumb($dir . $filename, $dir . $filename . ".th", 128, 128, true);
+        echo $filename;
+        die();
+    }
+
+
     public function addresses(){
         $this->Manager->verify_login($this, "Users");
         $this->layout = "admin";
@@ -155,5 +179,9 @@ class UsersController extends AppController {
             ->execute();
         $this->response->body('0');
         return $this->response;
+    }
+
+    function postalcodes(){
+
     }
 }

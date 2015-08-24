@@ -37,7 +37,7 @@ class MenusController extends AppController {
             $file = date('YmdHis') . '.' . $ext;
             move_uploaded_file($_FILES['myfile']['tmp_name'], APP . '../webroot/img/products/' . $file);
             $file_path = $this->request->webroot . 'img/products/' . $file;
-            //$this->resize($file, array("300x300", "150x150"), true);
+            //$this->loadComponent("Image"); $this->Image->resize($file, array("300x300", "150x150"), true);
             echo $file_path.'___'.$file;
             die();
         }
@@ -45,21 +45,11 @@ class MenusController extends AppController {
 
     function resize($file, $sizes, $CropToFit = false, $delimeter = "x"){
         $this->loadComponent("Image");
-        if (is_array($sizes)){
-            $images = array();
-            foreach($sizes as $size) {
-                $images[] = $this->resize($file, $size, $delimeter);
-            }
-            return $images;
-        } else {
-            $newsize = explode($delimeter, $sizes);
-            $newfile = $this->Image->getfilename($file) . '-' . $sizes . "." . $this->getextension($file);
-            return $this->Image->make_thumb($file, $newfile, $newsize[0], $newsize[1], $CropToFit);
-        }
+        return $this->Image->resize($file, $sizes, $CropToFit,$delimeter);
     }
-    function add()
-    {
-         $this->loadModel("Menus");
+
+    function add(){
+        $this->loadModel("Menus");
         $this->loadComponent('Manager');
         $arr['menu_item'] = $_POST['menu_item'];
         if(isset($_POST['price']))

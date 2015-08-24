@@ -1,81 +1,48 @@
-<div class="row">
-    <div class="col-md-6 ">
 
+<link rel="stylesheet" href="<?php echo $this->request->webroot; ?>scripts/ui-1.10.0/ui-lightness/jquery-ui-1.10.0.custom.min.css" type="text/css" />
+<link href="<?php echo $this->request->webroot; ?>css/timepicker.css" rel="stylesheet">
+<script type="text/javascript" src="<?php echo $this->request->webroot; ?>scripts/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="<?php echo $this->request->webroot; ?>scripts/ui-1.10.0/jquery.ui.core.min.js"></script>
+<script type="text/javascript" src="<?php echo $this->request->webroot; ?>scripts/ui-1.10.0/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" src="<?php echo $this->request->webroot; ?>scripts/ui-1.10.0/jquery.ui.tabs.min.js"></script>
+<script type="text/javascript" src="<?php echo $this->request->webroot; ?>scripts/ui-1.10.0/jquery.ui.position.min.js"></script>
+<script src="<?php echo $this->request->webroot; ?>scripts/timepicker.js" type="text/javascript"></script>
 
-<div>
+<form action="" method="post">
+    <div class="row">
+        <div class="col-md-4 profilepic">
+            <p>
+                <strong>Restaurant Image</strong><br /><br />
+                <img id="picture" src="<?=$this->request->webroot."/img/default.png"; ?>" title="" style="width: 100%;"  /><br />
+                <a href="javascript:void(0);" id="uploadbtn" class="btn btn-success">Change Image</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <strong>Restaurant Info</strong><br /><br />
+            <p class="inputs">
 
+                <input type="text" name="Name" placeholder="Restaurant Name" title="Restaurant Name" value="<?= $Restaurant->Name; ?>" />
+                <input type="text" name="Email" placeholder="Restaurant Email" title="Restaurant Email" value="<?= $Restaurant->Email; ?>" />
+                <input type="text" name="Phone" placeholder="Phone" title="Phone" value="<?= $Restaurant->Phone; ?>" />
+                <input type="text" name="Address" placeholder="Street Address" title="Street Address" value="<?= $Restaurant->Address; ?>" />
+                <input type="text" name="City" placeholder="City" title="City" value="<?= $Restaurant->City; ?>" />
+                <input type="text" name="PostalCode" placeholder="Postal Code" title="Postal Code" value="<?= $Restaurant->PostalCode; ?>" />
 
-    <form class="form-horizontal" action="" method="post">
-        <div class="row">
-            <div class="col-md-12 profilepic">
-                <p>
-                    <strong>Restaurant Image</strong><br /><br />
-                    <img id="picture" src="<?=$this->request->webroot."/img/default.png"; ?>" title="" style="width: 100%;"  /><br />
-                    <a href="javascript:void(0);" id="uploadbtn" class="btn btn-success">Change Image</a>
-                </p>
-            </div>
-            <div class="col-md-12">
-                <strong>Restaurant Info</strong><br /><br />
-                <!--<p class="inputs">-->
-                    <div class="form-group">
-                        <label class="col-lg-4 control-label col-xs-12" for="Name">Name <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                            <input class= "form-control input-md" type="text" name="Name" placeholder="i.e. Pho" title="Restaurant Name" value="<?= $Restaurant->Name; ?>" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-lg-4 control-label col-xs-12" for="Email">Email <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                            <input class= "form-control input-md"  type="text" name="Email" placeholder="i.e. pho@gmail.com" title="Restaurant Email" value="<?= $Restaurant->Email; ?>" />
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="col-lg-4 control-label col-xs-12" for="Phone">Phone <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                            <input class= "form-control input-md"  type="text" name="Phone" placeholder="i.e 905 555 5555" title="Phone" value="<?= $Restaurant->Phone; ?>" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-lg-4 control-label col-xs-12" for="Address">Address <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                            <input class= "form-control input-md"  type="text" name="Address" placeholder="i.e. 123 Main Street" title="Street Address" value="<?= $Restaurant->Address; ?>" />
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="col-lg-4 control-label col-xs-12" for="City">City <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                            <input class= "form-control input-md"  type="text" name="City" placeholder="i.e. Hamilton" title="City" value="<?= $Restaurant->City; ?>" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-lg-4 control-label col-xs-12" for="PostalCode">Postal Code <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                            <input class= "form-control input-md"  type="text" name="PostalCode" placeholder="i.e L8V 4I7" title="Postal Code" value="<?= $Restaurant->PostalCode; ?>" />
-                        </div>
-                    </div>
-                    
-                    <?php
-                        provinces("Province", $Restaurant->Province);
-                        makeselect("Country", $Restaurant->Country, array("CA" => "Canada"));
-                        echo '<BR>Genre: ';
-                        makeselect("Genre", $Restaurant->Genre, $Genres);
-                    ?>
+                <?php
+                    provinces("Province", $Restaurant->Province);
+                    makeselect("Country", $Restaurant->Country, array("CA" => "Canada"));
+                    echo '<BR>Genre: ';
+                    makeselect("Genre", $Restaurant->Genre, $Genres);
+                ?>
 
-                <!--</p>-->
-            </div>
-            <div class="col-md-12">
-                <p class="inputs">
-                    <strong>&nbsp;</strong><br /><br />
-                    <!--input type="text" name="cuisine" placeholder="Cuisine" value="<?php echo $res['Restaurant']['cuisine'];?>" /-->
-                    <textarea  rows="3" class="form-control"name="Description" placeholder="Description" title="Description"><?= $Restaurant->Description; ?></textarea>
-
-
-                </p>
-
-            </div>
-            <div class="clearfix"></div>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <p class="inputs">
+                <strong>&nbsp;</strong><br /><br />
+                <!--input type="text" name="cuisine" placeholder="Cuisine" value="<?php echo $res['Restaurant']['cuisine'];?>" /-->
+                <textarea name="Description" placeholder="Description" title="Description"><?= $Restaurant->Description; ?></textarea>
+            </p>
 
         </div>
 
@@ -104,6 +71,11 @@
                             //}
                             //return $Hours-12 . ":" . $Minutes . " PM";
                         }
+
+                        echo '<tr><td>' . ucfirst($NameOfDay) . '</td><td>';
+                        echo '<input type="text" class="timepicker" name="' . $DayOfWeek . '.Open" placeholder="Open" style="width: 48%;" value="' . $Open . '"/>  ';
+                        echo '<input style="width: 48%;" type="text" class="timepicker" name="' . $DayOfWeek . '.Close" value="' . $Close . '" placeholder="Close" /></td></tr>';
+                    }
 
                         function hours($Restaurant, $DayOfWeek){
                             $NameOfDay = array("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday");
@@ -196,4 +168,16 @@
 
 
 
-            
+
+    <div class="clearfix"></div>
+    <hr class="shop__divider"/>
+    <input type="submit" class="btn btn-primary" value="Save Changes" />
+</form>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.timepicker').timepicker( {
+            showAnim: 'blind'
+        } );
+    });
+</script>
+

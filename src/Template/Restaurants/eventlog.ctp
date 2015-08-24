@@ -8,7 +8,6 @@ include_once("common/api.php");
             <h3 class="sidebar__title">Event Log</h3>
             <hr class="shop__divider">
             <div class="dashboard">
-
                 <table class="table table-theme table-striped">
                 <THEAD>
                     <TR>
@@ -26,15 +25,18 @@ include_once("common/api.php");
                                 $Profile = getIterator($Profiles, "ID", $Event->UserID);
                                 echo '<TR><TD>' . $Event->ID . '</TD>';
                                 echo '<TD>' . $Event->Date . '</TD>';
-                                echo '<TD>' . $Event->UserID . " (" . $Profile->Name . ')</TD>';
+                                echo '<TD>' . $Event->UserID . " (";
+                                if ($Profile){ echo $Profile->Name; } else { echo "[Deleted user]";}
+                                echo ')</TD>';
                                 echo '<TD>' . $Event->Text . '</TD></TR>';
                             }
                         ?>
                     </TBODY>
                 </TABLE>
 
-                <div class="clearfix  hidden-xs"></div>
+                <div class="clearfix  hidden-xs">
             </div>
-            <hr class="shop__divider">
         </div>
+        <hr class="shop__divider">
     </div>
+</div>
