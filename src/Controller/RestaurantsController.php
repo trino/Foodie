@@ -44,7 +44,10 @@ class RestaurantsController extends AppController {
 
     public function all() {
         $this->layout='admin';
+        
+        $genres = TableRegistry::get('genres')->find('list')->select(['ID', 'Name']);
         $this->set("Restaurants", $this->Manager->enum_restaurants());
+        $this->set("Genres", $genres);
     }
 
     public function signup() {
