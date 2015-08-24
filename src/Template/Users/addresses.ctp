@@ -39,42 +39,42 @@
     <INPUT TYPE="HIDDEN" NAME="action" ID="action" VALUE="save.bypass">
     <fieldset>
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Name">Name of the address<span class="require">*</span></label>
+            <label class="col-lg-4 control-label col-xs-12" for="Name">Name of the address<span class="require">*</span></label>
             <div class="col-lg-4">
                 <input type="text" name="Name" required class="form-control" value="<?php if($isset) {echo $Address->Name; } ?>">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Name">Number <span class="require">*</span></label>
+            <label class="col-lg-4 control-label col-xs-12" for="Name">Number <span class="require">*</span></label>
             <div class="col-lg-1">
                 <input type="text" name="Number" required class="form-control" value="<?php if($isset) {echo $Address->Number; } ?>">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Name">Street <span class="require">*</span></label>
+            <label class="col-lg-4 control-label col-xs-12" for="Name">Street <span class="require">*</span></label>
             <div class="col-lg-4">
                 <input type="text" name="Street" required class="form-control" value="<?php if($isset) {echo $Address->Street; } ?>">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Name">Apartment/Unit/Room</label>
+            <label class="col-lg-4 control-label col-xs-12" for="Name">Apartment/Unit/Room</label>
             <div class="col-lg-1">
                 <input type="text" name="Apt" class="form-control" value="<?php if($isset) {echo $Address->Apt; } ?>">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Name">Buzz code/doorbell number</label>
+            <label class="col-lg-4 control-label col-xs-12" for="Name">Buzz code/doorbell number</label>
             <div class="col-lg-1">
                 <input type="text" name="Buzz" class="form-control" value="<?php if($isset) {echo $Address->Buzz; } ?>">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Name">City <span class="require">*</span></label>
+            <label class="col-lg-4 control-label col-xs-12" for="Name">City <span class="require">*</span></label>
             <div class="col-lg-4">
                 <SELECT Name="City" ID="City" required class="form-control">
                     <OPTION>Select a province first</OPTION>
@@ -83,7 +83,7 @@
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Name">Province <span class="require">*</span></label>
+            <label class="col-lg-4 control-label col-xs-12" for="Name">Province <span class="require">*</span></label>
             <div class="col-lg-4">
                 <?php
                     $Province = "";
@@ -94,7 +94,7 @@
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Name">Postal Code <span class="require">*</span></label>
+            <label class="col-lg-4 control-label col-xs-12" for="Name">Postal Code <span class="require">*</span></label>
             <STRONG>This is not used to verify your address (yet). Please make sure the address is correct.</STRONG>
             <div class="col-lg-1">
                 <input type="text" name="PostalCode" class="form-control" value="<?php if($isset) {echo $Address->PostalCode; } ?>">
@@ -102,7 +102,7 @@
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Name">Phone Number <span class="require">*</span></label>
+            <label class="col-lg-4 control-label col-xs-12" for="Name">Phone Number <span class="require">*</span></label>
             <STRONG>Include any neccesary extensions</STRONG>
             <div class="col-lg-2">
                 <input type="text" name="Phone" class="form-control" value="<?php if($isset) {echo format_phone($Address->Phone); } ?>">
@@ -110,7 +110,7 @@
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Name">Country</label>
+            <label class="col-lg-4 control-label col-xs-12" for="Name">Country</label>
             <div class="col-lg-4">
                 <SELECT Name="Country" required ID="Country" class="form-control">
                     <OPTION>Canada</OPTION>
@@ -119,7 +119,7 @@
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Name">Notes</label>
+            <label class="col-lg-4 control-label col-xs-12" for="Name">Notes</label>
             <div class="col-lg-7">
                 <input type="text" name="Notes" class="form-control" value="<?php if($isset) {echo $Address->Notes; } ?>">
             </div>

@@ -46,6 +46,7 @@
 
                               listitems($this->request->webroot, "User", "users", array(
                                   "User Info" => "dashboard",
+                                  "Upload Meal"=> "uploadmeal",
                                   "Addresses" => "addresses",
                                   "View Orders" => "orders",
                                   "Logout" => "logout"

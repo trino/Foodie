@@ -48,6 +48,11 @@ class UsersController extends AppController {
             die("You are attempting to edit an address that does not belong to you.");
         }
     }
+    
+     public function uploadmeal(){
+        $this->layout='admin';
+        $this->render();
+    }
 
     public function search_addresses(){
         foreach($_POST as $Key => $Value){

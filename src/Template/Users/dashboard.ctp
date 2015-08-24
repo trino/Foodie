@@ -43,6 +43,22 @@ Welcome, test
           <div class="clearfix  hidden-xs"></div>
         </div>
         <hr class="shop__divider">
+        <div class="row margin-bottom-30">
+            <div class="col-md-5">
+                <img class="img-responsive" alt="" src="<?php echo $this->request->webroot; ?>/img/works/img4.jpg">
+            </div>
+            <div class="col-md-7">
+                <h2>Our Money For Your Meal!</h2>
+                <p>
+                    Receive a $5 credit just for uploading a photo of your meal to our site! Remember, the meal has to be from one of our prestigious restaurants listed
+                </p>
+                <?php echo $this->Html->link(
+                    'Upload Image',
+                    '/restaurants/uploadmeal',
+                    ['class' => 'btn btn-success']
+                );?>
+            </div>
+        </div>
         <?php /*<div class="shop__pagination">
           <ul class="pagination">
             <li><a class="pagination--nav" href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>

@@ -7,21 +7,21 @@
     <fieldset>
         <legend>Your personal details</legend>
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Name">Name <span class="require">*</span></label>
+            <label class="col-lg-4 control-label col-xs-12" for="Name">Name <span class="require">*</span></label>
             <div class="col-lg-8">
               <input type="text" name="Name" class="form-control" value="<?php if($isset) {echo $Profile->Name; } ?>">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Email">Email <span class="require">*</span></label>
+            <label class="col-lg-4 control-label col-xs-12" for="Email">Email <span class="require">*</span></label>
             <div class="col-lg-8">
               <input type="text" name="Email" class="form-control" value="<?php if($isset) {echo $Profile->Email; } ?>">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Phone">Phone<span class="require">*</span></label>
+            <label class="col-lg-4 control-label col-xs-12" for="Phone">Phone<span class="require">*</span></label>
             <div class="col-lg-8">
               <input type="phone" name="Phone" class="form-control" value="<?php if($isset) {echo format_phone($Profile->Phone); } ?>">
             </div>
@@ -31,13 +31,13 @@
     <fieldset>
         <legend>Your password</legend>
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Password">Password <span class="require">*</span></label>
+            <label class="col-lg-4 control-label col-xs-12" for="Password">Password <span class="require">*</span></label>
             <div class="col-lg-8">
               <input type="text" name="Password" class="form-control">
             </div>
         </div>
         <div class="form-group">
-            <label class="col-lg-4 control-label" for="Confirm-Password">Confirm password <span class="require">*</span></label>
+            <label class="col-lg-4 control-label col-xs-12" for="Confirm-Password">Confirm password <span class="require">*</span></label>
             <div class="col-lg-8">
               <input type="text" name="Confirm-Password" class="form-control">
             </div>

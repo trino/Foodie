@@ -5,7 +5,7 @@
 <div>
 
 
-    <form action="" method="post">
+    <form class="form-horizontal" action="" method="post">
         <div class="row">
             <div class="col-md-12 profilepic">
                 <p>
@@ -16,15 +16,46 @@
             </div>
             <div class="col-md-12">
                 <strong>Restaurant Info</strong><br /><br />
-                <p class="inputs">
-
-                    <input class= "form-control input-md" type="text" name="Name" placeholder="Restaurant Name" title="Restaurant Name" value="<?= $Restaurant->Name; ?>" />
-                    <input class= "form-control input-md"  type="text" name="Email" placeholder="Restaurant Email" title="Restaurant Email" value="<?= $Restaurant->Email; ?>" />
-                    <input class= "form-control input-md"  type="text" name="Phone" placeholder="Phone" title="Phone" value="<?= $Restaurant->Phone; ?>" />
-                    <input class= "form-control input-md"  type="text" name="Address" placeholder="Street Address" title="Street Address" value="<?= $Restaurant->Address; ?>" />
-                    <input class= "form-control input-md"  type="text" name="City" placeholder="City" title="City" value="<?= $Restaurant->City; ?>" />
-                    <input class= "form-control input-md"  type="text" name="PostalCode" placeholder="Postal Code" title="Postal Code" value="<?= $Restaurant->PostalCode; ?>" />
-
+                <!--<p class="inputs">-->
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label col-xs-12" for="Name">Name <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                            <input class= "form-control input-md" type="text" name="Name" placeholder="i.e. Pho" title="Restaurant Name" value="<?= $Restaurant->Name; ?>" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label col-xs-12" for="Email">Email <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                            <input class= "form-control input-md"  type="text" name="Email" placeholder="i.e. pho@gmail.com" title="Restaurant Email" value="<?= $Restaurant->Email; ?>" />
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label col-xs-12" for="Phone">Phone <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                            <input class= "form-control input-md"  type="text" name="Phone" placeholder="i.e 905 555 5555" title="Phone" value="<?= $Restaurant->Phone; ?>" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label col-xs-12" for="Address">Address <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                            <input class= "form-control input-md"  type="text" name="Address" placeholder="i.e. 123 Main Street" title="Street Address" value="<?= $Restaurant->Address; ?>" />
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label col-xs-12" for="City">City <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                            <input class= "form-control input-md"  type="text" name="City" placeholder="i.e. Hamilton" title="City" value="<?= $Restaurant->City; ?>" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-4 control-label col-xs-12" for="PostalCode">Postal Code <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                            <input class= "form-control input-md"  type="text" name="PostalCode" placeholder="i.e L8V 4I7" title="Postal Code" value="<?= $Restaurant->PostalCode; ?>" />
+                        </div>
+                    </div>
+                    
                     <?php
                         provinces("Province", $Restaurant->Province);
                         makeselect("Country", $Restaurant->Country, array("CA" => "Canada"));
@@ -32,7 +63,7 @@
                         makeselect("Genre", $Restaurant->Genre, $Genres);
                     ?>
 
-                </p>
+                <!--</p>-->
             </div>
             <div class="col-md-12">
                 <p class="inputs">
