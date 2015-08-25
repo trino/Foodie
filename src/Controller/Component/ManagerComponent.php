@@ -461,16 +461,19 @@
         }
 
         function get_restaurant($ID, $IncludeHours = False){
-            $restaurant = $this->get_entry("restaurants", $ID);
-            if($IncludeHours){
+            if (is_numeric($ID)) {
+                $restaurant = $this->get_entry("restaurants", $ID);
+            } else {
+                $restaurant = $this->get_entry('restaurants', $ID, 'Slug');
+            }
+            if($restaurant && $IncludeHours){
                 $restaurant->Hours = $this->get_hours($ID);
             }
             return $restaurant;
         }
+
         function edit_restaurant($ID, $Name, $GenreID, $Email, $Phone, $Address, $City, $Province, $Country, $PostalCode, $Description, $DeliveryFee, $Minimum){
-            if(!$ID){
-                $ID = $this->new_anything("restaurants", $Name);
-            }
+            if(!$ID){$ID = $this->new_anything("restaurants", $Name);}
             $C = ', ';
             $PostalCode = $this->clean_postalcode($PostalCode);
             $this->logevent("Edited restaurant: " . $Name .$C. $GenreID .$C. $Email .$C. $this->clean_phone($Phone) .$C. $Address .$C. $City .$C. $Province .$C. $Country .$C. $PostalCode .$C. $Description .$C. $DeliveryFee .$C. $Minimum);
@@ -756,13 +759,26 @@
 
 
         /////////////////////////////////Orders API/////////////////////////////////////
-        function enum_orders($ID, $IsUser = false){
+        function enum_orders($ID = "", $IsUser = false, $Approved = false){
+            $Conditions = array();
+            $OrderBy = array('order_time'=>'desc');
             if($IsUser){
-                $Conditions["UserID"] = $ID;
+                if(!$ID){$ID = $this->read("ID");}
+                $Conditions["ordered_by"] = $ID;
             } else {
-                $Conditions["RestaurantID"] = $ID;
+                if(!$ID){$ID = $this->get_current_restaurant();}
+                $Conditions["res_id"] = $ID;
             }
-            return array();//nothing to search yet
+            if($Approved){
+                $Conditions[] = '(approved = 1 OR cancelled=1)';
+            } else {
+                $Conditions['approved'] = 0;
+                $Conditions['cancelled'] = 0;
+            }
+            return $this->enum_all("Reservations", $Conditions, $OrderBy);
+        }
+        function delete_order($ID){
+            $this->delete_all("Reservations", array('id' => $id));
         }
 
 

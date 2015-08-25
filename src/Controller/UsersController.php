@@ -88,6 +88,7 @@ class UsersController extends AppController {
             }
         }
 
+        $this->set("Orders", $this->Manager->enum_orders("", true, true));
         $this->set("Restaurants", $this->Manager->enum_restaurants());
     }
 

@@ -16,9 +16,8 @@ class RestaurantsController extends AppController {
 
     public function index($slug='') {
         $this->loadComponent('Paginator');
-
         if ($slug) {//this code fails if the user is not an employee
-            $restaurant = $this->Manager->get_entry('Restaurants', $slug, 'Slug');
+            $restaurant = $this->Manager->get_restaurant('restaurants', $slug);
             $menus = $this->Paginate($this->Manager->enum_menus($restaurant->ID));
             $this->set('menus', $menus);
         }
@@ -105,7 +104,7 @@ class RestaurantsController extends AppController {
         $this->layout='admin';
     }
 
-    public function orders($type) {
+    public function orders($type = "") {
         $this->set('type',$type);
         $this->layout='orders';
         if (isset($_GET["ID"]) && $this->Manager->check_permission("CanEditGlobalSettings")){
@@ -115,16 +114,12 @@ class RestaurantsController extends AppController {
         }
         $this->set("OrderType", "Restaurant");
         $this->set("Orders", $this->Manager->enum_orders($RestaurantID));
-        
-        $rid = $this->Manager->read('ID');
-        $ord = TableRegistry::get('Reservations');
-        if($type=='pending'){
-        $q = $ord->find()->where(['res_id'=>$rid,'approved'=>0,'cancelled'=>0])->order(['order_time'=>'desc']);
-        $this->set('title','Pending Orders');
-        }
-        else{
-        $q = $ord->find()->where(['res_id'=>$rid,'(approved = 1 OR cancelled=1)'])->order(['order_time'=>'desc']);
-        $this->set('title','Order History');
+
+        $q = $this->Manager->enum_orders($RestaurantID, false, $type != 'pending');
+        if($type=='pending'){  //$q = $ord->find()->where(['res_id'=>$rid,'approved'=>0,'cancelled'=>0])->order(['order_time'=>'desc']);
+            $this->set('title','Pending Orders');
+        } else{ //$q = $ord->find()->where(['res_id'=>$rid,'(approved = 1 OR cancelled=1)'])->order(['order_time'=>'desc']);
+            $this->set('title','Order History');
         }
         $this->set('reservation',$q);
                         
@@ -281,12 +276,9 @@ class RestaurantsController extends AppController {
         die();
     }
     
-    public function delete_order($id,$type)
-    {
-        $this->loadModel("Reservations");
-        $this->Reservations->deleteAll(['id'=>$id]);
-            
-            $this->redirect('/restaurants/orders/'.$type);
+    public function delete_order($ID, $type) {
+        $this->Manager->delete_order($ID);
+        $this->redirect('/restaurants/orders/'.$type);
     }
     
 }

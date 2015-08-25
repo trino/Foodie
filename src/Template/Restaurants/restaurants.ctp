@@ -24,7 +24,7 @@
                         $TD = "</TD><TD>";
                         foreach($Restuaurants as $Restuaurant){
                             $Genre="[CLOSED]";
-                            if ($Restuaurant->Open) {
+                            if ($Restuaurant->Open && $Restuaurant->Genre) {
                                 $Genre = $Genres[$Restuaurant->Genre];
                             }
                             echo '<TR><TD>' . $Restuaurant->ID . $TD . $Restuaurant->Name . $TD . $Restuaurant->Email . $TD . $Restuaurant->Phone . $TD  . $Genre . $TD;
