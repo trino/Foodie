@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <script>
 	function readURL(input) {
 		if (input.files && input.files[0]) {
@@ -14,18 +13,17 @@
 	}
 	
 	$(function(){
-		
-		
 		$("#image-meal").change(function(){
 			readURL(this);
 		});
 	})
 </script>
+
 <div class="col-md-12" style="margin-top:30px">
-    <?php echo $this->element('user_menu');?>
+    <?= $this->element('user_menu');?>
 	<div class="col-md-4">
 		<h2>Meal Upload Form</h2>
-		<?php echo $this->Form->create('filename', array('class'=>'form-horizontal','action'=>'uploadmeal','enctype' => 'multipart/form-data', 'type' => 'file'));?>
+		<?= $this->Form->create('filename', array('class'=>'form-horizontal','action'=>'uploadmeal','enctype' => 'multipart/form-data', 'type' => 'file'));?>
 			<fieldset>
 				<div class="form-group">
 					<label class="col-lg-4 control-label col-xs-12" for="Name">Restaurant Name<span class="require">*</span></label>
@@ -74,14 +72,4 @@
 			</tbody>
 		</table>
 	</div>
-=======
-
-<div class="main">
-<div class="col-md-12 col-sm-12 col-xs-12">
-<div class="content-page row">
-    <?php echo $this->element('user_menu');?>
-	
-</div>
-</div>
->>>>>>> origin/master
 </div>

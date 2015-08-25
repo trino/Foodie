@@ -180,21 +180,23 @@
          <div class="header-navigation-wrap" id="header-nav" >
         <div class="header-navigation" >
             <ul>
-
                 <!--li><a href="<?php echo $this->request->webroot;?>">Home</a></li-->
                 <li><a href="<?php echo $this->request->webroot;?>restaurants/all">Local Restaurants</a></li>
-                <li><a href="<?php echo $this->request->webroot;?>restaurants/signup">Sign Up Restaurants</a></li>
-                <!--li><a href="<?php echo $this->request->webroot;?>pages/contact">Contact Us</a></li-->
-
-                <li><a style="" href="mailto:info@trinoweb.com?cc=info@didueat.ca our name address phone number">Email</a></li>
                 <?php
                     $userName = "Not logged in";
-                    $Restaurant = $userName;
+                    $Restaurant = "";
                     if($Profile) {
                         $userName = ucfirst($Profile->Name);
                         $Restaurant = $Profile->RestaurantID;
                     }
+                    if(!$Restaurant){
+                        echo '<li><a href="<?php echo $this->request->webroot;?>restaurants/signup">Sign Up Restaurants</a></li>';
+                    }
                 ?>
+                <!--li><a href="<?php echo $this->request->webroot;?>pages/contact">Contact Us</a></li-->
+
+                <li><a style="" href="mailto:info@trinoweb.com?cc=info@didueat.ca our name address phone number">Email</a></li>
+
                 <!-- BEGIN TOP BAR MENU -->
                     <?php
                         if($userID){
