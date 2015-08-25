@@ -121,7 +121,7 @@ class RestaurantsController extends AppController {
         } else{ //$q = $ord->find()->where(['res_id'=>$rid,'(approved = 1 OR cancelled=1)'])->order(['order_time'=>'desc']);
             $this->set('title','Order History');
         }
-        $this->set('reservation',$q);
+        $this->set('Orders',$q);
                         
     }
 

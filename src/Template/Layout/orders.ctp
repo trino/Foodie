@@ -28,15 +28,9 @@
                     </thead>
                     <tbody>
                     <?php
-                    if ($reservation) {
-                        foreach($reservation as $Order){
-                            if($Order->cancelled == 1)
-                            $status = 'Cancelled';
-                            else
-                            if($Order->approved == 1)
-                            $status = 'Approved';
-                            else
-                            $status = 'Pending';
+                    if (isset($Orders) && $Orders) {
+                        foreach($Orders as $Order){
+                            $status= $Manager->order_status($Order);
                             //$Profile = $Manager->get_profile($Order->UserID);
                             echo '<tr><td>' . ucfirst($Order->ordered_by) . '</td><td>' . $Order->order_time . '</td>';
                             echo '<td><a href="'. $this->request->webroot.'restaurants/order_detail/'. $Order->id . '" class="btn btn-success">View</a>';

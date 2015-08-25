@@ -770,11 +770,13 @@
                 if(!$ID){$ID = $this->get_current_restaurant();}
                 $Conditions["res_id"] = $ID;
             }
-            if($Approved){
-                $Conditions[] = '(approved = 1 OR cancelled=1)';
-            } else {
-                $Conditions['approved'] = 0;
-                $Conditions['cancelled'] = 0;
+            if (strtolower($Approved != "any")) {
+                if ($Approved) {
+                    $Conditions[] = '(approved = 1 OR cancelled=1)';
+                } else {
+                    $Conditions['approved'] = 0;
+                    $Conditions['cancelled'] = 0;
+                }
             }
             return $this->enum_all("reservations", $Conditions, $OrderBy);
         }
@@ -784,6 +786,20 @@
         function pending_order_count($RestaurantID = ""){
             return iterator_count($this->enum_orders($RestaurantID, false, false));
         }
+        function get_order($ID){
+            return $this->get_entry("reservations", $ID, "id");
+        }
+        function order_status($Order){
+            if (!is_object($Order)){$Order = $this->get_order($Order);}
+            if($Order->cancelled == 1) {
+                return 'Cancelled';
+            }else if($Order->approved == 1) {
+                return 'Approved';
+            }else {
+                return 'Pending';
+            }
+        }
+
 
 
 
