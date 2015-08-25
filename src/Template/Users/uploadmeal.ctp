@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> a8d0ef94cf5614ae6251da31919465762a76a448
 <script>
 	function readURL(input) {
 		if (input.files && input.files[0]) {
@@ -17,33 +14,23 @@
 	}
 	
 	$(function(){
+		
+		
 		$("#image-meal").change(function(){
 			readURL(this);
 		});
 	})
 </script>
-
 <div class="col-md-12" style="margin-top:30px">
-<<<<<<< HEAD
     <?php echo $this->element('user_menu');?>
 	<div class="col-md-4" style="margin-top:40px">
-=======
-    <?= $this->element('user_menu');?>
-	<div class="col-md-4">
->>>>>>> a8d0ef94cf5614ae6251da31919465762a76a448
 		<h2>Meal Upload Form</h2>
-		<?= $this->Form->create('filename', array('class'=>'form-horizontal','action'=>'uploadmeal','enctype' => 'multipart/form-data', 'type' => 'file'));?>
+		<?php echo $this->Form->create('filename', array('class'=>'form-horizontal','action'=>'uploadmeal','enctype' => 'multipart/form-data', 'type' => 'file'));?>
 			<fieldset>
 				<div class="form-group">
-<<<<<<< HEAD
 					<label class="col-lg-4 col-sm-4 control-label col-xs-12" for="Name">Restaurant Name<span class="require">*</span></label>
 					<div class="col-lg-8 col-sm-8">
 						<input type="text" name="Name" required class="form-control" value="">
-=======
-					<label class="col-lg-4 control-label col-xs-12" for="Name">Restaurant Name<span class="require">*</span></label>
-					<div class="col-lg-8">
-						<input type="text" name="Name" required class="form-control" value="<?= $Restaurant->Name; ?>" disabled>
->>>>>>> a8d0ef94cf5614ae6251da31919465762a76a448
 					</div>
 				</div>
 				<div class="form-group">
@@ -75,10 +62,6 @@
 		<table class="table table-theme table-striped">
 			<thead>
 				<tr>
-
-
-
-
 					<th>Restaurant Name</th>
 					<th>Meal Name</th>
 					<th>Image</th>
@@ -90,22 +73,5 @@
 				</tr>
 			</tbody>
 		</table>
-<<<<<<< HEAD
 	</div> 	
 </div>
-=======
-	</div>
-
-
-<div class="main">
-<div class="col-md-12 col-sm-12 col-xs-12">
-<div class="content-page row">
-    <?php echo $this->element('user_menu');?>
-	
-</div>
-</div>
-
-</div>
-
-</div>
->>>>>>> a8d0ef94cf5614ae6251da31919465762a76a448
