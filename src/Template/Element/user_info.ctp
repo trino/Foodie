@@ -59,7 +59,6 @@
     <div class="row">
         <div class="col-lg-8 col-sm-8 col-xs-12 col-md-offset-4 padding-left-0 padding-top-20">
             <button class="btn btn-primary" type="submit"><?php if($isset) {echo 'Save';} else {echo 'Create an account';} ?></button>
-            <button class="btn btn-default" type="button">Cancel</button>
         </div>
     </div>
 </form>

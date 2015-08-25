@@ -43,61 +43,48 @@
 
 
 <div id="postswrapper">
-<?php   
-    $cnt=0;
-    $menu_count = count($menus);
-    foreach($menus as $menu)
-    {
-        if($cnt== '0'){
-        ?>
-        <div class="margin-bottom-10">
-        <?php }?>
+<?php
+    if(isset($menus)) {
+        $cnt = 0;
+        $menu_count = count($menus);
+        foreach ($menus as $menu) {
+            if ($cnt == '0') {
+                echo '<div class="margin-bottom-10">';
+            } ?>
             <div class="col-md-3">
                 <div class="product-item">
                     <div class="pi-img-wrapper">
-                        <img src="<?php echo $this->request->webroot; ?>/img/products/<?php echo $menu->image;?>"
-                             class="img-responsive" alt="<?php echo $menu->menu_item;?>"/>
-        
+                        <img src="<?= $this->request->webroot; ?>/img/products/<?= $menu->image; ?>" class="img-responsive" alt="<?= $menu->menu_item; ?>"/>
                         <div>
-                            <a href="<?php echo $this->request->webroot; ?>/img/products/<?php echo $menu->image;?>"
-                               class="btn btn-default fancybox-button">Zoom</a>
-                            <a href="#product-pop-up_<?php echo $menu->ID;?>" class="btn btn-default fancybox-fast-view">View</a>
+                            <a href="<?= $this->request->webroot; ?>/img/products/<?= $menu->image; ?>" class="btn btn-default fancybox-button">Zoom</a>
+                            <a href="#product-pop-up_<?= $menu->ID; ?>" class="btn btn-default fancybox-fast-view">View</a>
                         </div>
                     </div>
-                    <h3><a href="#"><?php echo $menu->menu_item;?></a></h3>
-        
-                    <div class="pi-price">$<?php echo $menu->price;?></div>
+                    <h3><a href="#"><?= $menu->menu_item; ?></a></h3>
+                    <div class="pi-price">$<?= $menu->price; ?></div>
                     <!--<a href="#" class="btn btn-default add2cart">Add to cart</a-->
-        
                     <div class="sticker sticker-new"></div>
                 </div>
             </div>
-            
             <!-- BEGIN fast view of a product -->
-            <?php 
-             
-            echo $this->element('popup',['menu'=>$menu,'manager'=>$manager]);?>
-         <?php $cnt++;
-         if($cnt%4 =='0'&& $menu_count>4 )
-                {?>  
-                </div>
-        <?php
-                    echo '<div class="margin-bottom-10">';
-                   
-                 }
-                 elseif($cnt == $menu_count)
-                 echo "</div>";
-    
-    }
-   
+            <?php
+            echo $this->element('popup', ['menu' => $menu, 'manager' => $manager]);
+            $cnt++;
+            if ($cnt % 4 == '0' && $menu_count > 4) {
+                echo '</div><div class="margin-bottom-10">';
+            } elseif ($cnt == $menu_count) {
+                echo "</div>";
+            }
+        }
 
+    }
  ?>
 
  </div>
  <div style="display: none;">
-  <?php echo $this->Paginator->next();?>
+  <?= $this->Paginator->next();?>
   </div>
- <div id="loadmoreajaxloader" style="display:none;"><center><img src="<?php echo $this->request->webroot;?>img/ajax-loader.gif" /></center></div>
+ <div id="loadmoreajaxloader" style="display:none;"><center><img src="<?= $this->request->webroot;?>img/ajax-loader.gif" /></center></div>
  <div class="clearfix"></div>
  <div class="col-md-12  margin-bottom-10">
     <button align="center" class="loadmore btn btn-primary">Load More</button>
@@ -112,7 +99,7 @@
     {
         $('div#loadmoreajaxloader').show();
         $.ajax({
-        url: "<?php echo $this->Paginator->next();?>",
+        url: "<?= $this->Paginator->next();?>",
         success: function(html)
         {
             if(html)
@@ -134,18 +121,15 @@
             $('div#loadmoreajaxloader').show();
             $.ajax({
             url: $('.next a').attr('href'),
-            success: function(html)
-            {
-                if(!$('.next').hasClass('disabled'))
-                    if(html)
-                    {
+            success: function(html) {
+                if (!$('.next').hasClass('disabled')){
+                    if (html) {
                         $("#postswrapper").append(html);
                         $('div#loadmoreajaxloader').hide();
-                    }else
-                    {
+                    } else {
                         $('div#loadmoreajaxloader').html('<center>No more menus to show.</center>');
                     }
-                else{
+                }else{
                     $('.loadmore').hide();
                     $('div#loadmoreajaxloader').html('<center>No more menus to show.</center>');
                 }
@@ -428,7 +412,6 @@
 
                 var title = tit.split("_");
                 if (index != 0) {
-
                     extratitle = extratitle + "," + title[1];
                 }
                 var su = "";
@@ -459,9 +442,9 @@
                                 //ary_qty = ary_qty+"_"+qty;
                                 //qprice = Number()*Number(qty);
                                 //ary_price = ary_price+"_"+qprice;
-                            }
-                            else
+                            } else {
                                 cnn++;
+                            }
                         }
                     });
 
@@ -472,87 +455,81 @@
                                 err++;
                                 td_index = $('#td_' + catid).index();
                                 //alert(td_index);
-                                if (td_temp >= td_index)
+                                if (td_temp >= td_index) {
                                     td_temp = td_index;
-                                else
+                                }else {
                                     td_temp = td_temp;
+                                }
                                 $('.error_' + catid).html("Options are Mandatory");
-                            }
-                            else if (multiples == 0 && cnn > extra_no) {
-
+                            } else if (multiples == 0 && cnn > extra_no) {
                                 err++;
                                 td_index = $('#td_' + catid).index();
                                 //alert(td_index);
-                                if (td_temp >= td_index)
+                                if (td_temp >= td_index) {
                                     td_temp = td_index;
-                                else
+                                }else {
                                     td_temp = td_temp;
+                                }
                                 $('.error_' + catid).html("Select up to " + extra_no + " Options");
-                            }
-                            else {
+                            } else {
                                 $('.error_' + catid).html("");
                             }
-                        }
-                        else {
+                        } else {
                             if (cnn == 0) {
                                 err++;
                                 td_index = $('#td_' + catid).index();
                                 //alert(td_index);
-                                if (td_temp >= td_index)
+                                if (td_temp >= td_index) {
                                     td_temp = td_index;
-                                else
+                                }else {
                                     td_temp = td_temp;
+                                }
                                 $('.error_' + catid).html("Options are Mandatory");
-                            }
-                            else if (multiples == 0 && cnn != extra_no) {
-
+                            } else if (multiples == 0 && cnn != extra_no) {
                                 err++;
                                 td_index = $('#td_' + catid).index();
                                 //alert(td_index);
-                                if (td_temp >= td_index)
+                                if (td_temp >= td_index) {
                                     td_temp = td_index;
-                                else
+                                }else {
                                     td_temp = td_temp;
+                                }
                                 $('.error_' + catid).html("Select " + extra_no + " Options");
-                            }
-                            else {
+                            } else {
                                 $('.error_' + catid).html("");
                             }
                         }
-                    }
-                    else {
+                    } else {
                         if (upto == 0) {
                             if (multiples == 0 && cnn > 0 && cnn > extra_no) {
                                 err++;
                                 td_index = $('#td_' + catid).index();
                                 //alert(td_index);
-                                if (td_temp >= td_index)
+                                if (td_temp >= td_index) {
                                     td_temp = td_index;
-                                else
+                                }else {
                                     td_temp = td_temp;
+                                }
                                 $('.error_' + catid).html("Select up to " + extra_no + " Options");
-                            }
-                            else {
+                            } else {
                                 $('.error_' + catid).html("");
                             }
-                        }
-                        else {
+                        } else {
                             if (multiples == 0 && cnn > 0 && cnn != extra_no) {
                                 err++;
                                 td_index = $('#td_' + catid).index();
 
                                 //alert(td_index);
-                                if (td_temp >= td_index)
+                                if (td_temp >= td_index) {
                                     td_temp = td_index;
-                                else
+                                }else {
                                     td_temp = td_temp;
+                                }
                                 $('.error_' + catid).html("Select " + extra_no + " Options");
-                            }
-                            else {
+                            } else {
                                 $('.error_' + catid).html("");
                             }
                         }
-
                     }
                     if (cnn > 0) {
                         su = $(this).val();
@@ -561,8 +538,9 @@
                     }
                 }
                 var x = index;
-                if (title[0] != "")
+                if (title[0] != "") {
                     ids = ids + "_" + title[0];
+                }
                 //if(app_title!="")
                 app_title = app_title + "," + title[1];
 
@@ -578,11 +556,13 @@
         app_title = app_title.split(",,").join("");
         app_title = app_title.substring(1, app_title.length);
         var last = app_title.substring(app_title.length, app_title.length - 1);
-        if (last == ",")
+        if (last == ",") {
             app_title = app_title.substring(0, app_title.length - 1);
+        }
         var last = app_title.substring(app_title.length, app_title.length - 1);
-        if (last == "-")
+        if (last == "-") {
             app_title = app_title.substring(0, app_title.length - 1);
+        }
         app_title = app_title.split(",(").join("(");
         app_title = app_title.split("-").join(" -");
         app_title = app_title.split("-,").join("-");
@@ -594,12 +574,13 @@
         extratitle = extratitle.split(":,").join(":");
         extratitle = extratitle.substring(1, extratitle.length);
         var last1 = extratitle.substring(extratitle.length, extratitle.length - 1);
-        if (last1 == ",")
+        if (last1 == ",") {
             extratitle = extratitle.substring(0, extratitle.length - 1);
+        }
         var last1 = extratitle.substring(extratitle.length, extratitle.length - 1);
-        if (last1 == "-")
+        if (last1 == "-") {
             extratitle = extratitle.substring(0, extratitle.length - 1);
-
+        }
         dbtitle = extratitle.split(",").join("%");
         dbtitle = dbtitle.split("%%").join("");
         //alert(dbtitle);
@@ -615,10 +596,11 @@
             var id = banner.find('td:nth-child(' + td_temp + ')').attr('id').replace('td_', '');
             //alert(id);
             $('#boxes_' + id).focus();
-            if (td_temp == 1)
+            if (td_temp == 1) {
                 $(this).parent().parent().find('.prv_button').hide();
-            else
+            }else {
                 $(this).parent().parent().find('.prv_button').show();
+            }
             return false;
         } else {
             var banner = $(this).parent().parent().parent().find('.bannerz');
@@ -642,10 +624,11 @@
         var pre_cnt = $('#list' + ids).find('.count').text();
         pre_cnt = Number(pre_cnt.replace('x ',''));
         var n= $('.number'+menu_id).text();
-        if (pre_cnt != "")
+        if (pre_cnt != "") {
             pre_cnt = Number(pre_cnt) + Number(n);
-        else
+        }else {
             pre_cnt = Number(n);
+        }
         var img = $('.popimage_' + menu_id).attr('src');
         //price = price*pre_cnt;
         $('#list' + ids).remove();
@@ -730,21 +713,16 @@
         return false;
     }
 
-function changeqty(id,opr)
-{
+    function changeqty(id,opr) {
         var num = Number($('.number'+id).text());
-        if(num=='1')
-        {
+        if(num=='1') {
             if(opr=='plus')
             num++;
-            
-        }
-        else
-        {
+        } else {
             (opr == 'plus')?num++:--num;   
         }
         $('.number'+id).text(num);
-}
+    }
 </script>
 
          

@@ -173,6 +173,7 @@
     <hr class="shop__divider"/>
     <input type="submit" class="btn btn-primary" value="Save Changes" />
 </form>
+
 <script type="text/javascript">
     $(document).ready(function() {
         $('.timepicker').timepicker( {

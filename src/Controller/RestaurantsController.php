@@ -15,19 +15,19 @@ class RestaurantsController extends AppController {
     ];
 
     public function index($slug='') {
-        $this->loadModel('Menus');
         $this->loadComponent('Paginator');
-       
-        $restaurant = $this->Manager->get_entry('Restaurants',$slug,'Slug');
-         $menus = $this->Paginate($this->Menus->find('all')->where(array('res_id'=>$restaurant->ID,'parent'=>'0')));
-         $this->set('menus',$menus);
+
+        if ($slug) {//this code fails if the user is not an employee
+            $restaurant = $this->Manager->get_entry('Restaurants', $slug, 'Slug');
+            $menus = $this->Paginate($this->Manager->enum_menus($restaurant->ID));
+            $this->set('menus', $menus);
+        }
         $this->set('manager',$this->Manager);
         $this->set('restaurant',$restaurant);
-         if(isset($_GET['page']))
-         {
+        if(isset($_GET['page'])) {
             $this->layout = 'blank';
             $this->render('loadmenus');   
-         }
+        }
     }
 
     public function dashboard() {
@@ -95,8 +95,9 @@ class RestaurantsController extends AppController {
 
     public function menu_manager() {
         $this->layout='admin';
-        $menus = TableRegistry::get('menus');
-        $model = $menus->find()->where(['res_id' => $this->Manager->read('ID'),'parent'=>0])->order(['display_order'=>'asc'])->all();
+        //$menus = TableRegistry::get('menus');
+        //$model = $menus->find()->where(['res_id' => $this->Manager->read('ID'),'parent'=>0])->order(['display_order'=>'asc'])->all();
+        $model = $this->Manager->enum_menus("", "asc");
         $this->set('menus',$model);
     }
 
@@ -249,7 +250,7 @@ class RestaurantsController extends AppController {
             if ($_POST['order_type'] == '0'){ $_POST['order_type'] = "0.00";}
             $arr['delivery_fee'] = $_POST['delivery_fee'];
 
-             date_default_timezone_set('Canada/Eastern');
+            date_default_timezone_set('Canada/Eastern');
             //$arr['order_time'] = date('Y-m-d H:i:s');
             $arr['res_id'] = $_POST['res_id'];
             $arr['subtotal'] = $_POST['subtotal'];

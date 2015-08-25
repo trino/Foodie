@@ -543,6 +543,25 @@
             return enum_all("daysoff", array("RestaurantID" => $RestaurantID, "Day" => $Day, "Month" => $Month, "Year" => $Year))->first();
         }
 
+
+
+        ////////////////////////////////////////Menus API/////////////////////////////////
+        function enum_menus($RestaurantID = "", $Sort = ""){
+            if(!$RestaurantID) {$RestaurantID = $this->get_current_restaurant();}
+            if($Sort){$order = array('display_order' => $Sort);} else {$order = "";}
+            return enum_all("menus", array('res_id' => $RestaurantID, 'parent' => '0'), $order);
+        }
+
+
+
+
+
+
+
+
+
+
+
         /////////////////////////////////////Date API////////////////////////////////////////
         function now(){
             return date("Y-m-d H:i:s");
@@ -775,14 +794,13 @@
         function enum_table($Table){
             return TableRegistry::get($Table)->find('all');
         }
-        function enum_all($Table, $conditions = ""){
-            /*$settings = [
-                  'limit' => 1,
-                  'maxLimit' => 100
-                ];*/
+        function enum_all($Table, $conditions = "", $order = ""){
+            $Table = TableRegistry::get($Table);
             if (is_array($conditions)) {
-                //return $this->Paginator->paginate(TableRegistry::get($Table)->find('all')->where($conditions),$settings);
-                return TableRegistry::get($Table)->find('all')->where($conditions);
+                if (is_array($order)){
+                    return $Table->find()->where($conditions)->order($order)->all();
+                }
+                return $Table->find('all')->where($conditions);
             }
             return $this->enum_table($Table);
         }

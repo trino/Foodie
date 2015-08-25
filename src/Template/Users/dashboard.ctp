@@ -54,7 +54,7 @@
                 </p>
                 <?php echo $this->Html->link(
                     'Upload Image',
-                    '/restaurants/uploadmeal',
+                    '/users/images',
                     ['class' => 'btn btn-success']
                 );?>
             </div>
