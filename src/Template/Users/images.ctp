@@ -11,18 +11,19 @@
 <?php if($userID) { ?>
 
     <IMG STYLE="display: none;" id="preview">
+    <INPUT TYPE="hidden" ID="ID">
     <FORM style="display: none" id="editform">
         <TABLE>
             <TR>
                 <TD rowspan="3">
                     <IMG ID="thumbnail" src="">
-                    <INPUT TYPE="hidden" name="action" value="editdetails.bypass">
+                    <INPUT TYPE="hidden" name="action" value="edit.bypass">
                     <INPUT TYPE="hidden" name="filename" id="filename">
                     <INPUT TYPE="hidden" name="UserID" value="<?= $userID; ?>">
                 </TD>
                 <TH>Restaurant:</TH>
                 <TD>
-                    <SELECT Name="RestaurantID" class="form-control">
+                    <SELECT Name="RestaurantID" id="RestaurantID" class="form-control">
                         <?php
                             foreach($Restaurants as $Restaurant){
                                 echo '<OPTION VALUE="' . $Restaurant->ID . '">' . $Restaurant->Name . '</OPTION>';
@@ -32,8 +33,8 @@
                 </TD>
             </TR>
             <TR>
-                <TH>Receipt #:</TH>
-                <TD><INPUT TYPE="text" name="Receipt" id="receipt" class="form-control"></TD>
+                <TH>Order ID:</TH>
+                <TD><INPUT TYPE="text" name="OrderID" id="orderid" class="form-control" title="to be replaced with a dropdown of your orders"></TD>
             </TR>
             <TR>
                 <TH>Title:</TH>
@@ -70,11 +71,13 @@
                 $Data = $Manager->get_profile_image($File, $userID);
                 $Title = "";
                 $RestaurantID = "";
+                $OrderID = "";
                 if ($Data){
                     $Title = $Data->Title;
                     $RestaurantID = $Data->RestaurantID;
+                    $OrderID = $Data->OrderID;
                 }
-                echo '<TD><A HREF="' . $dir . $File . '" ID="img' . $ID . '" restaurant="' . $RestaurantID . '" title="' . $Title . '" onclick="return previewimage(' . "'img" . $ID . "'" . ');"><IMG SRC="' . $dir . $File . '.th" style="border-bottom:1px solid #CE0B10"></A><BR>';
+                echo '<TD><A HREF="' . $dir . $File . '" ID="img' . $ID . '" restaurant="' . $RestaurantID . '" orderid="' . $OrderID . '" title="' . $Title . '" onclick="return previewimage(' . "'img" . $ID . "'" . ');"><IMG SRC="' . $dir . $File . '.th" style="border-bottom:1px solid #CE0B10"></A><BR>';
 
                 echo '<A HREF="?action=edit&file=' . $File . '" onclick="return edit(' . "'img" . $ID . "'" . ');" >Edit</A>';
                 echo '<A HREF="?action=delete&file=' . $File . '" onclick="return confirm(' . "'Are you sure you want to delete this image?'" . ');" style="float: right;">Delete</A></TD>';
@@ -85,6 +88,9 @@
 </TABLE>
 
 <SCRIPT>
+    function getURL(url){
+        return url.substring(0, url.lastIndexOf("/") + 1);
+    }
     function getFileName(url) {
         url = url.substring(0, (url.indexOf("#") == -1) ? url.length : url.indexOf("#"));//this removes the anchor at the end, if there is one
         url = url.substring(0, (url.indexOf("?") == -1) ? url.length : url.indexOf("?"));//this removes the query after the file name, if there is one
@@ -99,6 +105,13 @@
         var element = document.getElementById(ID);
         element.setAttribute("style", "display: none;");
     }
+    function selectoption(ID, value){
+        document.getElementById(ID).value=value;
+    }
+    function getselectedoption(ID){
+        var e = document.getElementById(ID);
+        e.options[e.selectedIndex].value;
+    }
 
     function edit(ID){
         hide("preview");
@@ -108,10 +121,16 @@
         var URL = element.getAttribute("HREF");
         var Title = element.getAttribute("title");
         var RestID = element.getAttribute("restaurant");
+        var OrderID = element.getAttribute("orderid");
+
+        selectoption("RestaurantID", RestID);
 
         document.getElementById("thumbnail").setAttribute("src", URL + ".th");
         document.getElementById("filename").setAttribute("value", getFileName(URL));
+        document.getElementById("orderid").setAttribute("value", OrderID);
+        document.getElementById("Title").setAttribute("value", Title);
 
+        document.getElementById("ID").setAttribute("value", ID);
         return false;
     }
 
@@ -124,6 +143,7 @@
         hide("editform");
         return false;
     }
+
     function initiate_ajax_upload(button_id) {
         var button = $('#' + button_id), interval;
         new AjaxUpload(button, {
@@ -148,19 +168,25 @@
         element.setAttribute("value", "Saving...");
         element.disabled = true;
 
-        alert(getform("editform"));
-        return;
-
         $.ajax({
             url: "<?php echo $this->request->webroot;?>users/images",
             type: "post",
             dataType: "HTML",
-            data: "action=editdetails.bypass&DocID=" + DocID + "&Province=" + Province + "&Product=" + OldIndex + "&Value=" + element.checked,
+            data: getform("editform"),
             success: function (msg) {
-                if(element.checked){ word="enabled"; } else { word = "disabled";}
-                if(Province == "ALL") {Province = "all provinces"; }
-                msg = "You have " + word + " '" + documentname(DocID) + "' in " + Province + " for '" + selectedname("") + "'";
-                Toast(msg, true);
+                element.setAttribute("value", "Save");
+                element.disabled = false;
+                var ID = document.getElementById("ID").getAttribute("value");
+                element = document.getElementById(ID);
+
+                var obj = JSON.parse(msg);
+                var Title =  obj["Title"];
+                var RestID =  obj["RestaurantID"];
+                var OrderID =  obj["OrderID"];
+
+                element.setAttribute("title", Title);
+                element.setAttribute("restaurant", RestID);
+                element.setAttribute("orderid", OrderID);
             }
         })
     }

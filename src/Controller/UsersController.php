@@ -71,11 +71,18 @@ class UsersController extends AppController {
     }
 
     public function images() {
+        $action = $this->Manager->get('action');
         $this->layout = "admin";
-        if(isset($_GET["action"])) {
-            switch ($_GET["action"]) {
+
+        if($action) {
+            switch ($action) {
                 case "delete":
                     $this->Manager->delete_profile_image($_GET["file"]);
+                    break;
+                case "edit":
+                    $this->Manager->edit_profile_image($_POST["UserID"], $_POST["filename"], $_POST["RestaurantID"], $_POST["Title"], $_POST["OrderID"]);
+                    echo json_encode($_POST);
+                    die();
                     break;
             }
         }

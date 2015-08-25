@@ -336,8 +336,16 @@
             $this->delete_all("profiles_images", array("UserID" => $UserID, "Filename" => $Filename));
         }
 
-        function edit_profile_image($UserID, $Filename, $RestaurantID, $Title){
-
+        function edit_profile_image($UserID, $Filename, $RestaurantID, $Title, $OrderID){
+            $Entry = $this->get_profile_image($Filename, $UserID);
+            $Data = array("RestaurantID" => $RestaurantID, "Title" => $Title, "OrderID" => $OrderID);
+            if($Entry){
+                $this->edit_database("profiles_images", "ID", $Entry->ID, $Data);
+            } else {
+                $Data["UserID"] = $UserID;
+                $Data["Filename"] = $Filename;
+                $this->new_entry("profiles_images", "ID", $Data);
+            }
         }
 
 
@@ -842,7 +850,7 @@
             }
         }
 
-        function edit_database($Table, $PrimaryKey, $Value, $Data){
+        function edit_database($Table, $PrimaryKey, $Value, $Data, $IncludeKey = false){
             $table = TableRegistry::get($Table);
             $entry = false;
             if($PrimaryKey && $Value) {
@@ -853,6 +861,7 @@
                 $Data[$PrimaryKey] = $Value;
             } else {
                 //$table->query()->insert(array_keys($Data))->values($Data)->execute();
+                if($IncludeKey){$Data[$PrimaryKey] = $Value;}
                 $Data2 = $table->newEntity($Data);
                 $table->save($Data2);
                 if($PrimaryKey){
