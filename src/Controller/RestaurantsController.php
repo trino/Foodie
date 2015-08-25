@@ -106,6 +106,7 @@ class RestaurantsController extends AppController {
     }
 
     public function orders($type) {
+        $this->set('type',$type);
         $this->layout='orders';
         if (isset($_GET["ID"]) && $this->Manager->check_permission("CanEditGlobalSettings")){
             $RestaurantID = $_GET["ID"];
@@ -278,6 +279,14 @@ class RestaurantsController extends AppController {
             echo $att->id;
         }
         die();
+    }
+    
+    public function delete_order($id,$type)
+    {
+        $this->loadModel("Reservations");
+        $this->Reservations->deleteAll(['id'=>$id]);
+            
+            $this->redirect('/restaurants/orders/'.$type);
     }
     
 }

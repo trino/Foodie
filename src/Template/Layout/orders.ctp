@@ -39,9 +39,9 @@
                             $status = 'Pending';
                             //$Profile = $Manager->get_profile($Order->UserID);
                             echo '<tr><td>' . ucfirst($Order->ordered_by) . '</td><td>' . $Order->order_time . '</td>';
-                            echo '<td><a href="'. $this->request->webroot.'/restaurants/order_detail/'. $Order->id . '" class="btn btn-success">View</a>';
-                            echo '<a href="'. $this->request->webroot.'/restaurants/delete_order/'. $Order->id . '" class="btn btn-danger" ';
-                            echo 'onclick="return confirm(' . "'Are you sure you want to delete order " . $Order->id . ');">Delete</a>';
+                            echo '<td><a href="'. $this->request->webroot.'restaurants/order_detail/'. $Order->id . '" class="btn btn-success">View</a>';
+                            echo '<a href="'. $this->request->webroot.'restaurants/delete_order/'. $Order->id . '/'.$type.'" class="btn btn-danger" ';
+                            echo 'onclick="return confirm(\' Are you sure you want to delete order\');">Delete</a>';
                             echo '</td><td>' .$status. '</TD></TR>';
                         }
                     } else {
