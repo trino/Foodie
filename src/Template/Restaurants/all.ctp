@@ -1,6 +1,6 @@
-<<<<<<< HEAD
+
 <?php echo $this->element("restaurants_template"); ?>
-=======
+
 <div class="main">
     <div class="col-md-12 col-xs-12">
 
@@ -150,3 +150,4 @@
     </div>
     </div>
 </div>
+<?php echo $this->element("restaurants_template"); ?>
