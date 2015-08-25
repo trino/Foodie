@@ -1,5 +1,5 @@
 <ul class="scroller orders" style="height: 250px;">
-    <li id="list1" class="infolist" >
+    <!--li id="list1" class="infolist" >
     <span class="receipt_image">
       <a href="shop-item.html"><img src="<?php echo $this->request->webroot;?>/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
       <a id="dec1" style="width:18px;padding: 6px;height: 18px;line-height: 6px" class="decrease small btn btn-primary" href="javascript:void(0);">
@@ -50,6 +50,6 @@
       <input type="hidden" name="listid[]" value="3" />
       <input type="hidden" class="prs" name="prs[]" value="123" />
       <a href="javascript:void(0);" class="del-goods" onclick="$(this).parent().remove()">&nbsp;</a>
-    </li>
+    </li-->
     
   </ul>

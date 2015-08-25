@@ -4,7 +4,7 @@
 <!-- Head BEGIN -->
 <head>
     <meta charset="utf-8">
-    <title>didueat - <?php if(isset($title))echo $title;else echo $this->request->params['action'];?></title>
+    <title>didueat - <?php if(isset($title)) {echo $title; }else {echo $this->request->params['action'];}?></title>
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -31,46 +31,46 @@
     <!-- Fonts END -->
 
     <!-- Global styles START -->
-    <link href="<?php echo $this->request->webroot;?>plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="<?php echo $this->request->webroot;?>plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?=$this->request->webroot;?>plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?=$this->request->webroot;?>plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Global styles END -->
 
     <!-- Page level plugin styles START -->
-    <link href="<?php echo $this->request->webroot;?>plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
-    <!--link href="<?php echo $this->request->webroot;?>/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet"-->
-    <!--link href="<?php echo $this->request->webroot;?>/plugins/slider-layer-slider/css/layerslider.css" rel="stylesheet"-->
+    <link href="<?=$this->request->webroot;?>plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+    <!--link href="<?=$this->request->webroot;?>/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet"-->
+    <!--link href="<?=$this->request->webroot;?>/plugins/slider-layer-slider/css/layerslider.css" rel="stylesheet"-->
     <!-- Page level plugin styles END -->
 
     <!-- Theme styles START -->
-    <link href="<?php echo $this->request->webroot;?>css/components.css" rel="stylesheet">
-    <link href="<?php echo $this->request->webroot;?>css/style.css" rel="stylesheet">
-    <link href="<?php echo $this->request->webroot;?>css/style-shop.css" rel="stylesheet" type="text/css">
-    <!--link href="<?php echo $this->request->webroot;?>/css/style-layer-slider.css" rel="stylesheet"-->
-    <link href="<?php echo $this->request->webroot;?>css/style-responsive.css" rel="stylesheet">
-    <link href="<?php echo $this->request->webroot;?>css/red.css" rel="stylesheet" id="style-color">
-    <link href="<?php echo $this->request->webroot;?>/css/custom.css" rel="stylesheet">
+    <link href="<?=$this->request->webroot;?>css/components.css" rel="stylesheet">
+    <link href="<?=$this->request->webroot;?>css/style.css" rel="stylesheet">
+    <link href="<?=$this->request->webroot;?>css/style-shop.css" rel="stylesheet" type="text/css">
+    <!--link href="<?=$this->request->webroot;?>/css/style-layer-slider.css" rel="stylesheet"-->
+    <link href="<?=$this->request->webroot;?>css/style-responsive.css" rel="stylesheet">
+    <link href="<?=$this->request->webroot;?>css/red.css" rel="stylesheet" id="style-color">
+    <link href="<?=$this->request->webroot;?>/css/custom.css" rel="stylesheet">
 
 
     <!-- MAKE ALL CSS CHANGES TO HERE -->
-    <link href="<?php echo $this->request->webroot;?>css/custom_css.css" rel="stylesheet">
-    <link href="<?php echo $this->request->webroot;?>jqueryui/jquery-ui.css" rel="stylesheet">
+    <link href="<?=$this->request->webroot;?>css/custom_css.css" rel="stylesheet">
+    <link href="<?=$this->request->webroot;?>jqueryui/jquery-ui.css" rel="stylesheet">
     <!-- Theme styles END -->
 
     <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
 
     <!--[if lt IE 9]>
-    <script src="<?php echo $this->request->webroot;?>plugins/respond.min.js"></script>
+    <script src="<?=$this->request->webroot;?>plugins/respond.min.js"></script>
     <![endif]-->
 
-    <script src="<?php echo $this->request->webroot;?>plugins/jquery.min.js" type="text/javascript"></script>
-    <script src="<?php echo $this->request->webroot;?>plugins/jquery-migrate.min.js" type="text/javascript"></script>
-    <script src="<?php echo $this->request->webroot;?>plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <!--script src="<?php echo $this->request->webroot;?>/scripts/back-to-top.js" type="text/javascript"></script-->
-    <!--script src="<?php echo $this->request->webroot;?>/scripts/sample.js" type="text/javascript"></script-->
-    <script src="<?php echo $this->request->webroot;?>plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-    <script src="<?php echo $this->request->webroot;?>scripts/menu_manager.js"></script>
-    <script src="<?php echo $this->request->webroot;?>scripts/upload.js"></script>
-    <script src="<?php echo $this->request->webroot;?>jqueryui/jquery-ui.js"></script>
+    <script src="<?=$this->request->webroot;?>plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="<?=$this->request->webroot;?>plugins/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="<?=$this->request->webroot;?>plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!--script src="<?=$this->request->webroot;?>/scripts/back-to-top.js" type="text/javascript"></script-->
+    <!--script src="<?=$this->request->webroot;?>/scripts/sample.js" type="text/javascript"></script-->
+    <script src="<?=$this->request->webroot;?>plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="<?=$this->request->webroot;?>scripts/menu_manager.js"></script>
+    <script src="<?=$this->request->webroot;?>scripts/upload.js"></script>
+    <script src="<?=$this->request->webroot;?>jqueryui/jquery-ui.js"></script>
     
     <!-- END CORE PLUGINS -->
 </head>
@@ -94,7 +94,7 @@
 
 
 <div id="registration-form"class="col-md-12" style="display: none;">
-    <?php echo $this->element('user_info');?>
+    <?=$this->element('user_info');?>
 </div>
 
 
@@ -106,7 +106,7 @@
             <div class="login-form">
                 <h1>Login</h1>
                 <DIV ID="message" align="center"></DIV>
-                <form role="form" action="<?php echo $this->request->webroot;?>cuisine/login" method="post" class="form-horizontal form-without-legend">
+                <form role="form" action="<?= $this->request->webroot;?>cuisine/login" method="post" class="form-horizontal form-without-legend">
                     <input type="hidden" name="action" value="login">
                     <div class="form-group">
                         <label class="col-lg-4 control-label" for="email">Email <span class="require">*</span></label>
@@ -172,7 +172,7 @@
 <!-- BEGIN HEADER -->
 <div class="header">
     <div class="container-fluid">
-        <a class="site-logo" href="<?php echo $this->request->webroot;?>"><img src="<?php echo $this->request->webroot;?>img/logos/logo.png" alt="Metronic Shop UI"></a>
+        <a class="site-logo" href="<?= $this->request->webroot;?>"><img src="<?= $this->request->webroot;?>img/logos/logo.png" alt="didueat?" style="max-height: 68px;"></a>
 
         <a href="#header-nav" class="mobi-toggler fancybox-fast-view"><i class="fa fa-bars"></i></a>
 
@@ -180,21 +180,23 @@
          <div class="header-navigation-wrap" id="header-nav" >
         <div class="header-navigation" >
             <ul>
-
-                <!--li><a href="<?php echo $this->request->webroot;?>">Home</a></li-->
-                <li><a href="<?php echo $this->request->webroot;?>restaurants/all">Local Restaurants</a></li>
-                <li><a href="<?php echo $this->request->webroot;?>restaurants/signup">Sign Up Restaurants</a></li>
-                <!--li><a href="<?php echo $this->request->webroot;?>pages/contact">Contact Us</a></li-->
-
-                <li><a style="" href="mailto:info@trinoweb.com?cc=info@didueat.ca our name address phone number">Email</a></li>
+                <!--li><a href="<?= $this->request->webroot;?>">Home</a></li-->
+                <li><a href="<?= $this->request->webroot;?>restaurants/all">Local Restaurants</a></li>
                 <?php
                     $userName = "Not logged in";
-                    $Restaurant = $userName;
+                    $Restaurant = "";
                     if($Profile) {
                         $userName = ucfirst($Profile->Name);
                         $Restaurant = $Profile->RestaurantID;
                     }
+                    if(!$Restaurant){
+                        echo '<li><a href="<?=$this->request->webroot;?>restaurants/signup">Sign Up Restaurants</a></li>';
+                    }
                 ?>
+                <!--li><a href="<?= $this->request->webroot;?>pages/contact">Contact Us</a></li-->
+
+                <li><a style="" href="mailto:info@trinoweb.com?cc=info@didueat.ca our name address phone number">Email</a></li>
+
                 <!-- BEGIN TOP BAR MENU -->
                     <?php
                         if($userID){
@@ -246,7 +248,7 @@
 
     function forgotpass(){
         $.ajax({
-            url: "<?php echo $this->request->webroot;?>",
+            url: "<?=$this->request->webroot;?>",
             data: "action=forgotpass&Email=" + escapechars(getvalue("forgot-email")),
             type: "post",
             success: function (msg) {
@@ -261,7 +263,7 @@
 
     function trylogin(){
         $.ajax({
-            url: "<?php echo $this->request->webroot;?>",
+            url: "<?=$this->request->webroot;?>",
             data: "action=login&email=" + getvalue("email") + "&password=" + getvalue("password"),
             type: "post",
             success: function (msg) {

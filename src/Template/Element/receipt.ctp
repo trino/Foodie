@@ -17,12 +17,12 @@
                         <td><label class="radio-inline"><input type="radio" name="delevery_type" onclick="delivery('show');">Delivery</label></td>
                     </tr>
                     <tr>
-                        <td><strong>Subtotal&nbsp;</strong></td><td>&nbsp;$<div class="subtotal" style="display: inline-block;">1473</div>
-                        <input type="hidden" name="subtotal" class="subtotal" value="1473"></td>
+                        <td><strong>Subtotal&nbsp;</strong></td><td>&nbsp;$<div class="subtotal" style="display: inline-block;">0</div>
+                        <input type="hidden" name="subtotal" class="subtotal" value="0"></td>
                     </tr>
                     <tr>
                         <td><strong>Tax&nbsp;</strong></td><td>&nbsp;$<div class="tax" style="display: inline-block;">191.49</div>&nbsp;(<div id="tax" style="display: inline-block;">13</div>%)
-                        <input type="hidden" value="191.49" name="tax" class="tax"></td>
+                        <input type="hidden" value="0" name="tax" class="tax"></td>
                     </tr>
 
                     <tr style="display: none;" id="df">
@@ -33,8 +33,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><strong>Total</strong>&nbsp;</td><td>&nbsp;$<div style="display: inline-block;" class="grandtotal">1664.49</div>
-                        <input type="hidden" name="g_total" class="grandtotal" value="1664.49"/>
+                        <td><strong>Total</strong>&nbsp;</td><td>&nbsp;$<div style="display: inline-block;" class="grandtotal">0</div>
+                        <input type="hidden" name="g_total" class="grandtotal" value="0"/>
                         <input type="hidden" name="res_id"  value="1"/>
                         </td>
                     </tr>

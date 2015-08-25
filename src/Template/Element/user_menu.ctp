@@ -36,8 +36,8 @@
                                         "Restaurant Info" => "dashboard",
                                         "Addresses" => "addresses",
                                         "Menu Manager" => "menu_manager",
-                                        "Pending Orders <span class='notification'>(10)</span>" => "orders/pending",
-                                        "Order History" => "orders",
+                                        "Pending Orders <span class='notification'>(" . $Manager->pending_order_count() . ")</span>" => "orders/pending",
+                                        "Order History" => "orders/history",
                                         "Event Log" => "eventlog",
                                         "Employee Manager" => "employees",
                                         "Print Report" => "report"
