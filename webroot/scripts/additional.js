@@ -119,8 +119,10 @@ $('.savebtn').live('click',function(){
                    data:'menu_item='+ctitle+'&description='+cdescription+'&has_addon='+has_addon2+'&parent='+res+'&req_opt='+req_opt+'&sing_mul='+sing_mul+'&exact_upto='+exact_upto+'&exact_upto_qty='+exact_upto_qty,
                    type:'post',
                    success:function(res2){
+                    var co = 0;
                     if($_this2.find('.cmore').length > 0)
                     {
+                        co++;
                         $('.cmore',$_this2).each(function(){
                             var cctitle = $(this).find('.cctitle').val();
                             var ccprice = $(this).find('.ccprice').val();
@@ -132,6 +134,7 @@ $('.savebtn').live('click',function(){
                                data:'menu_item='+cctitle+'&price='+ccprice+'&parent='+res2,
                                type:'post',
                                success:function(res2){
+                                if($_this2.find('.cmore').length == co)
                                 window.location=base_url+'restaurants/menu_manager?added';
                                }
                             });
