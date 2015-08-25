@@ -28,7 +28,7 @@
 				<div class="form-group">
 					<label class="col-lg-4 control-label col-xs-12" for="Name">Restaurant Name<span class="require">*</span></label>
 					<div class="col-lg-8">
-						<input type="text" name="Name" required class="form-control" value="">
+						<input type="text" name="Name" required class="form-control" value="<?= $Restaurant->Name; ?>" disabled>
 					</div>
 				</div>
 				<div class="form-group">

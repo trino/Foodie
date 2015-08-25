@@ -50,8 +50,8 @@ class UsersController extends AppController {
     }
     
      public function uploadmeal(){
-        $this->layout='admin';
-        $this->render();
+         $this->layout='admin';
+         $this->set("Restaurant", $this->Manager->get_restaurant());
     }
 
     public function search_addresses(){

@@ -460,7 +460,8 @@
             return $Restaurant;
         }
 
-        function get_restaurant($ID, $IncludeHours = False){
+        function get_restaurant($ID = "", $IncludeHours = False){
+            if(!$ID){$ID = $this->get_current_restaurant();}
             if (is_numeric($ID)) {
                 $restaurant = $this->get_entry("restaurants", $ID);
             } else {
