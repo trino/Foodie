@@ -236,7 +236,7 @@ class RestaurantsController extends AppController {
             $arr['prs'] = implode(",", $_POST['prs']);
             $arr['qtys'] = implode(",", $_POST['qtys']);
             $arr['extras'] = implode(",", $_POST['extras']);
-            $arr['listid'] = impode(",", $_POST['listid']);
+            $arr['listid'] = implode(",", $_POST['listid']);
             if ($_POST['order_type'] == '0'){ $_POST['order_type'] = "0.00";}
             $arr['delivery_fee'] = $_POST['delivery_fee'];
 

@@ -21,6 +21,7 @@
     <?php
 
         $menus = $manager->enum_all('Menus',array('res_id'=>$restaurant->ID,'parent'=>'0'));
+        
         echo $this->element('menus',['menus'=>$menus,'manager'=>$manager]);?>
 </div>
 <!-- BEGIN CART -->
