@@ -1,17 +1,17 @@
-
+<div class="main">
     <!-- Big banner -->
-    <div class="row " style="padding-top: 20px;">
+    <div class="col-md-12 col-xs-12">
+    <div class="row content-page">
         <div class="col-xs-12">
             <div class="">
-                <!--div class="banners--big">
-Welcome, test
-</div-->
+
             </div>
         </div>
-    </div>
-  <div class="col-md-12">
+ 
+  <div class="col-md-12 no-padding">
     <?php echo $this->element('user_menu');?>
-    <div class="col-xs-10  col-sm-9">
+
+    <div class="col-xs-12 col-md-9  col-sm-8 no-padding">
       <div class="deleteme">
         <!--<ul class="pagination  shop__amount-filter">
           <li>
@@ -52,9 +52,9 @@ Welcome, test
                 <p>
                     Receive a $5 credit just for uploading a photo of your meal to our site! Remember, the meal has to be from one of our prestigious restaurants listed
                 </p>
-                <?php echo $this->Html->link(
+                <?= $this->Html->link(
                     'Upload Image',
-                    '/restaurants/uploadmeal',
+                    '/users/images',
                     ['class' => 'btn btn-success']
                 );?>
             </div>
@@ -72,4 +72,5 @@ Welcome, test
         </div><?php */?>
       </div>
     </div>
-
+</div>
+</div>

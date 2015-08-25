@@ -405,5 +405,67 @@ button:hover {
     top: 110px;
 }
 .main {
-    padding-top: 115px;
+    padding-top: 75px;
+}
+
+.pricing-content blockquote {
+    border-left: 5px solid #ce0b10;
+    background: #eee none repeat scroll 0 0;
+    color: #000;
+    margin-top: 8px;
+}
+
+.pricing-content h4 {
+    padding-top: 0 !important;
+}
+
+.pricing-content div {
+    margin-bottom: 10px;
+}
+
+.noprint .date1, .noprint .date2 {
+    border: 1px solid #dfdfdf;
+    padding: 9px 5px;
+    position: relative;
+    top: 2px;
+}
+
+.infolist.noprint {
+    margin-bottom: 10px;
+}
+
+.infolistwhite {
+    background: #fff none repeat scroll 0 0;
+    border-top: 1px solid #dfdfdf;
+    box-shadow: 0 0 3px #aaa;
+    padding: 0 10px;
+}
+
+.table .btn {
+    margin: 0 5px 5px 0;
+}
+
+.table-striped input, .table-striped select {
+    border: 1px solid #dfdfdf;
+    padding: 2px 10px;
+}
+
+.table-striped .btn {
+    border: medium none;
+    display: inline-block !important;
+    font-size: 12px;
+    padding: 5px 10px;
+    width: 65px;
+}
+
+.table-striped .btn.btn-primary {
+    display: inline-block !important;
+    margin-right: 0;
+    vertical-align: top !important;
+}
+
+.infolistwhite.row.marbot.newmenus.ui-sortable-handle {
+    border-top: medium none;
+    box-shadow: none;
+    padding: 0;
 }

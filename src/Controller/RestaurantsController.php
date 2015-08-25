@@ -10,15 +10,24 @@ use Cake\ORM\TableRegistry;
 
 class RestaurantsController extends AppController {
     public $paginate = [
-        'limit' => 25,
+        'limit' => 1,
         'order' => ['ID' => 'DESC'],
     ];
 
     public function index($slug='') {
-        
-        $restaurant = $this->Manager->get_entry('Restaurants',$slug,'Slug');
+        $this->loadComponent('Paginator');
+
+        if ($slug) {//this code fails if the user is not an employee
+            $restaurant = $this->Manager->get_entry('Restaurants', $slug, 'Slug');
+            $menus = $this->Paginate($this->Manager->enum_menus($restaurant->ID));
+            $this->set('menus', $menus);
+        }
         $this->set('manager',$this->Manager);
         $this->set('restaurant',$restaurant);
+        if(isset($_GET['page'])) {
+            $this->layout = 'blank';
+            $this->render('loadmenus');   
+        }
     }
 
     public function dashboard() {
@@ -44,10 +53,8 @@ class RestaurantsController extends AppController {
 
     public function all() {
         $this->layout='admin';
-        
-        $genres = TableRegistry::get('genres')->find('list')->select(['ID', 'Name']);
         $this->set("Restaurants", $this->Manager->enum_restaurants());
-        $this->set("Genres", $genres);
+        $this->set("Genres", $this->Manager->enum_genres());
     }
     
    
@@ -88,8 +95,9 @@ class RestaurantsController extends AppController {
 
     public function menu_manager() {
         $this->layout='admin';
-        $menus = TableRegistry::get('menus');
-        $model = $menus->find()->where(['res_id' => $this->Manager->read('ID'),'parent'=>0])->order(['display_order'=>'asc'])->all();
+        //$menus = TableRegistry::get('menus');
+        //$model = $menus->find()->where(['res_id' => $this->Manager->read('ID'),'parent'=>0])->order(['display_order'=>'asc'])->all();
+        $model = $this->Manager->enum_menus("", "asc");
         $this->set('menus',$model);
     }
 
@@ -202,6 +210,31 @@ class RestaurantsController extends AppController {
         }
     }
 
+    function addresses(){
+        $this->layout='admin';
+        $RestaurantID = $this->Manager->get_current_restaurant();
+        $this->set("RestaurantID", $RestaurantID);
+        if (isset($_GET["action"])) {
+            switch (strtolower($_GET["action"])) {
+                case "delete":
+                    $this->Manager->delete_notification_address($RestaurantID, $_GET["address"]);
+                    $this->Flash->success("The address was deleted");
+                    break;
+                case "addaddress":
+                    $MaxAdd = 3;
+                    $DataType = $this->Manager->data_type($_GET["address"]);
+                    $Current = $this->Manager->count_notification_addresses($RestaurantID, $DataType);
+                    if($Current < $MaxAdd && ($DataType == 0 || $DataType == 1)) {
+                        $this->Manager->add_notification_addresses($RestaurantID, $_GET["address"]);
+                        $this->Flash->success("The address was added");
+                    } else {
+                        $this->Flash->error("You have depleted the number of addresses for that type, or the type is not allowed (" . $this->Manager->data_type_name($DataType) . ")");
+                    }
+                    break;
+            }
+        }
+        $this->set("Addresses", $this->Manager->sort_notification_addresses($RestaurantID));
+    }
 
 
 
@@ -213,11 +246,11 @@ class RestaurantsController extends AppController {
             $arr['prs'] = implode(",", $_POST['prs']);
             $arr['qtys'] = implode(",", $_POST['qtys']);
             $arr['extras'] = implode(",", $_POST['extras']);
-            $arr['listid'] = impode(",", $_POST['listid']);
+            $arr['listid'] = implode(",", $_POST['listid']);
             if ($_POST['order_type'] == '0'){ $_POST['order_type'] = "0.00";}
             $arr['delivery_fee'] = $_POST['delivery_fee'];
 
-             date_default_timezone_set('Canada/Eastern');
+            date_default_timezone_set('Canada/Eastern');
             //$arr['order_time'] = date('Y-m-d H:i:s');
             $arr['res_id'] = $_POST['res_id'];
             $arr['subtotal'] = $_POST['subtotal'];

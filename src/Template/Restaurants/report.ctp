@@ -1,15 +1,8 @@
- <div class="row " style="padding-top: 20px;">
-        <div class="col-xs-12">
-            <div class="">
-                <!--div class="banners--big">
-Welcome, test
-</div-->
-            </div>
-        </div>
-    </div>
-  <div class="col-md-12">
+<div class="main">
+<div class="col-md-12 col-sm-12 col-xs-12">
+<div class="content-page row">
     <?php echo $this->element('user_menu');?>
-<div class="col-xs-12  col-sm-9">
+<div class="col-xs-12  col-sm-8">
       <div class="deleteme">
         <div class="toprint">
                 
@@ -47,9 +40,9 @@ Welcome, test
                                 
                  <div class="">
                     
-                    <div class="col-xs-12"><br><strong>Ordered On: </strong>
+                    <div class="col-xs-12" style="padding: 0;"><br><strong>Ordered On: </strong>
                     Saturday 20th of June 2015 08:56:45 PM</div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12" style="padding: 0;">
                     <strong>Order Type: </strong> Pickup                    
                     </div>
                     <div class="col-xs-12" style="padding: 0;">
@@ -127,9 +120,9 @@ Welcome, test
                                 
                  <div class="">
                     
-                    <div class="col-xs-12"><br><strong>Ordered On: </strong>
+                    <div class="col-xs-12" style="padding: 0;"><br><strong>Ordered On: </strong>
                     Saturday 20th of June 2015 09:19:07 PM</div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12" style="padding: 0;">
                     <strong>Order Type: </strong> Pickup                    
                     </div>
                     <div class="col-xs-12" style="padding: 0;">
@@ -203,9 +196,9 @@ Welcome, test
                                 
                  <div class="">
                     
-                    <div class="col-xs-12"><br><strong>Ordered On: </strong>
+                    <div class="col-xs-12" style="padding: 0;"><br><strong>Ordered On: </strong>
                     Saturday 20th of June 2015 09:21:05 PM</div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12" style="padding: 0;">
                     <strong>Order Type: </strong> Pickup                    
                     </div>
                     <div class="col-xs-12" style="padding: 0;">
@@ -279,9 +272,9 @@ Welcome, test
                                 
                  <div class="">
                     
-                    <div class="col-xs-12"><br><strong>Ordered On: </strong>
+                    <div class="col-xs-12" style="padding: 0;"><br><strong>Ordered On: </strong>
                     Thursday 9th of July 2015 01:40:07 PM</div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12" style="padding: 0;">
                     <strong>Order Type: </strong> Delivery                    
                     </div>
                     <div class="col-xs-12" style="padding: 0;">
@@ -380,9 +373,9 @@ Welcome, test
                                 
                  <div class="">
                     
-                    <div class="col-xs-12"><br><strong>Ordered On: </strong>
+                    <div class="col-xs-12" style="padding: 0;"><br><strong>Ordered On: </strong>
                     Tuesday 14th of July 2015 04:12:25 PM</div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12" style="padding: 0;">
                     <strong>Order Type: </strong> Pickup                    
                     </div>
                     <div class="col-xs-12" style="padding: 0;">
@@ -456,9 +449,9 @@ Welcome, test
                                 
                  <div class="">
                     
-                    <div class="col-xs-12"><br><strong>Ordered On: </strong>
+                    <div class="col-xs-12" style="padding: 0;"><br><strong>Ordered On: </strong>
                     Tuesday 14th of July 2015 04:14:04 PM</div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12" style="padding: 0;">
                     <strong>Order Type: </strong> Pickup                    
                     </div>
                     <div class="col-xs-12" style="padding: 0;">
@@ -532,9 +525,9 @@ Welcome, test
                                 
                  <div class="">
                     
-                    <div class="col-xs-12"><br><strong>Ordered On: </strong>
+                    <div class="col-xs-12" style="padding: 0;"><br><strong>Ordered On: </strong>
                     Saturday 18th of July 2015 05:24:20 PM</div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12" style="padding: 0;">
                     <strong>Order Type: </strong> Pickup                    
                     </div>
                     <div class="col-xs-12" style="padding: 0;">
@@ -607,9 +600,9 @@ Welcome, test
                                 
                  <div class="">
                     
-                    <div class="col-xs-12"><br><strong>Ordered On: </strong>
+                    <div class="col-xs-12" style="padding: 0;"><br><strong>Ordered On: </strong>
                     Sunday 19th of July 2015 04:42:16 PM</div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12" style="padding: 0;">
                     <strong>Order Type: </strong> Pickup                    
                     </div>
                     <div class="col-xs-12" style="padding: 0;">
@@ -690,9 +683,9 @@ Welcome, test
                                 
                  <div class="">
                     
-                    <div class="col-xs-12"><br><strong>Ordered On: </strong>
+                    <div class="col-xs-12" style="padding: 0;"><br><strong>Ordered On: </strong>
                     Monday 20th of July 2015 12:01:36 PM</div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12" style="padding: 0;">
                     <strong>Order Type: </strong> Delivery                    
                     </div>
                     <div class="col-xs-12" style="padding: 0;">
@@ -778,9 +771,9 @@ Welcome, test
                                 
                  <div class="">
                     
-                    <div class="col-xs-12"><br><strong>Ordered On: </strong>
+                    <div class="col-xs-12" style="padding: 0;"><br><strong>Ordered On: </strong>
                     Wednesday 22nd of July 2015 02:30:30 PM</div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12" style="padding: 0;">
                     <strong>Order Type: </strong> Delivery                    
                     </div>
                     <div class="col-xs-12" style="padding: 0;">
@@ -896,4 +889,6 @@ Welcome, test
         <hr class="shop__divider">
         
       </div>
+</div>
+</div>
 </div>

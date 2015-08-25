@@ -64,7 +64,7 @@ webroot/img/certificates/*.pdf
 webroot/img/jobs/**
 webroot/img/logos/**
 webroot/img/profile/**
-webroot/canvas/*.png
+webroot/img/users/**
 !empty
 *.tar.gz
 *.tar
@@ -86,3 +86,4 @@ webroot/royslog.txt
 config/app.php
 *.log
 *.log
+*.th

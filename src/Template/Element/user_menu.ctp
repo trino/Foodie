@@ -17,7 +17,7 @@
       }
 ?>
 
-<div class="sidebar col-md-2 col-sm-4">
+<div class="sidebar col-md-3 col-sm-4 col-xs-12">
       <aside class="sidebar  sidebar--shop">
             <div class="shop-filter">
                   <?php
@@ -34,6 +34,7 @@
                               if ($Profile->RestaurantID) {
                                     listitems($this->request->webroot, "Restaurant", "restaurants", array(
                                         "Restaurant Info" => "dashboard",
+                                        "Addresses" => "addresses",
                                         "Menu Manager" => "menu_manager",
                                         "Pending Orders <span class='notification'>(10)</span>" => "orders/pending",
                                         "Order History" => "orders",
@@ -48,6 +49,7 @@
                                   "User Info" => "dashboard",
                                   "Upload Meal"=> "uploadmeal",
                                   "Addresses" => "addresses",
+                                  "Images" => "images",
                                   "View Orders" => "orders",
                                   "Logout" => "logout"
                               ));
