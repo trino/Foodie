@@ -1,9 +1,11 @@
 <?php
 include_once("common/api.php");
 ?>
-<div class="col-md-12">
+<div class="main">
+<div class="col-md-12 col-sm-12 col-xs-12">
+<div class="content-page row">
     <?php echo $this->element('user_menu');?>
-    <div class="col-xs-10  col-sm-9">
+    <div class="col-xs-10  col-sm-8">
         <div class="grid">
             <h3 class="sidebar__title">Notification Addresses</h3>
             <hr class="shop__divider">
@@ -47,4 +49,6 @@ include_once("common/api.php");
         </div>
         <hr class="shop__divider">
     </div>
+</div>
+</div>
 </div>

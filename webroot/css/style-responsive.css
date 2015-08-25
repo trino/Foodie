@@ -132,6 +132,34 @@
     margin-bottom: 20px;
     margin-right: 0;
 }
+.site-logo {
+    margin-right: 20px;
+}
+.newbrowse {
+    font-size: 10px;
+    padding: 5px 10px;
+    width: 100%;
+}
+.menuimg {
+    min-height: 60px !important;
+}
+.header .header-navigation > ul > li {
+    margin-right: 20px;
+}
+
+.newaction a {
+    font-size: 12px;
+    padding: 5px 7px;
+}
+.table .btn {
+    margin: 0 5px 10px 0;
+    width: 100%;
+}
+
+.table-striped .btn {
+    width: 100% !important;
+}
+
 }
 /* END min width 1025px max width 1205 */
 
@@ -140,8 +168,28 @@
 	body.page-header-fixed {
 		padding-top: 107px !important; /* height of the header */
 	}
-
-	
+.site-logo {
+    margin-right: 20px;
+}
+.newbrowse {
+    font-size: 10px;
+    padding: 5px 10px;
+    width: 100%;
+}
+.menuimg {
+    min-height: 60px !important;
+}
+.newaction a {
+    font-size: 12px;
+    padding: 5px 7px;
+}
+.table .btn {
+    margin: 0 5px 10px 0;
+    width: 100%;
+}
+.table-striped .btn {
+    width: 100% !important;
+}	
 
 }
 /* END max width 1024px */
@@ -343,6 +391,18 @@
 .img-responsive {
     width: 100%;
 }
+.newaction a {
+    font-size: 11px !important;
+    padding: 5px 7px;
+}
+
+.table .btn {
+    font-size: 12px;
+    margin: 0 5px 10px 0;
+    padding: 5px;
+    width: 100%;
+}
+
 }
 /* END max width 992px */
 @media (max-width: 925px) {
@@ -354,11 +414,29 @@
 }
 .ecommerce .header-navigation > ul > li > a {
     color: #fff;
-    padding: 34px 8px 32px;
+    font-size: 12px;
+    padding: 20px 5px;
 }
 .img-responsive {
     width: 100%;
 }
+.ecommerce .header-navigation li.menu-search {
+	top: 15px;
+}
+
+.table-striped .btn {
+    font-size: 11px !important;
+    padding: 5px !important;
+    width: 100% !important;
+}
+
+.steps-block-col {
+    float: none !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+    width: 96% !important;
+}
+
 }
 
 
@@ -391,6 +469,9 @@
 		color: #666 !important;
 		background: none !important;
 	}
+    .itemimg {
+    width: 100%;
+}
     
     	.fixed-header .header-navigation li > a,
 	.fixed-header .dropdown.open .dropdown-toggle,
@@ -440,6 +521,12 @@
 		float: right;
 		margin: 3px 0 0;
 	}
+    .steps-block-col {
+    float: none !important;
+    margin-right: 20px !important;
+    padding-right: 0 !important;
+    width: auto !important;
+}
 
 	/* dropdown menu */
 	.header-navigation .dropdown-menu,
@@ -932,6 +1019,19 @@ body {
     display: block;
 }
 
+.menuimg {
+    margin: 0 auto;
+    min-height: 60px !important;
+    width: 50%;
+}
+
+.newbrowse {
+    display: block;
+    margin: 0 auto 20px;
+    text-align: center;
+    width: 15% !important;
+}
+
 }
 /* END max width 767px */
 
@@ -948,6 +1048,11 @@ body {
     font-weight: normal;
     width: 215px !important;
 }
+
+.newbrowse {
+    width: auto !important;
+}
+
 }
 /* END max width 600px */
 
@@ -1051,6 +1156,13 @@ body {
     .ecommerce .main .top-cart-block .fa-shopping-cart, .ecommerce .main .bottom-cart .fa-shopping-cart {
   top: -78px;
 }
+.table-striped {
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+}
     
 }
 /* END max width 480px */
@@ -1126,6 +1238,15 @@ body {
     font-weight: normal;
     width: 88px !important;
 }
+
+.btn {
+    font-size: 12px;
+}
+
+.cmore .nopadd {
+    padding-right: 3px !important;
+}
+
 
 }
 /* END max width 390px */

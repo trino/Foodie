@@ -1,13 +1,13 @@
     
     <div class="menuwrapper">
-    <div class="col-md-7">
+    <div class="col-md-7 col-sm-7 col-xs-12">
         
-        <div class="col-sm-12 lowheight">
+        <div class="col-sm-12 lowheight row">
             <input class="form-control ctitle" type="text" placeholder="Title" value="<?php if(isset($child->menu_item)){echo $child->menu_item;}?>" /><br />
             <textarea class="form-control cdescription" placeholder="description"><?php if(isset($child->description)){echo $child->description;}?></textarea>    
         </div> 
         <div class="col-sm-12 additionalitems">
-        <div class="aitems">
+        <div class="aitems row">
             
             
             <div class="addmore">
@@ -25,11 +25,11 @@
                     <?php if($i!=1){?>
                     	<p style="margin-bottom:0;height:7px;">&nbsp;</p>
                     <?php }?>
-                        <div class="col-md-10 nopadd">
+                        <div class="col-md-10 col-sm-10 col-xs-10 nopadd">
                         	<input class="form-control cctitle" type="text" placeholder="Item" value="<?php echo $cc->menu_item;?>" />
                         	<input class="form-control ccprice" type="text" placeholder="Price" value="<?php echo $cc->price;?>" style="margin-left:10px;" />  
                         </div>
-                    <div class="col-md-2" <?php if($i==1){?>style="display: none;"<?php }?>>
+                    <div class="col-md-2 col-sm-2 col-xs-2 no-padding" <?php if($i==1){?>style="display: none;"<?php }?>>
                         <a href="javascript:void(0);" class="btn btn-danger btn-small" onclick="$(this).parent().parent().remove();"><span class="fa fa-close"></span></a> 
                     </div>
                     <div class="clearfix"></div>
@@ -43,11 +43,11 @@
                 ?>
                 
                 <div class="cmore">
-                <div class="col-md-10 nopadd">
+                <div class="col-md-10 col-sm-10 col-xs-10 nopadd">
                     <input class="form-control cctitle" type="text" placeholder="Item" />
                     <input class="form-control ccprice" type="text" placeholder="Price" style="margin-left:10px;" />   
                 </div> 
-                <div class="col-md-2" style="display: none;">
+                <div class="col-md-2 col-sm-2 col-xs-2 no-padding" style="display: none;">
                     <a href="javascript:void(0);" class="btn btn-danger btn-small"><span class="fa fa-close"></span></a>  
                 </div>
                  
@@ -58,7 +58,7 @@
             ?>
             </div>
             
-            <div class="col-md-12 nopadd">
+            <div class="col-md-12 col-sm-12 col-xs-12 nopadd">
                 <br />
                 <a href="javascript:void(0);" class="btn btn-success btn-small addmorebtn">Add more</a>  
             </div>
@@ -108,8 +108,8 @@
         </div>
         <div class="clearfix"></div>   
     </div>
-    <div class="col-md-5">
-        <div class="col-md-12">
+    <div class="col-md-5 col-sm-5 col-xs-12">
+        <div class="col-md-12 col-sm-12 col-xs-12">
             
             <div class="newaction">
             <?php if(!isset($cmodel) || (isset($ccount) && $ccount==$k)){?>

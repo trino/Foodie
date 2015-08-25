@@ -1,6 +1,8 @@
-<div class="col-md-12">
+<div class="main">
+<div class="col-md-12 col-sm-12 col-xs-12">
+<div class="content-page row">
     <?php echo $this->element('user_menu');?>
-    <div class="col-xs-10  col-sm-9">
+    <div class="col-xs-12  col-sm-8">
         <div class="deleteme">
             <h3 class="sidebar__title">Address Manager</h3>
             <hr class="shop__divider">
@@ -39,43 +41,43 @@
     <INPUT TYPE="HIDDEN" NAME="action" ID="action" VALUE="save.bypass">
     <fieldset>
         <div class="form-group">
-            <label class="col-lg-4 control-label col-xs-12" for="Name">Name of the address<span class="require">*</span></label>
-            <div class="col-lg-4">
+            <label class="col-lg-4 col-md-4 col-sm-4 control-label col-xs-12" for="Name">Name of the address<span class="require">*</span></label>
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <input type="text" name="Name" required class="form-control" value="<?php if($isset) {echo $Address->Name; } ?>">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label col-xs-12" for="Name">Number <span class="require">*</span></label>
-            <div class="col-lg-1">
+            <label class="col-lg-4 col-md-4 col-sm-4 control-label col-xs-12" for="Name">Number <span class="require">*</span></label>
+            <div class="col-lg-1 col-md-1 col-sm-1">
                 <input type="text" name="Number" required class="form-control" value="<?php if($isset) {echo $Address->Number; } ?>">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label col-xs-12" for="Name">Street <span class="require">*</span></label>
-            <div class="col-lg-4">
+            <label class="col-lg-4 col-md-4 col-sm-4 control-label col-xs-12" for="Name">Street <span class="require">*</span></label>
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <input type="text" name="Street" required class="form-control" value="<?php if($isset) {echo $Address->Street; } ?>">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label col-xs-12" for="Name">Apartment/Unit/Room</label>
-            <div class="col-lg-1">
+            <label class="col-lg-4 col-md-4 col-sm-4 control-label col-xs-12" for="Name">Apartment/Unit/Room</label>
+            <div class="col-lg-1 col-md-1 col-sm-1">
                 <input type="text" name="Apt" class="form-control" value="<?php if($isset) {echo $Address->Apt; } ?>">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label col-xs-12" for="Name">Buzz code/doorbell number</label>
-            <div class="col-lg-1">
+            <label class="col-lg-4 col-md-4 col-sm-4 control-label col-xs-12" for="Name">Buzz code/doorbell number</label>
+            <div class="col-lg-1 col-md-1 col-sm-1">
                 <input type="text" name="Buzz" class="form-control" value="<?php if($isset) {echo $Address->Buzz; } ?>">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label col-xs-12" for="Name">City <span class="require">*</span></label>
-            <div class="col-lg-4">
+            <label class="col-lg-4 col-md-4 col-sm-4 control-label col-xs-12" for="Name">City <span class="require">*</span></label>
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <SELECT Name="City" ID="City" required class="form-control">
                     <OPTION>Select a province first</OPTION>
                 </SELECT>
@@ -83,8 +85,8 @@
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label col-xs-12" for="Name">Province <span class="require">*</span></label>
-            <div class="col-lg-4">
+            <label class="col-lg-4 col-md-4 col-sm-4 control-label col-xs-12" for="Name">Province <span class="require">*</span></label>
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <?php
                     $Province = "";
                     if($isset) {$Province = $Address->Province; }
@@ -94,24 +96,24 @@
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label col-xs-12" for="Name">Postal Code <span class="require">*</span></label>
+            <label class="col-lg-4 col-md-4 col-sm-4 control-label col-xs-12" for="Name">Postal Code <span class="require">*</span></label>
             <STRONG>This is not used to verify your address (yet). Please make sure the address is correct.</STRONG>
-            <div class="col-lg-1">
+            <div class="col-lg-1 col-md-1 col-sm-1">
                 <input type="text" name="PostalCode" class="form-control" value="<?php if($isset) {echo $Address->PostalCode; } ?>">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label col-xs-12" for="Name">Phone Number <span class="require">*</span></label>
+            <label class="col-lg-4 col-md-4 col-sm-4 control-label col-xs-12" for="Name">Phone Number <span class="require">*</span></label>
             <STRONG>Include any neccesary extensions</STRONG>
-            <div class="col-lg-2">
+            <div class="col-lg-2 col-md-2 col-sm-2">
                 <input type="text" name="Phone" class="form-control" value="<?php if($isset) {echo format_phone($Address->Phone); } ?>">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label col-xs-12" for="Name">Country</label>
-            <div class="col-lg-4">
+            <label class="col-lg-4 col-md-4 col-sm-4 control-label col-xs-12" for="Name">Country</label>
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <SELECT Name="Country" required ID="Country" class="form-control">
                     <OPTION>Canada</OPTION>
                 </SELECT>
@@ -119,15 +121,15 @@
         </div>
 
         <div class="form-group">
-            <label class="col-lg-4 control-label col-xs-12" for="Name">Notes</label>
-            <div class="col-lg-7">
+            <label class="col-lg-4 col-md-4 col-sm-4 control-label col-xs-12" for="Name">Notes</label>
+            <div class="col-lg-7 col-md-7 col-sm-7">
                 <input type="text" name="Notes" class="form-control" value="<?php if($isset) {echo $Address->Notes; } ?>">
             </div>
         </div>
     </fieldset>
 
     <div class="row">
-        <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-md-offset-4 padding-left-0 padding-top-20">
             <button class="btn btn-primary" type="submit"><?php if($isset) {echo 'Save';} else {echo 'Create an address';} ?></button>
             <button onclick="window.location = '<?= $this->request->webroot; ?>users/addresses';" class="btn btn-default" type="button">Cancel</button>
             <?php
@@ -193,5 +195,7 @@
         </div>
         <hr class="shop__divider">
     </div>
+</div>
+</div>
 </div>
 

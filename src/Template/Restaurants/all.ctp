@@ -10,29 +10,23 @@
                 $doHR = false;
             ?>
             
-            <div class="row">
-                <div class="col-md-6 col-xs-12">
+            <div class="row margin-bottom-10">
+                <div class="col-md-8 col-xs-12">
                     <h1 class="">
                     <a href="#"><?php echo ucfirst(str_replace('-', ' ', $restaurant)); ?></a> Local Restaurants
                     </h1>
-                </div>
-                <div class="col-md-6 col-xs-12 pull-right">
-                    
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8 col-xs-12">
+    
+                <div class="margin-bottom-15">
                     <h4>Pick your cuisine type:</h4>
                     <a href="#" clicked>All</a> | 
                     <?php foreach($Genres as $ID => $Genre){
                         echo '<a href="#' . $ID . '"><strong>' . $Genre . '</strong></a> |';
                     } ?>
+               
                 </div>
-                
-            </div>
+         
             
-            <div class="row">
-            <div class="col-md-8">
+            
                 <?php
                     foreach ($Restaurants as $Restaurant) {
                             if ($doHR) {
@@ -41,15 +35,17 @@
                             $doHR = true;
                             ?>
 
-                            <div class="row">
-                                <div class="col-md-8">
+                            <div class="row margin-bottom-10">
+                                <div class="col-md-12">
+                                <div class="row">
                                     <div class="col-md-12">
                                         <h2>
                                             <a href="<?php echo $this->request->webroot; ?>restaurants/<?php echo $Restaurant->Slug; ?>"><?= $Restaurant->Name; ?></a>
                                         </h2>
 
                                     </div>
-                                    <div class="col-md-3 col-sm-3">
+                                    <div class="clearfix"></div>
+                                    <div class="col-md-3 col-sm-3 margin-bottom-15">
                                         <img class="img-responsive" alt="" src="<?php echo $this->request->webroot; ?>/img/works/img4.jpg">
                                     </div>
                                     <div class="col-md-9 col-sm-9">
@@ -68,11 +64,11 @@
                                             <li><i class="fa fa-tags"></i> Open 10am - 10am</li>
                                         </ul>
                                         <p><?= $Restaurant->Description; ?></p>
-                                        <a href="blog-item.html" class="col-md-offset-6 btn btn-success">Order Online</a>
+                                        <a href="blog-item.html" class=" btn btn-success">Order Online</a>
                                     </div>
                                 </div>
 
-
+        </div>
                             </div>
                     <?php } ?>
         
@@ -82,12 +78,27 @@
                 </div>
             </div>
         </div>
+
         <div class="col-md-4">
             <div class="pricing-item">
-                <div class="pricing-head">
+                <div class="pricing-head margin-bottom-20">
                   <h3>Our Most Popular Dishes in your area</h3>
                 </div>
-                <div class="pricing-content">
+                <div class="pricing-content row">
+                    <div class="col-md-4">
+                        <img class="img-responsive" alt="" src="<?php echo $this->request->webroot; ?>/img/works/img4.jpg">
+                    </div>
+                    <div class="col-md-8">
+                        <h4>Hanmburger with Fries</h4>
+                        <blockquote>American</blockquote>
+                    </div>
+                    <div class="col-md-4">
+                        <img class="img-responsive" alt="" src="<?php echo $this->request->webroot; ?>/img/works/img4.jpg">
+                    </div>
+                    <div class="col-md-8">
+                        <h4>Hanmburger with Fries</h4>
+                        <blockquote>American</blockquote>
+                    </div>
                     <div class="col-md-4">
                         <img class="img-responsive" alt="" src="<?php echo $this->request->webroot; ?>/img/works/img4.jpg">
                     </div>
@@ -114,7 +125,7 @@
                 </div>
             </div>
         </div>
-        </div>
+   </div>
         <!--hr class="blog-post-sep">
         <ul class="pagination">
             <li><a href="#">Prev</a></li>

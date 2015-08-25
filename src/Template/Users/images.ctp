@@ -1,4 +1,6 @@
-<div class="col-md-12">
+<div class="main">
+<div class="col-md-12 col-sm-12 col-xs-12">
+<div class="content-page row">
     <?= $this->element('user_menu');?>
     <div class="col-xs-10  col-sm-9">
         <div class="grid">
@@ -115,5 +117,6 @@
         <hr class="shop__divider">
     </div>
 </div>
-
+</div>
+</div>
 

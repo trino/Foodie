@@ -17,7 +17,7 @@
       }
 ?>
 
-<div class="sidebar col-md-2 col-sm-4">
+<div class="sidebar col-md-3 col-sm-4 col-xs-12">
       <aside class="sidebar  sidebar--shop">
             <div class="shop-filter">
                   <?php

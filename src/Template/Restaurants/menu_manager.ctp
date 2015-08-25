@@ -1,10 +1,11 @@
-
-<div class="col-md-12">
+<div class="main">
+<div class="col-md-12 col-sm-12 col-xs-12">
+<div class="content-page">
     <?php echo $this->element('user_menu');?>
-    <div class="col-md-10">
+    <div class="col-md-9 col-sm-8 col-xs-12 no-padding">
     
         <div class="dashboard">
-            <div class="content-page">
+            <div class="menu-manager">
                 <h1>Menu Manager</h1>
                 <hr />
                 <a href="javascript:void(0);" id="add_item0" class="btn btn-primary add_item">Add New Menu Item</a>
@@ -18,19 +19,19 @@
                     ?>
                     <li class="infolistwhite row marbot newmenus" id="parent<?php echo $menu->ID;?>">
                         
-                        <div class="col-md-4 menu_item">
+                        <div class="col-md-4 menu_item col-sm-4 col-xs-12">
                             
-                            <div class="col-sm-4" style="padding: 0;">
+                            <div class="col-sm-4 col-xs-12" style="padding: 0;">
                                 <img class="itemimg4 itemimg" src="<?php echo $this->request->webroot;?>/img/products/<?php echo $menu->image;?>"  />
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-8 col-xs-12">
                                 <h4 ><?php echo $menu->menu_item;?></h4>
                             </div>
                             <div class="clearfix"></div>
                 
                         </div>
                 
-                        <div class="col-md-8">
+                        <div class="col-md-8 col-sm-8 col-xs-12">
                         <a href="javascript:void(0)" id="add_item<?php echo $menu->ID;?>" class="btn btn-success add_item">Edit Item</a>
                         <a href="<?php echo $this->request->webroot;?>menus/delete/<?php echo $menu->ID;?>" onclick="return confirm('Are you sure you want to delete this item?');" id="deleteitem<?php echo $menu->ID;?>" class="deletecat btn btn-danger">Delete</a>
                         <a href="javascript:void(0)" class="expandbtn expand1"><span class="expand"></span></a>
@@ -43,6 +44,7 @@
                          
                 
                  </li>
+                 <hr class="blog-post-sep">
                     <?php
                 }}
                 else
@@ -62,10 +64,10 @@
         </div>
         <div class="clearfix  hidden-xs"></div>
     
-    
+    </div>
     </div>
 </div>
-
+</div>
   <script>
   $(function() {
     $( "#sortable" ).sortable({
