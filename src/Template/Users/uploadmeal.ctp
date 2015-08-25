@@ -13,23 +13,22 @@
 	}
 	
 	$(function(){
-		
-		
 		$("#image-meal").change(function(){
 			readURL(this);
 		});
 	})
 </script>
+
 <div class="col-md-12" style="margin-top:30px">
-    <?php echo $this->element('user_menu');?>
+    <?= $this->element('user_menu');?>
 	<div class="col-md-4">
 		<h2>Meal Upload Form</h2>
-		<?php echo $this->Form->create('filename', array('class'=>'form-horizontal','action'=>'uploadmeal','enctype' => 'multipart/form-data', 'type' => 'file'));?>
+		<?= $this->Form->create('filename', array('class'=>'form-horizontal','action'=>'uploadmeal','enctype' => 'multipart/form-data', 'type' => 'file'));?>
 			<fieldset>
 				<div class="form-group">
 					<label class="col-lg-4 control-label col-xs-12" for="Name">Restaurant Name<span class="require">*</span></label>
 					<div class="col-lg-8">
-						<input type="text" name="Name" required class="form-control" value="">
+						<input type="text" name="Name" required class="form-control" value="<?= $Restaurant->Name; ?>" disabled>
 					</div>
 				</div>
 				<div class="form-group">
@@ -81,6 +80,8 @@
     <?php echo $this->element('user_menu');?>
 	
 </div>
+</div>
+
 </div>
 
 </div>

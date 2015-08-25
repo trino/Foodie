@@ -65,6 +65,7 @@ webroot/img/jobs/**
 webroot/img/logos/**
 webroot/img/profile/**
 webroot/img/users/**
+webroot/img/products/**
 !empty
 *.tar.gz
 *.tar

@@ -50,8 +50,8 @@ class UsersController extends AppController {
     }
     
      public function uploadmeal(){
-        $this->layout='admin';
-        $this->render();
+         $this->layout='admin';
+         $this->set("Restaurant", $this->Manager->get_restaurant());
     }
 
     public function search_addresses(){
@@ -80,6 +80,7 @@ class UsersController extends AppController {
                     $this->Manager->delete_profile_image($_GET["file"]);
                     break;
                 case "edit":
+                    if(!isset($_POST["RestaurantID"])){$_POST["RestaurantID"] = 0;}
                     $this->Manager->edit_profile_image($_POST["UserID"], $_POST["filename"], $_POST["RestaurantID"], $_POST["Title"], $_POST["OrderID"]);
                     echo json_encode($_POST);
                     die();
@@ -87,6 +88,7 @@ class UsersController extends AppController {
             }
         }
 
+        $this->set("Orders", $this->Manager->enum_orders("", true, true));
         $this->set("Restaurants", $this->Manager->enum_restaurants());
     }
 
