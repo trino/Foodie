@@ -63,7 +63,7 @@
 
 
 
-					
+
 					<th>Restaurant Name</th>
 					<th>Meal Name</th>
 					<th>Image</th>
