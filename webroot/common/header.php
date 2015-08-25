@@ -190,7 +190,7 @@
                         $Restaurant = $Profile->RestaurantID;
                     }
                     if(!$Restaurant){
-                        echo '<li><a href="<?=$this->request->webroot;?>restaurants/signup">Sign Up Restaurants</a></li>';
+                        echo '<li><a href="' . $this->request->webroot . 'restaurants/signup">Sign Up Restaurants</a></li>';
                     }
                 ?>
                 <!--li><a href="<?= $this->request->webroot;?>pages/contact">Contact Us</a></li-->
