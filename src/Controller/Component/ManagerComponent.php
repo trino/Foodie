@@ -862,13 +862,22 @@
             } else {
                 //$table->query()->insert(array_keys($Data))->values($Data)->execute();
                 if($IncludeKey){$Data[$PrimaryKey] = $Value;}
-                $Data2 = $table->newEntity($Data);
+                $Data2 = $table->newEntity($this->remove_empties($Data));
                 $table->save($Data2);
                 if($PrimaryKey){
                     $Data[$PrimaryKey] = $Data2->$PrimaryKey;
                 }
             }
             return $Data;
+        }
+
+        function remove_empties($Array){
+            foreach($Array as $Key => $Value){
+                if (!$Value){
+                    unset($Array[$Key]);
+                }
+            }
+            return $Array;
         }
 
         function new_entry($Table, $PrimaryKey, $Data){

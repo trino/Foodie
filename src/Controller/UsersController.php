@@ -80,6 +80,7 @@ class UsersController extends AppController {
                     $this->Manager->delete_profile_image($_GET["file"]);
                     break;
                 case "edit":
+                    if(!isset($_POST["RestaurantID"])){$_POST["RestaurantID"] = 0;}
                     $this->Manager->edit_profile_image($_POST["UserID"], $_POST["filename"], $_POST["RestaurantID"], $_POST["Title"], $_POST["OrderID"]);
                     echo json_encode($_POST);
                     die();

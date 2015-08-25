@@ -179,14 +179,21 @@
                 var ID = document.getElementById("ID").getAttribute("value");
                 element = document.getElementById(ID);
 
-                var obj = JSON.parse(msg);
-                var Title =  obj["Title"];
-                var RestID =  obj["RestaurantID"];
-                var OrderID =  obj["OrderID"];
+                try {
+                    var obj = JSON.parse(msg);
+                    var Title = obj["Title"];
+                    var RestID = obj["RestaurantID"];
+                    var OrderID = obj["OrderID"];
 
-                element.setAttribute("title", Title);
-                element.setAttribute("restaurant", RestID);
-                element.setAttribute("orderid", OrderID);
+                    element.setAttribute("title", Title);
+                    element.setAttribute("restaurant", RestID);
+                    element.setAttribute("orderid", OrderID);
+                } catch (error) {
+                    alert(msg);
+                }
+            },
+            failure: function (msg) {
+                alert(msg);
             }
         })
     }
