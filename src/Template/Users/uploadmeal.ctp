@@ -60,6 +60,10 @@
 		<table class="table table-theme table-striped">
 			<thead>
 				<tr>
+
+
+
+					
 					<th>Restaurant Name</th>
 					<th>Meal Name</th>
 					<th>Image</th>
