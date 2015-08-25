@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <script>
 	function readURL(input) {
 		if (input.files && input.files[0]) {
@@ -74,7 +73,7 @@
 			</tbody>
 		</table>
 	</div>
-=======
+
 
 <div class="main">
 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -83,5 +82,5 @@
 	
 </div>
 </div>
->>>>>>> origin/master
+
 </div>
