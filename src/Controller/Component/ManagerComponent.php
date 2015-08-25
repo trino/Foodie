@@ -776,10 +776,10 @@
                 $Conditions['approved'] = 0;
                 $Conditions['cancelled'] = 0;
             }
-            return $this->enum_all("Reservations", $Conditions, $OrderBy);
+            return $this->enum_all("reservations", $Conditions, $OrderBy);
         }
         function delete_order($ID){
-            $this->delete_all("Reservations", array('id' => $id));
+            $this->delete_all("reservations", array('id' => $ID));
         }
         function pending_order_count($RestaurantID = ""){
             return iterator_count($this->enum_orders($RestaurantID, false, false));
