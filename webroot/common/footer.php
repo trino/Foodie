@@ -35,12 +35,6 @@
 <div class="pre-footer">
     <div class="container-fluid">  <hr>
         <div class="row">
-            <!-- BEGIN BOTTOM ABOUT BLOCK -->
-            <div class="col-md-3 col-sm-6 pre-footer-col">
-                <h2>About us</h2>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam sit nonummy nibh euismod tincidunt ut laoreet dolore magna aliquarm erat sit volutpat. Nostrud exerci tation ullamcorper suscipit lobortis nisl aliquip  commodo consequat. </p>
-                <p>Duis autem vel eum iriure dolor vulputate velit esse molestie at dolore.</p>
-            </div>
             <!-- END BOTTOM ABOUT BLOCK -->
             <!-- BEGIN BOTTOM INFO BLOCK -->
             <div class="col-md-3 col-sm-6 pre-footer-col">
@@ -67,19 +61,32 @@
             </div>
             <!-- END TWITTER BLOCK -->
 
-            <!-- BEGIN BOTTOM CONTACTS -->
-            <div class="col-md-3 col-sm-6 pre-footer-col">
-                <h2>Our Contacts</h2>
-                <address class="margin-bottom-40">
-                    35, Lorem Lis Street, Park Ave<br>
-                    California, US<br>
-                    Phone: 300 323 3456<br>
-                    Fax: 300 323 1456<br>
-                    Email: <a href="mailto:info@metronic.com">info@metronic.com</a><br>
-                    Skype: <a href="skype:metronic">metronic</a>
-                </address>
+            <div class="col-md-4 col-sm-12 pre-footer-col">
+                <h2 class="margin-bottom-0">Share your Experience</h2>
+                <p>Leave comments or describe your experience using the DidUEat.ca website, how well your meal was and interaction with restarurants.</p>
+                <form class="form">
+                    <fieldset>
+                        <div class="form-group margin-bottom-10">
+                            <label class="col-lg-12 col-sm-12 control-label col-xs-12" for="Message">Message <span class="require">*</span></label>
+                            <div class="col-lg-12 col-sm-12 col-xs-12">
+                                <textarea style="height:150px" name="Message" class="form-control margin-bottom-10"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="pull-right">
+                                <input class="btn btn-primary" type="submit" value="Submit" />
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>            
+            
+            <div class="col-md-2 col-sm-6 pre-footer-col">
+                <h2 class="margin-bottom-0">Cities</h2>
+                <ul class="list-unstyled">
+                    <li>Hamilton Delivery</li>
+                </ul>
             </div>
-            <!-- END BOTTOM CONTACTS -->
         </div>
         <hr>
         <div class="row">

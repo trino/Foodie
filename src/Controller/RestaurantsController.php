@@ -53,8 +53,9 @@ class RestaurantsController extends AppController {
 
     public function all() {
         $this->layout='admin';
-        $this->set("Restaurants", $this->Manager->enum_restaurants());
-        $this->set("Genres", $this->Manager->enum_genres());
+        //$this->set("Restaurants", $this->Manager->enum_restaurants());
+        //$this->set("Genres", $this->Manager->enum_genres());
+        
     }
     
    

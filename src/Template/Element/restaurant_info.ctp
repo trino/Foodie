@@ -7,7 +7,7 @@
 <script type="text/javascript" src="<?php echo $this->request->webroot; ?>scripts/ui-1.10.0/jquery.ui.position.min.js"></script>
 <script src="<?php echo $this->request->webroot; ?>scripts/timepicker.js" type="text/javascript"></script>
 
-<form action="" method="post">
+<form action="" method="post" class="form-horizontal">
     <div class="row">
         <div class="col-md-4 profilepic">
             <p>
@@ -18,14 +18,50 @@
         </div>
         <div class="col-md-4">
             <strong>Restaurant Info</strong><br /><br />
-            <p class="inputs">
+            <!--<p class="inputs">-->
+                <div class="form-group">
+                    <label class="col-lg-6 col-sm-6 control-label col-xs-12" for="Name">Restaurant Name <span class="require">*</span></label>
+                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                      <input type="text" name="Name" class="form-control" value="<?= $Restaurant->Name; ?>" placeholder="i.e. Pho" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-6 col-sm-6 control-label col-xs-12" for="Email">Restaurant Email <span class="require">*</span></label>
+                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                      <input type="text" name="Email" class="form-control" value="<?= $Restaurant->Email; ?>" placeholder="i.e. Pho@didueat.com" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-6 col-sm-6 control-label col-xs-12" for="Phone">Phone Number <span class="require">*</span></label>
+                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                      <input type="text" name="Phone" class="form-control" value="<?= $Restaurant->Phone; ?>" placeholder="i.e.905 555 5555" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-6 col-sm-6 control-label col-xs-12" for="Street_Address">Street Address <span class="require">*</span></label>
+                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                      <input type="text" name="Street_Address" class="form-control" value="<?= $Restaurant->Address; ?>" placeholder="i.e. 1230 Main Street East" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-6 col-sm-6 control-label col-xs-12" for="City">City <span class="require">*</span></label>
+                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                      <input type="text" name="City" class="form-control" value="<?= $Restaurant->City; ?>" placeholder="i.e. Hamilton" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-6 col-sm-6 control-label col-xs-12" for="Postal_Code">Postal Code <span class="require">*</span></label>
+                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                      <input type="text" name="Postal_Code" class="form-control" value="<?= $Restaurant->PostalCode; ?>" placeholder="i.e. L9A 1V7" />
+                    </div>
+                </div>
 
-                <input type="text" name="Name" placeholder="Restaurant Name" title="Restaurant Name" value="<?= $Restaurant->Name; ?>" />
-                <input type="text" name="Email" placeholder="Restaurant Email" title="Restaurant Email" value="<?= $Restaurant->Email; ?>" />
-                <input type="text" name="Phone" placeholder="Phone" title="Phone" value="<?= $Restaurant->Phone; ?>" />
-                <input type="text" name="Address" placeholder="Street Address" title="Street Address" value="<?= $Restaurant->Address; ?>" />
-                <input type="text" name="City" placeholder="City" title="City" value="<?= $Restaurant->City; ?>" />
-                <input type="text" name="PostalCode" placeholder="Postal Code" title="Postal Code" value="<?= $Restaurant->PostalCode; ?>" />
+                <!--<input type="text" name="Name" placeholder="Restaurant Name" title="Restaurant Name" value="<?= $Restaurant->Name; ?>" />-->
+                <!--<input type="text" name="Email" placeholder="Restaurant Email" title="Restaurant Email" value="<?= $Restaurant->Email; ?>" />-->
+                <!--<input type="text" name="Phone" placeholder="Phone" title="Phone" value="<?= $Restaurant->Phone; ?>" />-->
+                <!--<input type="text" name="Address" placeholder="Street Address" title="Street Address" value="<?= $Restaurant->Address; ?>" />-->
+                <!--<input type="text" name="City" placeholder="City" title="City" value="<?= $Restaurant->City; ?>" />-->
+                <!--<input type="text" name="PostalCode" placeholder="Postal Code" title="Postal Code" value="<?= $Restaurant->PostalCode; ?>" />-->
 
                 <?php
                     provinces("Province", $Restaurant->Province);
@@ -34,7 +70,7 @@
                     makeselect("Genre", $Restaurant->Genre, $Genres);
                 ?>
 
-            </p>
+            <!--</p>-->
         </div>
         <div class="col-md-4">
             <p class="inputs">
