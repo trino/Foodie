@@ -52,7 +52,7 @@
                 <p>
                     Receive a $5 credit just for uploading a photo of your meal to our site! Remember, the meal has to be from one of our prestigious restaurants listed
                 </p>
-                <?php echo $this->Html->link(
+                <?= $this->Html->link(
                     'Upload Image',
                     '/users/images',
                     ['class' => 'btn btn-success']

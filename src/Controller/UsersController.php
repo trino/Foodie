@@ -79,6 +79,8 @@ class UsersController extends AppController {
                     break;
             }
         }
+
+        $this->set("Restaurants", $this->Manager->enum_restaurants());
     }
 
     function upload($UserID){

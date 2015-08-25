@@ -12,12 +12,37 @@
 
     <IMG STYLE="display: none;" id="preview">
     <FORM style="display: none" id="editform">
-        <IMG ID="thumbnail" src="">
-        <INPUT TYPE="hidden" name="filename" id="filename">
-        <SELECT>
-            <OPTION>Pho</OPTION>
-        </SELECT>
-        <INPUT TYPE="text" name="Receipt" id="receipt">
+        <TABLE>
+            <TR>
+                <TD rowspan="3">
+                    <IMG ID="thumbnail" src="">
+                    <INPUT TYPE="hidden" name="action" value="editdetails.bypass">
+                    <INPUT TYPE="hidden" name="filename" id="filename">
+                    <INPUT TYPE="hidden" name="UserID" value="<?= $userID; ?>">
+                </TD>
+                <TH>Restaurant:</TH>
+                <TD>
+                    <SELECT Name="RestaurantID" class="form-control">
+                        <?php
+                            foreach($Restaurants as $Restaurant){
+                                echo '<OPTION VALUE="' . $Restaurant->ID . '">' . $Restaurant->Name . '</OPTION>';
+                            }
+                        ?>
+                    </SELECT>
+                </TD>
+            </TR>
+            <TR>
+                <TH>Receipt #:</TH>
+                <TD><INPUT TYPE="text" name="Receipt" id="receipt" class="form-control"></TD>
+            </TR>
+            <TR>
+                <TH>Title:</TH>
+                <TD><INPUT TYPE="text" name="Title" id="Title" class="form-control"></TD>
+            </TR>
+            <TR>
+                <TD colspan="3"><CENTER><INPUT TYPE="button" value="Save" id="save" class="btn btn-success" onclick="savedetails();"></CENTER></TD>
+            </TR>
+        </TABLE>
     </FORM>
 
 <div class="input-icon">
@@ -60,6 +85,12 @@
 </TABLE>
 
 <SCRIPT>
+    function getFileName(url) {
+        url = url.substring(0, (url.indexOf("#") == -1) ? url.length : url.indexOf("#"));//this removes the anchor at the end, if there is one
+        url = url.substring(0, (url.indexOf("?") == -1) ? url.length : url.indexOf("?"));//this removes the query after the file name, if there is one
+        return url.substring(url.lastIndexOf("/") + 1, url.length);//this removes everything before the last slash in the path
+    }
+
     function show(ID){
         var element = document.getElementById(ID);
         element.setAttribute("style", "display: block;");
@@ -78,7 +109,8 @@
         var Title = element.getAttribute("title");
         var RestID = element.getAttribute("restaurant");
 
-        document.getElementById("thumbnail").setAttribute("src", URL + ".th")
+        document.getElementById("thumbnail").setAttribute("src", URL + ".th");
+        document.getElementById("filename").setAttribute("value", getFileName(URL));
 
         return false;
     }
@@ -105,6 +137,32 @@
                 location.reload();
             }
         });
+    }
+
+    function getform(ID){
+        return $('#' + ID).serialize();
+    }
+
+    function savedetails(){
+        var element = document.getElementById("save");
+        element.setAttribute("value", "Saving...");
+        element.disabled = true;
+
+        alert(getform("editform"));
+        return;
+
+        $.ajax({
+            url: "<?php echo $this->request->webroot;?>users/images",
+            type: "post",
+            dataType: "HTML",
+            data: "action=editdetails.bypass&DocID=" + DocID + "&Province=" + Province + "&Product=" + OldIndex + "&Value=" + element.checked,
+            success: function (msg) {
+                if(element.checked){ word="enabled"; } else { word = "disabled";}
+                if(Province == "ALL") {Province = "all provinces"; }
+                msg = "You have " + word + " '" + documentname(DocID) + "' in " + Province + " for '" + selectedname("") + "'";
+                Toast(msg, true);
+            }
+        })
     }
 </SCRIPT>
 <?php } else {

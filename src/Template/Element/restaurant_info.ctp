@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="<?php echo $this->request->webroot; ?>scripts/ui-1.10.0/ui-lightness/jquery-ui-1.10.0.custom.min.css" type="text/css" />
 <link href="<?php echo $this->request->webroot; ?>css/timepicker.css" rel="stylesheet">
 <script type="text/javascript" src="<?php echo $this->request->webroot; ?>scripts/jquery-1.9.0.min.js"></script>
@@ -71,11 +70,6 @@
                             //}
                             //return $Hours-12 . ":" . $Minutes . " PM";
                         }
-
-                        echo '<tr><td>' . ucfirst($NameOfDay) . '</td><td>';
-                        echo '<input type="text" class="timepicker" name="' . $DayOfWeek . '.Open" placeholder="Open" style="width: 48%;" value="' . $Open . '"/>  ';
-                        echo '<input style="width: 48%;" type="text" class="timepicker" name="' . $DayOfWeek . '.Close" value="' . $Close . '" placeholder="Close" /></td></tr>';
-                    }
 
                         function hours($Restaurant, $DayOfWeek){
                             $NameOfDay = array("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday");
