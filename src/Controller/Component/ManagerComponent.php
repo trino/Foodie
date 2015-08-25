@@ -526,7 +526,7 @@
 
         /////////////////////////////////////days off API////////////////////////////////////
         function add_day_off($RestaurantID, $Day, $Month, $Year){
-            delete_day_off($RestaurantID, $Day, $Month, $Year, false);
+            $this->delete_day_off($RestaurantID, $Day, $Month, $Year, false);
             $this->logevent("Added a day off on: " . $Day . "-" . $Month . "-" . $Year);
             $this->new_entry("daysoff", "ID", array("RestaurantID" => $RestaurantID, "Day" => $Day, "Month" => $Month, "Year" => $Year));
         }
@@ -537,10 +537,10 @@
             $this->delete_all("daysoff", array("RestaurantID" => $RestaurantID, "Day" => $Day, "Month" => $Month, "Year" => $Year));
         }
         function enum_days_off($RestaurantID){
-            return enum_all("daysoff", array("RestaurantID" => $RestaurantID));
+            return $this->enum_all("daysoff", array("RestaurantID" => $RestaurantID));
         }
         function is_day_off($RestaurantID, $Day, $Month, $Year){
-            return enum_all("daysoff", array("RestaurantID" => $RestaurantID, "Day" => $Day, "Month" => $Month, "Year" => $Year))->first();
+            return $this->enum_all("daysoff", array("RestaurantID" => $RestaurantID, "Day" => $Day, "Month" => $Month, "Year" => $Year))->first();
         }
 
 
@@ -549,7 +549,7 @@
         function enum_menus($RestaurantID = "", $Sort = ""){
             if(!$RestaurantID) {$RestaurantID = $this->get_current_restaurant();}
             if($Sort){$order = array('display_order' => $Sort);} else {$order = "";}
-            return enum_all("menus", array('res_id' => $RestaurantID, 'parent' => '0'), $order);
+            return $this->enum_all("menus", array('res_id' => $RestaurantID, 'parent' => '0'), $order);
         }
 
 
