@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="<?php echo $this->request->webroot;?>css/popstyle.css"/>
-
 <?php if ($this->request->params['controller'] == 'Restaurants') { ?>
     <!--div class="margin-bottom-10">
         <div class="col-md-3">
@@ -90,9 +89,14 @@
                  echo "</div>";
     
     }
+   
 
  ?>
+
  </div>
+ <div style="display: none;">
+  <?php echo $this->Paginator->next();?>
+  </div>
  <div id="loadmoreajaxloader" style="display:none;"><center><img src="<?php echo $this->request->webroot;?>img/ajax-loader.gif" /></center></div>
  <div class="clearfix"></div>
  <div class="col-md-12  margin-bottom-10">
@@ -108,7 +112,7 @@
     {
         $('div#loadmoreajaxloader').show();
         $.ajax({
-        url: "<?php echo $this->request->webroot;?>common/loadmore.php",
+        url: "<?php echo $this->Paginator->next();?>",
         success: function(html)
         {
             if(html)
@@ -129,16 +133,21 @@
         $('.loadmore').click(function(){
             $('div#loadmoreajaxloader').show();
             $.ajax({
-            url: "<?php echo $this->request->webroot;?>common/loadmore.php",
+            url: $('.next a').attr('href'),
             success: function(html)
             {
-                if(html)
-                {
-                    $("#postswrapper").append(html);
-                    $('div#loadmoreajaxloader').hide();
-                }else
-                {
-                    $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
+                if(!$('.next').hasClass('disabled'))
+                    if(html)
+                    {
+                        $("#postswrapper").append(html);
+                        $('div#loadmoreajaxloader').hide();
+                    }else
+                    {
+                        $('div#loadmoreajaxloader').html('<center>No more menus to show.</center>');
+                    }
+                else{
+                    $('.loadmore').hide();
+                    $('div#loadmoreajaxloader').html('<center>No more menus to show.</center>');
                 }
             }
             });

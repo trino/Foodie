@@ -10,15 +10,24 @@ use Cake\ORM\TableRegistry;
 
 class RestaurantsController extends AppController {
     public $paginate = [
-        'limit' => 25,
+        'limit' => 1,
         'order' => ['ID' => 'DESC'],
     ];
 
     public function index($slug='') {
-        
+        $this->loadModel('Menus');
+        $this->loadComponent('Paginator');
+       
         $restaurant = $this->Manager->get_entry('Restaurants',$slug,'Slug');
+         $menus = $this->Paginate($this->Menus->find('all')->where(array('res_id'=>$restaurant->ID,'parent'=>'0')));
+         $this->set('menus',$menus);
         $this->set('manager',$this->Manager);
         $this->set('restaurant',$restaurant);
+         if(isset($_GET['page']))
+         {
+            $this->layout = 'blank';
+            $this->render('loadmenus');   
+         }
     }
 
     public function dashboard() {

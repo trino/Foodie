@@ -8,6 +8,8 @@
     /////////////////////////////CSS: webroot\assets\global\css\components.css ////////////////////////////////////
     class ManagerComponent extends Component {
         ///////////////////////handles certain forms that don't point anywhere/////////////////////////////////////
+    public $components = ['Paginator'];
+    
         function init($Controller){
             $Controller->set("Manager", $this);
             $this->Controller = $Controller;
@@ -774,7 +776,12 @@
             return TableRegistry::get($Table)->find('all');
         }
         function enum_all($Table, $conditions = ""){
+            /*$settings = [
+                  'limit' => 1,
+                  'maxLimit' => 100
+                ];*/
             if (is_array($conditions)) {
+                //return $this->Paginator->paginate(TableRegistry::get($Table)->find('all')->where($conditions),$settings);
                 return TableRegistry::get($Table)->find('all')->where($conditions);
             }
             return $this->enum_table($Table);
