@@ -28,14 +28,21 @@
                     </thead>
                     <tbody>
                     <?php
-                    if (count2($Orders)) {
-                        foreach($Orders as $Order){
-                            $Profile = $Manager->get_profile($Order->UserID);
-                            echo '<tr><td>' . $Profile->Name . '</td><td>' . $Order->Date . '</td>';
-                            echo '<td><a href="?ID=' . $Order->ID . '" class="btn btn-success">View</a>';
-                            echo '<a href="?action=delete&ID=' . $Order->ID . '" class="btn btn-danger" ';
-                            echo 'onclick="return confirm(' . "'Are you sure you want to delete order " . $Order->ID . "?'" . ');">Delete</a>';
-                            echo '</td><td>' . $Order->Status . '</TD></TR>';
+                    if ($reservation) {
+                        foreach($reservation as $Order){
+                            if($Order->cancelled == 1)
+                            $status = 'Cancelled';
+                            else
+                            if($Order->approved == 1)
+                            $status = 'Approved';
+                            else
+                            $status = 'Pending';
+                            //$Profile = $Manager->get_profile($Order->UserID);
+                            echo '<tr><td>' . ucfirst($Order->ordered_by) . '</td><td>' . $Order->order_time . '</td>';
+                            echo '<td><a href="'. $this->request->webroot.'restaurants/order_detail/'. $Order->id . '" class="btn btn-success">View</a>';
+                            echo '<a href="'. $this->request->webroot.'restaurants/delete_order/'. $Order->id . '/'.$type.'" class="btn btn-danger" ';
+                            echo 'onclick="return confirm(\' Are you sure you want to delete order\');">Delete</a>';
+                            echo '</td><td>' .$status. '</TD></TR>';
                         }
                     } else {
                         echo '<TR><TD colspan="4"><DIV align="center">No orders found</DIV></TD></TR>';

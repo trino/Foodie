@@ -92,6 +92,7 @@
                         <h4>Hanmburger with Fries</h4>
                         <blockquote>American</blockquote>
                     </div>
+                    <div class="clearfix"></div>
                     <div class="col-md-4">
                         <img class="img-responsive" alt="" src="<?php echo $this->request->webroot; ?>/img/works/img4.jpg">
                     </div>
@@ -99,6 +100,7 @@
                         <h4>Hanmburger with Fries</h4>
                         <blockquote>American</blockquote>
                     </div>
+                    <div class="clearfix"></div>
                     <div class="col-md-4">
                         <img class="img-responsive" alt="" src="<?php echo $this->request->webroot; ?>/img/works/img4.jpg">
                     </div>
@@ -106,6 +108,7 @@
                         <h4>Hanmburger with Fries</h4>
                         <blockquote>American</blockquote>
                     </div>
+                    <div class="clearfix"></div>
                     <div class="col-md-4">
                         <img class="img-responsive" alt="" src="<?php echo $this->request->webroot; ?>/img/works/img4.jpg">
                     </div>
@@ -113,6 +116,7 @@
                         <h4>Hanmburger with Fries</h4>
                         <blockquote>American</blockquote>
                     </div>
+                    <div class="clearfix"></div>
                     <div class="col-md-4">
                         <img class="img-responsive" alt="" src="<?php echo $this->request->webroot; ?>/img/works/img4.jpg">
                     </div>
@@ -120,6 +124,7 @@
                         <h4>Hanmburger with Fries</h4>
                         <blockquote>American</blockquote>
                     </div>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="pricing-footer">
                 </div>

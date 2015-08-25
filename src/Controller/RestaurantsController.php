@@ -105,7 +105,8 @@ class RestaurantsController extends AppController {
         $this->layout='admin';
     }
 
-    public function orders() {
+    public function orders($type) {
+        $this->set('type',$type);
         $this->layout='orders';
         if (isset($_GET["ID"]) && $this->Manager->check_permission("CanEditGlobalSettings")){
             $RestaurantID = $_GET["ID"];
@@ -114,6 +115,19 @@ class RestaurantsController extends AppController {
         }
         $this->set("OrderType", "Restaurant");
         $this->set("Orders", $this->Manager->enum_orders($RestaurantID));
+        
+        $rid = $this->Manager->read('ID');
+        $ord = TableRegistry::get('Reservations');
+        if($type=='pending'){
+        $q = $ord->find()->where(['res_id'=>$rid,'approved'=>0,'cancelled'=>0])->order(['order_time'=>'desc']);
+        $this->set('title','Pending Orders');
+        }
+        else{
+        $q = $ord->find()->where(['res_id'=>$rid,'(approved = 1 OR cancelled=1)'])->order(['order_time'=>'desc']);
+        $this->set('title','Order History');
+        }
+        $this->set('reservation',$q);
+                        
     }
 
     function eventlog(){
@@ -251,13 +265,13 @@ class RestaurantsController extends AppController {
             $arr['delivery_fee'] = $_POST['delivery_fee'];
 
             date_default_timezone_set('Canada/Eastern');
-            //$arr['order_time'] = date('Y-m-d H:i:s');
+            $arr['order_time'] = date('Y-m-d H:i:s');
             $arr['res_id'] = $_POST['res_id'];
             $arr['subtotal'] = $_POST['subtotal'];
             $arr['g_total'] = $_POST['g_total'];
             $arr['tax'] = $_POST['tax'];
             $arr['order_type'] = $_POST['order_type'];
-
+        
             //convert to a Manager API call
             $ord = TableRegistry::get('Reservations');
             $att = $ord->newEntity($arr);
@@ -266,5 +280,14 @@ class RestaurantsController extends AppController {
         }
         die();
     }
+    
+    public function delete_order($id,$type)
+    {
+        $this->loadModel("Reservations");
+        $this->Reservations->deleteAll(['id'=>$id]);
+            
+            $this->redirect('/restaurants/orders/'.$type);
+    }
+    
 }
 ?>

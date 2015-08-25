@@ -37,7 +37,7 @@
                                         "Addresses" => "addresses",
                                         "Menu Manager" => "menu_manager",
                                         "Pending Orders <span class='notification'>(10)</span>" => "orders/pending",
-                                        "Order History" => "orders",
+                                        "Order History" => "orders/history",
                                         "Event Log" => "eventlog",
                                         "Employee Manager" => "employees",
                                         "Print Report" => "report"

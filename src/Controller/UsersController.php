@@ -172,12 +172,14 @@ class UsersController extends AppController {
         $arr['province'] = $_POST['province'];
         $arr['contact'] = $Phone;
         
-        if(!$_POST['password']) {
+        if(isset($_POST['password']) && $_POST['password']!='') {
+            
             if ($this->Manager->get_entry("profiles", $EmailAddress, "Email")) {
                 $this->response->body('1');
+                return $this->response;
             } else {
-                $this->Manager->new_profile(0, $Name, $Password, 2, $EmailAddress, $Phone, 0, '0');
-            }
+                $this->Manager->new_profile(0, $Name, $Password, 1, $EmailAddress, $Phone, 0, '0');
+             }
         }
 
         //convert to a Manager API call
