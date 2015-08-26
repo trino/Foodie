@@ -60,6 +60,7 @@
                   <div class="infolist noprint"><strong>ORDERED BY: </strong><?php echo $order->ordered_by;?></div>                  
                   <div class="infolist noprint"><strong>EMAIL: </strong><?php echo $order->email;?></div>
                   <div class="infolist noprint"><strong>CONTACT: </strong><?php echo $order->contact;?></div>
+                  <div class="infolist noprint"><strong>ORDER TYPE: </strong><?php echo ($order->order_type=='1')?'Delivery':'Pickup'?></div>
                   <div class="infolist noprint"><strong>ORDERED ON: </strong><?php $date = new DateTime($order->order_time);echo $date->format('l jS \of F Y h:i:s A'); ?></div>
                   <div class="infolist noprint"><strong>ORDER READY: </strong><?php echo $order->order_till;?></div>
             <?php 
