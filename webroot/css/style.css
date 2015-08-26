@@ -3278,7 +3278,6 @@ Header and header elements
 .top-cart-content {
 	padding: 8px 0 10px;
 	background: #fcfafb;
-	border-top: solid 2px #ea4c1d;
 	box-shadow: 5px 5px rgba(91, 91, 91, 0.2);
 	width: 364px;
 	margin-top: 12px;
@@ -3852,7 +3851,6 @@ Header and header elements
 .ecommerce .main .top-cart-content {
 	padding: 20px 0 20px 10px;
 	background: #fcfafb;
-	border-top: solid 2px #ea4c1d;
 	box-shadow: 5px 5px rgba(91, 91, 91, 0.2);
 	width: 100%;
 	margin-top: 12px;
@@ -4639,10 +4637,6 @@ a:hover {
 .sidebar .collapsed:hover > .fa-angle-down {
 	background-position: -11px -37px;
 }
-.top-cart-content {
-	border-top: solid 2px #ea4c1d;
-}
-
 .front-skills .progress-bar {
   background: #EF4D2E;
 }
