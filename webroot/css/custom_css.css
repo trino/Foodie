@@ -469,3 +469,7 @@ button:hover {
     box-shadow: none;
     padding: 0;
 }
+
+.top-cart-content::after {
+    display: none;
+}

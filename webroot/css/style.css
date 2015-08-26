@@ -3850,7 +3850,7 @@ Header and header elements
 }
 
 .ecommerce .main .top-cart-content {
-	padding: 8px 0 10px;
+	padding: 8px 0 10px 10px;
 	background: #fcfafb;
 	border-top: solid 2px #ea4c1d;
 	box-shadow: 5px 5px rgba(91, 91, 91, 0.2);
