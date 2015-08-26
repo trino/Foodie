@@ -408,19 +408,28 @@
         //////////////////////////////////////Genre API//////////////////////////////////////
         function add_genre($Name){
             if(is_array($Name)){
-                foreach($Name as $Genre){
-                    $this->add_genre($Genre);
+                $Ret=array();
+                foreach($Name as $Key => $Genre){
+                    $Ret[$Genre] = $this->add_genre($Genre);
                 }
+                return $Ret;
             } else {
+                if($this->genre_exists($Name)){return false;}//don't allow duplicates
                 $this->new_anything("genres", $Name);
+                return true;
             }
+        }
+        function genre_exists($Name){
+            if($this->get_entry("genres", $Name, "Name")){return true;}
         }
         function enum_genres(){
             $entries = TableRegistry::get('genres')->find();
             return $this->iterator_to_array($entries, "ID", "Name");
         }
-        function rename_genre($ID, $Name){
-            $this->update_database('genres', "ID", $ID, array("Name" => $Name));
+        function rename_genre($ID, $NewName){
+            if($this->genre_exists($NewName)){return false;}
+            $this->update_database('genres', "ID", $ID, array("Name" => $NewName));
+            return true;
         }
         function enum_restaurants($Genre = ""){
             if($Genre) {
