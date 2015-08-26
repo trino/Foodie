@@ -803,7 +803,51 @@
             if($Status){$Status = 'approved';} else {$Status = 'cancelled';}
             $this->edit_database('reservations', "ID", $OrderID, array($Status=>1));
         }
+        
+        function implode($Data, $Delimeter = ","){
+            if (is_array($Data)){return implode($Delimeter, $Data);}
+            return $Data;
+        }
+        
+        function new_order($menu_ids, $prs, $qtys, $extras, $listid, $order_type, $delivery_fee, $res_id, $subtotal, $g_total, $tax){
+            $Data = array();
+            $Data['menu_ids'] = $this->implode($menu_ids);
+            $Data['prs'] = $this->implode($prs);
+            $Data['qtys'] = $this->implode($qtys); 
+            $Data['extras'] = $this->implode($extras);
+            $Data['listid'] = $this->implode($listid);
+            $Data['delivery_fee'] = $delivery_fee;
 
+            date_default_timezone_set('Canada/Eastern');
+            $Data['order_time'] = new DateTime('NOW');
+            $Data['res_id'] = $res_id;
+            $Data['subtotal'] = $subtotal;
+            $Data['g_total'] = $g_total;
+            $Data['tax'] = $tax;
+
+            if ($order_type == '0'){$order_type = "0.00";}
+            $Data['order_type'] = $order_type;
+
+            //convert to a Manager API call
+            $ord = TableRegistry::get('reservations');
+            $att = $ord->newEntity($Data);
+            $ord->save($att);
+            return $att->id;
+        }
+        function edit_order_profile($OrderID, $email, $address2, $city, $ordered_by, $postal_code, $remarks, $order_till, $province, $Phone){
+            $Data = array();
+            $Data['email'] = $email;
+            $Data['address2'] = $address2;
+            $Data['city'] = $city;
+            $Data['ordered_by'] = $ordered_by;
+            $Data['postal_code'] = $postal_code;
+            $Data['remarks'] = $remarks;
+            $Data['order_till'] = $order_till;
+            $Data['province'] = $province;
+            $Data['contact'] = $Phone;
+            
+            $this->edit_database('reservations', 'id', $OrderID, $Data);
+        }
 
 
 

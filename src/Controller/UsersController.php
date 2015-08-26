@@ -17,7 +17,6 @@ namespace App\Controller;
 use Cake\Core\Configure;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
-use Cake\ORM\TableRegistry;
 
 /**
  * Static content controller
@@ -163,18 +162,7 @@ class UsersController extends AppController {
         $Name = $_POST['ordered_by'];
         $oid = $_POST['order_id'];
 
-        $arr['email'] = $_POST['email'];
-        $arr['address2'] = $_POST['address2'];
-        $arr['city'] = $_POST['city'];
-        $arr['ordered_by'] = $_POST['ordered_by'];
-        $arr['postal_code'] = $_POST['postal_code'];
-        $arr['remarks'] = $_POST['remarks'];
-        $arr['order_till'] = $_POST['order_till'];
-        $arr['province'] = $_POST['province'];
-        $arr['contact'] = $Phone;
-        
         if(isset($_POST['password']) && $_POST['password']!='') {
-            
             if ($this->Manager->get_entry("profiles", $EmailAddress, "Email")) {
                 $this->response->body('1');
                 return $this->response;
@@ -183,13 +171,8 @@ class UsersController extends AppController {
              }
         }
 
-        //convert to a Manager API call
-        $resevations = TableRegistry::get('Reservations');
-        $query2 = $resevations->query();
-            $query2->update()
-            ->set($arr)
-            ->where(['id' => $oid])
-            ->execute();
+        $this->Manager->edit_order_profile($oid, $_POST['email'], $_POST['address2'], $_POST['city'], $_POST['ordered_by'], $_POST['postal_code'], $_POST['remarks'], $_POST['order_till'], $_POST['province'], $Phone);
+
         $this->response->body('0');
         return $this->response;
     }

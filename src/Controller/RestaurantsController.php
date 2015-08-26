@@ -5,8 +5,6 @@ namespace App\Controller;
 use Cake\Core\Configure;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
-use Cake\ORM\TableRegistry;
-
 
 class RestaurantsController extends AppController {
     public $paginate = [
@@ -251,27 +249,7 @@ class RestaurantsController extends AppController {
     function order_ajax() {
         $this->layout = 'blank';
         if (isset($_POST['menu_ids']) && $_POST['menu_ids']) {
-            $arr['menu_ids'] = implode(",", $_POST['menu_ids']);
-            $arr['prs'] = implode(",", $_POST['prs']);
-            $arr['qtys'] = implode(",", $_POST['qtys']);
-            $arr['extras'] = implode(",", $_POST['extras']);
-            $arr['listid'] = implode(",", $_POST['listid']);
-            if ($_POST['order_type'] == '0'){ $_POST['order_type'] = "0.00";}
-            $arr['delivery_fee'] = $_POST['delivery_fee'];
-
-            date_default_timezone_set('Canada/Eastern');
-            $arr['order_time'] = new \DateTime('NOW');
-            $arr['res_id'] = $_POST['res_id'];
-            $arr['subtotal'] = $_POST['subtotal'];
-            $arr['g_total'] = $_POST['g_total'];
-            $arr['tax'] = $_POST['tax'];
-            $arr['order_type'] = $_POST['order_type'];
-        
-            //convert to a Manager API call
-            $ord = TableRegistry::get('Reservations');
-            $att = $ord->newEntity($arr);
-            $ord->save($att);
-            echo $att->id;
+            echo $this->Manager->new_order($_POST['menu_ids'], $_POST['prs'], $_POST['qtys'], $_POST['extras'], $_POST['listid'], $_POST['order_type'], $_POST['delivery_fee'], $_POST['res_id'], $_POST['subtotal'], $_POST['g_total'], $_POST['tax']);
         }
         die();
     }
