@@ -163,5 +163,5 @@
     <!-- END SLIDER --><?php */?>
 
  <div class="col-md-10 col-sm-8 col-xs-7">
-   <?php echo $this->element('menus');?>
+   <?php echo $this->element('menus',['menus'=>$menus]);?>
  </div>

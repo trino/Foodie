@@ -51,20 +51,21 @@
             if ($cnt == '0') {
                 echo '<div class="margin-bottom-10">';
             } ?>
-            <div class="col-md-4 col-sm-12 col-xs-12 margin-bottom-20">
+            <div class="col-md-3 col-sm-12 col-xs-12 margin-bottom-20">
+                <a href="#product-pop-up_<?= $menu->ID; ?>" class="fancybox-fast-view">
                 <div class="product-item">
                     <div class="pi-img-wrapper">
                         <img src="<?= $this->request->webroot; ?>/img/products/<?= $menu->image; ?>" class="img-responsive" alt="<?= $menu->menu_item; ?>"/>
-                        <div>
+                        <!--div>
                             <a href="<?= $this->request->webroot; ?>/img/products/<?= $menu->image; ?>" class="btn btn-default fancybox-button">Zoom</a>
                             <a href="#product-pop-up_<?= $menu->ID; ?>" class="btn btn-default fancybox-fast-view">View</a>
-                        </div>
+                        </div-->
                     </div>
                     <h3><a href="#"><?= $menu->menu_item; ?></a></h3>
                     <div class="pi-price">$<?= $menu->price; ?></div>
                     <!--<a href="#" class="btn btn-default add2cart">Add to cart</a-->
                     <div class="sticker sticker-new"></div>
-                </div>
+                </div></a>
             </div>
             
             <!-- BEGIN fast view of a product -->

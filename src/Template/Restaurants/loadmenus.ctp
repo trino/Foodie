@@ -7,7 +7,7 @@
         ?>
         <div class="margin-bottom-10">
         <?php }?>
-            <div class="col-md-4 col-sm-12 col-xs-12 margin-bottom-20">
+            <div class="col-md-3 col-sm-12 col-xs-12 margin-bottom-20">
                 <div class="product-item">
                     <div class="pi-img-wrapper">
                         <img src="<?php echo $this->request->webroot; ?>/img/products/<?php echo $menu->image;?>"
