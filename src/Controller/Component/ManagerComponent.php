@@ -701,10 +701,17 @@
             $table = TableRegistry::get('hours');
             $data = array('RestaurantID'=>$RestaurantID, 'DayOfWeek'=>$DayOfWeek);
             $table->deleteAll($data, false);
-            if(!$Open){$Open = "0000";}
-            if(!$Close){$Close = "2359";}
+            if(!$Open){
+                //$Open = "0000";
+                $Open = "";
+                }
+            if(!$Close){
+                //$Close = "2359";
+                $Close = "";
+                }
             $data["Open"] = $Open;
             $data["Close"] = $Close;
+            if($Open && $Close)
             $this->new_entry("hours", "ID", $data);
         }
 

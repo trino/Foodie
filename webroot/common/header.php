@@ -118,7 +118,7 @@
                     <div class="form-group">
                         <label class="col-lg-4 control-label" for="password">Password <span class="require">*</span></label>
                         <div class="col-lg-8">
-                            <input type="text" id="password" name="password" class="form-control">
+                            <input type="password" id="password" name="password" class="form-control">
                         </div>
                     </div>
                     <div class="row">

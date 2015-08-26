@@ -558,3 +558,16 @@ button:hover {
     text-align: center;
     width: 100%;
 }
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: #f6f6f6 url("images/ui-bg_glass_100_f6f6f6_1x400.png") repeat-x scroll 50% 50% !important;
+    border: 1px solid #ccc;
+    color: #1c94c4;
+    font-size: 14px;
+    font-weight: normal !important;
+    padding: 5px;}
+    
+.ui-timepicker-table th.periods {
+    color: #919191;
+    padding: 0 8px;
+    width: 2.2em;
+}
