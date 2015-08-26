@@ -224,11 +224,11 @@ class RestaurantsController extends AppController {
         $this->set("RestaurantID", $RestaurantID);
         if (isset($_GET["action"])) {
             switch (strtolower($_GET["action"])) {
-                case "delete":
+                case "deactivate":
                     $this->Manager->delete_notification_address($RestaurantID, $_GET["address"]);
                     $this->Flash->success("The address was deleted");
                     break;
-                case "addaddress":
+                case "activate":
                     $MaxAdd = 3;
                     $DataType = $this->Manager->data_type($_GET["address"]);
                     $Current = $this->Manager->count_notification_addresses($RestaurantID, $DataType);
@@ -242,6 +242,7 @@ class RestaurantsController extends AppController {
             }
         }
         $this->set("Addresses", $this->Manager->sort_notification_addresses($RestaurantID));
+        $this->set("Employees", $this->Manager->enum_employees());
     }
 
 

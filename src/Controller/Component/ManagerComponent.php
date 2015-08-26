@@ -405,6 +405,9 @@
 
 
 
+        function webroot(){
+            return $this->Controller->request->webroot;
+        }
         //////////////////////////////////////Genre API//////////////////////////////////////
         function add_genre($Name){
             if(is_array($Name)){
