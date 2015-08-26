@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div-->
-        <div class="col-md-12">
+        <div class="content-page row">
             <?php echo $this->element('user_menu'); ?>
             <div class="col-xs-10  col-sm-9">
                 <div class="deleteme">
@@ -47,5 +47,6 @@
         </div><?php */ ?>
             </div>
         </div>
+        <div class="clearfix"></div>
 
     <?php } ?>

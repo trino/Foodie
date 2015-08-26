@@ -40,7 +40,7 @@
                 <div class="form-group">
                     <label class="col-lg-6 col-sm-6 control-label col-xs-12" for="Street_Address">Street Address <span class="require">*</span></label>
                     <div class="col-lg-6 col-sm-6 col-xs-12">
-                      <input type="text" name="Street_Address" class="form-control" value="<?= $Restaurant->Address; ?>" placeholder="i.e. 1230 Main Street East" />
+                      <input type="text" name="Address" class="form-control" value="<?= $Restaurant->Address; ?>" placeholder="i.e. 1230 Main Street East" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -52,7 +52,7 @@
                 <div class="form-group">
                     <label class="col-lg-6 col-sm-6 control-label col-xs-12" for="Postal_Code">Postal Code <span class="require">*</span></label>
                     <div class="col-lg-6 col-sm-6 col-xs-12">
-                      <input type="text" name="Postal_Code" class="form-control" value="<?= $Restaurant->PostalCode; ?>" placeholder="i.e. L9A 1V7" />
+                      <input type="text" name="PostalCode" class="form-control" value="<?= $Restaurant->PostalCode; ?>" placeholder="i.e. L9A 1V7" />
                     </div>
                 </div>
 
