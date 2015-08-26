@@ -16,9 +16,8 @@ class PagesController extends AppController {
         $this->loadComponent('Manager');
         $this->loadComponent('Paginator');
          $this->set('title',ucfirst($page));
-         
-         $menus = $this->Paginate($this->Manager->enum_all('Menus',['parent'=>'0','image <> "undefined"']));
-         $this->set('manager', $this->Manager);
+
+         $menus = $this->Paginate($this->Manager->enum_menus("all"));
          $this->set('menus', $menus);
          $this->render($page);
         //TESTING CODE

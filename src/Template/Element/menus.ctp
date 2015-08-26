@@ -70,7 +70,7 @@
             
             <!-- BEGIN fast view of a product -->
             <?php
-            echo $this->element('popup', ['menu' => $menu, 'manager' => $manager]);
+            echo $this->element('popup', ['menu' => $menu, 'manager' => $Manager]);
             $cnt++;
             if ($cnt % 4 == '0' && $menu_count > 4) {
                 echo '</div><div class="margin-bottom-10">';

@@ -559,6 +559,9 @@
 
         ////////////////////////////////////////Menus API/////////////////////////////////
         function enum_menus($RestaurantID = "", $Sort = ""){
+            if($RestaurantID=="all"){
+                return $this->Manager->enum_all('menus',['parent'=>'0','image <> "undefined"']);
+            }
             if(!$RestaurantID) {$RestaurantID = $this->get_current_restaurant();}
             if($Sort){$order = array('display_order' => $Sort);} else {$order = "";}
             return $this->enum_all("menus", array('res_id' => $RestaurantID, 'parent' => '0','image<>"undefined"'), $order);
@@ -702,18 +705,11 @@
             $table = TableRegistry::get('hours');
             $data = array('RestaurantID'=>$RestaurantID, 'DayOfWeek'=>$DayOfWeek);
             $table->deleteAll($data, false);
-            if(!$Open){
-                //$Open = "0000";
-                $Open = "";
-                }
-            if(!$Close){
-                //$Close = "2359";
-                $Close = "";
-                }
+            if(!$Open){$Open = "";}
+            if(!$Close){$Close = "";}
             $data["Open"] = $Open;
             $data["Close"] = $Close;
-            if($Open && $Close)
-            $this->new_entry("hours", "ID", $data);
+            if($Open && $Close) {$this->new_entry("hours", "ID", $data);}
         }
 
         function is_restaurant_open($RestaurantID, $DayOfWeek, $Time){
