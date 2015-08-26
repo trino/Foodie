@@ -54,7 +54,6 @@ class RestaurantsController extends AppController {
         $this->layout='admin';
         //$this->set("Restaurants", $this->Manager->enum_restaurants());
         //$this->set("Genres", $this->Manager->enum_genres());
-        
     }
     
    
@@ -281,36 +280,20 @@ class RestaurantsController extends AppController {
         $this->Manager->delete_order($ID);
         $this->redirect('/restaurants/orders/'.$type);
     }
-    public function approve_order($ID)
-    {
-        $table = TableRegistry::get('reservations');
 
-                //echo $s;die();
-                $query = $table->query();
-                $query->update()
-                    ->set(['approved'=>1])
-                    ->where(['id' => $ID])
-                    ->execute();
-                    $this->redirect('/restaurants/orders/pending');
+    public function approve_order($ID) {
+        $this->Manager->approve_order($ID, true);
+        $this->redirect('/restaurants/orders/pending');
     }
     
-    public function cancel_order($ID)
-    {
-        $table = TableRegistry::get('reservations');
-
-                //echo $s;die();
-                $query = $table->query();
-                $query->update()
-                    ->set(['cancelled'=>1])
-                    ->where(['id' => $ID])
-                    ->execute();
-                    $this->redirect('/restaurants/orders/pending');
+    public function cancel_order($ID) {
+        $this->Manager->approve_order($ID, false);
+        $this->redirect('/restaurants/orders/pending');
     }
-    public function order_detail($ID)
-    {
+
+    public function order_detail($ID) {
         $this->layout='orders';
-        $this->set('order',$this->Manager->get_entry('Reservations',$ID));
-        $this->set('manager',$this->Manager);
+        $this->set('order',$this->Manager->get_order($ID));
         $this->set('type','detail');
     }
     

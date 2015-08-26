@@ -270,12 +270,12 @@
             success: function (msg) {
                 if(msg) {
                     if(ValidURL(msg)){
-                        window.location = '<?php echo $this->request->webroot;?>restaurants/dashboard';
+                        window.location = '<?= $this->request->webroot;?>restaurants/dashboard';
                     } else {
                         $('#invalid').show();
                     }
                 } else {
-                    window.location = '<?php echo $this->request->webroot;?>restaurants/dashboard';
+                    window.location = '<?= $this->request->webroot;?>restaurants/dashboard';
                 }
             },
             failure: function (msg){

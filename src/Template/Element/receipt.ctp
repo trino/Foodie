@@ -51,8 +51,7 @@
             </div>
           </div>
 <script>
-    function checkout()
-    {
+    function checkout() {
         var del = $('#delivery_flag').val();
         var datas = $('.top-cart-content input').serialize();
         $.ajax({
@@ -60,30 +59,19 @@
             url:'<?php echo $this->request->webroot;?>restaurants/order_ajax',
             data: datas,
             success:function(id){
-                if(del == '0')
-                {
-                    
+                if(del == '0') {
                     $('.top-cart-content').load('<?php echo $this->request->webroot."common/profile.php?order_id=";?>'+id);
-                }
-                else
-                {
-        
+                } else {
                     $('.top-cart-content').load('<?php echo $this->request->webroot."common/profile.php?delivery&order_id=";?>'+id);
-        
                 }
             }
-            
         })
-        
-        
     }
-    function delivery(t)
-    {
+
+    function delivery(t) {
         var df =$('input.df').val();
-        if(t=='show')
-        {
+        if(t=='show') {
             $('#df').show();
-            
             var tax = $('.tax').text();
             var grandtotal = 0;
             var subtotal = $('input.subtotal').val();
@@ -93,9 +81,7 @@
             $('.grandtotal').val(grandtotal.toFixed(2));
             $('#delivery_flag').val('1');
             $('#cart-total').text('$'+grandtotal.toFixed(2));
-        }
-        else
-        {
+        } else {
             var grandtotal = $('input.grandtotal').val();
             grandtotal = Number(grandtotal)-Number(df);
             $('.grandtotal').text(grandtotal.toFixed(2));
@@ -104,7 +90,6 @@
             $('#delivery_flag').val('0');
             $('#cart-total').text('$'+grandtotal.toFixed(2));
         }
-            
     }
     
     $(function(){
@@ -119,33 +104,30 @@
             //}
         //});
         
-        if(wd<='767')
-        {
-             $('.top-cart-info').show();
-            $('.top-cart-content-wrapper').addClass('itemsz');
-            $('.top-cart-content-wrapper').hide();
-        }   
-        else{
-             $('.top-cart-info').hide();
-            $('.top-cart-content-wrapper').show();
-            $('.top-cart-content-wrapper').removeClass('itemsz');
-            
-        }
-        $( window ).resize(function() {
-        var wd = $(window).width();
-        if(wd<='767'){
+        if(wd<='767') {
             $('.top-cart-info').show();
             $('.top-cart-content-wrapper').addClass('itemsz');
             $('.top-cart-content-wrapper').hide();
-            }
-        else{
-            $('.top-cart-info').hide();
+        } else{
+             $('.top-cart-info').hide();
             $('.top-cart-content-wrapper').show();
             $('.top-cart-content-wrapper').removeClass('itemsz');
-            
         }
-            
+
+        $( window ).resize(function() {
+            var wd = $(window).width();
+            if(wd<='767'){
+                $('.top-cart-info').show();
+                $('.top-cart-content-wrapper').addClass('itemsz');
+                $('.top-cart-content-wrapper').hide();
+            } else{
+                $('.top-cart-info').hide();
+                $('.top-cart-content-wrapper').show();
+                $('.top-cart-content-wrapper').removeClass('itemsz');
+
+            }
         });
+
         $('.decrease').live('click', function () {
         //alert('test');
         var menuid = $(this).attr('id');
@@ -174,13 +156,13 @@
         tax = tax.toFixed(2);
         $('div.tax').text(tax);
         $('input.tax').val(tax);
-        if($('#delivery_flag').val()=='1')
-            var del_fee = $('.df').val();
-        else
-            var del_fee = 0;
-        
-        del_fee = parseFloat(del_fee);
 
+        var del_fee = 0;
+        if($('#delivery_flag').val()=='1') {
+            del_fee = $('.df').val();
+        }
+
+        del_fee = parseFloat(del_fee);
 
         var gtotal = Number(subtotal) + Number(tax) + Number(del_fee);
         gtotal = gtotal.toFixed(2);
@@ -209,8 +191,7 @@
             if (ccc < 4)
                 $('.orders').removeAttr('style');
             $('.orders').show();
-        }
-        else {
+        } else {
             quant--;
             $('#list' + numid + ' span.count').text('x '+quant);
             $('#list' + numid + ' input.count').val(quant);
@@ -278,16 +259,15 @@
         tax = tax.toFixed(2);
         $('div.tax').text(tax);
         $('input.tax').val(tax);
-        if($('#delivery_flag').val()=='1')
-            var del_fee = $('.df').val();
-        else
-            var del_fee = 0;
+        var del_fee = 0;
+        if($('#delivery_flag').val()=='1') {
+            del_fee = $('.df').val();
+        }
         del_fee = parseFloat(del_fee);
         var gtotal = Number(subtotal) + Number(tax) + Number(del_fee);
         gtotal = gtotal.toFixed(2);
         $('div.grandtotal').text(gtotal);
         $('input.grandtotal').val(gtotal);
-        
     });
         
     })
