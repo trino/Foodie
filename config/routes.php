@@ -71,6 +71,7 @@ Router::scope('/', function ($routes) {
     $routes->connect('/restaurants/delete_order/*', ['controller' => 'Restaurants', 'action' => 'delete_order']);
     $routes->connect('/restaurants/approve_order/*', ['controller' => 'Restaurants', 'action' => 'approve_order']);
     $routes->connect('/restaurants/cancel_order/*', ['controller' => 'Restaurants', 'action' => 'cancel_order']);
+    $routes->connect('/restaurants/order_detail/*', ['controller' => 'Restaurants', 'action' => 'order_detail']);
 
     $routes->connect('/restaurants/all/*', ['controller' => 'Restaurants', 'action' => 'all']);
     $routes->connect('/restaurants/*', ['controller' => 'Restaurants', 'action' => 'index']);

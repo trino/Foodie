@@ -81,7 +81,7 @@
  ?>
 
  </div>
- <div style="display: none;">
+ <div style="display: none;" class="nxtpage">
   <?= $this->Paginator->next();?>
   </div>
  <div id="loadmoreajaxloader" style="display:none;"><center><img src="<?= $this->request->webroot;?>img/ajax-loader.gif" /></center></div>
@@ -124,6 +124,7 @@
             success: function(html) {
                 if (!$('.next').hasClass('disabled')){
                     if (html) {
+                        $('.nxtpage').remove();
                         $("#postswrapper").append(html);
                         $('div#loadmoreajaxloader').hide();
                     } else {
@@ -644,7 +645,7 @@
             '<input type="hidden" class="menu_ids" name="menu_ids[]" value="' + menu_id + '" />' +
             '<input type="hidden" name="extras[]" value="' + dbtitle + '"/><input type="hidden" name="listid[]" value="' + ids + '" />' +
             '<input type="hidden" class="prs" name="prs[]" value="' + (pre_cnt*price).toFixed(2) + '" />' +
-            '<a href="javascript:void(0);" class="del-goods" onclick="$(this).parent().remove()">&nbsp;</a>');
+            '<a href="javascript:void(0);" class="del-goods" onclick="">&nbsp;</a>');
         /*$('#list' + ids).html('<div><span class="namemenu">' + app_title + '</span></div>' +
          '<div style="float:left;width:50%;"><a style="padding: 6px;height: 18px;line-height: 6px" id="dec' + ids + '" class="decrease small btn btn-danger" href="javascript:void(0);">' +
          '<strong>-</strong></a><span class="count">' + pre_cnt + '</span><input type="hidden" class="count" name="qtys[]" value="' + pre_cnt + '" />' + ' &nbsp;<a id="inc' + ids + '" class="increase btn btn-primary small " href="javascript:void(0);" style="padding: 6px;height: 18px;line-height: 6px">' +
@@ -683,7 +684,10 @@
         $('div.tax').text(tax);
         $('input.tax').val(tax);
 
-        var del_fee = $('.df').val();
+        if($('#delivery_flag').val()=='1')
+            var del_fee = $('.df').val();
+        else
+            var del_fee = 0;
         del_fee = parseFloat(del_fee);
         //alert(del_fee);
 

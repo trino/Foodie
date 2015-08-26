@@ -35,7 +35,7 @@
 
 <html style="transform: none;">
 <head>
-    <link href="http://cdn.foundation5.zurb.com/foundation.css" rel="stylesheet">
+    <link href="http://cdn.foundation5.zurb.com/foundation.css" rel="stylesheet"/>
     <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 
     <style>

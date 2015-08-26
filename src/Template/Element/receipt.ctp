@@ -21,7 +21,7 @@
                         <input type="hidden" name="subtotal" class="subtotal" value="0"></td>
                     </tr>
                     <tr>
-                        <td><strong>Tax&nbsp;</strong></td><td>&nbsp;$<div class="tax" style="display: inline-block;">191.49</div>&nbsp;(<div id="tax" style="display: inline-block;">13</div>%)
+                        <td><strong>Tax&nbsp;</strong></td><td>&nbsp;$<div class="tax" style="display: inline-block;">0</div>&nbsp;(<div id="tax" style="display: inline-block;">13</div>%)
                         <input type="hidden" value="0" name="tax" class="tax"></td>
                     </tr>
 
@@ -154,7 +154,7 @@
         var amount = $('#list' + numid + ' .amount').text();
         amount = parseFloat(amount);
 
-        var subtotal = "";
+        var subtotal =0;
         $('.total').each(function () {
             var sub = $(this).text().replace('$','');
             subtotal = Number(subtotal) + Number(sub);
@@ -171,8 +171,11 @@
         tax = tax.toFixed(2);
         $('div.tax').text(tax);
         $('input.tax').val(tax);
-
-        var del_fee = $('.df').val();
+        if($('#delivery_flag').val()=='1')
+            var del_fee = $('.df').val();
+        else
+            var del_fee = 0;
+        
         del_fee = parseFloat(del_fee);
 
 
@@ -233,7 +236,10 @@
         tax = tax.toFixed(2);
         $('div.tax').text(tax);
         $('input.tax').val(tax);
-        var del_fee = $('.df').val();
+        if($('#delivery_flag').val()=='1')
+            var del_fee = $('.df').val();
+        else
+            var del_fee = 0;
         del_fee = parseFloat(del_fee);
         var gtotal = Number(subtotal) + Number(tax) + Number(del_fee);
         gtotal = gtotal.toFixed(2);
@@ -248,6 +254,37 @@
         quant++;
         $('#list' + numid + ' span.count').text('x '+quant);
         $('#list' + numid + ' input.count').val(quant);
+    });
+    
+    $('.del-goods').live('click',function(){
+        $(this).parent().remove();
+        var subtotal = 0;
+        $('.total').each(function () {
+            var sub = $(this).text().replace('$','');
+            subtotal = Number(subtotal) + Number(sub);
+        })
+        subtotal = parseFloat(subtotal);
+        //subtotal = Number(subtotal) - Number(amount);
+        subtotal = subtotal.toFixed(2);
+        $('div.subtotal').text(subtotal);
+        $('input.subtotal').val(subtotal);
+
+        var tax = $('#tax').text();
+        tax = parseFloat(tax);
+        tax = (tax / 100) * subtotal;
+        tax = tax.toFixed(2);
+        $('div.tax').text(tax);
+        $('input.tax').val(tax);
+        if($('#delivery_flag').val()=='1')
+            var del_fee = $('.df').val();
+        else
+            var del_fee = 0;
+        del_fee = parseFloat(del_fee);
+        var gtotal = Number(subtotal) + Number(tax) + Number(del_fee);
+        gtotal = gtotal.toFixed(2);
+        $('div.grandtotal').text(gtotal);
+        $('input.grandtotal').val(gtotal);
+        
     });
         
     })

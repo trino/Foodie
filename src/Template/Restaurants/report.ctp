@@ -26,7 +26,7 @@
       
         <div class="dashboard toprint">
         
-                                <div class="infolist noprint"><strong>RESTAURANT NAME: </strong>Charlie's Chopsticks</div>  
+                    <div class="infolist noprint"><strong>RESTAURANT NAME: </strong>Charlie's Chopsticks</div>  
                   <div class="infolist noprint"><strong>ORDERED BY: </strong>John Ngo</div>                  
                   <div class="infolist noprint"><strong>EMAIL: </strong>jngo474@gmail.com</div>
                   <div class="infolist noprint"><strong>CONTACT: </strong>999-999-9999</div>

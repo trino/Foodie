@@ -47,6 +47,6 @@
    
 
  ?>
- <div style="display: none;">
+ <div style="display: none;" class="nxtpage">
   <?php echo $this->Paginator->next();?>
   </div>

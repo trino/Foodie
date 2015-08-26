@@ -18,10 +18,10 @@
     <?php echo $this->element('user_menu');?>
     <div class="col-xs-12  col-sm-9 col-md-9">
         <div class="deleteme">
-            <h3 class="sidebar__title">Order History</h3>
+            <h3 class="sidebar__title">Order <?=ucwords($type)?></h3>
             <hr class="shop__divider">
             <div class="dashboard">
-
+                <?php if($type != 'detail'){?>
                 <table class="table table-theme table-striped">
                     <thead>
                     <tr><th>Ordered By</th><th>Date/Time</th><th>Action</th><th>Status</th></tr>
@@ -47,11 +47,31 @@
                     ?>
                     </tbody>
                 </table>
+                
                 <!--div class="pagination2" style="margin:5px auto;width:300px">
       <ul>
       <li class="prev">«</li>            <li class="current">1</li><li><a href="/charlies/orders/history/page:2">2</a></li><li><a href="/charlies/orders/history/page:3">3</a></li>            <li class="next"><a href="/charlies/orders/history/page:2" rel="next">»</a></li>            </ul>
       </div-->
-
+            <?php }else
+            {
+                $restaurant = $manager->get_restaurant($order->res_id);
+                ?>
+                  <div class="infolist noprint"><strong>RESTAURANT NAME: </strong><?php echo $restaurant->Name;?></div>  
+                  <div class="infolist noprint"><strong>ORDERED BY: </strong><?php echo $order->ordered_by;?></div>                  
+                  <div class="infolist noprint"><strong>EMAIL: </strong><?php echo $order->email;?></div>
+                  <div class="infolist noprint"><strong>CONTACT: </strong><?php echo $order->contact;?></div>
+                  <div class="infolist noprint"><strong>ORDERED ON: </strong><?php $date = new DateTime($order->order_time);echo $date->format('l jS \of F Y h:i:s A'); ?></div>
+                  <div class="infolist noprint"><strong>ORDER READY: </strong><?php echo $order->order_till;?></div>
+            <?php 
+             if ($order->remarks!='') {
+            ?>
+                <div class="infolist noprint"><strong>ADDITIONAL NOTES:</strong><?php echo $order->remarks;?></div>
+            <?php
+                }
+          
+               echo  $this->element('receipt');
+             
+            }?>
             </div>
 
 

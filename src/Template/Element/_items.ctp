@@ -1,5 +1,43 @@
 <ul class="scroller orders" style="height: 250px;">
-    <!--li id="list1" class="infolist" >
+<?php
+if(isset($order)){
+    $menu_ids = $order->menu_ids;
+    $arr_menu = explode(',', $menu_ids);
+    $arr_qty = explode(',', $order->qtys);
+    $arr_prs = explode(',', $order->prs);
+    $arr_extras = explode(',', $order->extras);
+    
+    
+    foreach ($arr_menu as $k => $me) {
+        if ($order->extras != "") {
+            $extz = str_replace(array("% ", ':'), array(" ", ': '), $arr_extras[$k]);
+            $extz = str_replace("%", ",", $extz);
+        } else
+            $extz = "";
+        if (is_numeric($me)) {
+            $m = $manager->get_entry('Menus',$me);
+            $tt = $m->menu_item;
+        }
+        ?>
+        <li id="list2" class="infolist" >
+          <span class="receipt_image">
+          <img src="<?php echo $this->request->webroot;?>/img/products/<?php echo $m->image;?>" alt="Rolex Classic Watch" width="37" height="34">
+          <span class="count">x <?php echo $arr_qty[$k];?></span><input type="hidden" class="count" name="qtys[]" value="1" />
+          </span>
+          <strong><?php echo "<strong>" . $tt . ": </strong>" . $extz;?></strong>
+          <em class="total">$ <?php echo number_format(($arr_qty[$k] * $arr_prs[$k]), 2);?></em>
+          <span class="amount" style="display:none;"> <?php echo number_format($arr_prs[$k], 2);?></span>
+          <input type="hidden" class="menu_ids" name="menu_ids[]" value="1" />
+          <input type="hidden" name="extras[]" value="Watch Rolex Classic "/>
+          <input type="hidden" name="listid[]" value="2" />
+          <input type="hidden" class="prs" name="prs[]" value="<?php echo number_format(($arr_qty[$k] * $arr_prs[$k]), 2);?>" />
+          <a href="javascript:void(0);" class="del-goods" onclick="">&nbsp;</a>
+        </li>
+        
+    <?php
+    }
+    } ?>
+  <!--li id="list1" class="infolist" >
     <span class="receipt_image">
       <a href="shop-item.html"><img src="<?php echo $this->request->webroot;?>/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
       <a id="dec1" style="width:18px;padding: 6px;height: 18px;line-height: 6px" class="decrease small btn btn-primary" href="javascript:void(0);">

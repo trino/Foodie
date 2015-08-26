@@ -17,7 +17,7 @@ class RestaurantsController extends AppController {
     public function index($slug='') {
         $this->loadComponent('Paginator');
         if ($slug) {//this code fails if the user is not an employee
-            $restaurant = $this->Manager->get_restaurant('restaurants', $slug);
+            $restaurant = $this->Manager->get_restaurant( $slug);
             $menus = $this->Paginate($this->Manager->enum_menus($restaurant->ID));
             $this->set('menus', $menus);
         }
@@ -261,7 +261,7 @@ class RestaurantsController extends AppController {
             $arr['delivery_fee'] = $_POST['delivery_fee'];
 
             date_default_timezone_set('Canada/Eastern');
-            $arr['order_time'] = date('Y-m-d H:i:s');
+            $arr['order_time'] = new \DateTime('NOW');
             $arr['res_id'] = $_POST['res_id'];
             $arr['subtotal'] = $_POST['subtotal'];
             $arr['g_total'] = $_POST['g_total'];
@@ -305,6 +305,13 @@ class RestaurantsController extends AppController {
                     ->where(['id' => $ID])
                     ->execute();
                     $this->redirect('/restaurants/orders/pending');
+    }
+    public function order_detail($ID)
+    {
+        $this->layout='orders';
+        $this->set('order',$this->Manager->get_entry('Reservations',$ID));
+        $this->set('manager',$this->Manager);
+        $this->set('type','detail');
     }
     
 }
