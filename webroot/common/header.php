@@ -108,6 +108,7 @@
                 <DIV ID="message" align="center"></DIV>
                 <form role="form" action="<?= $this->request->webroot;?>cuisine/login" method="post" class="form-horizontal form-without-legend">
                     <input type="hidden" name="action" value="login">
+                    <p style="display: none;text-align:center;" id="invalid"><strong style="color: red;">Invalid username or password</strong></p>
                     <div class="form-group">
                         <label class="col-lg-4 control-label" for="email">Email <span class="require">*</span></label>
                         <div class="col-lg-8">
@@ -234,7 +235,7 @@
 </div>
 <!-- Header END -->
 
-<SCRIPT>
+<script>
     function getvalue(ElementID){
         return document.getElementById(ElementID).value;
     }
@@ -269,12 +270,12 @@
             success: function (msg) {
                 if(msg) {
                     if(ValidURL(msg)){
-                        window.location = msg;
+                        window.location = '<?php echo $this->request->webroot;?>restaurants/dashboard';
                     } else {
-                        setvalue("message", msg);
+                        $('#invalid').show();
                     }
                 } else {
-                    location.reload();
+                    window.location = '<?php echo $this->request->webroot;?>restaurants/dashboard';
                 }
             },
             failure: function (msg){
@@ -284,13 +285,9 @@
         return false;
     }
 
-    function ValidURL(str) {
-        var pattern = new RegExp('^(https?:\/\/)?'+ // protocol
-            '((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|'+ // domain name
-            '((\d{1,3}\.){3}\d{1,3}))'+ // OR ip (v4) address
-            '(\:\d+)?(\/[-a-z\d%_.~+]*)*'+ // port and path
-            '(\?[;&a-z\d%_.~+=-]*)?'+ // query string
-            '(\#[-a-z\d_]*)?$','i'); // fragment locater
-        return pattern.test(str);
+    function ValidURL(textval) {
+        var urlregex = new RegExp(
+            "^(http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(\:[0-9]+)*(/($|[a-zA-Z0-9\.\,\?\'\\\+&amp;%\$#\=~_\-]+))*$");
+      return urlregex.test(textval);
     }
-</SCRIPT>
+</script>
