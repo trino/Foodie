@@ -64,8 +64,7 @@ class EventManager
      * @param \Cake\Event\EventManager $manager Event manager instance.
      * @return \Cake\Event\EventManager the global event manager
      */
-    public static function instance($manager = null)
-    {
+    public static function instance($manager = null) {
         if ($manager instanceof EventManager) {
             static::$_generalManager = $manager;
         }

@@ -32,7 +32,7 @@
                     <table width="100%">
                         <tbody>
                         <?php
-                            $submenus = $manager->enum_all('Menus',['parent'=>$menu->ID]);
+                            $submenus = $Manager->enum_all('Menus',['parent'=>$menu->ID]);
                             foreach($submenus as $sub){
                         ?>
                         <tr class="zxcx">
@@ -75,7 +75,7 @@
 
                                     <div class="list clearfix">
                                     <?php
-                                        $mini_menus = $manager->enum_all('Menus',['parent'=>$sub->ID]);
+                                        $mini_menus = $Manager->enum_all('Menus',['parent'=>$sub->ID]);
                                         foreach($mini_menus as $mm):
                                     ?>
                                         <div class="col-xs-6 col-md-6"  style="padding: 0px;border-radius: 17px 0 0 17px !important;"

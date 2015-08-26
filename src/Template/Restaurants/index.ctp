@@ -19,7 +19,7 @@
 
 <div class="col-md-7 col-sm-4 col-xs-12 menu_div">
     <?php
-        echo $this->element('menus',['menus'=>$menus,'manager'=>$manager]);?>
+        echo $this->element('menus',['menus'=>$menus,'manager'=>$Manager]);?>
 </div>
 <!-- BEGIN CART -->
 <div class="top-cart-block col-md-3 col-sm-4">

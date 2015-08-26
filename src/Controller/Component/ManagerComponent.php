@@ -799,6 +799,10 @@
                 return 'Pending';
             }
         }
+        function approve_order($OrderID, $Status=true){
+            if($Status){$Status = 'approved';} else {$Status = 'cancelled';}
+            $this->edit_database('reservations', "ID", $OrderID, array($Status=>1));
+        }
 
 
 

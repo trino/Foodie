@@ -36,10 +36,11 @@
                             echo '<td><a href="'. $this->request->webroot.'restaurants/order_detail/'. $Order->id . '" class="btn btn-success">View</a>';
                             echo '<a href="'. $this->request->webroot.'restaurants/delete_order/'. $Order->id . '/'.$type.'" class="btn btn-danger" ';
                             echo 'onclick="return confirm(\' Are you sure you want to delete order\');">Delete</a>';
-                            if($type!='pending')
-                            echo '</td><td>' .$status. '</TD></TR>';
-                            else
-                            echo '<a href="'.$this->request->webroot.'restaurants/approve_order/'. $Order->id.'" class="btn btn-info">Approve</a> <a href="'.$this->request->webroot.'restaurants/cancel_order/'. $Order->id.'" class="btn btn-warning">Cancel</a></td><td>' .$status. '</TD></TR>';
+                            if($type!='pending') {
+                                echo '</td><td>' . $status . '</TD></TR>';
+                            }else {
+                                echo '<a href="' . $this->request->webroot . 'restaurants/approve_order/' . $Order->id . '" class="btn btn-info">Approve</a> <a href="' . $this->request->webroot . 'restaurants/cancel_order/' . $Order->id . '" class="btn btn-warning">Cancel</a></td><td>' . $status . '</TD></TR>';
+                            }
                         }
                     } else {
                         echo '<TR><TD colspan="4"><DIV align="center">No orders found</DIV></TD></TR>';
@@ -52,25 +53,21 @@
       <ul>
       <li class="prev">«</li>            <li class="current">1</li><li><a href="/charlies/orders/history/page:2">2</a></li><li><a href="/charlies/orders/history/page:3">3</a></li>            <li class="next"><a href="/charlies/orders/history/page:2" rel="next">»</a></li>            </ul>
       </div-->
-            <?php }else
-            {
-                $restaurant = $manager->get_restaurant($order->res_id);
+            <?php }else {
+                $restaurant = $Manager->get_restaurant($order->res_id);
                 ?>
-                  <div class="infolist noprint"><strong>RESTAURANT NAME: </strong><?php echo $restaurant->Name;?></div>  
-                  <div class="infolist noprint"><strong>ORDERED BY: </strong><?php echo $order->ordered_by;?></div>                  
-                  <div class="infolist noprint"><strong>EMAIL: </strong><?php echo $order->email;?></div>
-                  <div class="infolist noprint"><strong>CONTACT: </strong><?php echo $order->contact;?></div>
-                  <div class="infolist noprint"><strong>ORDER TYPE: </strong><?php echo ($order->order_type=='1')?'Delivery':'Pickup'?></div>
+                  <div class="infolist noprint"><strong>RESTAURANT NAME: </strong><?= $restaurant->Name;?></div>
+                  <div class="infolist noprint"><strong>ORDERED BY: </strong><?= $order->ordered_by;?></div>
+                  <div class="infolist noprint"><strong>EMAIL: </strong><?= $order->email;?></div>
+                  <div class="infolist noprint"><strong>CONTACT: </strong><?= $order->contact;?></div>
+                  <div class="infolist noprint"><strong>ORDER TYPE: </strong><?= ($order->order_type=='1')?'Delivery':'Pickup'?></div>
                   <div class="infolist noprint"><strong>ORDERED ON: </strong><?php $date = new DateTime($order->order_time);echo $date->format('l jS \of F Y h:i:s A'); ?></div>
-                  <div class="infolist noprint"><strong>ORDER READY: </strong><?php echo $order->order_till;?></div>
-            <?php 
-             if ($order->remarks!='') {
-            ?>
-                <div class="infolist noprint"><strong>ADDITIONAL NOTES:</strong><?php echo $order->remarks;?></div>
+                  <div class="infolist noprint"><strong>ORDER READY: </strong><?= $order->order_till;?></div>
             <?php
-                }
-          
-               echo  $this->element('receipt');
+            if ($order->remarks!='') {
+                echo '<div class="infolist noprint"><strong>ADDITIONAL NOTES:</strong>' . $order->remarks . '</div>';
+            }
+            echo  $this->element('receipt');
              
             }?>
             </div>
