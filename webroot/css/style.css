@@ -3333,7 +3333,7 @@ Header and header elements
 
 .top-cart-content .slimScrollDiv ul li .receipt_image {
 	display: inline-block;
-	width: auto !important;
+	width: 25% !important;
 
 }
 
@@ -3380,9 +3380,9 @@ Header and header elements
 	color: #717880;
 }
 .top-cart-content em {
-	width: 55px;
+	width: 20%;
 	font-style: normal;
-	text-align: right;
+	text-align: center;
 }
 
 .del-goods,
@@ -3850,7 +3850,7 @@ Header and header elements
 }
 
 .ecommerce .main .top-cart-content {
-	padding: 8px 0 10px 10px;
+	padding: 20px 0 20px 10px;
 	background: #fcfafb;
 	border-top: solid 2px #ea4c1d;
 	box-shadow: 5px 5px rgba(91, 91, 91, 0.2);
@@ -3876,7 +3876,7 @@ Header and header elements
 }
 
 .ecommerce .main .top-cart-content strong {
-	width: 100px;
+	width: 45%;
 	font-weight: normal;
 }
 
@@ -3887,7 +3887,7 @@ Header and header elements
 .ecommerce .main .top-cart-content-wrapper {
 	position: absolute;
 	right: 4px;
-	top: 100%;
+	bottom: 0;
 	z-index: 99999;
 	width: 100%;
 }

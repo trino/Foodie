@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo $this->request->webroot;?>css/popstyle.css"/>
 <?php if ($this->request->params['controller'] == 'Restaurants') { ?>
     <!--div class="margin-bottom-10">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="product-item">
                 <div class="pi-img-wrapper">
                     <img src="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
@@ -51,7 +51,7 @@
             if ($cnt == '0') {
                 echo '<div class="margin-bottom-10">';
             } ?>
-            <div class="col-md-3">
+            <div class="col-md-4 col-sm-12 col-xs-12 margin-bottom-20">
                 <div class="product-item">
                     <div class="pi-img-wrapper">
                         <img src="<?= $this->request->webroot; ?>/img/products/<?= $menu->image; ?>" class="img-responsive" alt="<?= $menu->menu_item; ?>"/>
@@ -66,6 +66,7 @@
                     <div class="sticker sticker-new"></div>
                 </div>
             </div>
+            
             <!-- BEGIN fast view of a product -->
             <?php
             echo $this->element('popup', ['menu' => $menu, 'manager' => $manager]);

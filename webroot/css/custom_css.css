@@ -402,10 +402,12 @@ button:hover {
 .top-cart-block {
     position: fixed;
     right: 0;
-    top: 110px;
+    top: 58px;
+    z-index: 9;
 }
 .main {
     padding-top: 75px;
+    min-height: 700px;
 }
 
 .pricing-content blockquote {
@@ -472,4 +474,24 @@ button:hover {
 
 .top-cart-content::after {
     display: none;
+}
+
+.steps-block, .pre-footer, .footer {
+    position: relative;
+    z-index: 99;
+}
+
+.add-sidebar address {
+    padding: 0 10px;
+}
+
+.add-sidebar {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+    border: 1px solid #dfdfdf !important;
+    border-radius: 5px !important;
+    padding: 0 !important;
+}
+
+.add-sidebar .img-responsive {
+    border-radius: 5px 5px 0 0 !important;
 }

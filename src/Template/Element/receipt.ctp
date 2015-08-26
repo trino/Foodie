@@ -107,14 +107,14 @@
     $(function(){
         var wd = $(window).width();
         
-        $(window).scroll(function(){
-             if(wd>='767')
-            {
-            $('.top-cart-block').css({'top':0});
-            if($(window).scrollTop()== 0)
-            $('.top-cart-block').css({'top':'110px'});
-            }
-        });
+        //$(window).scroll(function(){
+            // if(wd>='767')
+            //{
+            //$('.top-cart-block').css({'top':0});
+            //if($(window).scrollTop()== 0)
+            //$('.top-cart-block').css({'top':'110px'});
+            //}
+        //});
         
         if(wd<='767')
         {
@@ -251,5 +251,7 @@
     });
         
     })
+
+
     
 </script>

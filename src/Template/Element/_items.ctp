@@ -1,4 +1,4 @@
-<ul class="scroller orders" style="height: 250px;">
+<ul class="scroller orders" style="height: 300px;">
     <!--li id="list1" class="infolist" >
     <span class="receipt_image">
       <a href="shop-item.html"><img src="<?php echo $this->request->webroot;?>/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>

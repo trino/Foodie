@@ -1,7 +1,7 @@
-<div class="col-md-2 col-sm-4">
+<div class="col-md-2 col-sm-4 col-xs-12">
 
-    <div class="well">
-        <img class="img-responsive" alt="" src="/Foodie//img/works/img4.jpg">
+    <div class="well add-sidebar">
+        <img class="img-responsive margin-bottom-10" alt="" src="/Foodie//img/works/img4.jpg">
 
         <address>
             <strong>Loop, Inc.</strong><br>
@@ -17,12 +17,12 @@
     </div>
 </div>
 
-<div class="col-md-8 col-sm-4 menu_div">
+<div class="col-md-7 col-sm-4 col-xs-12 menu_div">
     <?php
         echo $this->element('menus',['menus'=>$menus,'manager'=>$manager]);?>
 </div>
 <!-- BEGIN CART -->
-<div class="top-cart-block col-md-2 col-sm-4">
+<div class="top-cart-block col-md-3 col-sm-4">
     <?php echo $this->element('receipt');?>
 </div>
 <!--END CART -->
