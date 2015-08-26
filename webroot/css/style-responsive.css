@@ -1287,6 +1287,27 @@ overflow-y: hidden;
 width: 100%;
 }
 
+.top-cart-block {
+    position: absolute !important;
+    right: 0;
+    top: 111px !important;
+    z-index: 9;
+}
+
+.site-logo {
+    display: block;
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.top-cart-block {
+    position: absolute !important;
+    right: 0;
+    top: 180px !important;
+    z-index: 9;
+}
+
 }
 /* END max width 480px */
 
@@ -1382,6 +1403,13 @@ width: 100% !important;
 
 .site-logo > img {
     width: 100%;
+}
+
+.top-cart-block {
+    position: absolute !important;
+    right: 0;
+    top: 172px !important;
+    z-index: 9;
 }
 
 
