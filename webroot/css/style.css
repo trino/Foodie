@@ -3278,7 +3278,6 @@ Header and header elements
 .top-cart-content {
 	padding: 8px 0 10px;
 	background: #fcfafb;
-	box-shadow: 5px 5px rgba(91, 91, 91, 0.2);
 	width: 364px;
 	margin-top: 12px;
 	color: #717880;
@@ -3851,7 +3850,6 @@ Header and header elements
 .ecommerce .main .top-cart-content {
 	padding: 20px 0 20px 10px;
 	background: #fcfafb;
-	box-shadow: 5px 5px rgba(91, 91, 91, 0.2);
 	width: 100%;
 	margin-top: 12px;
 	color: #717880;

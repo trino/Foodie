@@ -12,7 +12,7 @@ date_default_timezone_set('America/Toronto');
 </div>
 <form id="profiles">
 <div class="form-group">
-    <div class="col-xs-12">
+    <div class="col-xs-12 margin-bottom-10">
     <input type="hidden" name="order_id" value="<?php echo $_GET['order_id'];?>" />
     <input type="text" style="padding-top: 0;margin-top: 0;" placeholder="Name" class="form-control  form-control--contact" name="ordered_by" id="fullname" required="">
     </div>                        
@@ -59,15 +59,15 @@ date_default_timezone_set('America/Toronto');
 
 </div>
 <div <?php echo (isset($_GET['delivery']))?'':'style="display:none;"';?>>
-<div class="form-group">
+<div class="form-group margin-bottom-10">
 <!--textarea placeholder="Address 2" name="address2"></textarea-->   
-<div class="col-xs-12 col-sm-6">
+<div class="col-xs-12 col-sm-6  margin-bottom-10">
 <input type="text" placeholder="Address 2" class="form-control  form-control--contact" name="address2" <?php echo (!isset($_GET['delivery']))?'':'required=""';?>>
 </div>                        
 
 
 
-<div class="col-xs-12 col-sm-6">                        
+<div class="col-xs-12 col-sm-6  margin-bottom-10">                        
     <input type="text" placeholder="City" class="form-control  form-control--contact" name="city" id="city" <?php echo (!isset($_GET['delivery']))?'':'required=""';?>>                        
 </div>
 </div>

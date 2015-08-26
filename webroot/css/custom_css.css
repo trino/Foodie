@@ -542,3 +542,8 @@ button:hover {
  .deleteme li > .del-goods {
     margin-top: 60px !important;
 }
+
+.form-control.form-control--contact {
+    line-height: 34px;
+    padding: 5px 10px !important;
+}
