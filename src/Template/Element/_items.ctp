@@ -15,7 +15,7 @@ if(isset($order)){
         } else
             $extz = "";
         if (is_numeric($me)) {
-            $m = $manager->get_entry('Menus',$me);
+            $m = $Manager->get_entry('Menus',$me);
             $tt = $m->menu_item;
         }
         ?>
