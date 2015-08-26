@@ -433,7 +433,7 @@ button:hover {
 }
 
 .infolist.noprint {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .infolistwhite {
@@ -494,4 +494,51 @@ button:hover {
 
 .add-sidebar .img-responsive {
     border-radius: 5px 5px 0 0 !important;
+}
+
+.deleteme .top-cart-content-wrapper {
+    position: static !important;
+}
+
+.menu_bold {
+    font-weight: 700;
+    padding-right: 3px;
+    padding-top: 0 !important;
+}
+
+.deleteme .receipt_image > img {
+    display: inline-block;
+    float: none;
+    height: 100%;
+    width: 150px;
+}
+
+.deleteme .receipt_image .count {
+    display: inline-block;
+    float: none;
+    padding-top: 0 !important;
+    vertical-align: middle;
+}
+
+.deleteme .infolist.noprint > strong {
+    display: inline-block;
+    width: 20%;
+}
+
+.deleteme .top-cart-content-wrapper {
+    border-top: 1px solid #dfdfdf;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.deleteme .receipt_image {
+    padding-top: 0 !important;
+}
+
+.deleteme li > strong, .deleteme li > em {
+    margin-top: 50px !important;
+}
+
+ .deleteme li > .del-goods {
+    margin-top: 60px !important;
 }
