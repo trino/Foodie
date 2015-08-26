@@ -15,7 +15,7 @@
             $this->Controller = $Controller;
             $Me = $this->read('ID');
 
-            $Controller->set('gen_res', $this->enum_gen_res());
+            $Controller->set('genres', $this->enum_genres());
             if (isset($_POST["action"])){
                 switch ($_POST["action"]) {
                     case "test"://for ajax testing
@@ -412,15 +412,15 @@
                     $this->add_genre($Genre);
                 }
             } else {
-                $this->new_anything("gen_res", $Name);
+                $this->new_anything("genres", $Name);
             }
         }
-        function enum_gen_res(){
-            $entries = TableRegistry::get('gen_res')->find();
+        function enum_genres(){
+            $entries = TableRegistry::get('genres')->find();
             return $this->iterator_to_array($entries, "ID", "Name");
         }
         function rename_genre($ID, $Name){
-            $this->update_database('gen_res', "ID", $ID, array("Name" => $Name));
+            $this->update_database('genres', "ID", $ID, array("Name" => $Name));
         }
         function enum_restaurants($Genre = ""){
             if($Genre) {

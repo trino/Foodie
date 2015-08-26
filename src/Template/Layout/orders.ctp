@@ -24,7 +24,7 @@
 
                 <table class="table table-theme table-striped">
                     <thead>
-                    <tr><th>Ordered By</th><th style="width: 250px;">Date/Time</th><th style="width: 200px;">Action</th><th style="width: 100px;">Status</th></tr>
+                    <tr><th>Ordered By</th><th>Date/Time</th><th>Action</th><th>Status</th></tr>
                     </thead>
                     <tbody>
                     <?php
@@ -36,7 +36,10 @@
                             echo '<td><a href="'. $this->request->webroot.'restaurants/order_detail/'. $Order->id . '" class="btn btn-success">View</a>';
                             echo '<a href="'. $this->request->webroot.'restaurants/delete_order/'. $Order->id . '/'.$type.'" class="btn btn-danger" ';
                             echo 'onclick="return confirm(\' Are you sure you want to delete order\');">Delete</a>';
+                            if($type!='pending')
                             echo '</td><td>' .$status. '</TD></TR>';
+                            else
+                            echo '<a href="'.$this->request->webroot.'restaurants/approve_order/'. $Order->id.'" class="btn btn-info">Approve</a> <a href="'.$this->request->webroot.'restaurants/cancel_order/'. $Order->id.'" class="btn btn-warning">Cancel</a></td><td>' .$status. '</TD></TR>';
                         }
                     } else {
                         echo '<TR><TD colspan="4"><DIV align="center">No orders found</DIV></TD></TR>';

@@ -281,6 +281,31 @@ class RestaurantsController extends AppController {
         $this->Manager->delete_order($ID);
         $this->redirect('/restaurants/orders/'.$type);
     }
+    public function approve_order($ID)
+    {
+        $table = TableRegistry::get('reservations');
+
+                //echo $s;die();
+                $query = $table->query();
+                $query->update()
+                    ->set(['approved'=>1])
+                    ->where(['id' => $ID])
+                    ->execute();
+                    $this->redirect('/restaurants/orders/pending');
+    }
+    
+    public function cancel_order($ID)
+    {
+        $table = TableRegistry::get('reservations');
+
+                //echo $s;die();
+                $query = $table->query();
+                $query->update()
+                    ->set(['cancelled'=>1])
+                    ->where(['id' => $ID])
+                    ->execute();
+                    $this->redirect('/restaurants/orders/pending');
+    }
     
 }
 ?>
