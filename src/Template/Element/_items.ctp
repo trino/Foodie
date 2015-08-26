@@ -1,4 +1,4 @@
-<ul class="scroller orders" style="height: 300px;">
+<ul class="scroller orders" <?php if(isset($order)){?>style="height: 300px;"<?php }?>>
 <?php
 if(isset($order)){
     $menu_ids = $order->menu_ids;
@@ -19,7 +19,7 @@ if(isset($order)){
             $tt = $m->menu_item;
         }
         ?>
-        <li id="list2" class="infolist" >
+        <li id="list<?php echo $order->id;?>" class="infolist" >
           <span class="receipt_image">
           <img src="<?php echo $this->request->webroot;?>/img/products/<?php echo $m->image;?>" alt="Rolex Classic Watch" width="37" height="34">
           <span class="count">x <?php echo $arr_qty[$k];?></span><input type="hidden" class="count" name="qtys[]" value="1" />
@@ -31,7 +31,7 @@ if(isset($order)){
           <input type="hidden" name="extras[]" value="Watch Rolex Classic "/>
           <input type="hidden" name="listid[]" value="2" />
           <input type="hidden" class="prs" name="prs[]" value="<?php echo number_format(($arr_qty[$k] * $arr_prs[$k]), 2);?>" />
-          <a href="javascript:void(0);" class="del-goods" onclick="">&nbsp;</a>
+          
         </li>
         
     <?php

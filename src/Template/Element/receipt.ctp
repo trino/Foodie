@@ -12,38 +12,42 @@
               <div class="totals col-md-12">
                 <table class="table">
                     <tbody>
+                    <?php if(!isset($order)){?>
                     <tr>
                         <td><label class="radio-inline"><input type="radio" name="delevery_type" checked='checked' onclick="delivery('hide');">Pickup</label></td>
                         <td><label class="radio-inline"><input type="radio" name="delevery_type" onclick="delivery('show');">Delivery</label></td>
                     </tr>
+                    <?php }?>
                     <tr>
-                        <td><strong>Subtotal&nbsp;</strong></td><td>&nbsp;$<div class="subtotal" style="display: inline-block;">0</div>
-                        <input type="hidden" name="subtotal" class="subtotal" value="0"></td>
+                        <td><strong>Subtotal&nbsp;</strong></td><td>&nbsp;$<div class="subtotal" style="display: inline-block;"><?php echo (isset($order))?$order->subtotal:'0';?></div>
+                        <input type="hidden" name="subtotal" class="subtotal" value="<?php echo (isset($order))?$order->subtotal:'0';?>"></td>
                     </tr>
                     <tr>
-                        <td><strong>Tax&nbsp;</strong></td><td>&nbsp;$<div class="tax" style="display: inline-block;">0</div>&nbsp;(<div id="tax" style="display: inline-block;">13</div>%)
-                        <input type="hidden" value="0" name="tax" class="tax"></td>
+                        <td><strong>Tax&nbsp;</strong></td><td>&nbsp;$<div class="tax" style="display: inline-block;"><?php echo (isset($order))?$order->tax:'0';?></div>&nbsp;(<div id="tax" style="display: inline-block;">13</div>%)
+                        <input type="hidden" value="<?php echo (isset($order))?$order->tax:'0';?>" name="tax" class="tax"></td>
                     </tr>
 
                     <tr <?php if(isset($order)&& $order->order_type!='1')echo 'style="display: none;"';?> id="df">
-                        <td><strong>Delivery Fee&nbsp;</strong></td><td>&nbsp;$3.50
-                            <input type="hidden" value="3.50" class="df" name="delivery_fee" />
+                        <td><strong>Delivery Fee&nbsp;</strong></td><td>&nbsp;$<?php echo (isset($order))?$order->delivery_fee:'0';?>
+                            <input type="hidden" value="<?php echo (isset($order))?$order->delivery_fee:'0';?>" class="df" name="delivery_fee" />
                             <input type="hidden" value="0" id="delivery_flag" name="order_type"  />
                         </td>
                     </tr>
                     <tr>
-                        <td><strong>Total</strong>&nbsp;</td><td>&nbsp;$<div style="display: inline-block;" class="grandtotal">0</div>
-                        <input type="hidden" name="g_total" class="grandtotal" value="0"/>
-                        <input type="hidden" name="res_id"  value="1"/>
+                        <td><strong>Total</strong>&nbsp;</td><td>&nbsp;$<div style="display: inline-block;" class="grandtotal"><?php echo (isset($order))?$order->g_total:'0';?></div>
+                        <input type="hidden" name="g_total" class="grandtotal" value="<?php echo (isset($order))?$order->g_total:'0';?>"/>
+                        <input type="hidden" name="res_id"  value="<?php if(isset($restaurant))echo $restaurant->ID;?>"/>
                         </td>
                     </tr>
                 </tbody></table>
             </div>
+            <?php if(!isset($order)){?>
               <div class="text-right">
                
                 <a href="javascript:void(0)" class="btn btn-default">Clear</a>
                 <a href="javascript:void(0)" class="btn btn-primary" onclick="checkout();">Checkout</a>
               </div>
+              <?php }?>
             </div>
           </div>
 <script>

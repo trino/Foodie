@@ -10,14 +10,14 @@ use Cake\ORM\TableRegistry;
 
 class RestaurantsController extends AppController {
     public $paginate = [
-        'limit' => 1,
+        'limit' => 10,
         'order' => ['ID' => 'DESC'],
     ];
 
     public function index($slug='') {
         $this->loadComponent('Paginator');
         if ($slug) {//this code fails if the user is not an employee
-            $restaurant = $this->Manager->get_restaurant( $slug);
+            $restaurant = $this->Manager->get_restaurant($slug);
             $menus = $this->Paginate($this->Manager->enum_menus($restaurant->ID));
             $this->set('menus', $menus);
         }
