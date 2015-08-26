@@ -569,7 +569,7 @@
         ////////////////////////////////////////Menus API/////////////////////////////////
         function enum_menus($RestaurantID = "", $Sort = ""){
             if($RestaurantID=="all"){
-                return $this->Manager->enum_all('menus',['parent'=>'0','image <> "undefined"']);
+                return $this->enum_all('menus',['parent'=>'0','image <> "undefined"']);
             }
             if(!$RestaurantID) {$RestaurantID = $this->get_current_restaurant();}
             if($Sort){$order = array('display_order' => $Sort);} else {$order = "";}

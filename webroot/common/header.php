@@ -173,7 +173,8 @@
 <!-- BEGIN HEADER -->
 <div class="header">
     <div class="container-fluid">
-        <a class="site-logo" href="<?= $this->request->webroot;?>"><img src="<?= $this->request->webroot;?>img/logos/logo.png" alt="didueat?" style="max-height: 68px;"></a>
+        <a class="site-logo" href="<?= $this->request->webroot;?>"><img src="<?= $this->request->webroot;?>img/logos/logo.png" alt="didueat?" style="height: 64px; position: relative;
+        top: 2px;"></a>
 
         <a href="#header-nav" class="mobi-toggler fancybox-fast-view"><i class="fa fa-bars"></i></a>
 
