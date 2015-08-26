@@ -141,7 +141,7 @@ $(function(){
                 success:function(msg){
                   if(msg =='0')
                   {
-                    $('.top-cart-content ').text('Thank You.');
+                    $('.top-cart-content ').html('<span class="thankyou">Thank You.</span>');
                   }
                   else if(msg == '1')
                     alert('Email Already Registred.');

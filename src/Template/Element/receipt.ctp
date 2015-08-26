@@ -29,7 +29,7 @@
 
                     <tr <?php if(isset($order)&& $order->order_type!='1')echo 'style="display: none;"';?> id="df">
                         <td><strong>Delivery Fee&nbsp;</strong></td><td>&nbsp;$<?php echo (isset($order))?$order->delivery_fee:'0';?>
-                            <input type="hidden" value="<?php echo (isset($order))?$order->delivery_fee:'0';?>" class="df" name="delivery_fee" />
+                            <input type="hidden" value="<?php echo (isset($order))?$order->delivery_fee:$restaurant->DeliveryFee;?>" class="df" name="delivery_fee" />
                             <input type="hidden" value="0" id="delivery_flag" name="order_type"  />
                         </td>
                     </tr>
