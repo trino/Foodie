@@ -1,4 +1,4 @@
-<ul class="scroller orders" style="height: 250px;">
+<ul class="scroller orders" style="height: 300px;">
 <?php
 if(isset($order)){
     $menu_ids = $order->menu_ids;
@@ -24,7 +24,7 @@ if(isset($order)){
           <img src="<?php echo $this->request->webroot;?>/img/products/<?php echo $m->image;?>" alt="Rolex Classic Watch" width="37" height="34">
           <span class="count">x <?php echo $arr_qty[$k];?></span><input type="hidden" class="count" name="qtys[]" value="1" />
           </span>
-          <strong><?php echo "<strong>" . $tt . ": </strong>" . $extz;?></strong>
+          <?php echo "<strong>" . $tt . ": </strong>" . str_replace('<br/>','',$extz);?>
           <em class="total">$ <?php echo number_format(($arr_qty[$k] * $arr_prs[$k]), 2);?></em>
           <span class="amount" style="display:none;"> <?php echo number_format($arr_prs[$k], 2);?></span>
           <input type="hidden" class="menu_ids" name="menu_ids[]" value="1" />

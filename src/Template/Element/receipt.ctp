@@ -25,9 +25,8 @@
                         <input type="hidden" value="0" name="tax" class="tax"></td>
                     </tr>
 
-                    <tr style="display: none;" id="df">
-                        <td><strong>Delivery
-                            Fee&nbsp;</strong></td><td>&nbsp;$3.50
+                    <tr <?php if(isset($order)&& $order->order_type!='1')echo 'style="display: none;"';?> id="df">
+                        <td><strong>Delivery Fee&nbsp;</strong></td><td>&nbsp;$3.50
                             <input type="hidden" value="3.50" class="df" name="delivery_fee" />
                             <input type="hidden" value="0" id="delivery_flag" name="order_type"  />
                         </td>
@@ -107,14 +106,14 @@
     $(function(){
         var wd = $(window).width();
         
-        $(window).scroll(function(){
-             if(wd>='767')
-            {
-            $('.top-cart-block').css({'top':0});
-            if($(window).scrollTop()== 0)
-            $('.top-cart-block').css({'top':'110px'});
-            }
-        });
+        //$(window).scroll(function(){
+            // if(wd>='767')
+            //{
+            //$('.top-cart-block').css({'top':0});
+            //if($(window).scrollTop()== 0)
+            //$('.top-cart-block').css({'top':'110px'});
+            //}
+        //});
         
         if(wd<='767')
         {
@@ -288,5 +287,7 @@
     });
         
     })
+
+
     
 </script>
