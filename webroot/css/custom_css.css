@@ -547,3 +547,14 @@ button:hover {
     line-height: 34px;
     padding: 5px 10px !important;
 }
+
+.thankyou {
+    color: #ce0b10;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 30px;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
