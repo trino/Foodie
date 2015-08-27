@@ -1,6 +1,12 @@
+@media (min-width: 2201px) and (max-width: 2400px) {
+.main {
+min-height:1000px !important;
+}
+}
+
 @media (min-width: 2000px) and (max-width: 2200px) {
 .main {
-min-height:950px !important;
+min-height:980px !important;
 }
 
 .ecommerce .main .top-cart-content{
@@ -87,6 +93,8 @@ margin-bottom: 40px;
 padding: 5px;
 vertical-align: middle;
 }
+
+
 }
 
 /* BEGIN max width 1400px */
@@ -108,6 +116,24 @@ min-height:590px !important;
 .main {
     padding-top: 100px !important;
 }
+
+}
+
+@media (min-width: 1201px) and (max-width: 1300px) {
+    .ecommerce .main .top-cart-content {
+        margin-top:5px;
+    padding: 5px 0 10px 5px;
+}
+
+.slimScrollDiv {
+    margin-bottom: 0;
+    height: 270px !important;
+}
+
+.table {
+    margin-bottom: 3px;
+}
+
 
 }
 
@@ -178,6 +204,19 @@ display: inline-block;
     top: 30%;
 }
 
+
+.slimScrollDiv {
+    margin-bottom: 0;
+    height: 240px !important;
+}
+
+.header .header-navigation {
+    clear: both;
+    display: block !important;
+    float: right !important;
+    margin-top: -42px;
+}
+
 }
 /* END max width 1200px */
 
@@ -195,12 +234,6 @@ body.page-header-fixed {
 padding-top: 121px !important; /* height of the header */
 }
 
-.header .header-navigation {
-display: block !important;
-clear: both;
-margin-top: -10px;
-float: left !important;
-}
 .reduce-header .header-navigation {
 margin-top: -6px;
 }

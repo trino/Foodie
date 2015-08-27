@@ -571,3 +571,55 @@ button:hover {
     padding: 0 8px;
     width: 2.2em;
 }
+
+.resturants-items {
+    background: #f7f7f7 none repeat scroll 0 0;
+    border-radius: 6px !important;
+    box-shadow: 0 1px 2px 0 #dfdfdf;
+}
+
+.rating-details {
+    padding: 0 0 15px;
+}
+
+.rating-details .blog-info {
+    border-bottom: 1px solid #dfdfdf;
+    border-top: 1px solid #dfdfdf;
+    padding: 5px 10px;
+    margin: 5px 0;
+}
+
+.rating-details .btn.btn-success {
+    display: block;
+    font-size: 12px;
+    margin-left: 10px;
+    padding: 7px 0;
+    width: 110px;
+}
+
+.rating-details > p {
+    border-bottom: 1px solid #dfdfdf;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.rating-details > strong {
+    padding: 0 10px;
+}
+.resturant-star {
+    padding: 0 10px;
+}
+
+.resturants-items .img-responsive {
+    border-radius: 6px 6px 0 0 !important;
+}
+
+.rating-details .btn.btn-success:hover {
+    background: #ce0b10 !important;
+    color: #fff !important;
+}
+
+.resturant-grid h2 a:hover {
+    text-decoration: none;
+}
