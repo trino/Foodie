@@ -4,15 +4,19 @@
             <a href="#cartsz" class="fancybox-fast-view" ><i class="fa fa-shopping-cart" onclick="#cartsz" ></i></a>
    </div>
    
-   <!--div class="col-md-12">
-      <div class="col-md-6">
+  <div class="row  resturant-logo-desc">
+   <div class="col-md-12 col-sm-12 col-xs-12">
+   <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12 no-padding">
         <img src="<?php echo $this->request->webroot."img/restaurants/".$restaurant->Logo;?>" class='img-responsive' />
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 col-sm-6 col-xs-12 resturant-desc">
         <span><?php echo $restaurant->Address.",". $restaurant->City;?></span>
         <span><?php echo $restaurant->Phone;?></span>
       </div>
-   </div-->     
+   </div>  
+   </div> 
+   </div>  
                         
           <div class="top-cart-content-wrapper">
             <div class="top-cart-content " id="cartsz" >

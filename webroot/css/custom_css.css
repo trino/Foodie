@@ -402,7 +402,7 @@ button:hover {
 .top-cart-block {
     position: fixed;
     right: 0;
-    top: 58px;
+    top: 75px;
     z-index: 9;
 }
 .main {
@@ -623,3 +623,21 @@ button:hover {
 .resturant-grid h2 a:hover {
     text-decoration: none;
 }
+
+.resturant-logo-desc .img-responsive {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.resturant-logo-desc .resturant-desc {
+    margin-top: 30px;
+}
+
+.totals #df strong {
+    width: 65%;
+}
+
+.totals .table strong {
+    padding-top: 0 !important;
+}
+

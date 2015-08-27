@@ -1,4 +1,4 @@
-<ul class="scroller orders" <?php if(!isset($order)){?>style="height: 300px;"<?php }?>>
+<ul class="scroller orders" <?php if(!isset($order)){?>style="height: 200px;"<?php }?>>
 <?php
 if(isset($order)){
     $menu_ids = $order->menu_ids;
