@@ -17,7 +17,7 @@ date_default_timezone_set('America/Toronto');
     </div>                        
   </div>
   <div class="form-group">
-  <div class="col-xs-12 col-sm-6">
+  <div class="col-xs-12 col-sm-6 margin-bottom-10">
     <input type="email" placeholder="Email" class="form-control  form-control--contact" name="email" id="ordered_email" required="">                        
   </div>
   <div class="col-xs-12 col-sm-6">
