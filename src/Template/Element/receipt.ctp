@@ -3,57 +3,73 @@
             <a href="javascript:void(0);" class="top-cart-info-value" id="cart-total">$1260</a>
             <a href="#cartsz" class="fancybox-fast-view" ><i class="fa fa-shopping-cart" onclick="#cartsz" ></i></a>
    </div>
-        
+   
+   <!--div class="col-md-12">
+      <div class="col-md-6">
+        <img src="<?php echo $this->request->webroot."img/restaurants/".$restaurant->Logo;?>" class='img-responsive' />
+      </div>
+      <div class="col-md-6">
+        <span><?php echo $restaurant->Address.",". $restaurant->City;?></span>
+        <span><?php echo $restaurant->Phone;?></span>
+      </div>
+   </div-->     
                         
           <div class="top-cart-content-wrapper">
             <div class="top-cart-content " id="cartsz" >
-              <?php echo $this->element('_items');?>
-         
-              <div class="totals col-md-12">
-                <table class="table">
-                    <tbody>
-                    <?php if(!isset($order)){?>
-                    <tr>
-                        <td><label class="radio-inline"><input type="radio" name="delevery_type" checked='checked' onclick="delivery('hide');">Pickup</label></td>
-                        <td><label class="radio-inline"><input type="radio" name="delevery_type" onclick="delivery('show');">Delivery</label></td>
-                    </tr>
-                    <?php }?>
-                    <tr>
-                        <td><strong>Subtotal&nbsp;</strong></td><td>&nbsp;$<div class="subtotal" style="display: inline-block;"><?php echo (isset($order))?$order->subtotal:'0';?></div>
-                        <input type="hidden" name="subtotal" class="subtotal" value="<?php echo (isset($order))?$order->subtotal:'0';?>"></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Tax&nbsp;</strong></td><td>&nbsp;$<div class="tax" style="display: inline-block;"><?php echo (isset($order))?$order->tax:'0';?></div>&nbsp;(<div id="tax" style="display: inline-block;">13</div>%)
-                        <input type="hidden" value="<?php echo (isset($order))?$order->tax:'0';?>" name="tax" class="tax"></td>
-                    </tr>
-
-                    <tr <?php if(isset($order)&& $order->order_type!='1')echo 'style="display: none;"';?> id="df">
-                        <td><strong>Delivery Fee&nbsp;</strong></td><td>&nbsp;$<?php echo (isset($order))?$order->delivery_fee:'0';?>
-                            <input type="hidden" value="<?php echo (isset($order))?$order->delivery_fee:$restaurant->DeliveryFee;?>" class="df" name="delivery_fee" />
-                            <input type="hidden" value="0" id="delivery_flag" name="order_type"  />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Total</strong>&nbsp;</td><td>&nbsp;$<div style="display: inline-block;" class="grandtotal"><?php echo (isset($order))?$order->g_total:'0';?></div>
-                        <input type="hidden" name="g_total" class="grandtotal" value="<?php echo (isset($order))?$order->g_total:'0';?>"/>
-                        <input type="hidden" name="res_id"  value="<?php if(isset($restaurant))echo $restaurant->ID;?>"/>
-                        </td>
-                    </tr>
-                </tbody></table>
-            </div>
+                <div class="receipt_main">
+                  <?php echo $this->element('_items');?>
+                    <div class="totals col-md-12">
+                    <table class="table">
+                        <tbody>
+                        <?php if(!isset($order)){?>
+                        <tr>
+                            <td><label class="radio-inline"><input type="radio" name="delevery_type" checked='checked' onclick="delivery('hide');">Pickup</label></td>
+                            <td><label class="radio-inline"><input type="radio" name="delevery_type" onclick="delivery('show');">Delivery</label></td>
+                        </tr>
+                        <?php }?>
+                        <tr>
+                            <td><strong>Subtotal&nbsp;</strong></td><td>&nbsp;$<div class="subtotal" style="display: inline-block;"><?php echo (isset($order))?$order->subtotal:'0';?></div>
+                            <input type="hidden" name="subtotal" class="subtotal" value="<?php echo (isset($order))?$order->subtotal:'0';?>"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tax&nbsp;</strong></td><td>&nbsp;$<div class="tax" style="display: inline-block;"><?php echo (isset($order))?$order->tax:'0';?></div>&nbsp;(<div id="tax" style="display: inline-block;">13</div>%)
+                            <input type="hidden" value="<?php echo (isset($order))?$order->tax:'0';?>" name="tax" class="tax"/></td>
+                        </tr>
+    
+                        <tr <?php echo (isset($order)&& $order->order_type == '1')?'style="display: block;"':'style="display: none;"';?> id="df">
+                            <td><strong>Delivery Fee&nbsp;</strong></td><td>&nbsp;$<?php echo (isset($order))?$order->delivery_fee:$restaurant->DeliveryFee;?>
+                                <input type="hidden" value="<?php echo (isset($order))?$order->delivery_fee:$restaurant->DeliveryFee;?>" class="df" name="delivery_fee" />
+                                <input type="hidden" value="0" id="delivery_flag" name="order_type"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong>&nbsp;</td><td>&nbsp;$<div style="display: inline-block;" class="grandtotal"><?php echo (isset($order))?$order->g_total:'0';?></div>
+                            <input type="hidden" name="g_total" class="grandtotal" value="<?php echo (isset($order))?$order->g_total:'0';?>"/>
+                            <input type="hidden" name="res_id"  value="<?php if(isset($restaurant))echo $restaurant->ID;?>"/>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
             <?php if(!isset($order)){?>
               <div class="text-right">
-               
+           
                 <a href="javascript:void(0)" class="btn btn-default">Clear</a>
                 <a href="javascript:void(0)" class="btn btn-primary" onclick="checkout();">Checkout</a>
               </div>
               <?php }?>
+              </div>
+               <div class="profiles" style="display: none;">
+                    <?php include('common/profile.php');?>
+               </div>
             </div>
+            
           </div>
 <script>
     function checkout() {
         var del = $('#delivery_flag').val();
-        var datas = $('.top-cart-content input').serialize();
+        $('.receipt_main').hide();
+        $('.profiles').show();
+        /*var datas = $('.top-cart-content input').serialize();
         $.ajax({
             type:'post',
             url:'<?php echo $this->request->webroot;?>restaurants/order_ajax',
@@ -65,13 +81,19 @@
                     $('.top-cart-content').load('<?php echo $this->request->webroot."common/profile.php?delivery&order_id=";?>'+id);
                 }
             }
-        })
+        })*/
     }
 
     function delivery(t) {
         var df =$('input.df').val();
-        if(t=='show') {
+        if(t=='show') 
+        {
             $('#df').show();
+            $('.profile_delevery_type').text('Delivery Detail');
+            $('.profile_delivery_detail').show();
+            $('.profile_delivery_detail input').each(function(){
+                $(this).attr('required','required');    
+            });
             var tax = $('.tax').text();
             var grandtotal = 0;
             var subtotal = $('input.subtotal').val();
@@ -81,7 +103,11 @@
             $('.grandtotal').val(grandtotal.toFixed(2));
             $('#delivery_flag').val('1');
             $('#cart-total').text('$'+grandtotal.toFixed(2));
-        } else {
+        } 
+        else 
+        {
+            $('.profile_delevery_type').text('Pickup Detail');
+             $('.profile_delivery_detail').hide();
             var grandtotal = $('input.grandtotal').val();
             grandtotal = Number(grandtotal)-Number(df);
             $('.grandtotal').text(grandtotal.toFixed(2));

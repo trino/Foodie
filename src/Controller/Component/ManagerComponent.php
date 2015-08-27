@@ -835,7 +835,7 @@
             $Data['delivery_fee'] = $delivery_fee;
 
             date_default_timezone_set('Canada/Eastern');
-            $Data['order_time'] = new DateTime('NOW');
+            $Data['order_time'] = new \DateTime('NOW');
             $Data['res_id'] = $res_id;
             $Data['subtotal'] = $subtotal;
             $Data['g_total'] = $g_total;

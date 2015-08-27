@@ -1,5 +1,4 @@
 <?php
-
 $Restaurants = $Manager->enum_restaurants();
 $Genres =  $Manager->enum_genres();
 ?>
@@ -42,38 +41,38 @@ $Genres =  $Manager->enum_genres();
 
                             <div class="row margin-bottom-10">
                                 <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h2>
-                                            <a href="<?php echo $this->request->webroot; ?>restaurants/<?php echo $Restaurant->Slug; ?>"><?= $Restaurant->Name; ?></a>
-                                        </h2>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2>
+                                                <a href="<?php echo $this->request->webroot; ?>restaurants/<?php echo $Restaurant->Slug; ?>"><?= $Restaurant->Name; ?></a>
+                                            </h2>
+    
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-3 col-sm-3 margin-bottom-15">
+                                            <img class="img-responsive" alt="" src="<?php echo $this->request->webroot; ?>/img/works/img4.jpg">
+                                        </div>
+                                        <div class="col-md-9 col-sm-9">
+                                            <strong><?php echo $Restaurant->Address; ?>, <?php echo $Restaurant->City; ?>, <?php echo $Restaurant->Province; ?></strong><br />
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i><br />
+                                            <strong>Thai</strong>
+    
+                                            <ul class="blog-info">
+                                                <li><i class="fa fa-calendar"></i> Thai</li>
+                                                <li><i class="fa fa-comments"></i> Delivery, Pickup</li>
+                                                <li><i class="fa fa-tags"></i> Est. Wait 40 min</li>
+                                                <li><i class="fa fa-tags"></i> Open 10am - 10am</li>
+                                            </ul>
+                                            <p><?= $Restaurant->Description; ?></p>
+                                            <a href="blog-item.html" class=" btn btn-success">Order Online</a>
+                                        </div>
+                                    </div>
 
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="col-md-3 col-sm-3 margin-bottom-15">
-                                        <img class="img-responsive" alt="" src="<?php echo $this->request->webroot; ?>/img/works/img4.jpg">
-                                    </div>
-                                    <div class="col-md-9 col-sm-9">
-                                        <strong><?php echo $Restaurant->Address; ?>, <?php echo $Restaurant->City; ?>, <?php echo $Restaurant->Province; ?></strong><br />
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i><br />
-                                        <strong>Thai</strong>
-
-                                        <ul class="blog-info">
-                                            <li><i class="fa fa-calendar"></i> Thai</li>
-                                            <li><i class="fa fa-comments"></i> Delivery, Pickup</li>
-                                            <li><i class="fa fa-tags"></i> Est. Wait 40 min</li>
-                                            <li><i class="fa fa-tags"></i> Open 10am - 10am</li>
-                                        </ul>
-                                        <p><?= $Restaurant->Description; ?></p>
-                                        <a href="blog-item.html" class=" btn btn-success">Order Online</a>
-                                    </div>
                                 </div>
-
-        </div>
                             </div>
                     <?php } ?>
         

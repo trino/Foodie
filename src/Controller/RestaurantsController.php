@@ -246,16 +246,6 @@ class RestaurantsController extends AppController {
     }
 
 
-
-    
-    function order_ajax() {
-        $this->layout = 'blank';
-        if (isset($_POST['menu_ids']) && $_POST['menu_ids']) {
-            echo $this->Manager->new_order($_POST['menu_ids'], $_POST['prs'], $_POST['qtys'], $_POST['extras'], $_POST['listid'], $_POST['order_type'], $_POST['delivery_fee'], $_POST['res_id'], $_POST['subtotal'], $_POST['g_total'], $_POST['tax']);
-        }
-        die();
-    }
-    
     public function delete_order($ID, $type) {
         $this->Manager->delete_order($ID);
         $this->redirect('/restaurants/orders/'.$type);
@@ -275,6 +265,16 @@ class RestaurantsController extends AppController {
         $this->layout='orders';
         $this->set('order',$this->Manager->get_order($ID));
         $this->set('type','detail');
+    }
+    
+    public function edit_order($ID)
+    {
+        $this->layout ='blank';
+        $order = $this->Manager->get_order($ID);
+        $restaurant = $this->Manager->get_restaurant($order->res_id);
+        $this->set('restaurant',$restaurant);
+        $this->set('order',$order);
+        
     }
     
 }

@@ -23,6 +23,10 @@
 </div>
 <!-- BEGIN CART -->
 <div class="top-cart-block col-md-3 col-sm-4">
+    
     <?php echo $this->element('receipt');?>
+    
+   
 </div>
+
 <!--END CART -->

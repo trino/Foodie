@@ -19,7 +19,7 @@ if(isset($order)){
             $tt = $m->menu_item;
         }
         ?>
-        <li id="list<?php echo $order->id;?>" class="infolist" >
+        <li id="list<?php echo $order->listid;?>" class="infolist" >
           <span class="receipt_image">
           <img src="<?= $this->request->webroot;?>/img/products/<?= $m->image;?>" alt="Rolex Classic Watch" width="37" height="34">
           <span class="count">x <?= $arr_qty[$k];?></span><input type="hidden" class="count" name="qtys[]" value="1" />
