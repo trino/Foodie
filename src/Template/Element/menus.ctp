@@ -48,11 +48,16 @@
         $cnt = 0;
         $menu_count = count($menus);
         foreach ($menus as $menu) {
+            $restaurant = $Manager->get_restaurant($menu->res_id);
             if ($cnt == '0') {
                 echo '<div class="margin-bottom-10">';
             } ?>
             <div class="col-md-3 col-sm-12 col-xs-12 margin-bottom-20">
+                <?php if($this->request->params['controller']=='Pages'){?>
+                <a href="<?php echo $this->request->webroot.'restaurants/'.$restaurant->Slug;?>">
+                <?php }else{?>
                 <a href="#product-pop-up_<?= $menu->ID; ?>" class="fancybox-fast-view">
+                <?php }?>
                 <div class="product-item">
                     <div class="pi-img-wrapper">
                         <img src="<?= $this->request->webroot; ?>/img/products/<?= $menu->image; ?>" class="img-responsive" alt="<?= $menu->menu_item; ?>"/>

@@ -6,14 +6,13 @@ date_default_timezone_set('America/Toronto');
 ?>
 <div class="form-group">
     <div class="col-xs-12">
-        <h2><?php echo (isset($_GET['delivery']))?'Delivery':'Pickup';?> Detail</h2>
+        <h2 class="profile_delevery_type"></h2>
         
     </div>
 </div>
 <form id="profiles">
 <div class="form-group">
     <div class="col-xs-12 margin-bottom-10">
-    <input type="hidden" name="order_id" value="<?php echo $_GET['order_id'];?>" />
     <input type="text" style="padding-top: 0;margin-top: 0;" placeholder="Name" class="form-control  form-control--contact" name="ordered_by" id="fullname" required="">
     </div>                        
   </div>
@@ -58,22 +57,22 @@ date_default_timezone_set('America/Toronto');
       <div class="clearfix"></div> 
 
 </div>
-<div <?php echo (isset($_GET['delivery']))?'':'style="display:none;"';?>>
+<div class="profile_delivery_detail" style="display: none;">
 <div class="form-group margin-bottom-10">
 <!--textarea placeholder="Address 2" name="address2"></textarea-->   
 <div class="col-xs-12 col-sm-6  margin-bottom-10">
-<input type="text" placeholder="Address 2" class="form-control  form-control--contact" name="address2" <?php echo (!isset($_GET['delivery']))?'':'required=""';?>>
+<input type="text" placeholder="Address 2" class="form-control  form-control--contact" name="address2" />
 </div>                        
 
 
 
 <div class="col-xs-12 col-sm-6  margin-bottom-10">                        
-    <input type="text" placeholder="City" class="form-control  form-control--contact" name="city" id="city" <?php echo (!isset($_GET['delivery']))?'':'required=""';?>>                        
+    <input type="text" placeholder="City" class="form-control  form-control--contact" name="city" id="city" />                        
 </div>
 </div>
 <div class="form-group">
 <div class="col-xs-12 col-sm-6">
-<select <?php echo (!isset($_GET['delivery']))?'':'required=""';?> class="form-control form-control--contact" name="province">
+<select class="form-control form-control--contact" name="province">
     <option value="Alberta">Alberta</option>
     <option value="British Columbia">British Columbia</option>
     <option value="Manitoba">Manitoba</option>
@@ -88,7 +87,7 @@ date_default_timezone_set('America/Toronto');
                         
 </div>
 <div class="col-xs-12 col-sm-6">
-    <input type="text" placeholder="Postal Code" class="form-control  form-control--contact" name="postal_code" id="postal_code" <?php echo (!isset($_GET['delivery']))?'':'required=""';?>>
+    <input type="text" placeholder="Postal Code" class="form-control  form-control--contact" name="postal_code" id="postal_code" />
 </div>                        
 <div class="clearfix"></div>
 </div>
@@ -101,6 +100,7 @@ date_default_timezone_set('America/Toronto');
 </div>
 <div class="form-group">
 <div class="col-xs-12">
+<a href="javascript:void(0)" class="btn btn-default back">Back</a>
 <button type="submit" class="btn btn-primary" >Checkout</button>
 </div>
 <div class="clearfix"></div>  
@@ -130,14 +130,19 @@ password.onchange = validatePassword;
 
 confirm_password.onkeyup = validatePassword;
 $(function(){
+    
+    $('.back').live('click',function(){
+       $('.receipt_main').show();
+       $('.profiles').hide(); 
+    });
     $('#profiles').submit(function(e){
             e.preventDefault();
-            
             var datas = $('#profiles input, select, textarea').serialize();
+            var order_data = $('.receipt_main input').serialize();
             $.ajax({
                 type:'post',
                 url:'http://localhost/Foodie/users/ajax_register',
-                data: datas,
+                data: datas+'&'+order_data,
                 success:function(msg){
                   if(msg =='0')
                   {

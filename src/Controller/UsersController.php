@@ -153,14 +153,16 @@ class UsersController extends AppController {
         $this->request->session()->destroy();
         $this->redirect('/');
     }
-    
+   
     public function ajax_register() {
+        
+        $order_id = $this->Manager->new_order($_POST['menu_ids'], $_POST['prs'], $_POST['qtys'], $_POST['extras'], $_POST['listid'], $_POST['order_type'], $_POST['delivery_fee'], $_POST['res_id'], $_POST['subtotal'], $_POST['g_total'], $_POST['tax']);
         $this->layout = 'blank';
         $EmailAddress =  $_POST['email'];
         $Password = $_POST['password'];
         $Phone = $_POST['contact'];
         $Name = $_POST['ordered_by'];
-        $oid = $_POST['order_id'];
+        $oid = $order_id;
 
         if(isset($_POST['password']) && $_POST['password']!='') {
             if ($this->Manager->get_entry("profiles", $EmailAddress, "Email")) {

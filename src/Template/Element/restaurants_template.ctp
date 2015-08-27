@@ -1,5 +1,4 @@
 <?php
-
 $Restaurants = $Manager->enum_restaurants();
 $Genres =  $Manager->enum_genres();
 ?>
@@ -67,6 +66,7 @@ $Genres =  $Manager->enum_genres();
 
 
         </div>
+
         
                           
                     <?php } ?>
