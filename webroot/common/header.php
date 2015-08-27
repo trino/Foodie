@@ -270,13 +270,13 @@
             type: "post",
             success: function (msg) {
                 if(msg) {
-                    if(ValidURL(msg)){
-                        window.location = '<?= $this->request->webroot;?>restaurants/dashboard';
+                    if(checkUrl(msg)){
+                        window.location = msg;
                     } else {
                         $('#invalid').show();
                     }
                 } else {
-                    window.location = '<?= $this->request->webroot;?>restaurants/dashboard';
+                    window.location = '<?= $this->request->webroot;?>users/dashboard';
                 }
             },
             failure: function (msg){
@@ -290,5 +290,12 @@
         var urlregex = new RegExp(
             "^(http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(\:[0-9]+)*(/($|[a-zA-Z0-9\.\,\?\'\\\+&amp;%\$#\=~_\-]+))*$");
       return urlregex.test(textval);
+    }
+    function checkUrl(textval)
+    {
+        if(textval.replace('/dashboard','')!=textval)
+        return true;
+        else
+        return false;
     }
 </script>
