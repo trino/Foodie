@@ -23,7 +23,7 @@
                   <?php
                         if($userID) {
                               $ProfileType = $Manager->get_profile_type($userID);
-                              if($ProfileType->CanEditGlobalSettings){
+                              if($ProfileType->CanEditGlobalSettings && !$this->request->session()->read('Profile.Restaurant')){
                                     listitems($this->request->webroot, "Administrator", "", array(
                                           "Users" => "restaurants/employees",
                                           "Restaurants" => "restaurants/restaurants",
@@ -44,7 +44,7 @@
                                     ));
                                     echo '<hr class="shop__divider">';
                               }
-
+                                if(!$this->request->session()->read('Profile.Restaurant')){
                               listitems($this->request->webroot, "User", "users", array(
                                   "User Info" => "dashboard",
                                   "Upload Meal"=> "uploadmeal",
@@ -52,7 +52,7 @@
                                   "Images" => "images",
                                   "View Orders" => "orders",
                                   "Logout" => "logout"
-                              ));
+                              ));}
                         }
                   ?>
             <hr class="shop__divider">

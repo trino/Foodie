@@ -288,14 +288,15 @@
             $this->Controller->request->session()->write('Profile.Email',         $Profile->Email);
             $this->Controller->request->session()->write('Profile.Type',          $Profile->ProfileType);
             $this->Controller->request->session()->write('Profile.Restaurant',    $Profile->RestaurantID);
-            if($Profile->ProfileType == 1)
-                {
-                    echo $this->request->webroot.'users/dashboard';
-                }
-                if($Profile->ProfileType == 2)
-                {
-                    echo $this->request->webroot.'restaurants/dashboard';
-                }
+            if($this->Controller->request->session()->read('Profile.Restaurant'))
+            {
+                echo $this->request->webroot.'restaurants/dashboard';
+            }
+            else
+            if($this->Controller->request->session()->read('Profile.ID'))
+            {
+                echo $this->request->webroot.'users/dashboard';
+            }
             return $Profile->ID;
         }
 
