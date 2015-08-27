@@ -169,7 +169,7 @@ class UsersController extends AppController {
                 $this->response->body('1');
                 return $this->response;
             } else {
-                $this->Manager->new_profile(0, $Name, $Password, 1, $EmailAddress, $Phone, 0, '0');
+                $this->Manager->new_profile(0, $Name, $Password, 2, $EmailAddress, $Phone, 0, '0');
              }
         }
 

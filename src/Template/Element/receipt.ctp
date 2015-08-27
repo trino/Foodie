@@ -120,7 +120,11 @@
     
     $(function(){
         var wd = $(window).width();
+        var ht = $(window).height();
         
+        var headr_ht = $('.container-fluid').height();
+       var htt = Number(ht)-Number(headr_ht);
+            $('.top-cart-block').css({'height':htt}); 
         //$(window).scroll(function(){
             // if(wd>='767')
             //{
