@@ -61,7 +61,7 @@
                 <!--<input type="text" name="Phone" placeholder="Phone" title="Phone" value="<?= $Restaurant->Phone; ?>" />-->
                 <!--<input type="text" name="Address" placeholder="Street Address" title="Street Address" value="<?= $Restaurant->Address; ?>" />-->
                 <!--<input type="text" name="City" placeholder="City" title="City" value="<?= $Restaurant->City; ?>" />-->
-                <!--<input type="text" name="PostalCode" placeholder="Postal Code" title="Postal Code" value="<?= $Restaurant->PostalCode; ?>" />-->
+                
 
                 <?php
                     provinces("Province", $Restaurant->Province);
