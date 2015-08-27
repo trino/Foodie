@@ -48,6 +48,18 @@
         </div>
                 <div class="clearfix"></div>
                 <h2>Address</h2>
+                 <div class="form-group col-md-6">
+                    <label class="col-lg-12 col-md-12 col-sm-12 control-label col-xs-12 margin-bottom-10" for="Postal_Code">Country <span class="require">*</span></label>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <?php   makeselect("Country", $Restaurant->Country, array("CA" => "Canada"));?>
+                    </div>
+                 </div>
+                  <div class="form-group col-md-6">
+                    <label class="col-lg-12 col-md-12 col-sm-12 control-label col-xs-12 margin-bottom-10" for="Postal_Code">Province <span class="require">*</span></label>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <?php provinces("Province", $Restaurant->Province);?>
+                    </div>
+                 </div>
                 <div class="form-group col-md-6">
                     <label class="col-lg-12 col-sm-12 col-md-12 control-label col-xs-12 margin-bottom-10" for="Street_Address">Street Address <span class="require">*</span></label>
                     <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
@@ -73,14 +85,15 @@
                 <!--<input type="text" name="Address" placeholder="Street Address" title="Street Address" value="<?= $Restaurant->Address; ?>" />-->
                 <!--<input type="text" name="City" placeholder="City" title="City" value="<?= $Restaurant->City; ?>" />-->
                 
-                <div class="form-group col-md-12 prov-country">
-                <?php
-                    provinces("Province", $Restaurant->Province);
-                    makeselect("Country", $Restaurant->Country, array("CA" => "Canada"));
-                    echo '<BR><label class="col-lg-12 col-md-12 col-sm-12 no-padding control-label col-xs-12 margin-bottom-10" for="Postal_Code">Genre:</label> ';
-                    makeselect("Genre", $Restaurant->Genre, $Genres);
-                ?>
-                </div>
+                 
+                  <div class="form-group col-md-6">
+                    <label class="col-lg-12 col-md-12 col-sm-12 control-label col-xs-12 margin-bottom-10" for="Postal_Code">Genre <span class="require">*</span></label>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <?php   makeselect("Genre", $Restaurant->Genre, $Genres);?>
+                    </div>
+                 </div>
+                 
+                
 
             <!--</p>-->
            
