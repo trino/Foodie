@@ -267,14 +267,12 @@ class RestaurantsController extends AppController {
         $this->set('type','detail');
     }
     
-    public function edit_order($ID)
-    {
+    public function edit_order($ID) {
         $this->layout ='blank';
         $order = $this->Manager->get_order($ID);
         $restaurant = $this->Manager->get_restaurant($order->res_id);
         $this->set('restaurant',$restaurant);
         $this->set('order',$order);
-        
     }
     
 }

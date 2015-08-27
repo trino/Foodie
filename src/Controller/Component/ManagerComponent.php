@@ -281,21 +281,16 @@
         function login($Profile){
             if (is_numeric($Profile)){
                 $Profile = $this->get_profile($Profile);
-                
             }
             $this->Controller->request->session()->write('Profile.ID',            $Profile->ID);
             $this->Controller->request->session()->write('Profile.Name',          $Profile->Name);
             $this->Controller->request->session()->write('Profile.Email',         $Profile->Email);
             $this->Controller->request->session()->write('Profile.Type',          $Profile->ProfileType);
             $this->Controller->request->session()->write('Profile.Restaurant',    $Profile->RestaurantID);
-            if($this->Controller->request->session()->read('Profile.Restaurant'))
-            {
-                echo $this->request->webroot.'restaurants/dashboard';
-            }
-            else
-            if($this->Controller->request->session()->read('Profile.ID'))
-            {
-                echo $this->request->webroot.'users/dashboard';
+            if($this->Controller->request->session()->read('Profile.Restaurant')) {
+                echo $this->request->webroot.'restaurants/dashboard';               //we aren't doing 2 different dashboards!!!
+            } else if($this->Controller->request->session()->read('Profile.ID')) {
+                echo $this->request->webroot.'users/dashboard';                     //we aren't doing 2 different dashboards!!!
             }
             return $Profile->ID;
         }
