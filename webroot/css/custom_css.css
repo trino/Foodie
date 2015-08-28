@@ -725,4 +725,10 @@ body.ecommerce {
 
 }
 
+.dashboard .form-restaurants .form-group {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+}
+
 
