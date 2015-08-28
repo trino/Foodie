@@ -687,3 +687,30 @@ body.ecommerce {
 .deleteme .form-horizontal  strong, .services  strong, .deleteme .form-horizontal  h2, .services  h2  {
     margin-left: 15px !important;
 }
+
+@media print {
+   .top-cart-content .btn-default, .top-cart-content .btn {
+       display: none;
+    }
+}
+
+.receipt_main .text-right > input {
+    background: #aaa none repeat scroll 0 0;
+    border: medium none;
+    color: #fff;
+    font-size: 11px;
+    height: 32px;
+    line-height: 32px;
+    margin-right: 5px;
+    padding: 1px 10px 0;
+    position: relative;
+    text-transform: uppercase;
+    top: 1px;
+    width: auto;
+}
+
+.receipt_main .text-right > input:hover {
+    background: #ce0b10;
+}
+
+

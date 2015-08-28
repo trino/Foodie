@@ -297,6 +297,15 @@ width: 100% !important;
     padding-top: 100px !important;
 }
 
+.top-cart-block {
+    top: 74px !important;
+}
+
+.slimScrollDiv {
+    height: 165px !important;
+    margin-bottom: 0;
+}	
+
 }
 /* END min width 1025px max width 1205 */
 
@@ -330,6 +339,15 @@ width: 100% !important;
 
 .main {
     padding-top: 100px !important;
+}
+
+.top-cart-block {
+    top: 94px !important;
+}
+
+.slimScrollDiv {
+    height: 165px !important;
+    margin-bottom: 0;
 }	
 
 }

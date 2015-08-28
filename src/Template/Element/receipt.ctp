@@ -22,7 +22,7 @@
             <div class="top-cart-content " id="cartsz" >
                 <div class="receipt_main">
                   <?php echo $this->element('_items');?>
-                    <div class="totals col-md-12">
+                    <div class="totals col-md-12 col-sm-12 col-xs-12">
                     <table class="table">
                         <tbody>
                         <?php if(!isset($order)){?>
@@ -56,7 +56,7 @@
                 </div>
             <?php if(!isset($order)){?>
               <div class="text-right">
-           
+                <input type="button" onclick="printDiv('printableArea')" value="Print" />
                 <a href="javascript:void(0)" class="btn btn-default">Clear</a>
                 <a href="javascript:void(0)" class="btn btn-primary" onclick="checkout();">Checkout</a>
               </div>
@@ -306,6 +306,16 @@
         
     })
 
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
 
     
 </script>
