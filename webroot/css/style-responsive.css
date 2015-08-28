@@ -9,12 +9,8 @@ min-height:1000px !important;
 min-height:980px !important;
 }
 
-.ecommerce .main .top-cart-content{
-min-height:780px !important;
-}
-
 .slimScrollDiv {
-    height: 320px !important;
+    height: 380px !important;
     margin-bottom: 30px;
 }
 
@@ -32,10 +28,6 @@ vertical-align: middle;
 @media (min-width: 1800px) and (max-width: 1999px) {
 .main {
 min-height:900px !important;
-}
-
-.ecommerce .main .top-cart-content{
-min-height:710px !important;
 }
 
 .slimScrollDiv {
@@ -56,12 +48,9 @@ vertical-align: middle;
 .main {
 min-height:900px !important;
 }
-.ecommerce .main .top-cart-content{
-min-height:645px !important;
-}
 
 .slimScrollDiv {
-    height: 280px !important;
+    height: 260px !important;
     margin-bottom: 30px;
 }
 
@@ -79,12 +68,9 @@ vertical-align: middle;
 .main {
 min-height:870px !important;
 }
-.ecommerce .main .top-cart-content{
-min-height:660px !important;
-}
 
 .slimScrollDiv {
-    height: 270px !important;
+    height: 250px !important;
     margin-bottom: 15px;
 }
 
@@ -113,9 +99,6 @@ padding: 5px !important;
 vertical-align: bottom !important;
 }
 
-.ecommerce .main .top-cart-content{
-min-height:590px !important;
-}
 
 .main {
     padding-top: 100px !important;

@@ -32,7 +32,7 @@ a.btn{color:#FFF;}
  width: 100%;
     height: 400px;
     background: #000;
-        margin-top: 90px;
+        margin-top: -30px;
         background-image: url(../img/slide3.jpg);
     background-color: rgba(0, 0, 0, 0);
     background-size: cover;
@@ -402,12 +402,19 @@ button:hover {
 .top-cart-block {
     position: fixed;
     right: 0;
-    top: 75px;
+    top: 70px;
     z-index: 9;
+    background: #fcfafb;
+    padding: 10px 0;
 }
 .main {
     padding-top: 75px;
     min-height: 700px;
+}
+
+.top-cart-content-wrapper {
+    border-top: 1px solid #dfdfdf;
+    margin-top: 10px;
 }
 
 .pricing-content blockquote {
@@ -641,3 +648,42 @@ button:hover {
     padding-top: 0 !important;
 }
 
+input.form-control, textarea.form-control, input, button, select, textarea {
+    border: 1px solid #dfdfdf;
+    border-radius: 0;
+    box-shadow: none;
+    color: #777;
+    font: 14px Arial,sans-serif;
+    padding: 5px 10px;
+}
+
+body.ecommerce {
+    overflow-x: hidden;
+}
+
+.signup-form {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.services .btn {
+    display: block;
+    margin: 0 auto;
+}
+
+.form-horizontal .control-label {
+    text-align: left !important;
+}
+
+.prov-country {
+    margin-left: 0 !important;
+    width: 89% !important;
+}
+
+.deleteme  textarea, .services  textarea  {
+    width: 100% !important;
+}
+
+.deleteme .form-horizontal  strong, .services  strong, .deleteme .form-horizontal  h2, .services  h2  {
+    margin-left: 15px !important;
+}

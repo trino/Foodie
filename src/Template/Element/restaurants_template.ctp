@@ -15,7 +15,7 @@ $Genres =  $Manager->enum_genres();
             ?>
             
             <div class="row margin-bottom-10">
-                <div class="col-md-8 col-xs-12">
+                <div class="col-md-12 col-xs-12">
                     <h1 class="">
                     <a href="#"><?php echo ucfirst(str_replace('-', ' ', $restaurant)); ?></a> Local Restaurants
                     </h1>
@@ -45,7 +45,7 @@ $Genres =  $Manager->enum_genres();
                                             <a href="<?php echo $this->request->webroot; ?>restaurants/<?php echo $Restaurant->Slug; ?>"><?= $Restaurant->Name; ?></a>
                                         </h2>
                                     <div class="clearfix"></div>
-                                    <div class="resturants-items">
+                                    <div class="resturants-items margin-bottom-20">
                                     <div class="margin-bottom-15">
                                         <img class="img-responsive" alt="" src="<?php echo $this->request->webroot; ?>/img/works/img4.jpg">
                                     </div>

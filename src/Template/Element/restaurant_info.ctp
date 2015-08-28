@@ -8,7 +8,7 @@
 <script src="<?php echo $this->request->webroot; ?>scripts/timepicker.js" type="text/javascript"></script>
 
 <form action="" method="post" class="form-horizontal">
-    <div class="row">
+    <div class="row margin-bottom-20">
         <div class="col-md-4 profilepic">
             <p>
                 <strong>Restaurant Image</strong><br /><br />
@@ -16,42 +16,53 @@
                 <a href="javascript:void(0);" id="uploadbtn" class="btn btn-success">Change Image</a>
             </p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-8 row">
             <strong>Restaurant Info</strong><br /><br />
             <!--<p class="inputs">-->
-                <div class="form-group">
-                    <label class="col-lg-6 col-sm-6 control-label col-xs-12" for="Name">Restaurant Name <span class="require">*</span></label>
-                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                <div class="form-group col-md-6">
+                    <label class="col-lg-12 col-sm-12 control-label col-xs-12 margin-bottom-10" for="Name">Restaurant Name <span class="require">*</span></label>
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
                       <input type="text" name="Name" class="form-control" value="<?= $Restaurant->Name; ?>" placeholder="i.e. Pho" />
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-lg-6 col-sm-6 control-label col-xs-12" for="Email">Restaurant Email <span class="require">*</span></label>
-                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                <div class="form-group col-md-6">
+                    <label class="col-lg-12 col-sm-12 control-label col-xs-12 margin-bottom-10" for="Email">Restaurant Email <span class="require">*</span></label>
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
                       <input type="text" name="Email" class="form-control" value="<?= $Restaurant->Email; ?>" placeholder="i.e. Pho@didueat.com" />
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-lg-6 col-sm-6 control-label col-xs-12" for="Phone">Phone Number <span class="require">*</span></label>
-                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                <div class="form-group col-md-6">
+                    <label class="col-lg-12 col-sm-12 control-label col-xs-12 margin-bottom-10" for="Phone">Phone Number <span class="require">*</span></label>
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
                       <input type="text" name="Phone" class="form-control" value="<?= $Restaurant->Phone; ?>" placeholder="i.e.905 555 5555" />
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-lg-6 col-sm-6 control-label col-xs-12" for="Street_Address">Street Address <span class="require">*</span></label>
-                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                  <div class="form-group col-md-6">
+            <p class="inputs">
+                <label class="col-lg-12 col-sm-12 control-label col-xs-12 margin-bottom-10" for="desc">Description </label>
+                <!--input type="text" name="cuisine" placeholder="Cuisine" value="<?php echo $res['Restaurant']['cuisine'];?>" /-->
+                <div class="col-lg-12 col-sm-12 col-xs-12"><textarea name="Description" placeholder="Description" title="Description"><?= $Restaurant->Description; ?></textarea>
+                </div>
+            </p>
+
+        </div>
+                <div class="clearfix"></div>
+                <h2>Address</h2>
+                <div class="form-group col-md-6">
+                    <label class="col-lg-12 col-sm-12 col-md-12 control-label col-xs-12 margin-bottom-10" for="Street_Address">Street Address <span class="require">*</span></label>
+                    <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                       <input type="text" name="Address" class="form-control" value="<?= $Restaurant->Address; ?>" placeholder="i.e. 1230 Main Street East" />
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-lg-6 col-sm-6 control-label col-xs-12" for="City">City <span class="require">*</span></label>
-                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                <div class="form-group col-md-6">
+                    <label class="col-lg-12 col-md-12 col-sm-12 control-label col-xs-12 margin-bottom-10" for="City">City <span class="require">*</span></label>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                       <input type="text" name="City" class="form-control" value="<?= $Restaurant->City; ?>" placeholder="i.e. Hamilton" />
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-lg-6 col-sm-6 control-label col-xs-12" for="Postal_Code">Postal Code <span class="require">*</span></label>
-                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                <div class="form-group col-md-6">
+                    <label class="col-lg-12 col-md-12 col-sm-12 control-label col-xs-12 margin-bottom-10" for="Postal_Code">Postal Code <span class="require">*</span></label>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                       <input type="text" name="PostalCode" class="form-control" value="<?= $Restaurant->PostalCode; ?>" placeholder="i.e. L9A 1V7" />
                     </div>
                 </div>
@@ -62,24 +73,19 @@
                 <!--<input type="text" name="Address" placeholder="Street Address" title="Street Address" value="<?= $Restaurant->Address; ?>" />-->
                 <!--<input type="text" name="City" placeholder="City" title="City" value="<?= $Restaurant->City; ?>" />-->
                 
-
+                <div class="form-group col-md-12 prov-country">
                 <?php
                     provinces("Province", $Restaurant->Province);
                     makeselect("Country", $Restaurant->Country, array("CA" => "Canada"));
-                    echo '<BR>Genre: ';
+                    echo '<BR><label class="col-lg-12 col-md-12 col-sm-12 no-padding control-label col-xs-12 margin-bottom-10" for="Postal_Code">Genre:</label> ';
                     makeselect("Genre", $Restaurant->Genre, $Genres);
                 ?>
+                </div>
 
             <!--</p>-->
+           
         </div>
-        <div class="col-md-4">
-            <p class="inputs">
-                <strong>&nbsp;</strong><br /><br />
-                <!--input type="text" name="cuisine" placeholder="Cuisine" value="<?php echo $res['Restaurant']['cuisine'];?>" /-->
-                <textarea name="Description" placeholder="Description" title="Description"><?= $Restaurant->Description; ?></textarea>
-            </p>
-
-        </div>
+       
 
         <hr class="divider" />
 
@@ -159,44 +165,7 @@
     </div>
 
 
-
-
-
-    <div class="col-md-6 ">
-
-
-        <div class="portlet box purple ">
-            <div class="portlet-title">
-                <div class="caption">
-                    <!--i class="fa fa-gift"></i--> Horizontal Form Height Sizing
-                </div>
-                <div class="tools">
-
-                </div>
-            </div>
-            <div class="portlet-body form">
-                <form class="form-horizontal" role="form">
-                    <div class="form-body">
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Large Input</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control input-lg" placeholder="Large Input">
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="form-actions right1">
-                        <button type="button" class="btn default">Cancel</button>
-                        <button type="submit" class="btn green">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-    </div>
 </div>
-
-
 
 
     <div class="clearfix"></div>

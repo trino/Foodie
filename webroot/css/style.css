@@ -2501,11 +2501,12 @@ Demo Utils
   padding-left:0;
 }
 .blog-info li {
-  padding: 0;
-  color: #555;
-  font-size: 13px;
-  margin-right: 10px;
-  display: inline-block;
+    color: #555;
+    display: block;
+    font-size: 13px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    padding: 0;
 }
 .blog-info li i {
   color: #E84D1C;
@@ -3252,12 +3253,6 @@ Header and header elements
 	font-size: 16px;
 }
 
-.top-cart-content-wrapper{
-	position: absolute;
-	right: -2px;
-	top: 100%;
-	z-index: 99999;
-}
 
 .bottom-cart .top-cart-content-wrapper {
 	position: absolute;
@@ -3880,13 +3875,6 @@ Header and header elements
 	padding-left: 0 !important;
 }
 
-.ecommerce .main .top-cart-content-wrapper {
-	position: absolute;
-	right: 4px;
-	bottom: 0;
-	z-index: 99999;
-	width: 100%;
-}
 
 .ecommerce .main .top-cart-block .fa-shopping-cart, .ecommerce .main .bottom-cart .fa-shopping-cart {
 	position: absolute;
