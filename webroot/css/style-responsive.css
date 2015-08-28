@@ -1164,7 +1164,7 @@ padding: 5px 0;
 
 .top-cart-info a {
 color: #595f65;
-font-size: 14px;
+font-size: 12px;
 }
 
 .header-navigation > ul > li > a {
@@ -1210,12 +1210,8 @@ width: 15% !important;
     z-index: 99999 !important;
 }
 
-body .header {
-    position: static !important;
-}
-
 .main {
-    padding-top: 0px !important;
+    padding-top: 90px !important;
 }
 
 }
@@ -1357,13 +1353,6 @@ width: 100%;
     z-index: 9;
 }
 
-.site-logo {
-    display: block;
-    float: none;
-    margin: 0 auto;
-    text-align: center;
-}
-
 .top-cart-block {
     position: absolute !important;
     right: 0;
@@ -1373,6 +1362,26 @@ width: 100%;
 
 .top-cart-block {
     top: 170px !important;
+    background: none !important;
+}
+
+.top-cart-info {
+    right: -72px !important;
+    top: 90px !important;
+}
+
+.ecommerce .main .top-cart-block .fa-shopping-cart, .ecommerce .main .bottom-cart .fa-shopping-cart {
+    right: 0 !important;
+    top: -84px;
+}
+
+.top-cart-info-count {
+    right: 40px;
+    top: -80px;
+}
+
+.site-logo {
+    width: 70%;
 }
 
 }
@@ -1412,6 +1421,9 @@ display: block;
 .top-cart-content strong {
 font-weight: normal;
 width: 145px !important;
+}
+.site-logo > img {
+    width: 100%;
 }
 }
 /* END max width 405px */
@@ -1458,16 +1470,6 @@ font-size: 12px;
 padding-right: 3px !important;
 }
 
-.site-logo {
-display: block;
-float: none;
-font-size: 23px;
-font-weight: 400;
-margin: 0 auto !important;
-text-align: center !important;
-width: 100% !important;
-}
-
 .site-logo > img {
     width: 100%;
 }
@@ -1496,6 +1498,12 @@ width: 50% !important;
 font-weight: normal;
 width: 60px !important;
 }
+
+.site-logo {
+    width: 60%;
+}
+
+
 }
 /* END max width 330px */
 
@@ -1514,19 +1522,8 @@ float: left;
 .product-page-options .pull-left {
 margin-bottom: 10px;
 }
-.ecommerce .main .top-cart-block .fa-shopping-cart, .ecommerce .main .bottom-cart .fa-shopping-cart {
-top: -80px;
-}
-.top-cart-info-count {
-right: 60px;
-}
 
-.top-cart-info-value {
-right: -38px;
-}
-.top-cart-block {
-    top: 165px !important;
-}
+
 
 }
 /* END max width 320px */</p>
