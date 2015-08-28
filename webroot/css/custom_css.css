@@ -712,5 +712,17 @@ body.ecommerce {
 .receipt_main .text-right > input:hover {
     background: #ce0b10;
 }
+.new_headernav{
+     background: #fff url("../img/icons/toggler.png") no-repeat scroll 6px 8px;
+    border: 1px solid #d8d8d8;
+    border-radius: 100% !important;
+    color: #d8d8d8;
+    float: right;
+    height: 32px;
+    margin: 30px -7px 0 30px;
+    position: relative;
+    width: 32px;
+
+}
 
 

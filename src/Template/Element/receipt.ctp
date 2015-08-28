@@ -1,25 +1,34 @@
    <div class="top-cart-info">
+        <div class="col-md-6">
             <a href="javascript:void(0);" class="top-cart-info-count" id="cart-items">3 items</a>
+        </div>
+        <div class="col-md-6">
             <a href="javascript:void(0);" class="top-cart-info-value" id="cart-total">$1260</a>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-3">
             <a href="#cartsz" class="fancybox-fast-view" ><i class="fa fa-shopping-cart" onclick="#cartsz" ></i></a>
+        </div>
    </div>
    
-  <div class="row  resturant-logo-desc">
-   <div class="col-md-12 col-sm-12 col-xs-12">
-   <div class="row">
-      <div class="col-md-6 col-sm-6 col-xs-12 no-padding">
-        <img src="<?php echo $this->request->webroot."img/restaurants/".$restaurant->Logo;?>" class='img-responsive' />
-      </div>
-      <div class="col-md-6 col-sm-6 col-xs-12 resturant-desc">
-        <span><?php echo $restaurant->Address.",". $restaurant->City;?></span>
-        <span><?php echo $restaurant->Phone;?></span>
-      </div>
-   </div>  
-   </div> 
-   </div>  
+    <div id="cartsz">
+            <div class="row  resturant-logo-desc">
+               <div class="col-md-12 col-sm-12 col-xs-12">
+                   <div class="row">
+                      <div class="col-md-6 col-sm-6 col-xs-12 no-padding">
+                        <img src="<?php echo $this->request->webroot."img/restaurants/".$restaurant->Logo;?>" class='img-responsive' />
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-xs-12 resturant-desc">
+                        <span><?php echo $restaurant->Address.",". $restaurant->City;?></span>
+                        <span><?php echo $restaurant->Phone;?></span>
+                      </div>
+                   </div>  
+               </div> 
+           </div>  
                         
           <div class="top-cart-content-wrapper">
-            <div class="top-cart-content " id="cartsz" >
+         
+            <div class="top-cart-content "  >
                 <div class="receipt_main">
                   <?php echo $this->element('_items');?>
                     <div class="totals col-md-12 col-sm-12 col-xs-12">
@@ -66,8 +75,9 @@
                     <?php include('common/profile.php');?>
                </div>
             </div>
+        </div>
             
-          </div>
+     </div>
 <script>
     function checkout() {
         var del = $('#delivery_flag').val();
@@ -140,24 +150,31 @@
         
         if(wd<='767') {
             $('.top-cart-info').show();
-            $('.top-cart-content-wrapper').addClass('itemsz');
-            $('.top-cart-content-wrapper').hide();
+            $('.header-navigation-wrap').hide();
+            $('.new_headernav').show();
+            $('#cartsz').hide();
         } else{
+            $('.header-navigation-wrap').show();
              $('.top-cart-info').hide();
-            $('.top-cart-content-wrapper').show();
-            $('.top-cart-content-wrapper').removeClass('itemsz');
+             $('.new_headernav').hide();
+            $('#cartsz').show();
+           
         }
 
         $( window ).resize(function() {
             var wd = $(window).width();
             if(wd<='767'){
                 $('.top-cart-info').show();
-                $('.top-cart-content-wrapper').addClass('itemsz');
-                $('.top-cart-content-wrapper').hide();
-            } else{
-                $('.top-cart-info').hide();
-                $('.top-cart-content-wrapper').show();
-                $('.top-cart-content-wrapper').removeClass('itemsz');
+                $('.header-navigation-wrap').hide();
+                $('.new_headernav').show();
+                $('#cartsz').hide();
+            }
+            else
+            {
+               $('.header-navigation-wrap').show();
+               $('.top-cart-info').hide();
+               $('.new_headernav').hide();
+               $('#cartsz').show();
 
             }
         });
