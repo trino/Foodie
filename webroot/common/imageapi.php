@@ -1,4 +1,5 @@
 <?php
+    echo $Manager->fileinclude(__FILE__);
     function getextension($path, $value=PATHINFO_EXTENSION){
         return strtolower(pathinfo($path, $value));
     }

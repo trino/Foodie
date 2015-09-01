@@ -1,3 +1,4 @@
+<?= $Manager->fileinclude(__FILE__); ?>
 <link rel="stylesheet" href="style.css">
 
 <!-- Latest compiled and minified CSS -->

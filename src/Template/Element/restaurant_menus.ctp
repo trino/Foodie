@@ -1,3 +1,4 @@
+<?= $Manager->fileinclude(__FILE__); ?>
 <div class="sidebar col-md-2 col-sm-4">
       <aside class="sidebar  sidebar--shop">
         

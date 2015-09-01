@@ -1,3 +1,4 @@
+<?= $Manager->fileinclude(__FILE__); ?>
 <div class="sidebar col-md-3 col-sm-4">
           use genres list instead
             <ul class="list-group margin-bottom-25 sidebar-menu">

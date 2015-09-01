@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="<?php echo $this->request->webroot;?>css/popstyle.css"/>
-<?php if ($this->request->params['controller'] == 'Restaurants') { ?>
+<?php
+echo $Manager->fileinclude(__FILE__);
+if ($this->request->params['controller'] == 'Restaurants') { ?>
     <!--div class="margin-bottom-10">
         <div class="col-md-4">
             <div class="product-item">

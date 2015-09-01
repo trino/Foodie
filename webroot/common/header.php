@@ -3,6 +3,7 @@
 <!--<![endif]-->
 <!-- Head BEGIN -->
 <head>
+    <?= $Manager->fileinclude(__FILE__); ?>
     <meta charset="utf-8">
     <title>didueat - <?php if(isset($title)) {echo $title; }else {echo $this->request->params['action'];}?></title>
 

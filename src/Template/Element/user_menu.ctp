@@ -1,4 +1,5 @@
 <?php
+      echo $Manager->fileinclude(__FILE__);
       function listitem($webroot, $URL, $Name){
             $isme = $URL && strpos($_SERVER["REQUEST_URI"], $URL) !== false && strpos($URL, "/") < strlen($URL) - 1;
             if($isme){ Echo "<B>";}
@@ -44,7 +45,7 @@
                                     ));
                                     echo '<hr class="shop__divider">';
                               }
-                                if(!$this->request->session()->read('Profile.Restaurant')){
+
                               listitems($this->request->webroot, "User", "users", array(
                                   "User Info" => "dashboard",
                                   "Upload Meal"=> "uploadmeal",
@@ -52,7 +53,7 @@
                                   "Images" => "images",
                                   "View Orders" => "orders",
                                   "Logout" => "logout"
-                              ));}
+                              ));
                         }
                   ?>
             <hr class="shop__divider">

@@ -1,4 +1,5 @@
 <?php
+echo $Manager->fileinclude(__FILE__);
 $Restaurants = $Manager->enum_restaurants();
 $Genres =  $Manager->enum_genres();
 ?>
