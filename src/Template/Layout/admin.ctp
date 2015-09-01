@@ -1,14 +1,9 @@
 <?php
   include("common/header.php");
-?>
-  <div class="margin-bottom-40 main">
-    <?php
-     echo $this->Flash->render();
-    echo $this->fetch('content');
-
-    ?>
-    <div class="clearfix"></div>
-      </div>
-    <?php
+  echo '<div class="margin-bottom-40 main">';
+      echo $this->Flash->render();
+      echo $this->fetch('content');
+      echo '<div class="clearfix"></div>';
+  echo '</div>';
   include("common/footer.php");
 ?>

@@ -24,7 +24,7 @@
                   <?php
                         if($userID) {
                               $ProfileType = $Manager->get_profile_type($userID);
-                              if($ProfileType->CanEditGlobalSettings && !$this->request->session()->read('Profile.Restaurant')){
+                              if($ProfileType->CanEditGlobalSettings){
                                     listitems($this->request->webroot, "Administrator", "", array(
                                           "Users" => "restaurants/employees",
                                           "Restaurants" => "restaurants/restaurants",
@@ -60,3 +60,26 @@
             </div>
       </aside>
 </div>
+
+<?php
+    $Restaurant = $Manager->get_restaurant(false,true,true);
+    if($Restaurant){
+        $HasAddresses = count($Restaurant["Addresses"]);
+        $HasMenuItems = $Manager->get_menu($Restaurant->ID)->count();
+        $HasHours=$Restaurant["Hours"]["HasHours"];
+
+        function checkbox($Checked){
+            $tempstr = '<INPUT TYPE="CHECKBOX" DISABLED';
+            if($Checked){$tempstr.= ' CHECKED';}
+            return $tempstr. '>';
+        }
+
+        if(!$HasAddresses || !$HasMenuItems || !$HasHours) {
+            echo '<H4>Restaurant checklist</H4><ul class="list-group margin-bottom-25 sidebar-menu">';
+            echo '<LI> ' . checkbox($HasAddresses) . ' Has at least 1 notification address </LI>';
+            echo '<LI> ' . checkbox($HasMenuItems) . ' Has at least 1 menu item </LI>';
+            echo '<LI> ' . checkbox($HasHours) . ' Has hours of operation</LI>';
+            echo '</UL>';
+        }
+    }
+?>

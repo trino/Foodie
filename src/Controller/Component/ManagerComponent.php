@@ -487,15 +487,16 @@
             return $Restaurant;
         }
 
-        function get_restaurant($ID = "", $IncludeHours = False){
+        function get_restaurant($ID = "", $IncludeHours = False, $IncludeAddresses = False){
             if(!$ID){$ID = $this->get_current_restaurant();}
             if (is_numeric($ID)) {
                 $restaurant = $this->get_entry("restaurants", $ID);
             } else {
                 $restaurant = $this->get_entry('restaurants', $ID, 'Slug');
             }
-            if($restaurant && $IncludeHours){
-                $restaurant->Hours = $this->get_hours($ID);
+            if($restaurant){
+                if($IncludeHours) {$restaurant->Hours = $this->get_hours($ID);}
+                if($IncludeAddresses){$restaurant->Addresses = $this->iterator_to_array($this->enum_notification_addresses($ID), "", "Address");}
             }
             return $restaurant;
         }
@@ -701,10 +702,13 @@
         function get_hours($RestaurantID){
             $ret = array();
             $Data = TableRegistry::get('hours')->find()->order(['DayOfWeek' => 'ASC'])->where(['RestaurantID' => $RestaurantID])->all();
+            $HasHours = false;
             foreach($Data as $Day){
                 $ret[$Day->DayOfWeek . ".Open"] = $Day->Open;
                 $ret[$Day->DayOfWeek . ".Close"] = $Day->Close;
+                if($Day->Open <> 0 || $Day->Close <> 2359){$HasHours=true;}
             }
+            $ret["HasHours"] = $HasHours;
             return $ret;
         }
 
@@ -880,6 +884,23 @@
             $this->edit_database('reservations', 'id', $OrderID, $Data);
         }
 
+        ////////////////////////////////////////////////////menu API////////////////////////////////////////////////////
+        function get_menu($RestaurantID){
+            return $this->enum_all('menus', array('res_id'=>$RestaurantID));
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -909,7 +930,9 @@
             $collection = $db->schemaCollection();// Create a schema collection.
             return $collection->listTables();// Get the table names
         }
-
+        function table_count($Table, $Conditions){
+            return TableRegistry::get($Table)->find()->where($Conditions)->count();
+        }
         function delete_all($Table, $data){
             $table = TableRegistry::get($Table);
             $table->deleteAll($data, false);
@@ -931,7 +954,11 @@
         function iterator_to_array($entries, $PrimaryKey, $Key){
             $data = array();
             foreach($entries as $profiletype){
-                $data[$profiletype->$PrimaryKey] = $profiletype->$Key;
+                if($PrimaryKey) {
+                    $data[$profiletype->$PrimaryKey] = $profiletype->$Key;
+                } else {
+                    $data[] = $profiletype->$Key;
+                }
             }
             return $data;
         }

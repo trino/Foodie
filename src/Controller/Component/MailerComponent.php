@@ -44,11 +44,9 @@ class MailerComponent extends Component {
         switch(strtolower($eventname)){
             case "new_profile":
                 $Subject = "A profile was created";
-                $Profile = $variables["Profile"];
-                $Message = "Your user ID is " . $Profile["Email"] .  $CRLF . "Your password is: " . $Profile["Password"];
+                $Message = "Your user ID is " . $variables["Profile"]["Email"] .  $CRLF . "Your password is: " . $variables["Profile"]["Password"];
                 break;
             case "password_reset":
-                //$Controller->Mailer->sendEmail($_POST["Email"],,);
                 $Subject = "Password reset";
                 $Message = "Your password has been changed to: " . $variables["Password"];
                 break;
