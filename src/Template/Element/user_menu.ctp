@@ -67,6 +67,7 @@
         $HasAddresses = count($Restaurant["Addresses"]);
         $HasMenuItems = $Manager->get_menu($Restaurant->ID)->count();
         $HasHours=$Restaurant["Hours"]["HasHours"];
+        $HasOpened = $Restaurant["Open"];
 
         function checkbox($Checked){
             $tempstr = '<INPUT TYPE="CHECKBOX" DISABLED';
@@ -74,12 +75,15 @@
             return $tempstr. '>';
         }
 
-        if(!$HasAddresses || !$HasMenuItems || !$HasHours) {
+        if(!$HasAddresses || !$HasMenuItems || !$HasHours || $HasOpened) {
+            echo '<div class="col-xs-10 col-sm-8"><div class="grid" style="text-align: left; margin-bottom: 0;">';
             echo '<H4>Restaurant checklist</H4><ul class="list-group margin-bottom-25 sidebar-menu">';
             echo '<LI> ' . checkbox($HasAddresses) . ' Has at least 1 notification address </LI>';
             echo '<LI> ' . checkbox($HasMenuItems) . ' Has at least 1 menu item </LI>';
             echo '<LI> ' . checkbox($HasHours) . ' Has hours of operation</LI>';
-            echo '</UL>';
+            echo '<LI> ' . checkbox($HasOpened) . ' Has been set to open</LI>';
+
+            echo '</UL></div>These are required before a store can open</div>';
         }
     }
 ?>
