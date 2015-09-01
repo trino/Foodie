@@ -44,7 +44,7 @@
 
 <div id="postswrapper">
 <?php
-    if(isset($menus)) {
+    if(isset($menus) && !is_null($menus) && count($menus) > 1) {
         $cnt = 0;
         $menu_count = count($menus);
         foreach ($menus as $menu) {

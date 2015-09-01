@@ -14,14 +14,20 @@ class RestaurantsController extends AppController {
 
     public function index($slug='') {
         $this->loadComponent('Paginator');
+        $menus = "";
         if ($slug) {//this code fails if the user is not an employee
             $restaurant = $this->Manager->get_restaurant($slug);
-            $menus = $this->Paginate($this->Manager->enum_menus($restaurant->ID));
+            //print_r($restaurant); die;
+            if(isset($restaurant->ID) && !is_null($restaurant->ID)){
+                $menus = $this->Paginate($this->Manager->enum_menus($restaurant->ID));
+                //echo '<pre>';print_r($this->Manager->enum_menus($restaurant->ID)); die;
+            }
             $this->set('menus', $menus);
         }
         $this->set('manager',$this->Manager);
         $this->set('restaurant',$restaurant);
         if(isset($_GET['page'])) {
+            die('ok2');
             $this->layout = 'blank';
             $this->render('loadmenus');   
         }

@@ -44,12 +44,12 @@
     <!-- Theme styles START -->
     <link href="<?=$this->request->webroot;?>css/components.css" rel="stylesheet">
     <link href="<?=$this->request->webroot;?>css/style.css" rel="stylesheet">
-    <link href="<?=$this->request->webroot;?>css/style-shop.css" rel="stylesheet" type="text/css">
-    <!--link href="<?=$this->request->webroot;?>/css/style-layer-slider.css" rel="stylesheet"-->
     <link href="<?=$this->request->webroot;?>css/style-responsive.css" rel="stylesheet">
+    
+<!--    <link href="<?=$this->request->webroot;?>css/style-shop.css" rel="stylesheet" type="text/css">
+    <link href="<?=$this->request->webroot;?>/css/style-layer-slider.css" rel="stylesheet">
     <link href="<?=$this->request->webroot;?>css/red.css" rel="stylesheet" id="style-color">
-    <link href="<?=$this->request->webroot;?>/css/custom.css" rel="stylesheet">
-
+    <link href="<?=$this->request->webroot;?>/css/custom.css" rel="stylesheet">-->
 
     <!-- MAKE ALL CSS CHANGES TO HERE -->
     <link href="<?=$this->request->webroot;?>css/custom_css.css" rel="stylesheet">
@@ -61,7 +61,7 @@
     <!--[if lt IE 9]>
     <script src="<?=$this->request->webroot;?>plugins/respond.min.js"></script>
     <![endif]-->
-
+    
     <script src="<?=$this->request->webroot;?>plugins/jquery.min.js" type="text/javascript"></script>
     <script src="<?=$this->request->webroot;?>plugins/jquery-migrate.min.js" type="text/javascript"></script>
     <script src="<?=$this->request->webroot;?>plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
