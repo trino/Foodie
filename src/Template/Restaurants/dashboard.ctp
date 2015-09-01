@@ -16,7 +16,7 @@
         </div-->
         <div class="content-page row">
             <?php echo $this->element('user_menu'); ?>
-            <div class="col-xs-10  col-sm-9">
+            <div class="col-xs-12  col-sm-8">
                 <div class="deleteme">
 
 

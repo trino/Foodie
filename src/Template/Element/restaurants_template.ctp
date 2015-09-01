@@ -4,7 +4,7 @@ $Restaurants = $Manager->enum_restaurants();
 $Genres =  $Manager->enum_genres();
 ?>
 
-    <div class="col-md-12 col-xs-12">
+    <div class="col-md-12 col-sm-12 col-xs-12">
 
         <div class="content-page">
             
@@ -16,7 +16,7 @@ $Genres =  $Manager->enum_genres();
             ?>
             
             <div class="row margin-bottom-10">
-                <div class="col-md-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <h1 class="">
                     <a href="#"><?php echo ucfirst(str_replace('-', ' ', $restaurant)); ?></a> Local Restaurants
                     </h1>
@@ -41,7 +41,7 @@ $Genres =  $Manager->enum_genres();
                             ?>
 
                           
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-3">
                                         <h2>
                                             <a href="<?php echo $this->request->webroot; ?>restaurants/<?php echo $Restaurant->Slug; ?>"><?= $Restaurant->Name; ?></a>
                                         </h2>
@@ -74,13 +74,13 @@ $Genres =  $Manager->enum_genres();
                     
         </div>
             <div class="row">
-                <div class="col-md-12  margin-bottom-10">
+                <div class="col-md-12 col-sm-12 col-xs-12  margin-bottom-10">
                     <button align="" class="loadmore btn btn-primary">Load More</button>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-4 col-xs-12">
             
         </div>
    </div>

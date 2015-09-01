@@ -22,7 +22,7 @@
         echo $this->element('menus',['menus'=>$menus,'manager'=>$Manager]);?>
 </div>
 <!-- BEGIN CART -->
-<div class="top-cart-block col-md-3 col-sm-4">
+<div class="top-cart-block col-md-3 col-sm-4" id="printableArea">
     
     <?php echo $this->element('receipt');?>
     
