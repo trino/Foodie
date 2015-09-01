@@ -35,6 +35,7 @@
                             } else {
                                 makebutton($Restuaurant, "Open", "primary");
                             }
+                            echo ' ';
                             makebutton($Restuaurant, "Delete", "danger");
                             echo '</TD></TR>';
                         }

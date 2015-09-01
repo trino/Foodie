@@ -1,3 +1,5 @@
+<?= $Manager->fileinclude(__FILE__); ?>
+<div class="top-cart-info">
    <div class="top-cart-info">
         <div class="col-md-6">
             <a href="javascript:void(0);" class="top-cart-info-count" id="cart-items">3 items</a>
@@ -103,8 +105,7 @@
 
     function delivery(t) {
         var df =$('input.df').val();
-        if(t=='show') 
-        {
+        if(t=='show') {
             $('#df').show();
             $('.profile_delevery_type').text('Delivery Detail');
             $('.profile_delivery_detail').show();
@@ -120,9 +121,7 @@
             $('.grandtotal').val(grandtotal.toFixed(2));
             $('#delivery_flag').val('1');
             $('#cart-total').text('$'+grandtotal.toFixed(2));
-        } 
-        else 
-        {
+        } else {
             $('.profile_delevery_type').text('Pickup Detail');
              $('.profile_delivery_detail').hide();
             var grandtotal = $('input.grandtotal').val();
@@ -140,7 +139,7 @@
         var ht = $(window).height();
         
         var headr_ht = $('.container-fluid').height();
-       var htt = Number(ht)-Number(headr_ht);
+        var htt = Number(ht)-Number(headr_ht);
             $('.top-cart-block').css({'height':htt}); 
         //$(window).scroll(function(){
             // if(wd>='767')
@@ -171,9 +170,7 @@
                 $('.header-navigation-wrap').hide();
                 $('.new_headernav').show();
                 $('#cartsz').hide();
-            }
-            else
-            {
+            } else {
                $('.header-navigation-wrap').show();
                $('.top-cart-info').hide();
                $('.new_headernav').hide();
@@ -331,9 +328,7 @@ function printDiv(divName) {
      var originalContents = document.body.innerHTML;
 
      document.body.innerHTML = printContents;
-
      window.print();
-
      document.body.innerHTML = originalContents;
 }
 

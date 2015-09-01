@@ -13,6 +13,7 @@
         function init($Controller){
             $Controller->set("Manager", $this);
             $this->Controller = $Controller;
+            $Controller->set("Now", microtime(true));
             $Me = $this->read('ID');
 
             $Controller->set('genres', $this->enum_genres());
@@ -72,7 +73,7 @@
                         $newPassword = $this->forgot_password($_POST["Email"]);
                         if ($newPassword){
                             $Controller->loadComponent("Mailer");
-                            $Controller->Mailer->sendEmail($_POST["Email"],"Password reset","Your password has been changed to: " . $newPassword);
+                            $this->handleevent($_POST["Email"], "password_reset", array("Password" => $newPassword));
                             echo "Your password has been reset and emailed to you";
                         } else {
                             echo "The email address '" . $_POST["Email"] . "', was not found";
@@ -99,8 +100,10 @@
                         }
                         break;
                     case "test":
-                        $startat = $this->get_row_count("postalcodes");
-                        $this->loadCSV("postalcodes", 'C:\wamp\www\Foodie\webroot\CanData.csv', $startat);
+                        //$startat = $this->get_row_count("postalcodes");
+                        //$this->loadCSV("postalcodes", 'C:\wamp\www\Foodie\webroot\CanData.csv', $startat);
+                        $this->Controller->loadComponent("Mailer");
+                        $this->Controller->Mailer->handleevent("roy@trinoweb.com", "test", array("TEST" => "TEST"));
                         $Controller->Flash->error("test");
                         break;
                 }
@@ -172,7 +175,11 @@
             return $entries;
         }
 
-
+        function fileinclude($Filename){//pass __FILE__
+            if ($_SERVER["SERVER_NAME"]){
+                return '<FONT COLOR="RED">Include: ' . $Filename . '</FONT>';
+            }
+        }
 
         ////////////////////////////////////Profile API/////////////////////////////////////////
         function read($Name){
@@ -249,12 +256,12 @@
                 $data["CreatedBy"] = $CreatedBy;
             }
             $data = $this->edit_database("profiles", "ID", "", $data);
+            $this->Controller->loadComponent("Mailer");
             if($CreatedBy){
                 $this->logevent("Created user: " . $data["ID"] . " (" . $data["Name"] . ")");
-            } else {//if($CreatedBy == -1) {
-                //$this->edit_database("profiles", "ID", $data->ID, array("CreatedBy" => $data->ID));
             }
             $data["Password"] = $Password;
+            $this->Controller->Mailer->handleevent($EmailAddress, "new_profile", array("Profile" => $data));
             $this->set_subscribed($EmailAddress,$Subscribed);
             return $data;
         }
@@ -281,6 +288,8 @@
         function login($Profile){
             if (is_numeric($Profile)){
                 $Profile = $this->get_profile($Profile);
+            } else if (is_array($Profile)){
+                $Profile = (object) $Profile;
             }
             $this->Controller->request->session()->write('Profile.ID',            $Profile->ID);
             $this->Controller->request->session()->write('Profile.Name',          $Profile->Name);
@@ -370,7 +379,8 @@
                     $this->new_entry("newsletter", "ID", array("GUID" => $GUID, "Email" => $EmailAddress));
                 }
                 $path = '<A HREF="' . $this->Controller->request->webroot . "cuisine?action=subscribe&key=" . $GUID . '">Click here to finish registration</A>';
-                return $this->Controller->Mailer->sendEmail($EmailAddress, "Subscribe", $path);
+                $this->Controller->loadComponent("Mailer");
+                return $this->Controller->Mailer->handleevent($EmailAddress, "subscribe", array("Path" => $path));
             }
         }
 
@@ -477,15 +487,16 @@
             return $Restaurant;
         }
 
-        function get_restaurant($ID = "", $IncludeHours = False){
+        function get_restaurant($ID = "", $IncludeHours = False, $IncludeAddresses = False){
             if(!$ID){$ID = $this->get_current_restaurant();}
             if (is_numeric($ID)) {
                 $restaurant = $this->get_entry("restaurants", $ID);
             } else {
                 $restaurant = $this->get_entry('restaurants', $ID, 'Slug');
             }
-            if($restaurant && $IncludeHours){
-                $restaurant->Hours = $this->get_hours($ID);
+            if($restaurant){
+                if($IncludeHours) {$restaurant->Hours = $this->get_hours($ID);}
+                if($IncludeAddresses){$restaurant->Addresses = $this->iterator_to_array($this->enum_notification_addresses($ID), "", "Address");}
             }
             return $restaurant;
         }
@@ -691,10 +702,13 @@
         function get_hours($RestaurantID){
             $ret = array();
             $Data = TableRegistry::get('hours')->find()->order(['DayOfWeek' => 'ASC'])->where(['RestaurantID' => $RestaurantID])->all();
+            $HasHours = false;
             foreach($Data as $Day){
                 $ret[$Day->DayOfWeek . ".Open"] = $Day->Open;
                 $ret[$Day->DayOfWeek . ".Close"] = $Day->Close;
+                if($Day->Open <> 0 || $Day->Close <> 2359){$HasHours=true;}
             }
+            $ret["HasHours"] = $HasHours;
             return $ret;
         }
 
@@ -870,6 +884,23 @@
             $this->edit_database('reservations', 'id', $OrderID, $Data);
         }
 
+        ////////////////////////////////////////////////////menu API////////////////////////////////////////////////////
+        function get_menu($RestaurantID){
+            return $this->enum_all('menus', array('res_id'=>$RestaurantID));
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -899,7 +930,9 @@
             $collection = $db->schemaCollection();// Create a schema collection.
             return $collection->listTables();// Get the table names
         }
-
+        function table_count($Table, $Conditions){
+            return TableRegistry::get($Table)->find()->where($Conditions)->count();
+        }
         function delete_all($Table, $data){
             $table = TableRegistry::get($Table);
             $table->deleteAll($data, false);
@@ -921,7 +954,11 @@
         function iterator_to_array($entries, $PrimaryKey, $Key){
             $data = array();
             foreach($entries as $profiletype){
-                $data[$profiletype->$PrimaryKey] = $profiletype->$Key;
+                if($PrimaryKey) {
+                    $data[$profiletype->$PrimaryKey] = $profiletype->$Key;
+                } else {
+                    $data[] = $profiletype->$Key;
+                }
             }
             return $data;
         }

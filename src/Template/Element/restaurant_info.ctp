@@ -1,3 +1,4 @@
+<?= $Manager->fileinclude(__FILE__); ?>
 <link rel="stylesheet" href="<?php echo $this->request->webroot; ?>scripts/ui-1.10.0/ui-lightness/jquery-ui-1.10.0.custom.min.css" type="text/css" />
 <link href="<?php echo $this->request->webroot; ?>css/timepicker.css" rel="stylesheet">
 <script type="text/javascript" src="<?php echo $this->request->webroot; ?>scripts/jquery-1.9.0.min.js"></script>
@@ -193,19 +194,7 @@
         <div class="clearfix"></div>
         <hr class="shop__divider"/>
         <input type="submit" class="btn btn-primary" value="Save Changes" />
-    </form>
-
-</div>
     </div>
-    </div>
-
-
-</div>
-
-
-    <div class="clearfix"></div>
-    <hr class="shop__divider"/>
-    <input type="submit" class="btn btn-primary" value="Save Changes" />
 </form>
 
 <script type="text/javascript">

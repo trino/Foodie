@@ -76,14 +76,16 @@ class RestaurantsController extends AppController {
             $DidSave = !$this->Manager->get_entry("restaurants",  $_POST["Email"], "Email") && !$this->Manager->is_email_in_use($_POST["Email"]);
             if($DidSave) {
                 $Restaurant = $this->Manager->edit_restaurant($Restaurant, $_POST["Name"], $_POST["Genre"], $_POST["Email"], $_POST["Phone"], $_POST["Address"], $_POST["City"], $_POST["Province"], $_POST["Country"], $_POST["PostalCode"], $_POST["Description"], $_POST["DeliveryFee"], $_POST["Minimum"]);
+
                 $this->Manager->edit_hours($Restaurant, $_POST);
                 if ($Me) {
                     $this->Manager->hire_employee($Me, $Restaurant, 3);
                 } else {
-                    $this->Manager->new_profile(0, $_POST["Name"] . " (Owner)", "", 3, $_POST["Email"], $_POST["Phone"], $Restaurant);
+                    $Profile = $this->Manager->new_profile(0, $_POST["Name"] . " (Owner)", "", 3, $_POST["Email"], $_POST["Phone"], $Restaurant);
+                    //$this->Manager->login($Profile);
                 }
                 $this->Flash->success("Restaurant created and you have been assigned to it");
-                $this->redirect("/");
+                $this->redirect("/users/dashboard");
             } else {
                 $this->Flash->error("That email address is in use");
             }
@@ -166,10 +168,6 @@ class RestaurantsController extends AppController {
                 case "newemployee":
                     $profile=$this->Manager->new_profile($Profile->ID, $_GET["Name"], "", $_GET["ProfileType"], $_GET["Email"], $_GET["Phone"], $Profile->RestaurantID, 0);
                     $this->Manager->status($profile, "Profile created", "Profile could not be created");
-                    if($profile) {
-                        $this->loadComponent("Mailer");
-                        $this->Mailer->sendEmail($profile["Email"], "A profile was created for you", "Your user ID is " . $profile["Email"] . "<BR>Your password is: " . $profile["Password"]);
-                    }
                     break;
                 case "hire":
                     $this->Manager->status($this->Manager->hire_employee($_GET["ID"], $Profile->RestaurantID, 4), "Employee was hired", "Unable to hire employee");
@@ -218,7 +216,7 @@ class RestaurantsController extends AppController {
         if (isset($_POST["action"]) && count($subscribers)){
             $this->loadComponent("Mailer");
             foreach($subscribers as $Email) {
-                $this->Mailer->sendEmail($Email, $_POST["subject"], $_POST["newsletter"]);
+                $this->Mailer->sendEmail($Email, $_POST["subject"], $_POST["newsletter"]);//does not need to go through the event handler
             }
             $this->Flash->success(count($subscribers) .  " were emailed");
         }

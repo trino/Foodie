@@ -1,4 +1,4 @@
-
+<?= $Manager->fileinclude(__FILE__); ?>
 <!-- BEGIN STEPS -->
 <div class="steps-block steps-block-red">
     <div class="container">
@@ -134,12 +134,15 @@
     <div class="container-fluid">
         <div class="row">
             <!-- BEGIN COPYRIGHT -->
-            <div class="col-md-6 col-sm-6 padding-top-10">
+            <div class="col-md-4 col-sm-4 padding-top-10">
                 2015 &copy; didueat.ca / ALL Rights Reserved.
+            </div>
+            <div class="col-md-4 col-sm-4 padding-top-10" align="center">
+                This page took <?= round(microtime(true) - $Now, 2); ?> seconds to generate
             </div>
             <!-- END COPYRIGHT -->
             <!-- BEGIN PAYMENTS -->
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-4 col-sm-4">
                 <ul class="list-unstyled list-inline pull-right">
                     <li><img src="<?php echo $this->request->webroot;?>/img/payments/western-union.jpg" alt="We accept Western Union" title="We accept Western Union"></li>
                     <li><img src="<?php echo $this->request->webroot;?>/img/payments/american-express.jpg" alt="We accept American Express" title="We accept American Express"></li>

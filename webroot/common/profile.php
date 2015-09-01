@@ -1,13 +1,11 @@
-
 <?php
-date_default_timezone_set('America/Toronto');
-//echo date('M t, h:i');
-
+    echo $Manager->fileinclude(__FILE__);
+    date_default_timezone_set('America/Toronto');
+    //echo date('M t, h:i');
 ?>
 <div class="form-group">
     <div class="col-xs-12">
         <h2 class="profile_delevery_type"></h2>
-        
     </div>
 </div>
 <form id="profiles">

@@ -34,7 +34,38 @@ class MailerComponent extends Component {
         }
     }
 
-    function handleevent($eventname, $variables){
+    function handleevent($emailaddresses, $eventname, $variables){
+        $webroot = $this->request->webroot;
+        $CRLF = "\r\n<BR>";
+        $login = $CRLF . '<A HREF="' . $webroot . '">Click here to login</A>';
+        $Subject = "No subject set for " . $eventname;
+        $Message = "No message set for " . $eventname;
+
+        switch(strtolower($eventname)){
+            case "new_profile":
+                $Subject = "A profile was created";
+                $Message = "Your user ID is " . $variables["Profile"]["Email"] .  $CRLF . "Your password is: " . $variables["Profile"]["Password"];
+                break;
+            case "password_reset":
+                $Subject = "Password reset";
+                $Message = "Your password has been changed to: " . $variables["Password"];
+                break;
+            case "subscribe":
+                $Subject = "Subscribe";
+                $Message = $variables["Path"];
+        }
+
+        if (is_array($emailaddresses)){
+            foreach($emailaddresses as $email){
+                $this->sendEmail($email, $Subject, $Message . $login);
+            }
+        } else {
+            $this->sendEmail($emailaddresses, $Subject, $Message . $login);
+        }
+
+        return true;
+
+        /*  for use when there is a strings table
         $this->savevariables($eventname, $variables);
         //return false;//not operational
         $Email = $this->getString("email_" . $eventname . "_subject");
@@ -60,13 +91,13 @@ class MailerComponent extends Component {
             $Message = str_replace("\r\n", "<BR>", $Message);
             if(!$Message) {$Message = $eventname . " variables: " . $variables["variables"];}//DEBUG
             if(isset($variables["debug"])){$Message.= "<BR>" . $variables["debug"];}
-            if (!isset($variables["email"]) ) {$variables["email"] = $this->getfirstsuper();}
-            if (is_array($variables["email"])){
-                foreach($variables["email"] as $email){
-                    $this->sendEmail("", $email, $Subject, $Message);
+
+            if (is_array($emailaddresses)){
+                foreach($emailaddresses as $email){
+                    $this->sendEmail($email, $Subject, $Message);
                 }
             } else {
-                $this->sendEmail("", $variables["email"], $Subject, $Message);
+                $this->sendEmail($emailaddresses, $Subject, $Message);
             }
         } else {
             $Subject = $eventname;
@@ -74,6 +105,7 @@ class MailerComponent extends Component {
             $this->sendEmail("",$variables["email"], $Subject, $Message . " Variables: " . print_r($variables, true));
         }
         return true;
+        */
     }
 
     public function getprofile($UserID){
