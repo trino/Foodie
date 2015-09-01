@@ -27,7 +27,6 @@ class RestaurantsController extends AppController {
         $this->set('manager',$this->Manager);
         $this->set('restaurant',$restaurant);
         if(isset($_GET['page'])) {
-            die('ok2');
             $this->layout = 'blank';
             $this->render('loadmenus');   
         }
