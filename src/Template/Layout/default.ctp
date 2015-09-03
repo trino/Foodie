@@ -17,20 +17,10 @@
             </div>
             <!-- END SIDEBAR & CONTENT -->
         </div>
-        <?php include("common/footer.php");
-
-?>
-
-
-
+        <?php include("common/footer.php"); ?>
 
 <?php
-
-
     if(false){
-
-
-
 ?>
 
 <html style="transform: none;">

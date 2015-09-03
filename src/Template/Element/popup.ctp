@@ -1,5 +1,5 @@
 <div id="product-pop-up_<?php echo $menu->ID;?>" style="display: none; width: 500px;">
-    <?= $Manager->fileinclude(__FILE__); ?>
+    <?php //$Manager->fileinclude(__FILE__); ?>
     <div class="product-page product-pop-up">
         <!--div class="modal-header">
             <button id="clear_<?php echo $menu->ID;?>" aria-hidden="true" data-dismiss="modal" class="close close<?php echo $menu->ID;?>" type="button">x

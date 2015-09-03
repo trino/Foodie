@@ -1,4 +1,4 @@
-<?= $Manager->fileinclude(__FILE__); ?>
+<?php //$Manager->fileinclude(__FILE__); ?>
 <!-- BEGIN STEPS -->
 <div class="steps-block steps-block-red">
     <div class="container">

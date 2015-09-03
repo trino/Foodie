@@ -1,5 +1,5 @@
 <?php
-      echo $Manager->fileinclude(__FILE__);
+      //echo $Manager->fileinclude(__FILE__);
       function listitem($webroot, $URL, $Name){
             $isme = $URL && strpos($_SERVER["REQUEST_URI"], $URL) !== false && strpos($URL, "/") < strlen($URL) - 1;
             if($isme){ Echo "<B>";}

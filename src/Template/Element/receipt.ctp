@@ -1,4 +1,4 @@
-<?= $Manager->fileinclude(__FILE__); ?>
+<?php //$Manager->fileinclude(__FILE__); ?>
 <div class="top-cart-info">
    <div class="top-cart-info">
         <div class="col-md-6">

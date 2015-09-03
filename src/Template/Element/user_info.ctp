@@ -1,5 +1,5 @@
 <?php
-    echo $Manager->fileinclude(__FILE__);
+    //echo $Manager->fileinclude(__FILE__);
     $isset = isset($Profile);
     include_once("common/api.php");
 ?>

@@ -1,4 +1,4 @@
-<?= $Manager->fileinclude(__FILE__); ?>
+<?php //$Manager->fileinclude(__FILE__); ?>
     <div class="menuwrapper">
     <div class="col-md-7 col-sm-7 col-xs-12">
         

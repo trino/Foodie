@@ -1,6 +1,6 @@
 <ul class="scroller orders" <?php if(!isset($order)){?>style="height: 220px;"<?php }?>>
 <?php
-echo $Manager->fileinclude(__FILE__);
+//echo $Manager->fileinclude(__FILE__);
 if(isset($order)){
     $menu_ids = $order->menu_ids;
     $arr_menu = explode(',', $menu_ids);

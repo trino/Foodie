@@ -1,48 +1,4 @@
 <link rel="stylesheet" href="<?php echo $this->request->webroot;?>css/popstyle.css"/>
-<?php
-echo $Manager->fileinclude(__FILE__);
-if ($this->request->params['controller'] == 'Restaurants') { ?>
-    <!--div class="margin-bottom-10">
-        <div class="col-md-4">
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                    <img src="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
-                         class="img-responsive" alt="Chow Fun">
-
-                    <div>
-                        <a href="<?php echo $this->request->webroot; ?>/img/products/k1.jpg"
-                           class="btn btn-default fancybox-button">Zoom</a>
-                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                </div>
-
-
-                <div class="sticker sticker-new"></div>
-            </div>
-        </div>
-        <div class="col-md-8">
-            <div class="product-item">
-                <h3><a href="#">Chow Fun</a> <span class="right"><a href="#">[Chinese]</a></span></h3>
-                <hr/>
-                It is a long established fact that a reader will be distracted by the readable content of
-                a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
-                normal distribution of letters, as opposed to using 'Content here, content here', making it
-                look like readable English. Many desktop publishing packages and web page editors now use
-                Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many
-                web sites still in their infancy. Various versions have evolved over the years, sometimes
-                by accident, sometimes on purpose (injected humour and the like).
-                <hr/>
-                <div class="pi-price">$29.00</div>
-                <a href="#" class="btn btn-default add2cart">Add to cart</a>
-            </div>
-        </div>
-
-
-    </div-->
-<?php }?>
-
-
-
 
 <div id="postswrapper">
 <?php
@@ -88,7 +44,6 @@ if ($this->request->params['controller'] == 'Restaurants') { ?>
 
     }
  ?>
-
  </div>
  <div style="display: none;" class="nxtpage">
   <?= $this->Paginator->next();?>
@@ -99,31 +54,7 @@ if ($this->request->params['controller'] == 'Restaurants') { ?>
     <button align="center" class="loadmore btn btn-primary">Load More</button>
  </div>
  <div class="clearfix"></div>
-  
 
-<script type="text/javascript">
-/*$(window).scroll(function()
-{
-    if($(window).scrollTop() == $(document).height() - $(window).height())
-    {
-        $('div#loadmoreajaxloader').show();
-        $.ajax({
-        url: "<?= $this->Paginator->next();?>",
-        success: function(html)
-        {
-            if(html)
-            {
-                $("#postswrapper").append(html);
-                $('div#loadmoreajaxloader').hide();
-            }else
-            {
-                $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
-            }
-        }
-        });
-    }
-});*/
-</script>
 <script>
     $(function () {
         $('.loadmore').click(function(){
@@ -403,7 +334,7 @@ if ($this->request->params['controller'] == 'Restaurants') { ?>
     //add items to receipt
     var counter_item = 0;
     $('.add_menu_profile').live('click', function () {
-
+        //alert(123);
         var menu_id = $(this).attr('id').replace('profilemenu', '');
         var ids = "";
         var app_title = "";

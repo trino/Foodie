@@ -59,29 +59,30 @@
         function getextension($path) {
             return strtolower(pathinfo($path, PATHINFO_EXTENSION));// extension only, no period
         }
-
         $dir = "img/users/" . $userID;
-        $Files = scandir($dir);
-        unset($Files[0]);
-        unset($Files[1]);
-        $dir = $this->request->webroot . $dir . "/";
-        $ID = 0;
-        foreach ($Files as $File) {
-            if (getextension($File) != "th") {
-                $Data = $Manager->get_profile_image($File, $userID);
-                $Title = "";
-                $RestaurantID = "";
-                $OrderID = "";
-                if ($Data){
-                    $Title = $Data->Title;
-                    $RestaurantID = $Data->RestaurantID;
-                    $OrderID = $Data->OrderID;
-                }
-                echo '<TD><A HREF="' . $dir . $File . '" ID="img' . $ID . '" restaurant="' . $RestaurantID . '" orderid="' . $OrderID . '" title="' . $Title . '" onclick="return previewimage(' . "'img" . $ID . "'" . ');"><IMG SRC="' . $dir . $File . '.th" style="border-bottom:1px solid #CE0B10"></A><BR>';
+        if(is_dir($dir)){
+            $Files = scandir($dir);
+            unset($Files[0]);
+            unset($Files[1]);
+            $dir = $this->request->webroot . $dir . "/";
+            $ID = 0;
+            foreach ($Files as $File) {
+                if (getextension($File) != "th") {
+                    $Data = $Manager->get_profile_image($File, $userID);
+                    $Title = "";
+                    $RestaurantID = "";
+                    $OrderID = "";
+                    if ($Data){
+                        $Title = $Data->Title;
+                        $RestaurantID = $Data->RestaurantID;
+                        $OrderID = $Data->OrderID;
+                    }
+                    echo '<TD><A HREF="' . $dir . $File . '" ID="img' . $ID . '" restaurant="' . $RestaurantID . '" orderid="' . $OrderID . '" title="' . $Title . '" onclick="return previewimage(' . "'img" . $ID . "'" . ');"><IMG SRC="' . $dir . $File . '.th" style="border-bottom:1px solid #CE0B10"></A><BR>';
 
-                echo '<A HREF="?action=edit&file=' . $File . '" onclick="return edit(' . "'img" . $ID . "'" . ');" >Edit</A>';
-                echo '<A HREF="?action=delete&file=' . $File . '" onclick="return confirm(' . "'Are you sure you want to delete this image?'" . ');" style="float: right;">Delete</A></TD>';
-                $ID++;
+                    echo '<A HREF="?action=edit&file=' . $File . '" onclick="return edit(' . "'img" . $ID . "'" . ');" >Edit</A>';
+                    echo '<A HREF="?action=delete&file=' . $File . '" onclick="return confirm(' . "'Are you sure you want to delete this image?'" . ');" style="float: right;">Delete</A></TD>';
+                    $ID++;
+                }
             }
         }
     ?>
