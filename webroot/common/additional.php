@@ -110,11 +110,12 @@
     </div>
     <div class="col-md-5 col-sm-5 col-xs-12">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            
             <div class="newaction">
-            <?php if(!isset($cmodel) || (isset($ccount) && $ccount==$k)){?>
-            <a href="javascript:void(0)" class="btn btn-info add_additional" id="add_additional0;">Add Addons</a> <a href="javascript:void(0)" <?php if(!isset($menu_id) || (isset($menu_id) && !$menu_id)){?>id="save0"<?php }else{?>id="save<?php echo $menu_id;}?>" class="btn btn-info savebtn">Save</a> <?php if(isset($k) && $k!=1){?><a href="javascript:void(0)" class="btn btn-danger removelast" onclick="">Remove</a><?php }?>
-            <?php }?>
+                <?php if(!isset($cmodel) || (isset($ccount) && $ccount==$k)){ ?>
+                    <a href="javascript:void(0)" class="btn btn-info add_additional" id="add_additional0;">Add Addons</a> 
+                    <a href="javascript:void(0)" <?php if(!isset($menu_id) || (isset($menu_id) && !$menu_id)){?>id="save0"<?php }else{?>id="save<?php echo $menu_id;}?>" data-id="<?php echo (isset($menu_id))?$menu_id:0;?>" class="btn btn-info savebtn">Save</a> 
+                    <?php if(isset($k) && $k!=1){?><a href="javascript:void(0)" class="btn btn-danger removelast" onclick="">Remove</a><?php }?>
+                <?php } ?>
             </div>
         </div>
     </div>

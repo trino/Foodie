@@ -75,7 +75,8 @@ $('.is_multiple').live('change',function(){
 })
 $('.savebtn').live('click',function(){
     //var $_this = $(this);
-    var id = $(this).attr('id').replace('save','');
+    //var id = $(this).attr('id').replace('save','');
+    var id = $(this).attr('data-id');
     $_parent = $(this).closest('.newmenu');
     var phas_addon = 0;
     var img = $_parent.find('.hiddenimg').val();
@@ -85,25 +86,20 @@ $('.savebtn').live('click',function(){
     
     if($_parent.find('.menuwrapper').length > 0)
     phas_addon = 1;
-    
+    //alert(id);
     $.ajax({
        url:base_url+'menus/add/?id='+id,
        data:'menu_item='+ptitle+'&description='+pdesc+'&price='+pprice+'&image='+img+'&has_addon='+phas_addon+'&parent=0',
        type:'post',
        success:function(res){
+        //console.log(res); return;
         if($_parent.find('.menuwrapper').length > 0)
         {
             var $_this = $(this);
             $_parent.find('.menuwrapper').each(function(){
-                //alert($(this).attr('class'));
                 var $_this2 = $(this);
                 var ctitle = $_this2.find('.ctitle').val();
-                //alert(ctitle);
                 var cdescription = $_this2.find('.cdescription').val();
-                
-                
-                
-                //var exact_upto_qty = '';
                 var req_opt = $_this2.find('.is_req').val();
                 var sing_mul = $_this2.find('.is_mul').val();
                 var exact_upto = $_this2.find('.up_t').val();
@@ -127,8 +123,6 @@ $('.savebtn').live('click',function(){
                             var cctitle = $(this).find('.cctitle').val();
                             var ccprice = $(this).find('.ccprice').val();
                             
-                            
-                            
                             $.ajax({
                                url:base_url+'menus/add/',
                                data:'menu_item='+cctitle+'&price='+ccprice+'&parent='+res2,
@@ -139,9 +133,6 @@ $('.savebtn').live('click',function(){
                                }
                             });
                             
-                            
-                            
-                            
                         });
                     }
                    }
@@ -151,10 +142,7 @@ $('.savebtn').live('click',function(){
                 
             });
         }
-        else
-        {
-            window.location=base_url+'restaurants/menu_manager?added';
-        }
+        window.location=base_url+'restaurants/menu_manager';
        }
     });
 });

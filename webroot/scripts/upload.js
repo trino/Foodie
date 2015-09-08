@@ -16,7 +16,7 @@
             Array.prototype.unshift.call(arguments, '[Ajax Upload]');
             console.log( Array.prototype.join.call(arguments, ' '));
         }
-    } 
+    }
 
     /**
      * Attaches event to a dom element.

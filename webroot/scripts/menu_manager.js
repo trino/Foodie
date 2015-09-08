@@ -5,7 +5,7 @@ else
 var base_url = 'http://didyoueat.ca/';
 $('.add_item').live('click',function(){
     var id = $(this).attr('id').replace('add_item','');
-    if(id==0){ 
+    if(id==0){
     $('.addnew').show();
     $('.addnew').load(base_url+'menus/menu_form/0',function(){
         ajaxuploadbtn('newbrowse0_1');
@@ -13,8 +13,6 @@ $('.add_item').live('click',function(){
     }
     else
     {
-        
-    
     $('#parent'+id).load(base_url+'menus/menu_form/'+id,function(){
         ajaxuploadbtn('newbrowse'+id+'_1');
       });  

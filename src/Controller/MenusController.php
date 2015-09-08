@@ -48,6 +48,7 @@ class MenusController extends AppController {
     }
 
     function add(){
+        //echo '<pre>';print_r($_POST); die;
         $this->loadModel("Menus");
         $this->loadComponent('Manager');
         $arr['res_id'] =  $this->Manager->read('ID');
@@ -58,38 +59,33 @@ class MenusController extends AppController {
                 $arr[$Key] = $_POST[$Key];
             }
         }
-
-        if(!isset($_GET['id'])){
-            //$arr['display_order'=>]
+        
+        if(isset($_GET['id']) && $_GET['id'] != false){
+            //die('update');
+            echo $id = $_GET['id'];
             $table = TableRegistry::get('menus');
-            //$table = TableRegistry::get('menus');
-            $orders = $table->find()->where(['res_id'=>$this->Manager->read('ID'),'parent'=>0])->order(['display_order'=>'desc'])->first();
-            $arr['display_order'] = $orders->display_order + 1;
-            $Data2 = $table->newEntity($arr);
-
-            $table->save($Data2);
-            echo $Data2->ID;
-            die();
-        } else {
-            $id = $_GET['id'];
-            $table = TableRegistry::get('menus');
-
-            //echo $s;die();
             $query = $table->query();
             $query->update()
                 ->set($arr)
                 ->where(['ID' => $id])
                 ->execute();
 
-                $child = $table->find()->where(['parent'=>$id]);
-                foreach($child as $c) {
-                    //echo $c->id;
-                    //ssdie('here');
-                    $this->Menus->deleteAll(['parent'=>$c->ID]);
-                }
-
-                $this->Menus->deleteAll(['parent'=>$id]);
-                echo $id;die();
+            $child = $table->find()->where(['parent'=>$id]);
+            foreach($child as $c) {
+                $this->Menus->deleteAll(['parent'=>$c->ID]);
+            }
+            $this->Menus->deleteAll(['parent'=>$id]);
+            echo $id;
+            die();
+        } else {
+            //die('add');
+            $table = TableRegistry::get('menus');
+            $orders = $table->find()->where(['res_id'=>$this->Manager->read('ID'),'parent'=>0])->order(['display_order'=>'desc'])->first();
+            $arr['display_order'] = $orders->display_order + 1;
+            $Data2 = $table->newEntity($arr);
+            $table->save($Data2);
+            echo $Data2->ID;
+            die();
         }
         
     }

@@ -7,7 +7,8 @@
             <strong>Loop, Inc.</strong><br>
             795 Park Ave, Suite 120<br>
             San Francisco, CA 94107<br>
-            <abbr title="Phone">P:</abbr> (234) 145-1810 </address>
+            <abbr title="Phone">P:</abbr> (234) 145-1810 
+        </address>
         <address>
             <strong>Full Name</strong><br>
             <a href="mailto:#">

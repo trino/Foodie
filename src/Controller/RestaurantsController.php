@@ -15,12 +15,10 @@ class RestaurantsController extends AppController {
     public function index($slug='') {
         $this->loadComponent('Paginator');
         $menus = "";
-        if ($slug) {//this code fails if the user is not an employee
+        if($slug){
             $restaurant = $this->Manager->get_restaurant($slug);
-            //print_r($restaurant); die;
             if(isset($restaurant->ID) && !is_null($restaurant->ID)){
                 $menus = $this->Paginate($this->Manager->enum_menus($restaurant->ID));
-                //echo '<pre>';print_r($this->Manager->enum_menus($restaurant->ID)); die;
             }
             $this->set('menus', $menus);
         }
@@ -103,6 +101,7 @@ class RestaurantsController extends AppController {
         //$menus = TableRegistry::get('menus');
         //$model = $menus->find()->where(['res_id' => $this->Manager->read('ID'),'parent'=>0])->order(['display_order'=>'asc'])->all();
         $model = $this->Manager->enum_menus("", "asc");
+        //echo '<pre>'; print_r($model->toArray());die;
         $this->set('menus',$model);
     }
 
