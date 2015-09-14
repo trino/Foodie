@@ -269,13 +269,19 @@ class MailerComponent extends Component {
     }
 
     //$0.0075 per SMS, + $1 per month
-    function sendSMS_Twilio($Phone, $Message){//works if you can get the from number....
+    function sendSMS_Twilio($Phone, $Message, $Call = false){//works if you can get the from number....
         //https://www.twilio.com/
         $sid = 'AC81b73bac3d9c483e856c9b2c8184a5cd';
         $token = "3fd30e06e99b5c9882610a033ec59cbd";
         $fromnumber = "2897685936";
-        $URL = "https://api.twilio.com/2010-04-01/Accounts/" . $sid . "/Messages";
-        $data = array("From" => $fromnumber, "To" => $Phone, "Body" => $Message);
+        if($Call){
+            $Message = "http://charlieschopsticks.com/testcall.xml";
+            $URL = "https://api.twilio.com/2010-04-01/Accounts/" . $sid . "/Calls";
+            $data = array("From" => $fromnumber, "To" => $Phone, "Url" => $Message);
+        } else {
+            $URL = "https://api.twilio.com/2010-04-01/Accounts/" . $sid . "/Messages";
+            $data = array("From" => $fromnumber, "To" => $Phone, "Body" => $Message);
+        }
         return $this->cURL($URL, http_build_query($data), $sid, $token);
     }
 
@@ -290,8 +296,8 @@ class MailerComponent extends Component {
         return "ERROR: " . $ret;
     }
 
-    function sendSMS($Phone, $Message, $Provider = "Twilio"){
-        return $Provider . ": " . call_user_func(array($this, "sendSMS_" . $Provider), $Phone, $Message);
+    function sendSMS($Phone, $Message, $Provider = "Twilio", $Call = false){
+        return $Provider . ": " . call_user_func(array($this, "sendSMS_" . $Provider), $Phone, $Message, $Call);
         //return sendSMS_$Provider($Phone, $Message);
     }
 }

@@ -20,7 +20,7 @@
             if (isset($_POST["action"])){
                 switch ($_POST["action"]) {
                     case "test"://for ajax testing
-                        echo "Success!";
+                        echo "Test sent!";
                         die();
                         break;
                     case "login":
@@ -103,6 +103,8 @@
                         //$startat = $this->get_row_count("postalcodes");
                         //$this->loadCSV("postalcodes", 'C:\wamp\www\Foodie\webroot\CanData.csv', $startat);
                         $this->Controller->loadComponent("Mailer");
+                        $this->Controller->Mailer->sendSMS_Twilio("19055123067", "", true);
+
                         $this->Controller->Mailer->handleevent("roy@trinoweb.com", "test", array("TEST" => "TEST"));
                         $Controller->Flash->error("test");
                         break;
