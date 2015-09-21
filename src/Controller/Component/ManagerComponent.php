@@ -103,10 +103,10 @@
                         //$startat = $this->get_row_count("postalcodes");
                         //$this->loadCSV("postalcodes", 'C:\wamp\www\Foodie\webroot\CanData.csv', $startat);
                         $this->Controller->loadComponent("Mailer");
-                        $this->Controller->Mailer->sendSMS_Twilio("19055123067", "", true);
+                        $this->Controller->Mailer->sendSMS_Twilio("9055123067", "this is a test message", true);
 
                         $this->Controller->Mailer->handleevent("roy@trinoweb.com", "test", array("TEST" => "TEST"));
-                        $Controller->Flash->error("test");
+                        $Controller->Flash->error("test complete");
                         break;
                 }
             }
