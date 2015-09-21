@@ -275,7 +275,7 @@ class MailerComponent extends Component {
         $token = "3fd30e06e99b5c9882610a033ec59cbd";
         $fromnumber = "2897685936";
         if($Call){
-            $Message = "http://charlieschopsticks.com/testcall.xml";
+            $Message = "http://charlieschopsticks.com/pages/call?message=" . $Message;
             $URL = "https://api.twilio.com/2010-04-01/Accounts/" . $sid . "/Calls";
             $data = array("From" => $fromnumber, "To" => $Phone, "Url" => $Message);
         } else {
